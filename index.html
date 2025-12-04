@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serena</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      overflow: hidden;
+      background: #ffffff;
+      font-family: sans-serif;
+    }
+
+    /* G CONTAINER - Full viewport grid like gufram.it */
+    .g-container {
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      background: white;
+    }
+
+    /* FLOATING OBJECTS — gufram.it style */
+    .floating {
+      position: absolute;
+      object-fit: contain;
+      pointer-events: none;
+      will-change: transform;
+      transform: translate3d(0, 0, 0);
+      backface-visibility: hidden;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- G CONTAINER - Gufram-style floating animation -->
+  <div class="g-container">
+    <img class="floating" src="images/obj1.png" />
+    <img class="floating" src="images/obj2.png" />
+    <img class="floating" src="images/obj3.png" />
+    <img class="floating" src="images/obj4.png" />
+    <img class="floating" src="images/obj5.png" />
+    <img class="floating" src="images/obj6.png" />
+    <img class="floating" src="images/obj7.png" />
+    <img class="floating" src="images/obj8.png" />
+  </div>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <script>
+    /* GUFRAM-STYLE CONTINUOUS FLOATING ANIMATION */
+    const items = gsap.utils.toArray(".floating");
+    const container = document.querySelector('.g-container');
+
+    // Grid configuration - spread items across viewport
+    const cols = 4;
+    const rows = Math.ceil(items.length / cols);
+    const cellWidth = window.innerWidth / cols;
+    const cellHeight = window.innerHeight / rows;
+
+    // Random float function for organic movement
+    function randomFloat(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    // Initialize and animate each floating item
+    items.forEach((el, index) => {
+      // Grid position
+      const col = index % cols;
+      const row = Math.floor(index / cols);
+      
+      // Base position in grid cell (centered with offset)
+      const baseX = col * cellWidth + cellWidth * 0.1;
+      const baseY = row * cellHeight + cellHeight * 0.1;
+      
+      // Random size variation (like gufram - different sized objects)
+      const size = randomFloat(150, 280);
+      
+      // Random initial offset within cell
+      const offsetX = randomFloat(-30, 30);
+      const offsetY = randomFloat(-30, 30);
+      
+      // Random depth (z-index and scale for layering effect)
+      const depth = randomFloat(0.7, 1.1);
+      const zIndex = Math.floor(depth * 10);
+      
+      // Set initial styles
+      gsap.set(el, {
+        width: size,
+        height: 'auto',
+        x: baseX + offsetX,
+        y: baseY + offsetY,
+        scale: depth,
+        zIndex: zIndex,
+        opacity: 0
+      });
+
+      // Fade in with stagger
+      gsap.to(el, {
+        opacity: 1,
+        duration: 1.2,
+        delay: index * 0.1,
+        ease: "power2.out"
+      });
+
+      // Start the continuous floating animation
+      floatAnimation(el, baseX, baseY);
+    });
+
+    // Continuous organic floating movement - THE GUFRAM EFFECT
+    function floatAnimation(el, baseX, baseY) {
+      // Random movement parameters for organic feel
+      const driftRange = 60; // How far items drift
+      const duration = randomFloat(8, 15); // Slow, dreamy movement
+      
+      // Random target position (drifting from base)
+      const targetX = baseX + randomFloat(-driftRange, driftRange);
+      const targetY = baseY + randomFloat(-driftRange, driftRange);
+      
+      // Subtle rotation
+      const rotation = randomFloat(-8, 8);
+      
+      // Subtle scale pulse
+      const currentScale = gsap.getProperty(el, "scale");
+      const targetScale = currentScale + randomFloat(-0.05, 0.05);
+
+      gsap.to(el, {
+        x: targetX,
+        y: targetY,
+        rotation: rotation,
+        scale: Math.max(0.6, Math.min(1.2, targetScale)), // Clamp scale
+        duration: duration,
+        ease: "sine.inOut",
+        onComplete: () => floatAnimation(el, baseX, baseY) // Loop forever
+      });
+    }
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      const newCellWidth = window.innerWidth / cols;
+      const newCellHeight = window.innerHeight / rows;
+      
+      items.forEach((el, index) => {
+        const col = index % cols;
+        const row = Math.floor(index / cols);
+        const baseX = col * newCellWidth + newCellWidth * 0.1;
+        const baseY = row * newCellHeight + newCellHeight * 0.1;
+        
+        gsap.to(el, {
+          x: baseX + randomFloat(-30, 30),
+          y: baseY + randomFloat(-30, 30),
+          duration: 1,
+          ease: "power2.out"
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
