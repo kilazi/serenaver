@@ -1,38 +1,170 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Serena</title>
+  <title>Serena Vet | Nutrición Premium para Mascotas</title>
+  
+  <!-- Google Fonts - Distinctive Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --color-cream: #FDF8F3;
+      --color-sage: #A8B5A0;
+      --color-sage-dark: #7D8B74;
+      --color-terracotta: #C4937A;
+      --color-terracotta-dark: #A67B62;
+      --color-charcoal: #2D3436;
+      --color-warm-white: #FEFCFA;
+      --color-peach: #F5DDD1;
+      --color-moss: #4A5D4F;
+      --color-gold: #D4A574;
+      --font-serif: 'Instrument Serif', Georgia, serif;
+      --font-sans: 'Outfit', system-ui, sans-serif;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    body {
-      overflow-x: hidden;
-      background: #ffffff;
-      font-family: sans-serif;
+    html {
+      scroll-behavior: smooth;
     }
 
-    /* Scroll container for pinning */
+    body {
+      overflow-x: hidden;
+      background: var(--color-cream);
+      font-family: var(--font-sans);
+      color: var(--color-charcoal);
+    }
+
+    /* ============================================
+       NAVIGATION
+    ============================================ */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 1.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .navbar.scrolled {
+      background: rgba(253, 248, 243, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 1rem 3rem;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      color: var(--color-moss);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    .logo span {
+      color: var(--color-terracotta);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 3rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--color-charcoal);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      position: relative;
+      padding: 0.5rem 0;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--color-terracotta);
+      transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      background: var(--color-moss);
+      color: white !important;
+      padding: 0.8rem 1.5rem !important;
+      border-radius: 50px;
+      transition: all 0.3s ease !important;
+    }
+
+    .nav-cta::after {
+      display: none !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--color-sage-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(74, 93, 79, 0.3);
+    }
+
+    /* Mobile Menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .hamburger span {
+      width: 28px;
+      height: 2px;
+      background: var(--color-charcoal);
+      transition: all 0.3s ease;
+    }
+
+    /* ============================================
+       HERO SECTION - FLOATING ANIMATION
+    ============================================ */
     .scroll-container {
       position: relative;
     }
 
-    /* G CONTAINER - Full viewport grid like gufram.it */
     .g-container {
       width: 100vw;
       height: 100vh;
       position: relative;
       overflow: hidden;
-      background: white;
+      background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-peach) 50%, var(--color-cream) 100%);
     }
 
-    /* FLOATING OBJECTS — gufram.it style */
     .floating {
       position: absolute;
       object-fit: contain;
@@ -40,48 +172,1205 @@
       will-change: transform;
       transform: translate3d(0, 0, 0);
       backface-visibility: hidden;
+      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.1));
     }
 
-    /* Next section */
-    .next-section {
-      width: 100vw;
-      min-height: 100vh;
-      background: #f5f5f5;
+    /* Hero Content Overlay */
+    .hero-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 50;
+      pointer-events: none;
+    }
+
+    .hero-overlay h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(3rem, 8vw, 7rem);
+      color: var(--color-moss);
+      line-height: 1;
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: fadeInUp 1s ease 0.5s forwards;
+    }
+
+    .hero-overlay h1 span {
+      font-style: italic;
+      color: var(--color-terracotta);
+    }
+
+    .hero-overlay p {
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      color: var(--color-charcoal);
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: fadeInUp 1s ease 0.8s forwards;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 3rem;
+      left: 50%;
+      transform: translateX(-50%);
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
+      gap: 0.5rem;
+      opacity: 0;
+      animation: fadeInUp 1s ease 1.2s forwards;
+    }
+
+    .scroll-indicator span {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-sage-dark);
+    }
+
+    .scroll-indicator .mouse {
+      width: 24px;
+      height: 40px;
+      border: 2px solid var(--color-sage-dark);
+      border-radius: 12px;
+      position: relative;
+    }
+
+    .scroll-indicator .mouse::before {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 8px;
+      background: var(--color-terracotta);
+      border-radius: 2px;
+      animation: scrollMouse 2s ease infinite;
+    }
+
+    @keyframes scrollMouse {
+      0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+      50% { transform: translateX(-50%) translateY(10px); opacity: 0.3; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ============================================
+       FEATURES SECTION - MARQUEE STYLE
+    ============================================ */
+    .features-section {
+      background: var(--color-moss);
+      padding: 2rem 0;
+      overflow: hidden;
       position: relative;
       z-index: 100;
     }
 
-    .next-section h2 {
-      font-size: 3rem;
-      color: #333;
+    .features-marquee {
+      display: flex;
+      animation: marquee 25s linear infinite;
+    }
+
+    .features-marquee:hover {
+      animation-play-state: paused;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0 3rem;
+      white-space: nowrap;
+      color: var(--color-warm-white);
+    }
+
+    .feature-item svg {
+      width: 32px;
+      height: 32px;
+      stroke: var(--color-gold);
+      fill: none;
+      stroke-width: 1.5;
+    }
+
+    .feature-item span {
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .feature-divider {
+      color: var(--color-gold);
+      font-size: 1.5rem;
+      padding: 0 1rem;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ============================================
+       VITAMINS SECTION
+    ============================================ */
+    .vitamins-section {
+      padding: 8rem 5%;
+      background: var(--color-warm-white);
+      position: relative;
+      z-index: 100;
+      overflow: hidden;
+    }
+
+    .vitamins-section::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, var(--color-peach) 0%, transparent 70%);
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .vitamins-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      align-items: center;
+    }
+
+    .vitamins-content {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .vitamins-content.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .section-tag {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-terracotta);
+      margin-bottom: 1.5rem;
+      display: inline-block;
+    }
+
+    .vitamins-content h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1.1;
+      color: var(--color-moss);
+      margin-bottom: 2rem;
+    }
+
+    .vitamins-content h2 span {
+      font-style: italic;
+      color: var(--color-terracotta);
+    }
+
+    .vitamins-content p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--color-charcoal);
+      margin-bottom: 2rem;
       font-weight: 300;
+    }
+
+    .benefits-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      list-style: none;
+    }
+
+    .benefits-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-weight: 400;
+    }
+
+    .benefits-list li::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: var(--color-terracotta);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .vitamins-visual {
+      position: relative;
+      height: 600px;
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all 1s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+    }
+
+    .vitamins-visual.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .vitamin-card {
+      position: absolute;
+      background: white;
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .vitamin-card:hover {
+      transform: translateY(-10px) rotate(0deg) !important;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.12);
+    }
+
+    .vitamin-card.card-1 {
+      top: 0;
+      left: 10%;
+      transform: rotate(-5deg);
+      z-index: 3;
+    }
+
+    .vitamin-card.card-2 {
+      top: 30%;
+      right: 0;
+      transform: rotate(3deg);
+      z-index: 2;
+    }
+
+    .vitamin-card.card-3 {
+      bottom: 10%;
+      left: 5%;
+      transform: rotate(2deg);
+      z-index: 1;
+    }
+
+    .vitamin-card img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+    }
+
+    .vitamin-card h4 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      color: var(--color-moss);
+      margin-bottom: 0.3rem;
+    }
+
+    .vitamin-card p {
+      font-size: 0.85rem;
+      color: var(--color-sage-dark);
+    }
+
+    /* ============================================
+       PRODUCTS SECTION
+    ============================================ */
+    .products-section {
+      padding: 8rem 0;
+      background: linear-gradient(180deg, var(--color-cream) 0%, var(--color-peach) 100%);
+      position: relative;
+      z-index: 100;
+      overflow: hidden;
+    }
+
+    .products-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 4rem;
+      padding: 0 5%;
+    }
+
+    .products-header h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: var(--color-moss);
+      margin-bottom: 1rem;
+    }
+
+    .products-header h2 span {
+      font-style: italic;
+      color: var(--color-terracotta);
+    }
+
+    .products-header p {
+      font-size: 1.1rem;
+      color: var(--color-charcoal);
+      font-weight: 300;
+    }
+
+    /* Carousel Container */
+    .carousel-container {
+      position: relative;
+      max-width: 100%;
+      padding: 0 5%;
+    }
+
+    .carousel-wrapper {
+      overflow: hidden;
+      padding: 2rem 0;
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 2rem;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      padding: 1rem;
+    }
+
+    .product-card {
+      flex: 0 0 calc(33.333% - 1.5rem);
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.15);
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 1.5rem;
+      left: 1.5rem;
+      background: var(--color-terracotta);
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      z-index: 2;
+    }
+
+    .product-image {
+      width: 100%;
+      height: 280px;
+      background: var(--color-cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-image img {
+      width: 80%;
+      height: 80%;
+      object-fit: contain;
+      transition: transform 0.5s ease;
+    }
+
+    .product-card:hover .product-image img {
+      transform: scale(1.1);
+    }
+
+    .product-info {
+      padding: 2rem;
+    }
+
+    .product-category {
+      font-size: 0.75rem;
+      color: var(--color-sage-dark);
+      text-transform: uppercase;
       letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-info h3 {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      color: var(--color-moss);
+      margin-bottom: 0.5rem;
+    }
+
+    .product-info p {
+      font-size: 0.9rem;
+      color: var(--color-charcoal);
+      font-weight: 300;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .product-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .product-price {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--color-moss);
+    }
+
+    .product-price .original {
+      font-size: 1rem;
+      color: var(--color-sage-dark);
+      text-decoration: line-through;
+      margin-left: 0.5rem;
+      font-weight: 400;
+    }
+
+    .btn-product {
+      background: var(--color-moss);
+      color: white;
+      border: none;
+      padding: 0.9rem 1.8rem;
+      border-radius: 50px;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-product:hover {
+      background: var(--color-terracotta);
+      transform: scale(1.05);
+    }
+
+    /* Carousel Controls */
+    .carousel-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .carousel-btn {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: white;
+      border: 2px solid var(--color-sage);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .carousel-btn:hover {
+      background: var(--color-moss);
+      border-color: var(--color-moss);
+    }
+
+    .carousel-btn:hover svg {
+      stroke: white;
+    }
+
+    .carousel-btn svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--color-moss);
+      fill: none;
+      stroke-width: 2;
+    }
+
+    .carousel-dots {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .carousel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--color-sage);
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .carousel-dot.active {
+      background: var(--color-moss);
+      width: 30px;
+      border-radius: 5px;
+    }
+
+    /* ============================================
+       CTA SECTION
+    ============================================ */
+    .cta-section {
+      padding: 8rem 5%;
+      background: var(--color-moss);
+      position: relative;
+      z-index: 100;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -20%;
+      width: 80%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(168, 181, 160, 0.3) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .cta-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-content h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: white;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .cta-content h2 span {
+      font-style: italic;
+      color: var(--color-gold);
+    }
+
+    .cta-content p {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 300;
+      margin-bottom: 3rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: #25D366;
+      color: white;
+      text-decoration: none;
+      padding: 1.2rem 2.5rem;
+      border-radius: 50px;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+    }
+
+    .btn-primary svg {
+      width: 24px;
+      height: 24px;
+      fill: white;
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: transparent;
+      color: white;
+      text-decoration: none;
+      padding: 1.2rem 2.5rem;
+      border-radius: 50px;
+      font-weight: 500;
+      font-size: 1rem;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      background: white;
+      color: var(--color-moss);
+      border-color: white;
+    }
+
+    /* ============================================
+       FOOTER
+    ============================================ */
+    .footer {
+      background: var(--color-charcoal);
+      padding: 4rem 5% 2rem;
+      position: relative;
+      z-index: 100;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 4rem;
+      max-width: 1400px;
+      margin: 0 auto 3rem;
+    }
+
+    .footer-brand .logo {
+      color: white;
+      font-size: 2.5rem;
+      display: inline-block;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-brand p {
+      color: rgba(255, 255, 255, 0.6);
+      font-weight: 300;
+      line-height: 1.7;
+      max-width: 300px;
+    }
+
+    .footer-column h4 {
+      color: white;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column li {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-column a {
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-weight: 300;
+    }
+
+    .footer-column a:hover {
+      color: var(--color-gold);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .footer-bottom p {
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 0.9rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: var(--color-terracotta);
+      transform: translateY(-3px);
+    }
+
+    .social-links svg {
+      width: 18px;
+      height: 18px;
+      fill: white;
+    }
+
+    /* ============================================
+       WHATSAPP FLOATING BUTTON
+    ============================================ */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 999;
+      width: 64px;
+      height: 64px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 15px 40px rgba(37, 211, 102, 0.5);
+    }
+
+    .whatsapp-float svg {
+      width: 32px;
+      height: 32px;
+      fill: white;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4); }
+      50% { box-shadow: 0 10px 40px rgba(37, 211, 102, 0.6), 0 0 0 15px rgba(37, 211, 102, 0.1); }
+    }
+
+    /* ============================================
+       RESPONSIVE DESIGN
+    ============================================ */
+    @media (max-width: 1024px) {
+      .vitamins-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .vitamins-visual {
+        height: 400px;
+        order: -1;
+      }
+
+      .product-card {
+        flex: 0 0 calc(50% - 1rem);
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 1rem 1.5rem;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--color-cream);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .nav-links.active {
+        transform: translateX(0);
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .hero-overlay h1 {
+        font-size: 3rem;
+      }
+
+      .product-card {
+        flex: 0 0 calc(100% - 1rem);
+      }
+
+      .benefits-list {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .footer-brand p {
+        max-width: 100%;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="scroll-container">
-    <!-- G CONTAINER - Gufram-style floating animation -->
-    <div class="g-container">
-      <img class="floating" src="images/hero-section-1.png" />
-      <img class="floating" src="images/hero-section-2.png" />
-      <img class="floating" src="images/hero-section-3.png" />
-      <img class="floating" src="images/hero-section-4.png" />
-      <img class="floating" src="images/hero-section-5.png" />
-      <img class="floating" src="images/hero-section-6.png" />
-      <img class="floating" src="images/hero-section-7.png" />
+  <!-- Navigation -->
+  <nav class="navbar">
+    <a href="#" class="logo">serena<span>vet</span></a>
+    <ul class="nav-links">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#vitaminas">Vitaminas</a></li>
+      <li><a href="#productos">Productos</a></li>
+      <li><a href="#contacto" class="nav-cta">Contactar</a></li>
+    </ul>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
+  </nav>
 
-    <!-- Next Section -->
-    <section class="next-section">
-      <h2>Next Section</h2>
+  <div class="scroll-container">
+    <!-- HERO SECTION - Floating Animation -->
+    <section id="inicio" class="g-container">
+      <img class="floating" src="images/hero-section-1.png" alt="Pet product" />
+      <img class="floating" src="images/hero-section-2.png" alt="Pet product" />
+      <img class="floating" src="images/hero-section-3.png" alt="Pet product" />
+      <img class="floating" src="images/hero-section-4.png" alt="Pet product" />
+      <img class="floating" src="images/hero-section-5.png" alt="Pet product" />
+      <img class="floating" src="images/hero-section-6.png" alt="Pet product" />
+      <img class="floating" src="images/hero-section-7.png" alt="Pet product" />
+      
+      <!-- Hero Content Overlay -->
+      <div class="hero-overlay">
+        <h1>Nutrición <span>Premium</span><br>para tu Mascota</h1>
+        <p>Vitaminas y suplementos de alta calidad</p>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="scroll-indicator">
+        <span>Descubre más</span>
+        <div class="mouse"></div>
+      </div>
     </section>
+
+    <!-- FEATURES MARQUEE SECTION -->
+    <section class="features-section">
+      <div class="features-marquee">
+        <!-- First set -->
+        <div class="feature-item">
+          <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span>Pago Contraentrega</span>
+        </div>
+        <span class="feature-divider">✦</span>
+        <div class="feature-item">
+          <svg viewBox="0 0 24 24"><path d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg>
+          <span>Envíos a Todo el País</span>
+        </div>
+        <span class="feature-divider">✦</span>
+        <div class="feature-item">
+          <svg viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+          <span>Coordina por WhatsApp</span>
+        </div>
+        <span class="feature-divider">✦</span>
+        <div class="feature-item">
+          <svg viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+          <span>Productos de Calidad</span>
+        </div>
+        <span class="feature-divider">✦</span>
+        <!-- Duplicate for seamless loop -->
+        <div class="feature-item">
+          <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span>Pago Contraentrega</span>
+        </div>
+        <span class="feature-divider">✦</span>
+        <div class="feature-item">
+          <svg viewBox="0 0 24 24"><path d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg>
+          <span>Envíos a Todo el País</span>
+        </div>
+        <span class="feature-divider">✦</span>
+        <div class="feature-item">
+          <svg viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+          <span>Coordina por WhatsApp</span>
+        </div>
+        <span class="feature-divider">✦</span>
+        <div class="feature-item">
+          <svg viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+          <span>Productos de Calidad</span>
+        </div>
+        <span class="feature-divider">✦</span>
+      </div>
+    </section>
+
+    <!-- VITAMINS SECTION -->
+    <section id="vitaminas" class="vitamins-section">
+      <div class="vitamins-grid">
+        <div class="vitamins-content">
+          <span class="section-tag">Nutrición Especializada</span>
+          <h2>¿Por qué tu mascota necesita <span>vitaminas?</span></h2>
+          <p>Cada mascota es única, con necesidades nutricionales específicas según su edad, raza y estilo de vida. Los suplementos vitamínicos ayudan a cubrir las carencias de la alimentación diaria, fortaleciendo su sistema inmune y mejorando su calidad de vida.</p>
+          <p>Nuestros productos están formulados por veterinarios expertos para asegurar la máxima absorción y efectividad, brindándole a tu compañero peludo todo lo que necesita para estar saludable y feliz.</p>
+          
+          <ul class="benefits-list">
+            <li>Pelaje brillante y saludable</li>
+            <li>Sistema inmune fortalecido</li>
+            <li>Huesos y articulaciones fuertes</li>
+            <li>Mayor energía y vitalidad</li>
+            <li>Digestión optimizada</li>
+            <li>Bienestar general</li>
+          </ul>
+        </div>
+
+        <div class="vitamins-visual">
+          <div class="vitamin-card card-1">
+            <img src="images/obj1.png" alt="Vitaminas para perros">
+            <h4>Vitaminas Caninas</h4>
+            <p>Fórmula completa</p>
+          </div>
+          <div class="vitamin-card card-2">
+            <img src="images/obj2.png" alt="Omega 3 mascotas">
+            <h4>Omega 3 & 6</h4>
+            <p>Piel y pelaje</p>
+          </div>
+          <div class="vitamin-card card-3">
+            <img src="images/obj3.png" alt="Probióticos">
+            <h4>Probióticos</h4>
+            <p>Salud digestiva</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
+    <section id="productos" class="products-section">
+      <div class="products-header">
+        <span class="section-tag">Nuestra Tienda</span>
+        <h2>Productos en <span>Oferta</span></h2>
+        <p>Descubre nuestra selección de suplementos premium para el bienestar de tu mascota</p>
+      </div>
+
+      <div class="carousel-container">
+        <div class="carousel-wrapper">
+          <div class="carousel-track">
+            <!-- Product 1 -->
+            <div class="product-card">
+              <span class="product-badge">-20%</span>
+              <div class="product-image">
+                <img src="images/obj1.png" alt="Multivitamínico Premium">
+              </div>
+              <div class="product-info">
+                <span class="product-category">Vitaminas • Perros</span>
+                <h3>Multivitamínico Premium</h3>
+                <p>Fórmula completa con 18 vitaminas y minerales esenciales para el bienestar diario.</p>
+                <div class="product-footer">
+                  <span class="product-price">$45.000<span class="original">$56.000</span></span>
+                  <button class="btn-product">Comprar</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+              <span class="product-badge">Nuevo</span>
+              <div class="product-image">
+                <img src="images/obj2.png" alt="Omega 3 & 6">
+              </div>
+              <div class="product-info">
+                <span class="product-category">Suplementos • Perros y Gatos</span>
+                <h3>Omega 3 & 6 Plus</h3>
+                <p>Ácidos grasos esenciales para un pelaje brillante y piel saludable.</p>
+                <div class="product-footer">
+                  <span class="product-price">$38.000</span>
+                  <button class="btn-product">Comprar</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+              <span class="product-badge">-15%</span>
+              <div class="product-image">
+                <img src="images/obj3.png" alt="Probióticos Digestivos">
+              </div>
+              <div class="product-info">
+                <span class="product-category">Digestión • Todas las mascotas</span>
+                <h3>Probióticos Digestivos</h3>
+                <p>Mejora la flora intestinal y optimiza la absorción de nutrientes.</p>
+                <div class="product-footer">
+                  <span class="product-price">$42.000<span class="original">$49.500</span></span>
+                  <button class="btn-product">Comprar</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card">
+              <span class="product-badge">Popular</span>
+              <div class="product-image">
+                <img src="images/obj4.png" alt="Calcio + Vitamina D">
+              </div>
+              <div class="product-info">
+                <span class="product-category">Huesos • Perros grandes</span>
+                <h3>Calcio + Vitamina D</h3>
+                <p>Fortalece huesos y articulaciones, ideal para razas grandes.</p>
+                <div class="product-footer">
+                  <span class="product-price">$52.000</span>
+                  <button class="btn-product">Comprar</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card">
+              <span class="product-badge">-25%</span>
+              <div class="product-image">
+                <img src="images/obj5.png" alt="Vitaminas Senior">
+              </div>
+              <div class="product-info">
+                <span class="product-category">Senior • +7 años</span>
+                <h3>Vitaminas Senior</h3>
+                <p>Fórmula especial para mascotas mayores con antioxidantes.</p>
+                <div class="product-footer">
+                  <span class="product-price">$48.000<span class="original">$64.000</span></span>
+                  <button class="btn-product">Comprar</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card">
+              <span class="product-badge">Oferta</span>
+              <div class="product-image">
+                <img src="images/obj6.png" alt="Pack Completo">
+              </div>
+              <div class="product-info">
+                <span class="product-category">Pack • Ahorro</span>
+                <h3>Pack Bienestar Total</h3>
+                <p>Incluye multivitamínico, omega y probióticos. ¡Ahorra 30%!</p>
+                <div class="product-footer">
+                  <span class="product-price">$89.000<span class="original">$125.000</span></span>
+                  <button class="btn-product">Comprar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carousel Controls -->
+        <div class="carousel-controls">
+          <button class="carousel-btn carousel-btn-prev">
+            <svg viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="carousel-dots"></div>
+          <button class="carousel-btn carousel-btn-next">
+            <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section id="contacto" class="cta-section">
+      <div class="cta-content">
+        <h2>¿Listo para cuidar a tu <span>mejor amigo?</span></h2>
+        <p>Coordina tu pedido por WhatsApp y recibe tus productos en la puerta de tu casa. Pago contraentrega disponible.</p>
+        <div class="cta-buttons">
+          <a href="https://wa.me/573001234567?text=Hola!%20Me%20interesa%20conocer%20más%20sobre%20los%20productos%20de%20Serena%20Vet" class="btn-primary" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Escribir por WhatsApp
+          </a>
+          <a href="#productos" class="btn-secondary">
+            Ver productos
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a href="#" class="logo">serena<span>vet</span></a>
+          <p>Cuidamos la salud de tus mascotas con productos de la más alta calidad. Vitaminas, suplementos y más, directo a tu hogar.</p>
+        </div>
+        <div class="footer-column">
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#vitaminas">Vitaminas</a></li>
+            <li><a href="#productos">Productos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Productos</h4>
+          <ul>
+            <li><a href="#">Perros</a></li>
+            <li><a href="#">Gatos</a></li>
+            <li><a href="#">Suplementos</a></li>
+            <li><a href="#">Ofertas</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Contacto</h4>
+          <ul>
+            <li><a href="#">WhatsApp</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Email</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 Serena Vet. Todos los derechos reservados.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="#" aria-label="TikTok">
+            <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          </a>
+        </div>
+      </div>
+    </footer>
   </div>
+
+  <!-- WHATSAPP FLOATING BUTTON -->
+  <a href="https://wa.me/573001234567?text=Hola!%20Me%20interesa%20conocer%20más%20sobre%20los%20productos%20de%20Serena%20Vet" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </a>
 
   <!-- GSAP with ScrollTrigger -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -90,57 +1379,81 @@
   <script>
     gsap.registerPlugin(ScrollTrigger);
 
-    /* GUFRAM-STYLE CONTINUOUS FLOATING ANIMATION */
+    /* ============================================
+       NAVBAR SCROLL EFFECT
+    ============================================ */
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    /* ============================================
+       MOBILE MENU
+    ============================================ */
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      const spans = hamburger.querySelectorAll('span');
+      if (navLinks.classList.contains('active')) {
+        spans[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
+        spans[1].style.opacity = '0';
+        spans[2].style.transform = 'rotate(-45deg) translate(6px, -6px)';
+      } else {
+        spans[0].style.transform = 'none';
+        spans[1].style.opacity = '1';
+        spans[2].style.transform = 'none';
+      }
+    });
+
+    // Close menu on link click
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        const spans = hamburger.querySelectorAll('span');
+        spans[0].style.transform = 'none';
+        spans[1].style.opacity = '1';
+        spans[2].style.transform = 'none';
+      });
+    });
+
+    /* ============================================
+       FLOATING ANIMATION (HERO)
+    ============================================ */
     const items = gsap.utils.toArray(".floating");
     const container = document.querySelector('.g-container');
 
-    // Grid configuration - spread items across viewport
     const cols = 4;
     const rows = Math.ceil(items.length / cols);
     const cellWidth = window.innerWidth / cols;
     const cellHeight = window.innerHeight / rows;
 
-    // Store base positions and scales for scroll animation
     const itemData = [];
 
-    // Random float function for organic movement
     function randomFloat(min, max) {
       return Math.random() * (max - min) + min;
     }
 
-    // Initialize and animate each floating item
     items.forEach((el, index) => {
-      // Grid position
       const col = index % cols;
       const row = Math.floor(index / cols);
       
-      // Base position in grid cell (centered with offset)
       const baseX = col * cellWidth + cellWidth * 0.1;
       const baseY = row * cellHeight + cellHeight * 0.1;
       
-      // Random size variation (like gufram - different sized objects)
       const size = randomFloat(150, 280);
-      
-      // Random initial offset within cell
       const offsetX = randomFloat(-30, 30);
       const offsetY = randomFloat(-30, 30);
-      
-      // Random depth (z-index and scale for layering effect)
       const depth = randomFloat(0.7, 1.1);
       const zIndex = Math.floor(depth * 10);
 
-      // Store data for scroll animation
-      itemData.push({
-        el,
-        baseX,
-        baseY,
-        offsetX,
-        offsetY,
-        depth,
-        size
-      });
+      itemData.push({ el, baseX, baseY, offsetX, offsetY, depth, size });
       
-      // Set initial styles
       gsap.set(el, {
         width: size,
         height: 'auto',
@@ -151,7 +1464,6 @@
         opacity: 0
       });
 
-      // Fade in with stagger
       gsap.to(el, {
         opacity: 1,
         duration: 1.2,
@@ -159,24 +1471,17 @@
         ease: "power2.out"
       });
 
-      // Start the continuous floating animation
       floatAnimation(el, baseX, baseY, depth);
     });
 
-    // Continuous organic floating movement - THE GUFRAM EFFECT
     function floatAnimation(el, baseX, baseY, baseScale) {
-      // Random movement parameters for organic feel
-      const driftRange = 60; // How far items drift
-      const duration = randomFloat(8, 15); // Slow, dreamy movement
+      const driftRange = 60;
+      const duration = randomFloat(8, 15);
       
-      // Random target position (drifting from base)
       const targetX = baseX + randomFloat(-driftRange, driftRange);
       const targetY = baseY + randomFloat(-driftRange, driftRange);
-      
-      // Subtle rotation
       const rotation = randomFloat(-8, 8);
       
-      // Get current scroll-influenced scale and add subtle pulse
       const scrollScale = gsap.getProperty(el, "scale");
       const targetScale = scrollScale + randomFloat(-0.03, 0.03);
 
@@ -195,7 +1500,6 @@
     const centerX = window.innerWidth / 2;
     const centerY = window.innerHeight / 2;
 
-    // Create scroll-triggered zoom animation
     ScrollTrigger.create({
       trigger: ".g-container",
       start: "top top",
@@ -207,17 +1511,11 @@
         
         items.forEach((el, index) => {
           const data = itemData[index];
-          
-          // Calculate direction from center (for spreading outward)
           const elX = gsap.getProperty(el, "x");
           const elY = gsap.getProperty(el, "y");
           const dirX = (elX - centerX) * progress * 1.5;
           const dirY = (elY - centerY) * progress * 1.5;
-          
-          // Scale increases as you scroll (zoom in effect)
           const zoomScale = data.depth + (progress * 2.5);
-          
-          // Opacity fades out as items zoom past
           const opacity = 1 - (progress * 0.8);
           
           gsap.to(el, {
@@ -233,7 +1531,168 @@
       }
     });
 
-    // Handle window resize
+    /* ============================================
+       SCROLL ANIMATIONS FOR SECTIONS
+    ============================================ */
+    // Vitamins section animation
+    ScrollTrigger.create({
+      trigger: ".vitamins-section",
+      start: "top 80%",
+      onEnter: () => {
+        document.querySelector('.vitamins-content').classList.add('visible');
+        document.querySelector('.vitamins-visual').classList.add('visible');
+      }
+    });
+
+    // Product cards stagger animation
+    gsap.from(".product-card", {
+      scrollTrigger: {
+        trigger: ".products-section",
+        start: "top 70%"
+      },
+      y: 60,
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.15,
+      ease: "power3.out"
+    });
+
+    /* ============================================
+       PRODUCT CAROUSEL
+    ============================================ */
+    const track = document.querySelector('.carousel-track');
+    const prevBtn = document.querySelector('.carousel-btn-prev');
+    const nextBtn = document.querySelector('.carousel-btn-next');
+    const dotsContainer = document.querySelector('.carousel-dots');
+    const productCards = document.querySelectorAll('.product-card');
+
+    let currentIndex = 0;
+    let cardsPerView = 3;
+
+    function updateCardsPerView() {
+      const width = window.innerWidth;
+      if (width <= 768) {
+        cardsPerView = 1;
+      } else if (width <= 1024) {
+        cardsPerView = 2;
+      } else {
+        cardsPerView = 3;
+      }
+      createDots();
+      updateCarousel();
+    }
+
+    function createDots() {
+      const numDots = Math.max(1, productCards.length - cardsPerView + 1);
+      dotsContainer.innerHTML = '';
+      
+      for (let i = 0; i < numDots; i++) {
+        const dot = document.createElement('button');
+        dot.classList.add('carousel-dot');
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(i));
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    function updateCarousel() {
+      if (!productCards[0]) return;
+      const cardWidth = productCards[0].offsetWidth;
+      const gap = 32;
+      const offset = currentIndex * (cardWidth + gap);
+      track.style.transform = `translateX(-${offset}px)`;
+      
+      const dots = document.querySelectorAll('.carousel-dot');
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+      });
+      
+      prevBtn.style.opacity = currentIndex === 0 ? '0.5' : '1';
+      const maxIndex = productCards.length - cardsPerView;
+      nextBtn.style.opacity = currentIndex >= maxIndex ? '0.5' : '1';
+    }
+
+    function goToSlide(index) {
+      const maxIndex = Math.max(0, productCards.length - cardsPerView);
+      currentIndex = Math.max(0, Math.min(index, maxIndex));
+      updateCarousel();
+    }
+
+    function nextSlide() {
+      const maxIndex = productCards.length - cardsPerView;
+      if (currentIndex < maxIndex) {
+        currentIndex++;
+        updateCarousel();
+      }
+    }
+
+    function prevSlide() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateCarousel();
+      }
+    }
+
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+
+    // Touch/swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    track.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+
+    track.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      if (touchEndX < touchStartX - 50) nextSlide();
+      if (touchEndX > touchStartX + 50) prevSlide();
+    });
+
+    // Initialize
+    updateCardsPerView();
+    window.addEventListener('resize', () => {
+      updateCardsPerView();
+    });
+
+    /* ============================================
+       PRODUCT BUY BUTTON - WhatsApp redirect
+    ============================================ */
+    document.querySelectorAll('.btn-product').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const card = e.target.closest('.product-card');
+        const productName = card.querySelector('h3').textContent;
+        const productPrice = card.querySelector('.product-price').textContent.split('$')[1].split(' ')[0];
+        const message = `Hola! Me interesa el producto: ${productName} ($${productPrice}). ¿Está disponible?`;
+        const whatsappUrl = `https://wa.me/573001234567?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+      });
+    });
+
+    /* ============================================
+       SMOOTH SCROLL FOR ANCHOR LINKS
+    ============================================ */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const offset = 80;
+          const elementPosition = target.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    /* ============================================
+       RESIZE HANDLER FOR FLOATING ITEMS
+    ============================================ */
     window.addEventListener('resize', () => {
       const newCellWidth = window.innerWidth / cols;
       const newCellHeight = window.innerHeight / rows;
