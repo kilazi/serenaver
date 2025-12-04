@@ -5,25 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Serena Vet | Nutrición Premium para Mascotas</title>
   
-  <!-- Google Fonts - Distinctive Typography -->
+  <!-- Google Fonts - Bold Modern Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;400;500;600;700;1,9..40,400&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --color-cream: #FDF8F3;
-      --color-sage: #A8B5A0;
-      --color-sage-dark: #7D8B74;
-      --color-terracotta: #C4937A;
-      --color-terracotta-dark: #A67B62;
-      --color-charcoal: #2D3436;
-      --color-warm-white: #FEFCFA;
-      --color-peach: #F5DDD1;
-      --color-moss: #4A5D4F;
-      --color-gold: #D4A574;
-      --font-serif: 'Instrument Serif', Georgia, serif;
-      --font-sans: 'Outfit', system-ui, sans-serif;
+      /* Dark luxurious palette */
+      --color-dark: #0A0A0A;
+      --color-dark-soft: #1A1A1A;
+      --color-cream: #F8F5F0;
+      --color-accent: #FF6B35;
+      --color-accent-soft: #FF8B5E;
+      --color-teal: #00B4A0;
+      --color-teal-dark: #008B7A;
+      --color-gold: #E8C547;
+      --color-purple: #8B5CF6;
+      --color-warm-gray: #B8B0A8;
+      --color-light-gray: #E8E4DF;
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      
+      /* Smooth easing */
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
     }
 
     * {
@@ -33,18 +39,46 @@
     }
 
     html {
-      scroll-behavior: smooth;
+      scroll-behavior: auto; /* We'll use GSAP for smooth scroll */
     }
 
     body {
       overflow-x: hidden;
-      background: var(--color-cream);
-      font-family: var(--font-sans);
-      color: var(--color-charcoal);
+      background: var(--color-dark);
+      font-family: var(--font-body);
+      color: var(--color-cream);
+      cursor: default;
+    }
+
+    /* Custom cursor glow effect */
+    .cursor-glow {
+      position: fixed;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255, 107, 53, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.3s ease;
+      mix-blend-mode: screen;
+    }
+
+    /* Smooth page transitions */
+    .page-transition {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--color-accent);
+      z-index: 10000;
+      transform: scaleY(0);
+      transform-origin: bottom;
     }
 
     /* ============================================
-       NAVIGATION
+       NAVIGATION - Glassmorphism Dark
     ============================================ */
     .navbar {
       position: fixed;
@@ -52,36 +86,55 @@
       left: 0;
       right: 0;
       z-index: 1000;
-      padding: 1.5rem 3rem;
+      padding: 1.5rem 4rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.6s var(--ease-out-expo);
     }
 
     .navbar.scrolled {
-      background: rgba(253, 248, 243, 0.95);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      padding: 1rem 3rem;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+      background: rgba(10, 10, 10, 0.85);
+      backdrop-filter: blur(30px) saturate(180%);
+      -webkit-backdrop-filter: blur(30px) saturate(180%);
+      padding: 1rem 4rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .logo {
-      font-family: var(--font-serif);
-      font-size: 2rem;
-      color: var(--color-moss);
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--color-cream);
       text-decoration: none;
-      letter-spacing: -0.02em;
-      transition: transform 0.3s ease;
+      letter-spacing: -0.03em;
+      transition: all 0.4s var(--ease-out-expo);
+      position: relative;
     }
 
     .logo:hover {
-      transform: scale(1.05);
+      transform: scale(1.02);
     }
 
     .logo span {
-      color: var(--color-terracotta);
+      color: var(--color-accent);
+      position: relative;
+    }
+
+    .logo span::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--color-accent);
+      transform: scaleX(0);
+      transition: transform 0.4s var(--ease-out-expo);
+    }
+
+    .logo:hover span::after {
+      transform: scaleX(1);
     }
 
     .nav-links {
@@ -91,47 +144,57 @@
     }
 
     .nav-links a {
-      font-size: 0.9rem;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
       font-weight: 500;
-      color: var(--color-charcoal);
+      color: var(--color-warm-gray);
       text-decoration: none;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       position: relative;
       padding: 0.5rem 0;
+      transition: color 0.3s ease;
     }
 
-    .nav-links a::after {
+    .nav-links a:hover {
+      color: var(--color-cream);
+    }
+
+    .nav-links a::before {
       content: '';
       position: absolute;
       bottom: 0;
       left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--color-terracotta);
-      transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, var(--color-accent), var(--color-gold));
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.5s var(--ease-out-expo);
     }
 
-    .nav-links a:hover::after {
-      width: 100%;
+    .nav-links a:hover::before {
+      transform: scaleX(1);
+      transform-origin: left;
     }
 
     .nav-cta {
-      background: var(--color-moss);
+      background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-soft) 100%);
       color: white !important;
-      padding: 0.8rem 1.5rem !important;
-      border-radius: 50px;
-      transition: all 0.3s ease !important;
+      padding: 0.9rem 1.8rem !important;
+      border-radius: 100px;
+      transition: all 0.4s var(--ease-out-expo) !important;
+      font-weight: 600 !important;
+      box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3);
     }
 
-    .nav-cta::after {
+    .nav-cta::before {
       display: none !important;
     }
 
     .nav-cta:hover {
-      background: var(--color-sage-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(74, 93, 79, 0.3);
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 8px 40px rgba(255, 107, 53, 0.4);
     }
 
     /* Mobile Menu */
@@ -141,13 +204,15 @@
       gap: 6px;
       cursor: pointer;
       z-index: 1001;
+      padding: 10px;
     }
 
     .hamburger span {
       width: 28px;
       height: 2px;
-      background: var(--color-charcoal);
-      transition: all 0.3s ease;
+      background: var(--color-cream);
+      transition: all 0.4s var(--ease-out-expo);
+      border-radius: 2px;
     }
 
     /* ============================================
@@ -162,7 +227,29 @@
       height: 100vh;
       position: relative;
       overflow: hidden;
-      background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-peach) 50%, var(--color-cream) 100%);
+      background: var(--color-dark);
+    }
+
+    .g-container::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(255, 107, 53, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 80% 20%, rgba(0, 180, 160, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 40% 40%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
+      animation: gradientMove 20s ease infinite;
+      pointer-events: none;
+    }
+
+    @keyframes gradientMove {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      25% { transform: translate(2%, 2%) rotate(1deg); }
+      50% { transform: translate(-1%, 3%) rotate(-1deg); }
+      75% { transform: translate(3%, -2%) rotate(2deg); }
     }
 
     .floating {
@@ -172,7 +259,8 @@
       will-change: transform;
       transform: translate3d(0, 0, 0);
       backface-visibility: hidden;
-      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.1));
+      filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.4));
+      border-radius: 20px;
     }
 
     /* Hero Content Overlay */
@@ -184,31 +272,59 @@
       text-align: center;
       z-index: 50;
       pointer-events: none;
+      width: 90%;
+      max-width: 1000px;
     }
 
     .hero-overlay h1 {
-      font-family: var(--font-serif);
-      font-size: clamp(3rem, 8vw, 7rem);
-      color: var(--color-moss);
-      line-height: 1;
-      margin-bottom: 1rem;
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 10vw, 9rem);
+      font-weight: 800;
+      color: var(--color-cream);
+      line-height: 0.95;
+      margin-bottom: 1.5rem;
       opacity: 0;
-      animation: fadeInUp 1s ease 0.5s forwards;
+      animation: heroReveal 1.2s var(--ease-out-expo) 0.3s forwards;
+      letter-spacing: -0.04em;
+      text-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
     }
 
     .hero-overlay h1 span {
-      font-style: italic;
-      color: var(--color-terracotta);
+      background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-gold) 50%, var(--color-accent) 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: heroReveal 1.2s var(--ease-out-expo) 0.3s forwards, gradientShift 4s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
     }
 
     .hero-overlay p {
-      font-size: clamp(1rem, 2vw, 1.3rem);
-      color: var(--color-charcoal);
-      font-weight: 300;
-      letter-spacing: 0.1em;
+      font-family: var(--font-body);
+      font-size: clamp(1rem, 2vw, 1.4rem);
+      color: var(--color-warm-gray);
+      font-weight: 400;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
       opacity: 0;
-      animation: fadeInUp 1s ease 0.8s forwards;
+      animation: heroReveal 1.2s var(--ease-out-expo) 0.6s forwards;
+    }
+
+    @keyframes heroReveal {
+      from { 
+        opacity: 0; 
+        transform: translateY(60px);
+        filter: blur(10px);
+      }
+      to { 
+        opacity: 1; 
+        transform: translateY(0);
+        filter: blur(0);
+      }
     }
 
     .scroll-indicator {
@@ -219,24 +335,30 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.5rem;
+      gap: 1rem;
       opacity: 0;
-      animation: fadeInUp 1s ease 1.2s forwards;
+      animation: heroReveal 1s var(--ease-out-expo) 1.2s forwards;
     }
 
     .scroll-indicator span {
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
       text-transform: uppercase;
-      color: var(--color-sage-dark);
+      color: var(--color-warm-gray);
+      font-weight: 500;
     }
 
     .scroll-indicator .mouse {
-      width: 24px;
-      height: 40px;
-      border: 2px solid var(--color-sage-dark);
-      border-radius: 12px;
+      width: 26px;
+      height: 44px;
+      border: 2px solid var(--color-warm-gray);
+      border-radius: 14px;
       position: relative;
+      transition: border-color 0.3s ease;
+    }
+
+    .scroll-indicator:hover .mouse {
+      border-color: var(--color-accent);
     }
 
     .scroll-indicator .mouse::before {
@@ -246,28 +368,23 @@
       left: 50%;
       transform: translateX(-50%);
       width: 4px;
-      height: 8px;
-      background: var(--color-terracotta);
+      height: 10px;
+      background: var(--color-accent);
       border-radius: 2px;
-      animation: scrollMouse 2s ease infinite;
+      animation: scrollMouse 2s var(--ease-out-expo) infinite;
     }
 
     @keyframes scrollMouse {
       0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
-      50% { transform: translateX(-50%) translateY(10px); opacity: 0.3; }
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+      50% { transform: translateX(-50%) translateY(14px); opacity: 0; }
     }
 
     /* ============================================
        FEATURES SECTION - MARQUEE STYLE
     ============================================ */
     .features-section {
-      background: var(--color-moss);
-      padding: 2rem 0;
+      background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-soft) 50%, var(--color-accent) 100%);
+      padding: 1.8rem 0;
       overflow: hidden;
       position: relative;
       z-index: 100;
@@ -275,7 +392,7 @@
 
     .features-marquee {
       display: flex;
-      animation: marquee 25s linear infinite;
+      animation: marquee 20s linear infinite;
     }
 
     .features-marquee:hover {
@@ -288,28 +405,29 @@
       gap: 1rem;
       padding: 0 3rem;
       white-space: nowrap;
-      color: var(--color-warm-white);
+      color: white;
     }
 
     .feature-item svg {
-      width: 32px;
-      height: 32px;
-      stroke: var(--color-gold);
+      width: 28px;
+      height: 28px;
+      stroke: white;
       fill: none;
-      stroke-width: 1.5;
+      stroke-width: 2;
     }
 
     .feature-item span {
-      font-size: 1rem;
-      font-weight: 400;
-      letter-spacing: 0.05em;
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
     }
 
     .feature-divider {
-      color: var(--color-gold);
-      font-size: 1.5rem;
-      padding: 0 1rem;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 1.2rem;
+      padding: 0 1.5rem;
     }
 
     @keyframes marquee {
@@ -321,8 +439,8 @@
        VITAMINS SECTION
     ============================================ */
     .vitamins-section {
-      padding: 8rem 5%;
-      background: var(--color-warm-white);
+      padding: 10rem 5%;
+      background: var(--color-dark-soft);
       position: relative;
       z-index: 100;
       overflow: hidden;
@@ -331,19 +449,20 @@
     .vitamins-section::before {
       content: '';
       position: absolute;
-      top: -200px;
-      right: -200px;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, var(--color-peach) 0%, transparent 70%);
-      opacity: 0.5;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 10% 20%, rgba(255, 107, 53, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(0, 180, 160, 0.06) 0%, transparent 50%);
       pointer-events: none;
     }
 
     .vitamins-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 5rem;
+      gap: 6rem;
       max-width: 1400px;
       margin: 0 auto;
       align-items: center;
@@ -351,66 +470,98 @@
 
     .vitamins-content {
       opacity: 0;
-      transform: translateX(-50px);
-      transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+      transform: translateY(80px);
     }
 
     .vitamins-content.visible {
       opacity: 1;
-      transform: translateX(0);
+      transform: translateY(0);
     }
 
     .section-tag {
-      font-size: 0.8rem;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
       font-weight: 600;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.25em;
       text-transform: uppercase;
-      color: var(--color-terracotta);
+      color: var(--color-accent);
       margin-bottom: 1.5rem;
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .section-tag::before {
+      content: '';
+      width: 40px;
+      height: 2px;
+      background: var(--color-accent);
     }
 
     .vitamins-content h2 {
-      font-family: var(--font-serif);
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      line-height: 1.1;
-      color: var(--color-moss);
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      color: var(--color-cream);
       margin-bottom: 2rem;
+      letter-spacing: -0.03em;
     }
 
     .vitamins-content h2 span {
-      font-style: italic;
-      color: var(--color-terracotta);
+      background: linear-gradient(135deg, var(--color-teal) 0%, var(--color-accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .vitamins-content p {
       font-size: 1.1rem;
-      line-height: 1.8;
-      color: var(--color-charcoal);
+      line-height: 1.9;
+      color: var(--color-warm-gray);
       margin-bottom: 2rem;
-      font-weight: 300;
+      font-weight: 400;
     }
 
     .benefits-list {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+      gap: 1.2rem;
       list-style: none;
+      margin-top: 2.5rem;
     }
 
     .benefits-list li {
       display: flex;
       align-items: center;
-      gap: 0.8rem;
-      font-weight: 400;
+      gap: 1rem;
+      font-weight: 500;
+      color: var(--color-cream);
+      font-size: 0.95rem;
+      padding: 0.8rem 1.2rem;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all 0.4s var(--ease-out-expo);
+    }
+
+    .benefits-list li:hover {
+      background: rgba(255, 107, 53, 0.1);
+      border-color: rgba(255, 107, 53, 0.2);
+      transform: translateX(8px);
     }
 
     .benefits-list li::before {
-      content: '';
-      width: 8px;
-      height: 8px;
-      background: var(--color-terracotta);
+      content: '✓';
+      width: 24px;
+      height: 24px;
+      background: linear-gradient(135deg, var(--color-accent), var(--color-gold));
       border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: white;
       flex-shrink: 0;
     }
 
@@ -418,27 +569,30 @@
       position: relative;
       height: 600px;
       opacity: 0;
-      transform: translateX(50px);
-      transition: all 1s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+      transform: translateY(80px);
     }
 
     .vitamins-visual.visible {
       opacity: 1;
-      transform: translateX(0);
+      transform: translateY(0);
     }
 
     .vitamin-card {
       position: absolute;
-      background: white;
-      border-radius: 20px;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 24px;
       padding: 2rem;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+      transition: all 0.6s var(--ease-out-expo);
     }
 
     .vitamin-card:hover {
-      transform: translateY(-10px) rotate(0deg) !important;
-      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.12);
+      transform: translateY(-15px) rotate(0deg) scale(1.02) !important;
+      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.4);
+      border-color: rgba(255, 107, 53, 0.3);
     }
 
     .vitamin-card.card-1 {
@@ -466,56 +620,75 @@
       width: 100px;
       height: 100px;
       object-fit: cover;
-      border-radius: 12px;
+      border-radius: 16px;
       margin-bottom: 1rem;
+      border: 2px solid rgba(255, 255, 255, 0.1);
     }
 
     .vitamin-card h4 {
-      font-family: var(--font-serif);
+      font-family: var(--font-display);
       font-size: 1.2rem;
-      color: var(--color-moss);
+      font-weight: 600;
+      color: var(--color-cream);
       margin-bottom: 0.3rem;
     }
 
     .vitamin-card p {
       font-size: 0.85rem;
-      color: var(--color-sage-dark);
+      color: var(--color-warm-gray);
     }
 
     /* ============================================
        PRODUCTS SECTION
     ============================================ */
     .products-section {
-      padding: 8rem 0;
-      background: linear-gradient(180deg, var(--color-cream) 0%, var(--color-peach) 100%);
+      padding: 10rem 0;
+      background: var(--color-dark);
       position: relative;
       z-index: 100;
       overflow: hidden;
     }
 
+    .products-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 40%);
+      pointer-events: none;
+    }
+
     .products-header {
       text-align: center;
-      max-width: 700px;
-      margin: 0 auto 4rem;
+      max-width: 800px;
+      margin: 0 auto 5rem;
       padding: 0 5%;
     }
 
     .products-header h2 {
-      font-family: var(--font-serif);
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      color: var(--color-moss);
-      margin-bottom: 1rem;
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 700;
+      color: var(--color-cream);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.03em;
     }
 
     .products-header h2 span {
-      font-style: italic;
-      color: var(--color-terracotta);
+      background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .products-header p {
-      font-size: 1.1rem;
-      color: var(--color-charcoal);
-      font-weight: 300;
+      font-size: 1.15rem;
+      color: var(--color-warm-gray);
+      font-weight: 400;
     }
 
     /* Carousel Container */
@@ -533,44 +706,64 @@
     .carousel-track {
       display: flex;
       gap: 2rem;
-      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform 0.8s var(--ease-out-expo);
       padding: 1rem;
     }
 
     .product-card {
       flex: 0 0 calc(33.333% - 1.5rem);
-      background: white;
-      border-radius: 24px;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 28px;
       overflow: hidden;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      transition: all 0.6s var(--ease-out-expo);
       position: relative;
     }
 
+    .product-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), transparent 60%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+
     .product-card:hover {
-      transform: translateY(-15px);
-      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.15);
+      transform: translateY(-20px) scale(1.02);
+      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.4);
+      border-color: rgba(255, 107, 53, 0.3);
+    }
+
+    .product-card:hover::before {
+      opacity: 1;
     }
 
     .product-badge {
       position: absolute;
       top: 1.5rem;
       left: 1.5rem;
-      background: var(--color-terracotta);
+      background: linear-gradient(135deg, var(--color-accent), var(--color-accent-soft));
       color: white;
-      padding: 0.4rem 1rem;
-      border-radius: 50px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
+      padding: 0.5rem 1.2rem;
+      border-radius: 100px;
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       z-index: 2;
+      box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
     }
 
     .product-image {
       width: 100%;
       height: 280px;
-      background: var(--color-cream);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -579,14 +772,15 @@
     }
 
     .product-image img {
-      width: 80%;
-      height: 80%;
+      width: 75%;
+      height: 75%;
       object-fit: contain;
-      transition: transform 0.5s ease;
+      transition: all 0.6s var(--ease-out-expo);
+      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
     }
 
     .product-card:hover .product-image img {
-      transform: scale(1.1);
+      transform: scale(1.15) translateY(-10px);
     }
 
     .product-info {
@@ -594,25 +788,28 @@
     }
 
     .product-category {
-      font-size: 0.75rem;
-      color: var(--color-sage-dark);
+      font-size: 0.7rem;
+      color: var(--color-accent);
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 0.5rem;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.8rem;
+      font-weight: 600;
     }
 
     .product-info h3 {
-      font-family: var(--font-serif);
-      font-size: 1.4rem;
-      color: var(--color-moss);
-      margin-bottom: 0.5rem;
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--color-cream);
+      margin-bottom: 0.8rem;
+      letter-spacing: -0.02em;
     }
 
     .product-info p {
       font-size: 0.9rem;
-      color: var(--color-charcoal);
-      font-weight: 300;
-      line-height: 1.6;
+      color: var(--color-warm-gray);
+      font-weight: 400;
+      line-height: 1.7;
       margin-bottom: 1.5rem;
     }
 
@@ -623,36 +820,38 @@
     }
 
     .product-price {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--color-moss);
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--color-cream);
     }
 
     .product-price .original {
-      font-size: 1rem;
-      color: var(--color-sage-dark);
+      font-size: 0.95rem;
+      color: var(--color-warm-gray);
       text-decoration: line-through;
-      margin-left: 0.5rem;
+      margin-left: 0.6rem;
       font-weight: 400;
     }
 
     .btn-product {
-      background: var(--color-moss);
+      background: linear-gradient(135deg, var(--color-accent), var(--color-accent-soft));
       color: white;
       border: none;
-      padding: 0.9rem 1.8rem;
-      border-radius: 50px;
-      font-family: var(--font-sans);
+      padding: 1rem 1.8rem;
+      border-radius: 100px;
+      font-family: var(--font-body);
       font-size: 0.85rem;
-      font-weight: 500;
-      letter-spacing: 0.05em;
+      font-weight: 600;
+      letter-spacing: 0.03em;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.4s var(--ease-out-expo);
+      box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3);
     }
 
     .btn-product:hover {
-      background: var(--color-terracotta);
-      transform: scale(1.05);
+      transform: scale(1.08);
+      box-shadow: 0 8px 30px rgba(255, 107, 53, 0.5);
     }
 
     /* Carousel Controls */
@@ -661,25 +860,27 @@
       justify-content: center;
       align-items: center;
       gap: 2rem;
-      margin-top: 3rem;
+      margin-top: 4rem;
     }
 
     .carousel-btn {
-      width: 56px;
-      height: 56px;
+      width: 60px;
+      height: 60px;
       border-radius: 50%;
-      background: white;
-      border: 2px solid var(--color-sage);
+      background: transparent;
+      border: 2px solid rgba(255, 255, 255, 0.2);
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.4s var(--ease-out-expo);
     }
 
     .carousel-btn:hover {
-      background: var(--color-moss);
-      border-color: var(--color-moss);
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+      transform: scale(1.1);
+      box-shadow: 0 8px 30px rgba(255, 107, 53, 0.4);
     }
 
     .carousel-btn:hover svg {
@@ -689,38 +890,44 @@
     .carousel-btn svg {
       width: 24px;
       height: 24px;
-      stroke: var(--color-moss);
+      stroke: var(--color-cream);
       fill: none;
       stroke-width: 2;
+      transition: stroke 0.3s ease;
     }
 
     .carousel-dots {
       display: flex;
-      gap: 0.5rem;
+      gap: 0.6rem;
     }
 
     .carousel-dot {
-      width: 10px;
-      height: 10px;
+      width: 12px;
+      height: 12px;
       border-radius: 50%;
-      background: var(--color-sage);
+      background: rgba(255, 255, 255, 0.2);
       border: none;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.4s var(--ease-out-expo);
+    }
+
+    .carousel-dot:hover {
+      background: rgba(255, 255, 255, 0.4);
     }
 
     .carousel-dot.active {
-      background: var(--color-moss);
-      width: 30px;
-      border-radius: 5px;
+      background: var(--color-accent);
+      width: 36px;
+      border-radius: 6px;
+      box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
     }
 
     /* ============================================
        CTA SECTION
     ============================================ */
     .cta-section {
-      padding: 8rem 5%;
-      background: var(--color-moss);
+      padding: 10rem 5%;
+      background: linear-gradient(135deg, var(--color-accent) 0%, #E85A24 100%);
       position: relative;
       z-index: 100;
       overflow: hidden;
@@ -729,16 +936,30 @@
     .cta-section::before {
       content: '';
       position: absolute;
-      top: -50%;
-      left: -20%;
-      width: 80%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(168, 181, 160, 0.3) 0%, transparent 60%);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .cta-section::after {
+      content: '';
+      position: absolute;
+      bottom: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
       pointer-events: none;
     }
 
     .cta-content {
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
       text-align: center;
       position: relative;
@@ -746,23 +967,30 @@
     }
 
     .cta-content h2 {
-      font-family: var(--font-serif);
-      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 800;
       color: white;
       margin-bottom: 1.5rem;
-      line-height: 1.2;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
     }
 
     .cta-content h2 span {
-      font-style: italic;
-      color: var(--color-gold);
+      display: block;
+      font-weight: 400;
+      font-size: 0.7em;
+      opacity: 0.9;
     }
 
     .cta-content p {
-      font-size: 1.2rem;
-      color: rgba(255, 255, 255, 0.8);
-      font-weight: 300;
+      font-size: 1.25rem;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 400;
       margin-bottom: 3rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .cta-buttons {
@@ -776,25 +1004,27 @@
       display: inline-flex;
       align-items: center;
       gap: 0.8rem;
-      background: #25D366;
-      color: white;
+      background: white;
+      color: var(--color-accent);
       text-decoration: none;
-      padding: 1.2rem 2.5rem;
-      border-radius: 50px;
-      font-weight: 500;
+      padding: 1.3rem 2.8rem;
+      border-radius: 100px;
+      font-family: var(--font-body);
+      font-weight: 700;
       font-size: 1rem;
-      transition: all 0.3s ease;
+      transition: all 0.4s var(--ease-out-expo);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
     }
 
     .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
     }
 
     .btn-primary svg {
       width: 24px;
       height: 24px;
-      fill: white;
+      fill: #25D366;
     }
 
     .btn-secondary {
@@ -804,28 +1034,40 @@
       background: transparent;
       color: white;
       text-decoration: none;
-      padding: 1.2rem 2.5rem;
-      border-radius: 50px;
-      font-weight: 500;
+      padding: 1.3rem 2.8rem;
+      border-radius: 100px;
+      font-family: var(--font-body);
+      font-weight: 600;
       font-size: 1rem;
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      transition: all 0.3s ease;
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      transition: all 0.4s var(--ease-out-expo);
     }
 
     .btn-secondary:hover {
       background: white;
-      color: var(--color-moss);
+      color: var(--color-accent);
       border-color: white;
+      transform: translateY(-5px);
     }
 
     /* ============================================
        FOOTER
     ============================================ */
     .footer {
-      background: var(--color-charcoal);
-      padding: 4rem 5% 2rem;
+      background: #050505;
+      padding: 5rem 5% 2rem;
       position: relative;
       z-index: 100;
+    }
+
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.3), transparent);
     }
 
     .footer-content {
@@ -833,30 +1075,32 @@
       grid-template-columns: 2fr 1fr 1fr 1fr;
       gap: 4rem;
       max-width: 1400px;
-      margin: 0 auto 3rem;
+      margin: 0 auto 4rem;
     }
 
     .footer-brand .logo {
-      color: white;
-      font-size: 2.5rem;
+      color: var(--color-cream);
+      font-size: 2rem;
       display: inline-block;
       margin-bottom: 1.5rem;
     }
 
     .footer-brand p {
-      color: rgba(255, 255, 255, 0.6);
-      font-weight: 300;
-      line-height: 1.7;
-      max-width: 300px;
+      color: var(--color-warm-gray);
+      font-weight: 400;
+      line-height: 1.8;
+      max-width: 320px;
+      font-size: 0.95rem;
     }
 
     .footer-column h4 {
-      color: white;
-      font-size: 1rem;
-      font-weight: 600;
+      font-family: var(--font-display);
+      color: var(--color-cream);
+      font-size: 0.85rem;
+      font-weight: 700;
       margin-bottom: 1.5rem;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.15em;
     }
 
     .footer-column ul {
@@ -864,22 +1108,25 @@
     }
 
     .footer-column li {
-      margin-bottom: 0.8rem;
+      margin-bottom: 1rem;
     }
 
     .footer-column a {
-      color: rgba(255, 255, 255, 0.6);
+      color: var(--color-warm-gray);
       text-decoration: none;
-      transition: color 0.3s ease;
-      font-weight: 300;
+      transition: all 0.3s ease;
+      font-weight: 400;
+      font-size: 0.95rem;
+      position: relative;
     }
 
     .footer-column a:hover {
-      color: var(--color-gold);
+      color: var(--color-accent);
+      padding-left: 8px;
     }
 
     .footer-bottom {
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
       padding-top: 2rem;
       display: flex;
       justify-content: space-between;
@@ -889,35 +1136,39 @@
     }
 
     .footer-bottom p {
-      color: rgba(255, 255, 255, 0.4);
-      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.3);
+      font-size: 0.85rem;
     }
 
     .social-links {
       display: flex;
-      gap: 1rem;
+      gap: 0.8rem;
     }
 
     .social-links a {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.1);
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.3s ease;
+      transition: all 0.4s var(--ease-out-expo);
     }
 
     .social-links a:hover {
-      background: var(--color-terracotta);
-      transform: translateY(-3px);
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
     }
 
     .social-links svg {
       width: 18px;
       height: 18px;
-      fill: white;
+      fill: var(--color-cream);
+      transition: fill 0.3s ease;
     }
 
     /* ============================================
@@ -928,21 +1179,36 @@
       bottom: 2rem;
       right: 2rem;
       z-index: 999;
-      width: 64px;
-      height: 64px;
-      background: #25D366;
-      border-radius: 50%;
+      width: 68px;
+      height: 68px;
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      border-radius: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
-      transition: all 0.3s ease;
-      animation: pulse 2s infinite;
+      box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+      transition: all 0.4s var(--ease-out-expo);
+    }
+
+    .whatsapp-float::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 23px;
+      background: linear-gradient(135deg, #25D366, transparent, #128C7E);
+      z-index: -1;
+      opacity: 0.5;
+      animation: whatsappGlow 3s ease infinite;
+    }
+
+    @keyframes whatsappGlow {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.05); }
     }
 
     .whatsapp-float:hover {
-      transform: scale(1.1);
-      box-shadow: 0 15px 40px rgba(37, 211, 102, 0.5);
+      transform: scale(1.1) rotate(-5deg);
+      box-shadow: 0 20px 50px rgba(37, 211, 102, 0.5);
     }
 
     .whatsapp-float svg {
@@ -951,18 +1217,13 @@
       fill: white;
     }
 
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4); }
-      50% { box-shadow: 0 10px 40px rgba(37, 211, 102, 0.6), 0 0 0 15px rgba(37, 211, 102, 0.1); }
-    }
-
     /* ============================================
        RESPONSIVE DESIGN
     ============================================ */
     @media (max-width: 1024px) {
       .vitamins-grid {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 4rem;
       }
 
       .vitamins-visual {
@@ -990,17 +1251,24 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: var(--color-cream);
+        background: var(--color-dark);
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 2rem;
+        gap: 2.5rem;
         transform: translateX(100%);
-        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: transform 0.6s var(--ease-out-expo);
       }
 
       .nav-links.active {
         transform: translateX(0);
+      }
+
+      .nav-links a {
+        font-size: 1.5rem;
+        font-family: var(--font-display);
+        font-weight: 600;
+        color: var(--color-cream);
       }
 
       .hamburger {
@@ -1008,7 +1276,7 @@
       }
 
       .hero-overlay h1 {
-        font-size: 3rem;
+        font-size: clamp(2.5rem, 12vw, 4rem);
       }
 
       .product-card {
@@ -1031,17 +1299,52 @@
 
       .footer-brand p {
         max-width: 100%;
+        margin: 0 auto;
       }
 
       .footer-bottom {
         flex-direction: column;
         gap: 1.5rem;
       }
+
+      .whatsapp-float {
+        width: 60px;
+        height: 60px;
+        bottom: 1.5rem;
+        right: 1.5rem;
+      }
+    }
+
+    /* Smooth scroll reveal animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(80px);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Text split animation helper */
+    .split-text .char {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(100%);
+    }
+
+    /* Magnetic button effect */
+    .magnetic-btn {
+      position: relative;
+      transition: transform 0.3s var(--ease-out-expo);
     }
   </style>
 </head>
 
 <body>
+
+  <!-- Page Transition Overlay -->
+  <div class="page-transition"></div>
 
   <!-- Navigation -->
   <nav class="navbar">
@@ -1074,7 +1377,7 @@
       <div class="hero-overlay">
         <h1>Nutrición <span>Premium</span><br>para tu Mascota</h1>
         <p>Vitaminas y suplementos de alta calidad</p>
-      </div>
+    </div>
 
       <!-- Scroll Indicator -->
       <div class="scroll-indicator">
@@ -1090,7 +1393,7 @@
         <div class="feature-item">
           <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           <span>Pago Contraentrega</span>
-        </div>
+  </div>
         <span class="feature-divider">✦</span>
         <div class="feature-item">
           <svg viewBox="0 0 24 24"><path d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg>
@@ -1372,22 +1675,52 @@
     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
   </a>
 
-  <!-- GSAP with ScrollTrigger -->
+  <!-- GSAP with ScrollTrigger & ScrollTo -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
 
   <script>
-    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+    /* ============================================
+       CURSOR GLOW EFFECT
+    ============================================ */
+    const cursorGlow = document.createElement('div');
+    cursorGlow.classList.add('cursor-glow');
+    document.body.appendChild(cursorGlow);
+
+    let mouseX = 0, mouseY = 0;
+    let glowX = 0, glowY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    // Smooth cursor follow
+    function animateCursor() {
+      glowX += (mouseX - glowX) * 0.1;
+      glowY += (mouseY - glowY) * 0.1;
+      cursorGlow.style.left = glowX + 'px';
+      cursorGlow.style.top = glowY + 'px';
+      requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
 
     /* ============================================
        NAVBAR SCROLL EFFECT
     ============================================ */
     const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 100) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
+    
+    ScrollTrigger.create({
+      start: 100,
+      onUpdate: (self) => {
+        if (self.direction === 1 && window.scrollY > 100) {
+          navbar.classList.add('scrolled');
+        } else if (window.scrollY <= 100) {
+          navbar.classList.remove('scrolled');
+        }
       }
     });
 
@@ -1395,30 +1728,30 @@
        MOBILE MENU
     ============================================ */
     const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
+    const navLinksEl = document.querySelector('.nav-links');
 
     hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
+      navLinksEl.classList.toggle('active');
       const spans = hamburger.querySelectorAll('span');
-      if (navLinks.classList.contains('active')) {
-        spans[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
-        spans[1].style.opacity = '0';
-        spans[2].style.transform = 'rotate(-45deg) translate(6px, -6px)';
+      if (navLinksEl.classList.contains('active')) {
+        gsap.to(spans[0], { rotation: 45, y: 8, duration: 0.3 });
+        gsap.to(spans[1], { opacity: 0, duration: 0.2 });
+        gsap.to(spans[2], { rotation: -45, y: -8, duration: 0.3 });
       } else {
-        spans[0].style.transform = 'none';
-        spans[1].style.opacity = '1';
-        spans[2].style.transform = 'none';
+        gsap.to(spans[0], { rotation: 0, y: 0, duration: 0.3 });
+        gsap.to(spans[1], { opacity: 1, duration: 0.2 });
+        gsap.to(spans[2], { rotation: 0, y: 0, duration: 0.3 });
       }
     });
 
     // Close menu on link click
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
+        navLinksEl.classList.remove('active');
         const spans = hamburger.querySelectorAll('span');
-        spans[0].style.transform = 'none';
-        spans[1].style.opacity = '1';
-        spans[2].style.transform = 'none';
+        gsap.to(spans[0], { rotation: 0, y: 0, duration: 0.3 });
+        gsap.to(spans[1], { opacity: 1, duration: 0.2 });
+        gsap.to(spans[2], { rotation: 0, y: 0, duration: 0.3 });
       });
     });
 
@@ -1532,25 +1865,136 @@
     });
 
     /* ============================================
-       SCROLL ANIMATIONS FOR SECTIONS
+       SMOOTH SCROLL ANIMATIONS FOR SECTIONS
     ============================================ */
-    // Vitamins section animation
-    ScrollTrigger.create({
-      trigger: ".vitamins-section",
-      start: "top 80%",
-      onEnter: () => {
-        document.querySelector('.vitamins-content').classList.add('visible');
-        document.querySelector('.vitamins-visual').classList.add('visible');
-      }
+    
+    // Features section entrance
+    gsap.from(".features-section", {
+      scrollTrigger: {
+        trigger: ".features-section",
+        start: "top 95%",
+      },
+      y: 30,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out"
     });
 
-    // Product cards stagger animation
+    // Vitamins section - content animation
+    const vitaminsContent = document.querySelector('.vitamins-content');
+    const vitaminsVisual = document.querySelector('.vitamins-visual');
+
+    gsap.to(vitaminsContent, {
+      scrollTrigger: {
+        trigger: ".vitamins-section",
+        start: "top 75%",
+        end: "center center",
+        scrub: false,
+      },
+      y: 0,
+      opacity: 1,
+      duration: 1.2,
+      ease: "power3.out",
+      onStart: () => vitaminsContent.classList.add('visible')
+    });
+
+    gsap.to(vitaminsVisual, {
+      scrollTrigger: {
+        trigger: ".vitamins-section",
+        start: "top 70%",
+      },
+      y: 0,
+      opacity: 1,
+      duration: 1.4,
+      delay: 0.2,
+      ease: "power3.out",
+      onStart: () => vitaminsVisual.classList.add('visible')
+    });
+
+    // Vitamin cards parallax on scroll
+    gsap.utils.toArray('.vitamin-card').forEach((card, i) => {
+      gsap.to(card, {
+        scrollTrigger: {
+          trigger: ".vitamins-section",
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 1
+        },
+        y: -30 * (i + 1),
+        ease: "none"
+      });
+    });
+
+    // Benefits list stagger animation
+    gsap.from(".benefits-list li", {
+      scrollTrigger: {
+        trigger: ".benefits-list",
+        start: "top 85%"
+      },
+      x: -40,
+      opacity: 0,
+      duration: 0.6,
+      stagger: 0.1,
+      ease: "power3.out"
+    });
+
+    // Products header animation
+    gsap.from(".products-header", {
+      scrollTrigger: {
+        trigger: ".products-header",
+        start: "top 80%"
+      },
+      y: 60,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out"
+    });
+
+    // Product cards stagger animation with enhanced effect
     gsap.from(".product-card", {
       scrollTrigger: {
         trigger: ".products-section",
+        start: "top 65%"
+      },
+      y: 100,
+      opacity: 0,
+      scale: 0.9,
+      duration: 1,
+      stagger: 0.12,
+      ease: "power3.out"
+    });
+
+    // CTA section reveal
+    gsap.from(".cta-content", {
+      scrollTrigger: {
+        trigger: ".cta-section",
+        start: "top 75%"
+      },
+      y: 80,
+      opacity: 0,
+      duration: 1.2,
+      ease: "power3.out"
+    });
+
+    gsap.from(".cta-buttons", {
+      scrollTrigger: {
+        trigger: ".cta-section",
         start: "top 70%"
       },
-      y: 60,
+      y: 40,
+      opacity: 0,
+      duration: 1,
+      delay: 0.3,
+      ease: "power3.out"
+    });
+
+    // Footer columns stagger
+    gsap.from(".footer-column, .footer-brand", {
+      scrollTrigger: {
+        trigger: ".footer",
+        start: "top 85%"
+      },
+      y: 50,
       opacity: 0,
       duration: 0.8,
       stagger: 0.15,
@@ -1671,23 +2115,65 @@
     });
 
     /* ============================================
-       SMOOTH SCROLL FOR ANCHOR LINKS
+       GSAP SMOOTH SCROLL FOR ANCHOR LINKS
     ============================================ */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const targetId = this.getAttribute('href');
+        const target = document.querySelector(targetId);
         if (target) {
           const offset = 80;
-          const elementPosition = target.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - offset;
+          const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
           
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
+          gsap.to(window, {
+            duration: 1.5,
+            scrollTo: { y: targetPosition, autoKill: false },
+            ease: "power3.inOut"
           });
         }
       });
+    });
+
+    /* ============================================
+       MAGNETIC BUTTON EFFECT
+    ============================================ */
+    document.querySelectorAll('.btn-product, .carousel-btn, .nav-cta, .btn-primary, .btn-secondary').forEach(btn => {
+      btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        
+        gsap.to(btn, {
+          x: x * 0.3,
+          y: y * 0.3,
+          duration: 0.3,
+          ease: "power2.out"
+        });
+      });
+      
+      btn.addEventListener('mouseleave', () => {
+        gsap.to(btn, {
+          x: 0,
+          y: 0,
+          duration: 0.5,
+          ease: "elastic.out(1, 0.5)"
+        });
+      });
+    });
+
+    /* ============================================
+       PARALLAX ON SCROLL FOR HERO BACKGROUND
+    ============================================ */
+    gsap.to(".g-container::before", {
+      scrollTrigger: {
+        trigger: ".g-container",
+        start: "top top",
+        end: "bottom top",
+        scrub: true
+      },
+      y: "30%",
+      ease: "none"
     });
 
     /* ============================================
@@ -1714,6 +2200,76 @@
         });
       });
     });
+
+    /* ============================================
+       PAGE LOAD ANIMATION
+    ============================================ */
+    window.addEventListener('load', () => {
+      // Animate page transition out
+      gsap.fromTo('.page-transition', 
+        { scaleY: 1, transformOrigin: 'top' },
+        { scaleY: 0, duration: 1, ease: 'power3.inOut', delay: 0.2 }
+      );
+      
+      // Animate navbar in
+      gsap.from('.navbar', {
+        y: -100,
+        opacity: 0,
+        duration: 1,
+        delay: 0.5,
+        ease: 'power3.out'
+      });
+    });
+
+    /* ============================================
+       SECTION PROGRESS INDICATOR
+    ============================================ */
+    // Create progress bar
+    const progressBar = document.createElement('div');
+    progressBar.style.cssText = `
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-accent), var(--color-gold));
+      z-index: 10001;
+      transform-origin: left;
+      transform: scaleX(0);
+    `;
+    document.body.appendChild(progressBar);
+
+    gsap.to(progressBar, {
+      scaleX: 1,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: document.body,
+        start: 'top top',
+        end: 'bottom bottom',
+        scrub: 0.3
+      }
+    });
+
+    /* ============================================
+       REVEAL ANIMATIONS ON SCROLL
+    ============================================ */
+    // Add reveal class to elements that should animate
+    const revealElements = document.querySelectorAll('.section-tag, .vitamins-content h2, .vitamins-content p, .products-header h2, .products-header p');
+    
+    revealElements.forEach(el => {
+      gsap.from(el, {
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 90%',
+          toggleActions: 'play none none none'
+        },
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        ease: 'power3.out'
+      });
+    });
+
+    console.log('🐾 Serena Vet - Loaded Successfully');
   </script>
 
 </body>
