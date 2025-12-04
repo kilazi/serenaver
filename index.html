@@ -13,18 +13,21 @@
     }
 
     body {
-      overflow: hidden;
+      overflow-x: hidden;
       background: #ffffff;
       font-family: sans-serif;
+    }
+
+    /* Scroll container for pinning */
+    .scroll-container {
+      position: relative;
     }
 
     /* G CONTAINER - Full viewport grid like gufram.it */
     .g-container {
       width: 100vw;
       height: 100vh;
-      position: fixed;
-      top: 0;
-      left: 0;
+      position: relative;
       overflow: hidden;
       background: white;
     }
@@ -38,27 +41,56 @@
       transform: translate3d(0, 0, 0);
       backface-visibility: hidden;
     }
+
+    /* Next section */
+    .next-section {
+      width: 100vw;
+      min-height: 100vh;
+      background: #f5f5f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 100;
+    }
+
+    .next-section h2 {
+      font-size: 3rem;
+      color: #333;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- G CONTAINER - Gufram-style floating animation -->
-  <div class="g-container">
-    <img class="floating" src="images/obj1.png" />
-    <img class="floating" src="images/obj2.png" />
-    <img class="floating" src="images/obj3.png" />
-    <img class="floating" src="images/obj4.png" />
-    <img class="floating" src="images/obj5.png" />
-    <img class="floating" src="images/obj6.png" />
-    <img class="floating" src="images/obj7.png" />
-    <img class="floating" src="images/obj8.png" />
+  <div class="scroll-container">
+    <!-- G CONTAINER - Gufram-style floating animation -->
+    <div class="g-container">
+      <img class="floating" src="images/obj1.png" />
+      <img class="floating" src="images/obj2.png" />
+      <img class="floating" src="images/obj3.png" />
+      <img class="floating" src="images/obj4.png" />
+      <img class="floating" src="images/obj5.png" />
+      <img class="floating" src="images/obj6.png" />
+      <img class="floating" src="images/obj7.png" />
+      <img class="floating" src="images/obj8.png" />
+    </div>
+
+    <!-- Next Section -->
+    <section class="next-section">
+      <h2>Next Section</h2>
+    </section>
   </div>
 
-  <!-- GSAP -->
+  <!-- GSAP with ScrollTrigger -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
   <script>
+    gsap.registerPlugin(ScrollTrigger);
+
     /* GUFRAM-STYLE CONTINUOUS FLOATING ANIMATION */
     const items = gsap.utils.toArray(".floating");
     const container = document.querySelector('.g-container');
@@ -68,6 +100,9 @@
     const rows = Math.ceil(items.length / cols);
     const cellWidth = window.innerWidth / cols;
     const cellHeight = window.innerHeight / rows;
+
+    // Store base positions and scales for scroll animation
+    const itemData = [];
 
     // Random float function for organic movement
     function randomFloat(min, max) {
@@ -94,6 +129,17 @@
       // Random depth (z-index and scale for layering effect)
       const depth = randomFloat(0.7, 1.1);
       const zIndex = Math.floor(depth * 10);
+
+      // Store data for scroll animation
+      itemData.push({
+        el,
+        baseX,
+        baseY,
+        offsetX,
+        offsetY,
+        depth,
+        size
+      });
       
       // Set initial styles
       gsap.set(el, {
@@ -115,11 +161,11 @@
       });
 
       // Start the continuous floating animation
-      floatAnimation(el, baseX, baseY);
+      floatAnimation(el, baseX, baseY, depth);
     });
 
     // Continuous organic floating movement - THE GUFRAM EFFECT
-    function floatAnimation(el, baseX, baseY) {
+    function floatAnimation(el, baseX, baseY, baseScale) {
       // Random movement parameters for organic feel
       const driftRange = 60; // How far items drift
       const duration = randomFloat(8, 15); // Slow, dreamy movement
@@ -131,20 +177,62 @@
       // Subtle rotation
       const rotation = randomFloat(-8, 8);
       
-      // Subtle scale pulse
-      const currentScale = gsap.getProperty(el, "scale");
-      const targetScale = currentScale + randomFloat(-0.05, 0.05);
+      // Get current scroll-influenced scale and add subtle pulse
+      const scrollScale = gsap.getProperty(el, "scale");
+      const targetScale = scrollScale + randomFloat(-0.03, 0.03);
 
       gsap.to(el, {
         x: targetX,
         y: targetY,
         rotation: rotation,
-        scale: Math.max(0.6, Math.min(1.2, targetScale)), // Clamp scale
+        scale: Math.max(baseScale * 0.9, Math.min(baseScale * 3, targetScale)),
         duration: duration,
         ease: "sine.inOut",
-        onComplete: () => floatAnimation(el, baseX, baseY) // Loop forever
+        onComplete: () => floatAnimation(el, baseX, baseY, baseScale)
       });
     }
+
+    /* SCROLL-TRIGGERED ZOOM EFFECT */
+    const centerX = window.innerWidth / 2;
+    const centerY = window.innerHeight / 2;
+
+    // Create scroll-triggered zoom animation
+    ScrollTrigger.create({
+      trigger: ".g-container",
+      start: "top top",
+      end: "bottom top",
+      pin: true,
+      scrub: 1.5,
+      onUpdate: (self) => {
+        const progress = self.progress;
+        
+        items.forEach((el, index) => {
+          const data = itemData[index];
+          
+          // Calculate direction from center (for spreading outward)
+          const elX = gsap.getProperty(el, "x");
+          const elY = gsap.getProperty(el, "y");
+          const dirX = (elX - centerX) * progress * 1.5;
+          const dirY = (elY - centerY) * progress * 1.5;
+          
+          // Scale increases as you scroll (zoom in effect)
+          const zoomScale = data.depth + (progress * 2.5);
+          
+          // Opacity fades out as items zoom past
+          const opacity = 1 - (progress * 0.8);
+          
+          gsap.to(el, {
+            scale: zoomScale,
+            xPercent: dirX * 0.5,
+            yPercent: dirY * 0.5,
+            opacity: Math.max(0, opacity),
+            duration: 0.3,
+            ease: "none",
+            overwrite: "auto"
+          });
+        });
+      }
+    });
 
     // Handle window resize
     window.addEventListener('resize', () => {
@@ -156,6 +244,9 @@
         const row = Math.floor(index / cols);
         const baseX = col * newCellWidth + newCellWidth * 0.1;
         const baseY = row * newCellHeight + newCellHeight * 0.1;
+        
+        itemData[index].baseX = baseX;
+        itemData[index].baseY = baseY;
         
         gsap.to(el, {
           x: baseX + randomFloat(-30, 30),
