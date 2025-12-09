@@ -6,47 +6,58 @@
 document.addEventListener('DOMContentLoaded', () => {
   
   /* ============================================
-     ENSURE HERO IMAGES GRID IS ALWAYS VISIBLE
+     HERO IMAGES GRID - Visible only in hero section
   ============================================ */
-  const ensureGridAlwaysVisible = () => {
-    const heroImagesContainer = document.querySelector('.hero-floating-images');
-    const floatingImages = document.querySelectorAll('.floating-img');
+  const heroSection = document.querySelector('.hero-section');
+  const heroImagesContainer = document.querySelector('.hero-floating-images');
+  
+  const updateGridVisibility = () => {
+    if (!heroSection || !heroImagesContainer) return;
     
-    if (heroImagesContainer) {
+    const rect = heroSection.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+    
+    // Check if hero section is in viewport
+    // Grid is visible if any part of hero section is visible
+    const isHeroVisible = rect.bottom > 0 && rect.top < windowHeight;
+    
+    if (isHeroVisible) {
+      // Hero section is visible - show grid
       heroImagesContainer.style.opacity = '1';
       heroImagesContainer.style.visibility = 'visible';
       heroImagesContainer.style.transform = 'translateY(0)';
+      
+      const floatingImages = document.querySelectorAll('.floating-img');
+      floatingImages.forEach(img => {
+        img.style.opacity = '1';
+        img.style.visibility = 'visible';
+      });
+    } else {
+      // Hero section is not visible - hide grid
+      heroImagesContainer.style.opacity = '0';
+      heroImagesContainer.style.visibility = 'hidden';
+      
+      const floatingImages = document.querySelectorAll('.floating-img');
+      floatingImages.forEach(img => {
+        img.style.opacity = '0';
+        img.style.visibility = 'hidden';
+      });
     }
-    
-    floatingImages.forEach(img => {
-      img.style.opacity = '1';
-      img.style.visibility = 'visible';
-    });
   };
   
-  // Ensure visible on load
-  ensureGridAlwaysVisible();
+  // Update visibility on scroll
+  window.addEventListener('scroll', updateGridVisibility, { passive: true });
   
-  // Ensure visible on every scroll (prevents any fade effects)
-  window.addEventListener('scroll', ensureGridAlwaysVisible, { passive: true });
+  // Update visibility on resize
+  window.addEventListener('resize', updateGridVisibility, { passive: true });
   
-  // Ensure visible after any DOM changes
-  const gridObserver = new MutationObserver(ensureGridAlwaysVisible);
-  const heroSection = document.querySelector('.hero-section');
-  if (heroSection) {
-    gridObserver.observe(heroSection, { 
-      childList: true, 
-      subtree: true, 
-      attributes: true,
-      attributeFilter: ['style', 'class']
-    });
-  }
+  // Initial check
+  updateGridVisibility();
   
   /* ============================================
      NAVBAR - Scroll Effect & Sticky Header
   ============================================ */
   const navbar = document.querySelector('.navbar');
-  const heroSection = document.querySelector('.hero-section');
   const heroContent = document.querySelector('.hero-content');
   let lastScrollY = 0;
   
