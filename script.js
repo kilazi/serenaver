@@ -11,6 +11,35 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroSection = document.querySelector('.hero-section');
   const heroImagesContainer = document.querySelector('.hero-floating-images');
   
+  // Ensure grid is visible on page load
+  const showGrid = () => {
+    if (!heroImagesContainer) return;
+    
+    heroImagesContainer.style.opacity = '1';
+    heroImagesContainer.style.visibility = 'visible';
+    heroImagesContainer.style.transform = 'translateY(0)';
+    
+    const floatingImages = document.querySelectorAll('.floating-img');
+    floatingImages.forEach(img => {
+      img.style.opacity = '1';
+      img.style.visibility = 'visible';
+    });
+  };
+  
+  // Hide grid
+  const hideGrid = () => {
+    if (!heroImagesContainer) return;
+    
+    heroImagesContainer.style.opacity = '0';
+    heroImagesContainer.style.visibility = 'hidden';
+    
+    const floatingImages = document.querySelectorAll('.floating-img');
+    floatingImages.forEach(img => {
+      img.style.opacity = '0';
+      img.style.visibility = 'hidden';
+    });
+  };
+  
   const updateGridVisibility = () => {
     if (!heroSection || !heroImagesContainer) return;
     
@@ -22,28 +51,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const isHeroVisible = rect.bottom > 0 && rect.top < windowHeight;
     
     if (isHeroVisible) {
-      // Hero section is visible - show grid
-      heroImagesContainer.style.opacity = '1';
-      heroImagesContainer.style.visibility = 'visible';
-      heroImagesContainer.style.transform = 'translateY(0)';
-      
-      const floatingImages = document.querySelectorAll('.floating-img');
-      floatingImages.forEach(img => {
-        img.style.opacity = '1';
-        img.style.visibility = 'visible';
-      });
+      showGrid();
     } else {
-      // Hero section is not visible - hide grid
-      heroImagesContainer.style.opacity = '0';
-      heroImagesContainer.style.visibility = 'hidden';
-      
-      const floatingImages = document.querySelectorAll('.floating-img');
-      floatingImages.forEach(img => {
-        img.style.opacity = '0';
-        img.style.visibility = 'hidden';
-      });
+      hideGrid();
     }
   };
+  
+  // Show grid immediately on page load
+  showGrid();
   
   // Update visibility on scroll
   window.addEventListener('scroll', updateGridVisibility, { passive: true });
@@ -51,8 +66,17 @@ document.addEventListener('DOMContentLoaded', () => {
   // Update visibility on resize
   window.addEventListener('resize', updateGridVisibility, { passive: true });
   
-  // Initial check
-  updateGridVisibility();
+  // Also check after page fully loads
+  window.addEventListener('load', () => {
+    showGrid();
+    updateGridVisibility();
+  });
+  
+  // Initial check after a small delay to ensure DOM is ready
+  setTimeout(() => {
+    showGrid();
+    updateGridVisibility();
+  }, 100);
   
   /* ============================================
      NAVBAR - Scroll Effect & Sticky Header
