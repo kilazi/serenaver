@@ -778,42 +778,6 @@
       gap: 1.5rem;
     }
 
-    .back-btn {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--color-white);
-      border: 2px solid var(--color-border);
-      padding: 0.8rem 1.5rem;
-      border-radius: 50px;
-      font-family: var(--font-body);
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--color-gray);
-      cursor: pointer;
-      transition: all 0.4s var(--ease-out-expo);
-    }
-
-    .back-btn:hover {
-      background: var(--color-primary-light);
-      border-color: var(--color-primary);
-      color: var(--color-primary);
-      transform: translateX(-5px);
-    }
-
-    .back-btn svg {
-      width: 18px;
-      height: 18px;
-      stroke: currentColor;
-      stroke-width: 2;
-      fill: none;
-      transition: transform 0.4s var(--ease-out-expo);
-    }
-
-    .back-btn:hover svg {
-      transform: translateX(-6px);
-    }
-
     .products-title {
       text-align: right;
     }
@@ -894,31 +858,42 @@
       grid-template-columns: repeat(4, 1fr);
       grid-template-rows: repeat(2, 1fr);
       gap: 1rem;
-      padding: 1rem 0;
+      padding: 1rem 1.5rem 1rem 0;
       width: 100%;
       height: 100%;
       overflow-y: auto;
       overflow-x: hidden;
-      scrollbar-width: thin;
-      scrollbar-color: var(--color-primary-light) transparent;
+      scrollbar-width: auto;
+      scrollbar-color: var(--color-primary) var(--color-primary-light);
       scroll-behavior: smooth;
     }
 
+    /* Custom Scrollbar Styling */
     .products-track::-webkit-scrollbar {
-      width: 5px;
+      width: 10px;
     }
 
     .products-track::-webkit-scrollbar-track {
-      background: transparent;
+      background: var(--color-primary-light);
+      border-radius: 10px;
+      margin: 0.5rem 0;
     }
 
     .products-track::-webkit-scrollbar-thumb {
-      background: var(--color-primary-light);
+      background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
       border-radius: 10px;
+      border: 2px solid var(--color-primary-light);
+      transition: all 0.3s ease;
     }
 
     .products-track::-webkit-scrollbar-thumb:hover {
-      background: var(--color-primary);
+      background: linear-gradient(180deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+      border-color: var(--color-primary);
+      box-shadow: 0 0 8px rgba(104, 187, 89, 0.4);
+    }
+
+    .products-track::-webkit-scrollbar-thumb:active {
+      background: var(--color-primary-dark);
     }
 
     /* Premium Product Card - Compact */
@@ -1194,98 +1169,6 @@
       transform: scale(1.02);
     }
 
-    /* Compact Scroll Controls */
-    .scroll-controls {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 1rem;
-      padding: 0.6rem 0 1rem;
-      position: relative;
-      z-index: 10;
-    }
-
-    /* Scroll progress indicator */
-    .scroll-progress {
-      display: flex;
-      gap: 0.4rem;
-    }
-
-    .scroll-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--color-border);
-      transition: all 0.4s var(--ease-out-expo);
-    }
-
-    .scroll-dot.active {
-      background: var(--color-primary);
-      box-shadow: 0 0 10px rgba(104, 187, 89, 0.5);
-      transform: scale(1.3);
-    }
-
-    .scroll-btn {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      border: 2px solid var(--color-border);
-      background: var(--color-white);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.4s var(--ease-out-expo);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .scroll-btn::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      border-radius: 50%;
-    }
-
-    .scroll-btn:hover {
-      border-color: var(--color-primary);
-      transform: scale(1.1);
-      box-shadow: 0 6px 18px rgba(104, 187, 89, 0.25);
-    }
-
-    .scroll-btn:hover::before {
-      opacity: 1;
-    }
-
-    .scroll-btn:active {
-      transform: scale(0.95);
-    }
-
-    .scroll-btn svg {
-      width: 18px;
-      height: 18px;
-      stroke: var(--color-charcoal);
-      stroke-width: 2;
-      fill: none;
-      transition: all 0.4s ease;
-      position: relative;
-      z-index: 2;
-    }
-
-    .scroll-btn:hover svg {
-      stroke: white;
-    }
-
-    .scroll-prev:hover svg {
-      transform: translateY(-3px);
-    }
-
-    .scroll-next:hover svg {
-      transform: translateY(3px);
-    }
 
 
     /* ============================================
@@ -1577,7 +1460,11 @@
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(2, 1fr);
         gap: 0.8rem;
-        padding: 0.8rem 0;
+        padding: 0.8rem 1rem 0.8rem 0;
+      }
+
+      .products-track::-webkit-scrollbar {
+        width: 8px;
       }
 
       .product-card {
@@ -1608,15 +1495,6 @@
         padding: 0.25rem 0.6rem;
         top: 0.4rem;
         left: 0.4rem;
-      }
-
-      .scroll-controls {
-        padding: 0.4rem 0 0.8rem;
-      }
-
-      .scroll-btn {
-        width: 34px;
-        height: 34px;
       }
 
       .whatsapp-float {
@@ -1748,22 +1626,12 @@
         padding: 0.8rem;
       }
 
-      .back-btn {
-        padding: 0.6rem 1rem;
-        font-size: 0.8rem;
-      }
-
       .products-section {
         padding-top: 75px;
       }
 
       .products-title h2 {
         font-size: 1.1rem;
-      }
-
-      .back-btn {
-        padding: 0.5rem 0.8rem;
-        font-size: 0.7rem;
       }
 
       .filter-btn {
@@ -1775,6 +1643,11 @@
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(2, 1fr);
         gap: 0.6rem;
+        padding: 0.6rem 0.8rem 0.6rem 0;
+      }
+
+      .products-track::-webkit-scrollbar {
+        width: 6px;
       }
 
       .product-card {
@@ -1827,20 +1700,6 @@
       .btn-product {
         padding: 0.4rem 0.7rem;
         font-size: 0.6rem;
-      }
-
-      .scroll-controls {
-        padding: 0.3rem 0 0.5rem;
-      }
-
-      .scroll-btn {
-        width: 30px;
-        height: 30px;
-      }
-
-      .scroll-btn svg {
-        width: 14px;
-        height: 14px;
       }
 
       .whatsapp-float {
@@ -1954,10 +1813,6 @@
     <section class="products-section">
       <div class="products-header">
         <div class="products-header-left">
-          <button class="back-btn" id="backBtn">
-            <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Volver
-          </button>
           <!-- Category Filters in header -->
           <div class="category-filters">
             <button class="filter-btn active" data-filter="all">Todos</button>
@@ -2111,21 +1966,6 @@
         </div>
       </div>
 
-      <!-- Scroll Controls -->
-      <div class="scroll-controls">
-        <button class="scroll-btn scroll-prev" id="scrollPrev">
-          <svg viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        
-        <div class="scroll-progress" id="scrollProgress">
-          <span class="scroll-dot active"></span>
-          <span class="scroll-dot"></span>
-        </div>
-        
-        <button class="scroll-btn scroll-next" id="scrollNext">
-          <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-      </div>
     </section>
   </div>
 
@@ -2152,7 +1992,6 @@
     // Slide navigation
     const slideContainer = document.getElementById('slideContainer');
     const showProductsBtn = document.getElementById('showProductsBtn');
-    const backBtn = document.getElementById('backBtn');
     const logoLink = document.getElementById('logo-link');
 
     const productsSection = document.querySelector('.products-section');
@@ -2171,23 +2010,9 @@
     }
 
     showProductsBtn.addEventListener('click', showProducts);
-    backBtn.addEventListener('click', showHero);
     logoLink.addEventListener('click', (e) => {
       e.preventDefault();
       showHero();
-    });
-
-    // Product scroll controls - Vertical
-    const productsTrack = document.getElementById('productsTrack');
-    const scrollPrev = document.getElementById('scrollPrev');
-    const scrollNext = document.getElementById('scrollNext');
-
-    scrollPrev.addEventListener('click', () => {
-      productsTrack.scrollBy({ top: -300, behavior: 'smooth' });
-    });
-
-    scrollNext.addEventListener('click', () => {
-      productsTrack.scrollBy({ top: 300, behavior: 'smooth' });
     });
 
     // Category filters
@@ -2218,22 +2043,6 @@
         showHero();
       }
     });
-
-    // Scroll progress indicator - Vertical
-    const scrollDots = document.querySelectorAll('.scroll-dot');
-    
-    function updateScrollProgress() {
-      const scrollTop = productsTrack.scrollTop;
-      const maxScroll = productsTrack.scrollHeight - productsTrack.clientHeight;
-      const progress = maxScroll > 0 ? scrollTop / maxScroll : 0;
-      const activeIndex = Math.min(Math.floor(progress * scrollDots.length), scrollDots.length - 1);
-      
-      scrollDots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === activeIndex);
-      });
-    }
-
-    productsTrack.addEventListener('scroll', updateScrollProgress);
 
     // Add magnetic hover effect to product cards
     productCards.forEach(card => {
