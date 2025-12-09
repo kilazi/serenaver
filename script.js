@@ -43,65 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   
   /* ============================================
-     CUSTOM CURSOR - Active Halo Effect
-  ============================================ */
-  const cursor = document.querySelector('.custom-cursor');
-  const cursorTrail = document.querySelector('.cursor-trail');
-  
-  let mouseX = 0, mouseY = 0;
-  let cursorX = 0, cursorY = 0;
-  let trailX = 0, trailY = 0;
-  
-  // Track mouse position
-  document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-  });
-  
-  // Smooth cursor animation with lag effect
-  function animateCursor() {
-    // Main cursor with slight lag
-    const lagFactor = 0.15;
-    cursorX += (mouseX - cursorX) * lagFactor;
-    cursorY += (mouseY - cursorY) * lagFactor;
-    cursor.style.left = cursorX + 'px';
-    cursor.style.top = cursorY + 'px';
-    
-    // Trail with more lag
-    const trailLag = 0.08;
-    trailX += (mouseX - trailX) * trailLag;
-    trailY += (mouseY - trailY) * trailLag;
-    cursorTrail.style.left = trailX + 'px';
-    cursorTrail.style.top = trailY + 'px';
-    
-    requestAnimationFrame(animateCursor);
-  }
-  animateCursor();
-  
-  // Hover state for interactive elements
-  const interactiveElements = document.querySelectorAll('a, button, .product-card, .benefit-card, .filter-btn, .testimonial-dot');
-  
-  interactiveElements.forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      cursor.classList.add('hover');
-    });
-    el.addEventListener('mouseleave', () => {
-      cursor.classList.remove('hover');
-    });
-  });
-  
-  // Hide cursor when leaving window
-  document.addEventListener('mouseleave', () => {
-    cursor.style.opacity = '0';
-    cursorTrail.style.opacity = '0';
-  });
-  
-  document.addEventListener('mouseenter', () => {
-    cursor.style.opacity = '1';
-    cursorTrail.style.opacity = '0.5';
-  });
-  
-  /* ============================================
      NAVBAR - Scroll Effect & Sticky Header
   ============================================ */
   const navbar = document.querySelector('.navbar');

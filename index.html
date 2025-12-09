@@ -47,53 +47,6 @@
       background: var(--color-white);
       font-family: var(--font-body);
       color: var(--color-charcoal);
-      cursor: none;
-    }
-
-    /* Hide default cursor on desktop */
-    @media (min-width: 769px) {
-      * {
-        cursor: none !important;
-      }
-    }
-
-    /* ============================================
-       CUSTOM CURSOR - Active Halo
-    ============================================ */
-    .custom-cursor {
-      position: fixed;
-      width: 32px;
-      height: 32px;
-      border: 2px solid var(--color-primary);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 99999;
-      transform: translate(-50%, -50%);
-      transition: width 0.3s var(--ease-out-expo), 
-                  height 0.3s var(--ease-out-expo),
-                  background 0.3s ease,
-                  border-width 0.3s ease;
-      mix-blend-mode: exclusion;
-    }
-
-    .custom-cursor.hover {
-      width: 56px;
-      height: 56px;
-      background: var(--color-primary-light);
-      border-width: 0;
-      mix-blend-mode: normal;
-    }
-
-    .cursor-trail {
-      position: fixed;
-      width: 8px;
-      height: 8px;
-      background: var(--color-primary);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 99998;
-      transform: translate(-50%, -50%);
-      opacity: 0.5;
     }
 
     /* ============================================
@@ -1266,10 +1219,6 @@
         cursor: auto;
       }
 
-      .custom-cursor,
-      .cursor-trail {
-        display: none;
-      }
 
       .navbar {
         padding: 1rem 4%;
@@ -1702,9 +1651,7 @@
     /* Print styles */
     @media print {
       .navbar,
-      .whatsapp-float,
-      .custom-cursor,
-      .cursor-trail {
+      .whatsapp-float {
         display: none !important;
       }
 
@@ -1717,10 +1664,6 @@
 </head>
 
 <body>
-
-  <!-- Custom Cursor -->
-  <div class="custom-cursor"></div>
-  <div class="cursor-trail"></div>
 
   <!-- Navigation -->
   <nav class="navbar">
