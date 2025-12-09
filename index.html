@@ -3,33 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Serena Vet | Nutrición Premium para Mascotas</title>
+  <title>Serena Vet | Salud Holística para tu Mascota</title>
   
-  <!-- Google Fonts - Bold Modern Typography -->
+  <!-- Google Fonts - Varela Round + Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;400;500;600;700;1,9..40,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Varela+Round&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      /* Light fresh palette */
+      /* Brand Colors */
+      --color-primary: #68BB59;
+      --color-primary-light: #D9EED5;
+      --color-primary-dark: #4A9941;
       --color-white: #FFFFFF;
-      --color-light-bg: #F8FDFB;
-      --color-dark: #1A1A1A;
-      --color-dark-soft: #2A2A2A;
-      --color-accent: #7FD87F;
-      --color-accent-soft: #A8E6A8;
-      --color-accent-dark: #5CB85C;
-      --color-teal: #00B4A0;
-      --color-teal-dark: #008B7A;
-      --color-teal-light: #33C4B3;
-      --color-purple: #8B5CF6;
-      --color-purple-light: #A78BFA;
+      --color-charcoal: #1C1C1C;
       --color-gray: #6B7280;
-      --color-light-gray: #E5E7EB;
-      --color-border: #E0E0E0;
-      --font-display: 'Syne', sans-serif;
-      --font-body: 'DM Sans', sans-serif;
+      --color-light-gray: #F5F5F5;
+      --color-border: #E5E7EB;
+      --color-whatsapp: #25D366;
+      
+      /* Typography */
+      --font-display: 'Varela Round', sans-serif;
+      --font-body: 'Inter', sans-serif;
       
       /* Smooth easing */
       --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -43,46 +39,65 @@
     }
 
     html {
-      scroll-behavior: auto; /* We'll use GSAP for smooth scroll */
+      scroll-behavior: smooth;
     }
 
     body {
       overflow-x: hidden;
       background: var(--color-white);
       font-family: var(--font-body);
-      color: var(--color-dark);
-      cursor: default;
+      color: var(--color-charcoal);
+      cursor: none;
     }
 
-    /* Custom cursor glow effect */
-    .cursor-glow {
-      position: fixed;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(127, 216, 127, 0.12) 0%, transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      transition: opacity 0.3s ease;
-      mix-blend-mode: multiply;
-    }
-
-    /* Smooth page transitions */
-    .page-transition {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: var(--color-accent);
-      z-index: 10000;
-      transform: scaleY(0);
-      transform-origin: bottom;
+    /* Hide default cursor on desktop */
+    @media (min-width: 769px) {
+      * {
+        cursor: none !important;
+      }
     }
 
     /* ============================================
-       NAVIGATION - Glassmorphism Dark
+       CUSTOM CURSOR - Active Halo
+    ============================================ */
+    .custom-cursor {
+      position: fixed;
+      width: 32px;
+      height: 32px;
+      border: 2px solid var(--color-primary);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99999;
+      transform: translate(-50%, -50%);
+      transition: width 0.3s var(--ease-out-expo), 
+                  height 0.3s var(--ease-out-expo),
+                  background 0.3s ease,
+                  border-width 0.3s ease;
+      mix-blend-mode: exclusion;
+    }
+
+    .custom-cursor.hover {
+      width: 56px;
+      height: 56px;
+      background: var(--color-primary-light);
+      border-width: 0;
+      mix-blend-mode: normal;
+    }
+
+    .cursor-trail {
+      position: fixed;
+      width: 8px;
+      height: 8px;
+      background: var(--color-primary);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99998;
+      transform: translate(-50%, -50%);
+      opacity: 0.5;
+    }
+
+    /* ============================================
+       NAVIGATION - Minimalist Sticky Header
     ============================================ */
     .navbar {
       position: fixed;
@@ -90,245 +105,279 @@
       left: 0;
       right: 0;
       z-index: 1000;
-      padding: 1.5rem 4rem;
+      padding: 2rem 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      transition: all 0.6s var(--ease-out-expo);
+      transition: all 0.5s var(--ease-out-expo);
     }
 
     .navbar.scrolled {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(30px) saturate(180%);
-      -webkit-backdrop-filter: blur(30px) saturate(180%);
-      padding: 1rem 4rem;
-      border-bottom: 1px solid var(--color-border);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 1rem 5%;
+      box-shadow: 0 2px 30px rgba(0, 0, 0, 0.06);
     }
 
     .logo {
       font-family: var(--font-display);
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--color-dark);
+      font-size: 1.6rem;
+      color: var(--color-charcoal);
       text-decoration: none;
-      letter-spacing: -0.03em;
-      transition: all 0.4s var(--ease-out-expo);
-      position: relative;
+      letter-spacing: -0.02em;
+      transition: transform 0.3s var(--ease-out-expo);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
     .logo:hover {
       transform: scale(1.02);
     }
 
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--color-primary);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-icon svg {
+      width: 22px;
+      height: 22px;
+      fill: white;
+    }
+
     .logo span {
-      color: var(--color-accent);
-      position: relative;
-    }
-
-    .logo span::after {
-      content: '';
-      position: absolute;
-      bottom: 2px;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: var(--color-accent);
-      transform: scaleX(0);
-      transition: transform 0.4s var(--ease-out-expo);
-    }
-
-    .logo:hover span::after {
-      transform: scaleX(1);
+      color: var(--color-primary);
     }
 
     .nav-links {
       display: flex;
       gap: 3rem;
       list-style: none;
+      align-items: center;
     }
 
     .nav-links a {
       font-family: var(--font-body);
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       font-weight: 500;
       color: var(--color-gray);
       text-decoration: none;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
       position: relative;
       padding: 0.5rem 0;
       transition: color 0.3s ease;
     }
 
     .nav-links a:hover {
-      color: var(--color-dark);
+      color: var(--color-charcoal);
     }
 
-    .nav-links a::before {
+    .nav-links a::after {
       content: '';
       position: absolute;
       bottom: 0;
       left: 0;
       width: 100%;
       height: 2px;
-      background: linear-gradient(90deg, var(--color-accent), var(--color-teal));
+      background: var(--color-primary);
       transform: scaleX(0);
       transform-origin: right;
-      transition: transform 0.5s var(--ease-out-expo);
+      transition: transform 0.4s var(--ease-out-expo);
     }
 
-    .nav-links a:hover::before {
+    .nav-links a:hover::after {
       transform: scaleX(1);
       transform-origin: left;
     }
 
     .nav-cta {
-      background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-soft) 100%);
+      background: var(--color-primary) !important;
       color: white !important;
       padding: 0.9rem 1.8rem !important;
-      border-radius: 100px;
-      transition: all 0.4s var(--ease-out-expo) !important;
+      border-radius: 50px;
       font-weight: 600 !important;
-      box-shadow: 0 4px 20px rgba(127, 216, 127, 0.3);
+      transition: all 0.4s var(--ease-out-expo) !important;
+      box-shadow: 0 4px 20px rgba(104, 187, 89, 0.3);
     }
 
-    .nav-cta::before {
+    .nav-cta::after {
       display: none !important;
     }
 
     .nav-cta:hover {
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 8px 40px rgba(127, 216, 127, 0.4);
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 8px 30px rgba(104, 187, 89, 0.4);
     }
 
     /* Mobile Menu */
     .hamburger {
       display: none;
       flex-direction: column;
-      gap: 6px;
+      gap: 5px;
       cursor: pointer;
       z-index: 1001;
       padding: 10px;
     }
 
     .hamburger span {
-      width: 28px;
+      width: 26px;
       height: 2px;
-      background: var(--color-dark);
+      background: var(--color-charcoal);
       transition: all 0.4s var(--ease-out-expo);
       border-radius: 2px;
     }
 
     /* ============================================
-       HERO SECTION - FLOATING ANIMATION
+       HERO SECTION - Impressive Welcome
     ============================================ */
-    .scroll-container {
+    .hero-section {
+      min-height: 100vh;
       position: relative;
-    }
-
-    .g-container {
-      width: 100vw;
-      height: 100vh;
-      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       overflow: hidden;
-      background: linear-gradient(180deg, #FFFFFF 0%, var(--color-light-bg) 100%);
+      background: linear-gradient(180deg, var(--color-white) 0%, #F8FBF7 100%);
     }
 
-    .g-container::before {
-      content: '';
+    .hero-background {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .hero-bg-gradient {
       position: absolute;
       top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: 
-        radial-gradient(circle at 20% 80%, rgba(127, 216, 127, 0.1) 0%, transparent 40%),
-        radial-gradient(circle at 80% 20%, rgba(0, 180, 160, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 40% 40%, rgba(139, 92, 246, 0.06) 0%, transparent 50%);
-      animation: gradientMove 20s ease infinite;
-      pointer-events: none;
+      right: -30%;
+      width: 100%;
+      height: 150%;
+      background: radial-gradient(circle, rgba(104, 187, 89, 0.08) 0%, transparent 60%);
+      animation: gradientFloat 20s ease infinite;
     }
 
-    @keyframes gradientMove {
-      0%, 100% { transform: translate(0, 0) rotate(0deg); }
-      25% { transform: translate(2%, 2%) rotate(1deg); }
-      50% { transform: translate(-1%, 3%) rotate(-1deg); }
-      75% { transform: translate(3%, -2%) rotate(2deg); }
+    @keyframes gradientFloat {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-5%, 5%) scale(1.1); }
     }
 
-    .floating {
+    .hero-floating-images {
       position: absolute;
-      object-fit: contain;
-      pointer-events: none;
-      will-change: transform;
-      transform: translate3d(0, 0, 0);
-      backface-visibility: hidden;
-      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+      inset: 0;
+      z-index: 2;
+    }
+
+    .floating-img {
+      position: absolute;
       border-radius: 20px;
+      object-fit: contain;
+      filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.12));
+      transition: transform 0.6s var(--ease-out-expo);
+      will-change: transform;
     }
 
-    /* Hero Content Overlay */
-    .hero-overlay {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+    .floating-img:nth-child(1) { top: 8%; left: 5%; width: 180px; animation: float1 8s ease-in-out infinite; }
+    .floating-img:nth-child(2) { top: 15%; right: 8%; width: 160px; animation: float2 10s ease-in-out infinite; }
+    .floating-img:nth-child(3) { top: 50%; left: 3%; width: 140px; animation: float3 9s ease-in-out infinite; }
+    .floating-img:nth-child(4) { top: 60%; right: 5%; width: 170px; animation: float1 11s ease-in-out infinite; }
+    .floating-img:nth-child(5) { bottom: 15%; left: 10%; width: 130px; animation: float2 8s ease-in-out infinite; }
+    .floating-img:nth-child(6) { bottom: 20%; right: 12%; width: 150px; animation: float3 10s ease-in-out infinite; }
+    .floating-img:nth-child(7) { bottom: 8%; left: 40%; width: 120px; animation: float1 9s ease-in-out infinite; }
+
+    @keyframes float1 {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(3deg); }
+    }
+
+    @keyframes float2 {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(-2deg); }
+    }
+
+    @keyframes float3 {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-25px) rotate(2deg); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
       text-align: center;
-      z-index: 50;
-      pointer-events: none;
-      width: 90%;
-      max-width: 1000px;
+      max-width: 900px;
+      padding: 0 2rem;
+      transform-origin: center center;
+      transition: all 0.6s var(--ease-out-expo);
     }
 
-    .hero-overlay h1 {
+    .hero-content h1 {
       font-family: var(--font-display);
-      font-size: clamp(3.5rem, 10vw, 9rem);
-      font-weight: 800;
-      color: var(--color-dark);
-      line-height: 0.95;
+      font-size: clamp(2.5rem, 6vw, 4.2rem);
+      color: var(--color-charcoal);
+      line-height: 1.15;
       margin-bottom: 1.5rem;
       opacity: 0;
-      animation: heroReveal 1.2s var(--ease-out-expo) 0.3s forwards;
-      letter-spacing: -0.04em;
-      text-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transform: translateY(40px);
+      animation: heroReveal 1s var(--ease-out-expo) 0.3s forwards;
     }
 
-    .hero-overlay h1 span {
-      background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-teal) 50%, var(--color-accent) 100%);
-      background-size: 200% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: heroReveal 1.2s var(--ease-out-expo) 0.3s forwards, gradientShift 4s ease infinite;
+    .hero-content h1 span {
+      color: var(--color-primary);
+      position: relative;
     }
 
-    @keyframes gradientShift {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
-
-    .hero-overlay p {
+    .hero-content p {
       font-family: var(--font-body);
-      font-size: clamp(1rem, 2vw, 1.4rem);
+      font-size: clamp(1rem, 2vw, 1.25rem);
       color: var(--color-gray);
       font-weight: 400;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
       opacity: 0;
-      animation: heroReveal 1.2s var(--ease-out-expo) 0.6s forwards;
+      transform: translateY(30px);
+      animation: heroReveal 1s var(--ease-out-expo) 0.5s forwards;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      background: var(--color-primary);
+      color: white;
+      text-decoration: none;
+      padding: 1.1rem 2.5rem;
+      border-radius: 50px;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.4s var(--ease-out-expo);
+      box-shadow: 0 8px 30px rgba(104, 187, 89, 0.35);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: heroReveal 1s var(--ease-out-expo) 0.7s forwards;
+    }
+
+    .hero-cta:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 15px 40px rgba(104, 187, 89, 0.4);
+    }
+
+    .hero-cta svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
     }
 
     @keyframes heroReveal {
-      from { 
-        opacity: 0; 
-        transform: translateY(60px);
-        filter: blur(10px);
-      }
-      to { 
-        opacity: 1; 
+      to {
+        opacity: 1;
         transform: translateY(0);
-        filter: blur(0);
       }
     }
 
@@ -340,436 +389,298 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1rem;
+      gap: 0.8rem;
+      z-index: 20;
       opacity: 0;
-      animation: heroReveal 1s var(--ease-out-expo) 1.2s forwards;
+      animation: heroReveal 1s var(--ease-out-expo) 1s forwards;
     }
 
     .scroll-indicator span {
-      font-size: 0.7rem;
-      letter-spacing: 0.25em;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--color-gray);
       font-weight: 500;
     }
 
-    .scroll-indicator .mouse {
-      width: 26px;
-      height: 44px;
+    .scroll-mouse {
+      width: 24px;
+      height: 40px;
       border: 2px solid var(--color-gray);
-      border-radius: 14px;
+      border-radius: 12px;
       position: relative;
-      transition: border-color 0.3s ease;
     }
 
-    .scroll-indicator:hover .mouse {
-      border-color: var(--color-accent);
-    }
-
-    .scroll-indicator .mouse::before {
+    .scroll-mouse::before {
       content: '';
       position: absolute;
-      top: 8px;
+      top: 6px;
       left: 50%;
       transform: translateX(-50%);
       width: 4px;
-      height: 10px;
-      background: var(--color-accent);
+      height: 8px;
+      background: var(--color-primary);
       border-radius: 2px;
-      animation: scrollMouse 2s var(--ease-out-expo) infinite;
+      animation: scrollBounce 2s ease infinite;
     }
 
-    @keyframes scrollMouse {
+    @keyframes scrollBounce {
       0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
-      50% { transform: translateX(-50%) translateY(14px); opacity: 0; }
+      50% { transform: translateX(-50%) translateY(12px); opacity: 0; }
     }
 
     /* ============================================
-       FEATURES SECTION - MARQUEE STYLE
+       CONTENT GLIDE ANIMATION
     ============================================ */
-    .features-section {
-      background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-soft) 50%, var(--color-teal) 100%);
-      padding: 1.8rem 0;
-      overflow: hidden;
-      position: relative;
-      z-index: 100;
-    }
-
-    .features-marquee {
-      display: flex;
-      animation: marquee 20s linear infinite;
-    }
-
-    .features-marquee:hover {
-      animation-play-state: paused;
-    }
-
-    .feature-item {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 0 3rem;
-      white-space: nowrap;
-      color: white;
-    }
-
-    .feature-item svg {
-      width: 28px;
-      height: 28px;
-      stroke: white;
-      fill: none;
-      stroke-width: 2;
-    }
-
-    .feature-item span {
-      font-family: var(--font-display);
-      font-size: 0.95rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    .feature-divider {
-      color: rgba(255, 255, 255, 0.5);
-      font-size: 1.2rem;
-      padding: 0 1.5rem;
-    }
-
-    @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    /* ============================================
-       VITAMINS SECTION
-    ============================================ */
-    .vitamins-section {
-      padding: 10rem 5%;
-      background: var(--color-light-bg);
-      position: relative;
-      z-index: 100;
-      overflow: hidden;
-    }
-
-    .vitamins-section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: 
-        radial-gradient(circle at 10% 20%, rgba(127, 216, 127, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 90% 80%, rgba(0, 180, 160, 0.06) 0%, transparent 50%);
-      pointer-events: none;
-    }
-
-    .vitamins-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      max-width: 1400px;
-      margin: 0 auto;
-      align-items: center;
-    }
-
-    .vitamins-content {
+    .content-glide {
       opacity: 0;
-      transform: translateY(80px);
+      transform: translateY(30px);
+      transition: opacity 0.4s ease-out, transform 0.4s ease-out;
     }
 
-    .vitamins-content.visible {
+    .content-glide.visible {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    /* ============================================
+       SECTION - EL PORQUÉ (Benefits)
+    ============================================ */
+    .benefits-section {
+      padding: 8rem 5%;
+      background: var(--color-white);
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 5rem;
     }
 
     .section-tag {
       font-family: var(--font-body);
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       font-weight: 600;
-      letter-spacing: 0.25em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--color-accent);
-      margin-bottom: 1.5rem;
+      color: var(--color-primary);
+      margin-bottom: 1rem;
       display: inline-flex;
       align-items: center;
-      gap: 0.8rem;
+      gap: 0.5rem;
     }
 
-    .section-tag::before {
+    .section-tag::before,
+    .section-tag::after {
       content: '';
-      width: 40px;
+      width: 30px;
       height: 2px;
-      background: var(--color-accent);
+      background: var(--color-primary);
+      opacity: 0.5;
     }
 
-    .vitamins-content h2 {
+    .section-header h2 {
       font-family: var(--font-display);
-      font-size: clamp(2.5rem, 5vw, 4.5rem);
-      font-weight: 700;
-      line-height: 1.05;
-      color: var(--color-dark);
-      margin-bottom: 2rem;
-      letter-spacing: -0.03em;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--color-charcoal);
+      margin-bottom: 1rem;
     }
 
-    .vitamins-content h2 span {
-      background: linear-gradient(135deg, var(--color-accent-dark) 0%, var(--color-teal) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .vitamins-content p {
+    .section-header p {
       font-size: 1.1rem;
-      line-height: 1.9;
       color: var(--color-gray);
-      margin-bottom: 2rem;
-      font-weight: 400;
+      line-height: 1.7;
     }
 
-    .benefits-list {
+    .benefits-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.2rem;
-      list-style: none;
-      margin-top: 2.5rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
-    .benefits-list li {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      font-weight: 500;
-      color: var(--color-dark);
-      font-size: 0.95rem;
-      padding: 0.8rem 1.2rem;
-      background: rgba(127, 216, 127, 0.08);
-      border-radius: 12px;
-      border: 1px solid rgba(127, 216, 127, 0.2);
+    .benefit-card {
+      text-align: center;
+      padding: 3rem 2rem;
+      background: var(--color-white);
+      border-radius: 24px;
+      border: 1px solid var(--color-border);
       transition: all 0.4s var(--ease-out-expo);
     }
 
-    .benefits-list li:hover {
-      background: rgba(127, 216, 127, 0.15);
-      border-color: var(--color-accent);
-      transform: translateX(8px);
-      box-shadow: 0 4px 15px rgba(127, 216, 127, 0.2);
+    .benefit-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(104, 187, 89, 0.12);
+      border-color: var(--color-primary-light);
     }
 
-    .benefits-list li::before {
-      content: '✓';
-      width: 24px;
-      height: 24px;
-      background: linear-gradient(135deg, var(--color-accent), var(--color-teal));
-      border-radius: 50%;
+    .benefit-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1.5rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.75rem;
-      color: white;
-      flex-shrink: 0;
+      background: var(--color-primary-light);
+      border-radius: 20px;
+      transition: all 0.4s var(--ease-out-expo);
     }
 
-    .vitamins-visual {
-      position: relative;
-      height: 600px;
-      opacity: 0;
-      transform: translateY(80px);
+    .benefit-card:hover .benefit-icon {
+      transform: scale(1.1) rotate(5deg);
+      background: var(--color-primary);
     }
 
-    .vitamins-visual.visible {
-      opacity: 1;
-      transform: translateY(0);
+    .benefit-icon svg {
+      width: 40px;
+      height: 40px;
+      stroke: var(--color-primary);
+      stroke-width: 1.5;
+      fill: none;
+      transition: stroke 0.4s ease;
     }
 
-    .vitamin-card {
-      position: absolute;
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-radius: 24px;
-      padding: 2rem;
-      border: 1px solid var(--color-border);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-      transition: all 0.6s var(--ease-out-expo);
+    .benefit-card:hover .benefit-icon svg {
+      stroke: white;
     }
 
-    .vitamin-card:hover {
-      transform: translateY(-15px) rotate(0deg) scale(1.02) !important;
-      box-shadow: 0 25px 60px rgba(127, 216, 127, 0.2);
-      border-color: var(--color-accent);
-    }
-
-    .vitamin-card.card-1 {
-      top: 0;
-      left: 10%;
-      transform: rotate(-5deg);
-      z-index: 3;
-    }
-
-    .vitamin-card.card-2 {
-      top: 30%;
-      right: 0;
-      transform: rotate(3deg);
-      z-index: 2;
-    }
-
-    .vitamin-card.card-3 {
-      bottom: 10%;
-      left: 5%;
-      transform: rotate(2deg);
-      z-index: 1;
-    }
-
-    .vitamin-card img {
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 16px;
-      margin-bottom: 1rem;
-      border: 2px solid var(--color-light-gray);
-    }
-
-    .vitamin-card h4 {
+    .benefit-card h3 {
       font-family: var(--font-display);
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: var(--color-dark);
-      margin-bottom: 0.3rem;
+      font-size: 1.4rem;
+      color: var(--color-charcoal);
+      margin-bottom: 0.8rem;
     }
 
-    .vitamin-card p {
-      font-size: 0.85rem;
+    .benefit-card p {
+      font-size: 0.95rem;
       color: var(--color-gray);
+      line-height: 1.7;
     }
 
     /* ============================================
-       PRODUCTS SECTION
+       SECTION - PRODUCTOS (Horizontal Scroll)
     ============================================ */
     .products-section {
-      padding: 10rem 0;
-      background: var(--color-white);
+      padding: 8rem 0;
+      background: linear-gradient(180deg, #F8FBF7 0%, var(--color-white) 100%);
       position: relative;
-      z-index: 100;
       overflow: hidden;
-    }
-
-    .products-section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: 
-        radial-gradient(circle at 80% 20%, rgba(127, 216, 127, 0.05) 0%, transparent 40%),
-        radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 40%);
-      pointer-events: none;
     }
 
     .products-header {
       text-align: center;
-      max-width: 800px;
-      margin: 0 auto 5rem;
       padding: 0 5%;
+      margin-bottom: 4rem;
     }
 
     .products-header h2 {
       font-family: var(--font-display);
-      font-size: clamp(2.5rem, 5vw, 4.5rem);
-      font-weight: 700;
-      color: var(--color-dark);
-      margin-bottom: 1.5rem;
-      letter-spacing: -0.03em;
-    }
-
-    .products-header h2 span {
-      background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-teal) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--color-charcoal);
+      margin-bottom: 1rem;
     }
 
     .products-header p {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       color: var(--color-gray);
-      font-weight: 400;
     }
 
-    /* Carousel Container */
-    .carousel-container {
+    /* Category Filters */
+    .category-filters {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+      padding: 0 5%;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 0.7rem 1.5rem;
+      border: 2px solid var(--color-border);
+      border-radius: 50px;
+      background: transparent;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--color-gray);
+      cursor: pointer;
+      transition: all 0.3s var(--ease-out-expo);
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: white;
+    }
+
+    /* Horizontal Scroll Container */
+    .products-scroll-container {
       position: relative;
-      max-width: 100%;
       padding: 0 5%;
     }
 
-    .carousel-wrapper {
-      overflow: hidden;
+    .products-scroll-wrapper {
+      overflow-x: auto;
+      overflow-y: visible;
       padding: 2rem 0;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
     }
 
-    .carousel-track {
+    .products-scroll-wrapper::-webkit-scrollbar {
+      display: none;
+    }
+
+    .products-track {
       display: flex;
       gap: 2rem;
-      transition: transform 0.8s var(--ease-out-expo);
-      padding: 1rem;
+      padding-right: 5%;
     }
 
     .product-card {
-      flex: 0 0 calc(33.333% - 1.5rem);
+      flex: 0 0 320px;
       background: var(--color-white);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-radius: 28px;
+      border-radius: 24px;
       overflow: hidden;
       border: 1px solid var(--color-border);
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-      transition: all 0.6s var(--ease-out-expo);
-      position: relative;
-    }
-
-    .product-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(127, 216, 127, 0.08), transparent 60%);
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      pointer-events: none;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      transition: all 0.5s var(--ease-out-expo);
+      transform-style: preserve-3d;
+      perspective: 1000px;
     }
 
     .product-card:hover {
-      transform: translateY(-20px) scale(1.02);
-      box-shadow: 0 25px 60px rgba(127, 216, 127, 0.2);
-      border-color: var(--color-accent);
+      transform: translateY(-15px) rotateX(2deg) rotateY(-1deg);
+      box-shadow: 0 30px 60px rgba(104, 187, 89, 0.15);
+      border-color: var(--color-primary-light);
     }
 
-    .product-card:hover::before {
-      opacity: 1;
+    .product-card.filtered-out {
+      opacity: 0.2;
+      transform: scale(0.95);
+      pointer-events: none;
     }
 
     .product-badge {
       position: absolute;
-      top: 1.5rem;
-      left: 1.5rem;
-      background: linear-gradient(135deg, var(--color-accent), var(--color-accent-soft));
+      top: 1rem;
+      left: 1rem;
+      background: var(--color-primary);
       color: white;
-      padding: 0.5rem 1.2rem;
-      border-radius: 100px;
-      font-family: var(--font-body);
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 600;
       z-index: 2;
-      box-shadow: 0 4px 15px rgba(127, 216, 127, 0.3);
     }
 
     .product-image {
-      width: 100%;
-      height: 280px;
-      background: linear-gradient(180deg, var(--color-light-bg), transparent);
+      height: 220px;
+      background: linear-gradient(180deg, var(--color-primary-light) 0%, rgba(217, 238, 213, 0.3) 100%);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -778,45 +689,42 @@
     }
 
     .product-image img {
-      width: 75%;
-      height: 75%;
+      max-width: 70%;
+      max-height: 80%;
       object-fit: contain;
-      transition: all 0.6s var(--ease-out-expo);
-      filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.15));
+      transition: transform 0.5s var(--ease-out-expo);
+      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
     }
 
     .product-card:hover .product-image img {
-      transform: scale(1.15) translateY(-10px);
+      transform: scale(1.15) translateY(-5px);
     }
 
     .product-info {
-      padding: 2rem;
+      padding: 1.5rem;
     }
 
     .product-category {
-      font-size: 0.7rem;
-      color: var(--color-accent);
+      font-size: 0.75rem;
+      color: var(--color-primary);
       text-transform: uppercase;
-      letter-spacing: 0.15em;
-      margin-bottom: 0.8rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
       font-weight: 600;
     }
 
     .product-info h3 {
       font-family: var(--font-display);
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: var(--color-dark);
-      margin-bottom: 0.8rem;
-      letter-spacing: -0.02em;
+      font-size: 1.2rem;
+      color: var(--color-charcoal);
+      margin-bottom: 0.5rem;
     }
 
     .product-info p {
       font-size: 0.9rem;
       color: var(--color-gray);
-      font-weight: 400;
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
+      line-height: 1.6;
+      margin-bottom: 1.2rem;
     }
 
     .product-footer {
@@ -827,128 +735,220 @@
 
     .product-price {
       font-family: var(--font-display);
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--color-dark);
+      font-size: 1.3rem;
+      color: var(--color-charcoal);
     }
 
     .product-price .original {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       color: var(--color-gray);
       text-decoration: line-through;
-      margin-left: 0.6rem;
-      font-weight: 400;
+      margin-left: 0.5rem;
     }
 
     .btn-product {
-      background: linear-gradient(135deg, var(--color-accent), var(--color-accent-soft));
+      background: var(--color-primary);
       color: white;
       border: none;
-      padding: 1rem 1.8rem;
-      border-radius: 100px;
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
       font-family: var(--font-body);
       font-size: 0.85rem;
       font-weight: 600;
-      letter-spacing: 0.03em;
       cursor: pointer;
-      transition: all 0.4s var(--ease-out-expo);
-      box-shadow: 0 4px 20px rgba(127, 216, 127, 0.3);
+      transition: all 0.3s var(--ease-out-expo);
     }
 
     .btn-product:hover {
-      transform: scale(1.08);
-      box-shadow: 0 8px 30px rgba(127, 216, 127, 0.4);
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(104, 187, 89, 0.3);
     }
 
-    /* Carousel Controls */
-    .carousel-controls {
+    /* Scroll Controls */
+    .scroll-controls {
       display: flex;
       justify-content: center;
-      align-items: center;
-      gap: 2rem;
-      margin-top: 4rem;
+      gap: 1rem;
+      margin-top: 3rem;
     }
 
-    .carousel-btn {
-      width: 60px;
-      height: 60px;
+    .scroll-btn {
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
-      background: transparent;
       border: 2px solid var(--color-border);
+      background: var(--color-white);
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: all 0.4s var(--ease-out-expo);
+      transition: all 0.3s var(--ease-out-expo);
     }
 
-    .carousel-btn:hover {
-      background: var(--color-accent);
-      border-color: var(--color-accent);
-      transform: scale(1.1);
-      box-shadow: 0 8px 30px rgba(127, 216, 127, 0.3);
+    .scroll-btn:hover {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
     }
 
-    .carousel-btn:hover svg {
-      stroke: white;
-    }
-
-    .carousel-btn svg {
-      width: 24px;
-      height: 24px;
-      stroke: var(--color-dark);
-      fill: none;
+    .scroll-btn svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--color-charcoal);
       stroke-width: 2;
+      fill: none;
       transition: stroke 0.3s ease;
     }
 
-    .carousel-dots {
-      display: flex;
-      gap: 0.6rem;
-    }
-
-    .carousel-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: var(--color-light-gray);
-      border: none;
-      cursor: pointer;
-      transition: all 0.4s var(--ease-out-expo);
-    }
-
-    .carousel-dot:hover {
-      background: var(--color-gray);
-    }
-
-    .carousel-dot.active {
-      background: var(--color-accent);
-      width: 36px;
-      border-radius: 6px;
-      box-shadow: 0 4px 15px rgba(127, 216, 127, 0.3);
+    .scroll-btn:hover svg {
+      stroke: white;
     }
 
     /* ============================================
-       CTA SECTION
+       SECTION - TESTIMONIOS
     ============================================ */
-    .cta-section {
-      padding: 10rem 5%;
-      background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-teal) 50%, var(--color-purple) 100%);
+    .testimonials-section {
+      padding: 8rem 5%;
+      background: var(--color-white);
       position: relative;
-      z-index: 100;
       overflow: hidden;
     }
 
-    .cta-section::before {
+    .testimonials-section::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: 
-        radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.2) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%);
+      background: radial-gradient(circle at 10% 50%, rgba(104, 187, 89, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .testimonials-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .testimonial-carousel {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .testimonial-track {
+      display: flex;
+      transition: transform 0.6s var(--ease-out-expo);
+    }
+
+    .testimonial-card {
+      flex: 0 0 100%;
+      padding: 3rem;
+      text-align: center;
+    }
+
+    .quote-mark {
+      font-size: 5rem;
+      color: var(--color-primary);
+      font-family: Georgia, serif;
+      line-height: 1;
+      margin-bottom: 1rem;
+      opacity: 0.3;
+    }
+
+    .testimonial-text {
+      font-family: var(--font-display);
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      color: var(--color-charcoal);
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .testimonial-text span {
+      color: var(--color-primary);
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .author-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--color-primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--color-primary);
+    }
+
+    .author-info h4 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--color-charcoal);
+      margin-bottom: 0.2rem;
+    }
+
+    .author-info p {
+      font-size: 0.9rem;
+      color: var(--color-gray);
+    }
+
+    .author-info .pet-name {
+      color: var(--color-primary);
+      font-weight: 500;
+    }
+
+    /* Testimonial Navigation */
+    .testimonial-nav {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 2rem;
+    }
+
+    .testimonial-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--color-border);
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .testimonial-dot.active {
+      background: var(--color-primary);
+      width: 30px;
+      border-radius: 5px;
+    }
+
+    /* ============================================
+       SECTION - CTA FINAL
+    ============================================ */
+    .cta-section {
+      padding: 10rem 5%;
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -100%;
+      right: -50%;
+      width: 100%;
+      height: 300%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
       pointer-events: none;
     }
 
@@ -956,16 +956,15 @@
       content: '';
       position: absolute;
       bottom: -50%;
-      right: -20%;
-      width: 600px;
-      height: 600px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 50%;
+      left: -30%;
+      width: 80%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
       pointer-events: none;
     }
 
     .cta-content {
-      max-width: 900px;
+      max-width: 800px;
       margin: 0 auto;
       text-align: center;
       position: relative;
@@ -974,96 +973,55 @@
 
     .cta-content h2 {
       font-family: var(--font-display);
-      font-size: clamp(2.5rem, 6vw, 5rem);
-      font-weight: 800;
+      font-size: clamp(2rem, 5vw, 3.2rem);
       color: white;
       margin-bottom: 1.5rem;
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-    }
-
-    .cta-content h2 span {
-      display: block;
-      font-weight: 400;
-      font-size: 0.7em;
-      opacity: 0.95;
+      line-height: 1.2;
     }
 
     .cta-content p {
-      font-size: 1.25rem;
-      color: rgba(255, 255, 255, 0.95);
-      font-weight: 400;
+      font-size: 1.15rem;
+      color: rgba(255, 255, 255, 0.9);
       margin-bottom: 3rem;
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
     }
 
-    .cta-buttons {
-      display: flex;
-      gap: 1.5rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
+    .cta-button {
       display: inline-flex;
       align-items: center;
       gap: 0.8rem;
       background: white;
-      color: var(--color-dark);
+      color: var(--color-primary);
       text-decoration: none;
-      padding: 1.3rem 2.8rem;
-      border-radius: 100px;
+      padding: 1.3rem 3rem;
+      border-radius: 50px;
       font-family: var(--font-body);
       font-weight: 700;
-      font-size: 1rem;
+      font-size: 1.1rem;
       transition: all 0.4s var(--ease-out-expo);
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
     }
 
-    .btn-primary:hover {
+    .cta-button:hover {
       transform: translateY(-5px) scale(1.02);
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
     }
 
-    .btn-primary svg {
-      width: 24px;
-      height: 24px;
-      fill: #25D366;
-    }
-
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.8rem;
-      background: transparent;
-      color: white;
-      text-decoration: none;
-      padding: 1.3rem 2.8rem;
-      border-radius: 100px;
-      font-family: var(--font-body);
-      font-weight: 600;
-      font-size: 1rem;
-      border: 2px solid rgba(255, 255, 255, 0.5);
-      transition: all 0.4s var(--ease-out-expo);
-    }
-
-    .btn-secondary:hover {
-      background: white;
-      color: var(--color-dark);
-      border-color: white;
-      transform: translateY(-5px);
+    .cta-button svg {
+      width: 26px;
+      height: 26px;
+      fill: var(--color-whatsapp);
     }
 
     /* ============================================
        FOOTER
     ============================================ */
     .footer {
-      background: var(--color-dark);
+      background: var(--color-charcoal);
       padding: 5rem 5% 2rem;
       position: relative;
-      z-index: 100;
     }
 
     .footer::before {
@@ -1072,41 +1030,35 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--color-accent), var(--color-teal), transparent);
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-primary-dark));
     }
 
     .footer-content {
       display: grid;
       grid-template-columns: 2fr 1fr 1fr 1fr;
       gap: 4rem;
-      max-width: 1400px;
+      max-width: 1200px;
       margin: 0 auto 4rem;
     }
 
     .footer-brand .logo {
       color: var(--color-white);
-      font-size: 2rem;
-      display: inline-block;
       margin-bottom: 1.5rem;
+      display: inline-flex;
     }
 
     .footer-brand p {
-      color: var(--color-light-gray);
-      font-weight: 400;
+      color: var(--color-gray);
       line-height: 1.8;
-      max-width: 320px;
-      font-size: 0.95rem;
+      max-width: 300px;
     }
 
     .footer-column h4 {
       font-family: var(--font-display);
       color: var(--color-white);
-      font-size: 0.85rem;
-      font-weight: 700;
+      font-size: 1rem;
       margin-bottom: 1.5rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
     }
 
     .footer-column ul {
@@ -1114,21 +1066,19 @@
     }
 
     .footer-column li {
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
     }
 
     .footer-column a {
-      color: var(--color-light-gray);
+      color: var(--color-gray);
       text-decoration: none;
-      transition: all 0.3s ease;
-      font-weight: 400;
       font-size: 0.95rem;
-      position: relative;
+      transition: all 0.3s ease;
     }
 
     .footer-column a:hover {
-      color: var(--color-accent);
-      padding-left: 8px;
+      color: var(--color-primary);
+      padding-left: 5px;
     }
 
     .footer-bottom {
@@ -1137,7 +1087,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 1400px;
+      max-width: 1200px;
       margin: 0 auto;
     }
 
@@ -1152,74 +1102,66 @@
     }
 
     .social-links a {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.1);
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.4s var(--ease-out-expo);
+      transition: all 0.3s var(--ease-out-expo);
     }
 
     .social-links a:hover {
-      background: var(--color-accent);
-      border-color: var(--color-accent);
-      transform: translateY(-4px);
-      box-shadow: 0 8px 25px rgba(127, 216, 127, 0.3);
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      transform: translateY(-3px);
     }
 
     .social-links svg {
       width: 18px;
       height: 18px;
       fill: var(--color-white);
-      transition: fill 0.3s ease;
     }
 
     /* ============================================
-       WHATSAPP FLOATING BUTTON
+       WHATSAPP FLOATING BUTTON - Heartbeat Pulse
     ============================================ */
     .whatsapp-float {
       position: fixed;
       bottom: 2rem;
       right: 2rem;
       z-index: 999;
-      width: 68px;
-      height: 68px;
-      background: linear-gradient(135deg, #25D366, #128C7E);
-      border-radius: 20px;
+      width: 60px;
+      height: 60px;
+      background: var(--color-whatsapp);
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
       transition: all 0.4s var(--ease-out-expo);
+      animation: heartbeat 2s ease-in-out infinite;
     }
 
-    .whatsapp-float::before {
-      content: '';
-      position: absolute;
-      inset: -3px;
-      border-radius: 23px;
-      background: linear-gradient(135deg, #25D366, transparent, #128C7E);
-      z-index: -1;
-      opacity: 0.5;
-      animation: whatsappGlow 3s ease infinite;
-    }
-
-    @keyframes whatsappGlow {
-      0%, 100% { opacity: 0.3; transform: scale(1); }
-      50% { opacity: 0.6; transform: scale(1.05); }
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      14% { transform: scale(1.08); }
+      28% { transform: scale(1); }
+      42% { transform: scale(1.08); }
+      70% { transform: scale(1); }
     }
 
     .whatsapp-float:hover {
-      transform: scale(1.1) rotate(-5deg);
-      box-shadow: 0 20px 50px rgba(37, 211, 102, 0.5);
+      transform: scale(1.1);
+      box-shadow: 0 12px 35px rgba(37, 211, 102, 0.5);
+      animation: none;
     }
 
     .whatsapp-float svg {
-      width: 32px;
-      height: 32px;
+      width: 30px;
+      height: 30px;
       fill: white;
     }
 
@@ -1227,18 +1169,9 @@
        RESPONSIVE DESIGN
     ============================================ */
     @media (max-width: 1024px) {
-      .vitamins-grid {
-        grid-template-columns: 1fr;
-        gap: 4rem;
-      }
-
-      .vitamins-visual {
-        height: 400px;
-        order: -1;
-      }
-
-      .product-card {
-        flex: 0 0 calc(50% - 1rem);
+      .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
       }
 
       .footer-content {
@@ -1247,8 +1180,17 @@
     }
 
     @media (max-width: 768px) {
+      body {
+        cursor: auto;
+      }
+
+      .custom-cursor,
+      .cursor-trail {
+        display: none;
+      }
+
       .navbar {
-        padding: 1rem 1.5rem;
+        padding: 1rem 5%;
       }
 
       .nav-links {
@@ -1261,9 +1203,9 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 2.5rem;
+        gap: 2rem;
         transform: translateX(100%);
-        transition: transform 0.6s var(--ease-out-expo);
+        transition: transform 0.5s var(--ease-out-expo);
       }
 
       .nav-links.active {
@@ -1271,31 +1213,32 @@
       }
 
       .nav-links a {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         font-family: var(--font-display);
-        font-weight: 600;
-        color: var(--color-dark);
       }
 
       .hamburger {
         display: flex;
       }
 
-      .hero-overlay h1 {
-        font-size: clamp(2.5rem, 12vw, 4rem);
+      .floating-img {
+        opacity: 0.5;
       }
 
-      .product-card {
-        flex: 0 0 calc(100% - 1rem);
-      }
+      .floating-img:nth-child(1) { width: 100px; }
+      .floating-img:nth-child(2) { width: 90px; }
+      .floating-img:nth-child(3) { width: 80px; }
+      .floating-img:nth-child(4) { width: 90px; }
+      .floating-img:nth-child(5) { display: none; }
+      .floating-img:nth-child(6) { display: none; }
+      .floating-img:nth-child(7) { display: none; }
 
-      .benefits-list {
+      .benefits-grid {
         grid-template-columns: 1fr;
       }
 
-      .cta-buttons {
-        flex-direction: column;
-        align-items: center;
+      .product-card {
+        flex: 0 0 280px;
       }
 
       .footer-content {
@@ -1314,51 +1257,34 @@
       }
 
       .whatsapp-float {
-        width: 60px;
-        height: 60px;
+        width: 55px;
+        height: 55px;
         bottom: 1.5rem;
         right: 1.5rem;
       }
-    }
-
-    /* Smooth scroll reveal animations */
-    .reveal {
-      opacity: 0;
-      transform: translateY(80px);
-    }
-
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Text split animation helper */
-    .split-text .char {
-      display: inline-block;
-      opacity: 0;
-      transform: translateY(100%);
-    }
-
-    /* Magnetic button effect */
-    .magnetic-btn {
-      position: relative;
-      transition: transform 0.3s var(--ease-out-expo);
     }
   </style>
 </head>
 
 <body>
 
-  <!-- Page Transition Overlay -->
-  <div class="page-transition"></div>
+  <!-- Custom Cursor -->
+  <div class="custom-cursor"></div>
+  <div class="cursor-trail"></div>
 
   <!-- Navigation -->
   <nav class="navbar">
-    <a href="#" class="logo">serena<span>vet</span></a>
+    <a href="#" class="logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+      </div>
+      serena<span>vet</span>
+    </a>
     <ul class="nav-links">
       <li><a href="#inicio">Inicio</a></li>
-      <li><a href="#vitaminas">Vitaminas</a></li>
+      <li><a href="#beneficios">Beneficios</a></li>
       <li><a href="#productos">Productos</a></li>
+      <li><a href="#testimonios">Testimonios</a></li>
       <li><a href="#contacto" class="nav-cta">Contactar</a></li>
     </ul>
     <div class="hamburger">
@@ -1368,915 +1294,388 @@
     </div>
   </nav>
 
-  <div class="scroll-container">
-    <!-- HERO SECTION - Floating Animation -->
-    <section id="inicio" class="g-container">
-      <img class="floating" src="images/hero-section-1.png" alt="Pet product" />
-      <img class="floating" src="images/hero-section-2.png" alt="Pet product" />
-      <img class="floating" src="images/hero-section-3.png" alt="Pet product" />
-      <img class="floating" src="images/hero-section-4.png" alt="Pet product" />
-      <img class="floating" src="images/hero-section-5.png" alt="Pet product" />
-      <img class="floating" src="images/hero-section-6.png" alt="Pet product" />
-      <img class="floating" src="images/hero-section-7.png" alt="Pet product" />
-      
-      <!-- Hero Content Overlay -->
-      <div class="hero-overlay">
-        <h1>Nutrición <span>Premium</span><br>para tu Mascota</h1>
-        <p>Vitaminas y suplementos de alta calidad</p>
+  <!-- HERO SECTION -->
+  <section id="inicio" class="hero-section">
+    <div class="hero-background">
+      <div class="hero-bg-gradient"></div>
+    </div>
+    
+    <div class="hero-floating-images">
+      <img class="floating-img" src="images/hero-section-1.png" alt="Producto Serena Vet" />
+      <img class="floating-img" src="images/hero-section-2.png" alt="Producto Serena Vet" />
+      <img class="floating-img" src="images/hero-section-3.png" alt="Producto Serena Vet" />
+      <img class="floating-img" src="images/hero-section-4.png" alt="Producto Serena Vet" />
+      <img class="floating-img" src="images/hero-section-5.png" alt="Producto Serena Vet" />
+      <img class="floating-img" src="images/hero-section-6.png" alt="Producto Serena Vet" />
+      <img class="floating-img" src="images/hero-section-7.png" alt="Producto Serena Vet" />
     </div>
 
-      <!-- Scroll Indicator -->
-      <div class="scroll-indicator">
-        <span>Descubre más</span>
-        <div class="mouse"></div>
-      </div>
-    </section>
+    <div class="hero-content">
+      <h1>Salud Holística para Tu <span>Compañero Activo</span></h1>
+      <p>Suplementos de calidad veterinaria para una vida llena de juego.</p>
+      <a href="https://wa.me/573001234567?text=Hola!%20Me%20interesa%20conocer%20más%20sobre%20los%20suplementos%20de%20Serena%20Vet" class="hero-cta" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Chatea con Nosotros
+      </a>
+    </div>
 
-    <!-- FEATURES MARQUEE SECTION -->
-    <section class="features-section">
-      <div class="features-marquee">
-        <!-- First set -->
-        <div class="feature-item">
-          <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          <span>Pago Contraentrega</span>
-  </div>
-        <span class="feature-divider">✦</span>
-        <div class="feature-item">
-          <svg viewBox="0 0 24 24"><path d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg>
-          <span>Envíos a Todo el País</span>
-        </div>
-        <span class="feature-divider">✦</span>
-        <div class="feature-item">
-          <svg viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
-          <span>Coordina por WhatsApp</span>
-        </div>
-        <span class="feature-divider">✦</span>
-        <div class="feature-item">
-          <svg viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-          <span>Productos de Calidad</span>
-        </div>
-        <span class="feature-divider">✦</span>
-        <!-- Duplicate for seamless loop -->
-        <div class="feature-item">
-          <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          <span>Pago Contraentrega</span>
-        </div>
-        <span class="feature-divider">✦</span>
-        <div class="feature-item">
-          <svg viewBox="0 0 24 24"><path d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg>
-          <span>Envíos a Todo el País</span>
-        </div>
-        <span class="feature-divider">✦</span>
-        <div class="feature-item">
-          <svg viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
-          <span>Coordina por WhatsApp</span>
-        </div>
-        <span class="feature-divider">✦</span>
-        <div class="feature-item">
-          <svg viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-          <span>Productos de Calidad</span>
-        </div>
-        <span class="feature-divider">✦</span>
-      </div>
-    </section>
+    <div class="scroll-indicator">
+      <span>Descubre más</span>
+      <div class="scroll-mouse"></div>
+    </div>
+  </section>
 
-    <!-- VITAMINS SECTION -->
-    <section id="vitaminas" class="vitamins-section">
-      <div class="vitamins-grid">
-        <div class="vitamins-content">
-          <span class="section-tag">Nutrición Especializada</span>
-          <h2>¿Por qué tu mascota necesita <span>vitaminas?</span></h2>
-          <p>Cada mascota es única, con necesidades nutricionales específicas según su edad, raza y estilo de vida. Los suplementos vitamínicos ayudan a cubrir las carencias de la alimentación diaria, fortaleciendo su sistema inmune y mejorando su calidad de vida.</p>
-          <p>Nuestros productos están formulados por veterinarios expertos para asegurar la máxima absorción y efectividad, brindándole a tu compañero peludo todo lo que necesita para estar saludable y feliz.</p>
-          
-          <ul class="benefits-list">
-            <li>Pelaje brillante y saludable</li>
-            <li>Sistema inmune fortalecido</li>
-            <li>Huesos y articulaciones fuertes</li>
-            <li>Mayor energía y vitalidad</li>
-            <li>Digestión optimizada</li>
-            <li>Bienestar general</li>
-          </ul>
-        </div>
+  <!-- BENEFITS SECTION - El Porqué -->
+  <section id="beneficios" class="benefits-section">
+    <div class="section-header content-glide">
+      <span class="section-tag">El Porqué</span>
+      <h2>Tu mascota merece lo mejor</h2>
+      <p>Nuestros suplementos están formulados con ingredientes de calidad veterinaria para mejorar la vida de tu compañero peludo.</p>
+    </div>
 
-        <div class="vitamins-visual">
-          <div class="vitamin-card card-1">
-            <img src="images/obj1.png" alt="Vitaminas para perros">
-            <h4>Vitaminas Caninas</h4>
-            <p>Fórmula completa</p>
-          </div>
-          <div class="vitamin-card card-2">
-            <img src="images/obj2.png" alt="Omega 3 mascotas">
-            <h4>Omega 3 & 6</h4>
-            <p>Piel y pelaje</p>
-          </div>
-          <div class="vitamin-card card-3">
-            <img src="images/obj3.png" alt="Probióticos">
-            <h4>Probióticos</h4>
-            <p>Salud digestiva</p>
-          </div>
+    <div class="benefits-grid">
+      <!-- Benefit 1: Articulaciones -->
+      <div class="benefit-card content-glide">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 6v6l4 2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="12" cy="12" r="3" stroke-linecap="round"/>
+            <path d="M8 8l-2-2M16 8l2-2M8 16l-2 2M16 16l2 2" stroke-linecap="round"/>
+          </svg>
         </div>
-      </div>
-    </section>
-
-    <!-- PRODUCTS SECTION -->
-    <section id="productos" class="products-section">
-      <div class="products-header">
-        <span class="section-tag">Nuestra Tienda</span>
-        <h2>Productos en <span>Oferta</span></h2>
-        <p>Descubre nuestra selección de suplementos premium para el bienestar de tu mascota</p>
+        <h3>Articulaciones Fuertes</h3>
+        <p>Glucosamina y condroitina que protegen el cartílago, mejoran la movilidad y reducen la inflamación para un movimiento sin dolor.</p>
       </div>
 
-      <div class="carousel-container">
-        <div class="carousel-wrapper">
-          <div class="carousel-track">
-            <!-- Product 1 -->
-            <div class="product-card">
-              <span class="product-badge">-20%</span>
-              <div class="product-image">
-                <img src="images/obj1.png" alt="Multivitamínico Premium">
-              </div>
-              <div class="product-info">
-                <span class="product-category">Vitaminas • Perros</span>
-                <h3>Multivitamínico Premium</h3>
-                <p>Fórmula completa con 18 vitaminas y minerales esenciales para el bienestar diario.</p>
-                <div class="product-footer">
-                  <span class="product-price">$45.000<span class="original">$56.000</span></span>
-                  <button class="btn-product">Comprar</button>
-                </div>
-              </div>
-            </div>
+      <!-- Benefit 2: Piel/Pelaje -->
+      <div class="benefit-card content-glide">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 5.67l2 6.33-4 2 2 6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3>Piel y Pelaje Brillante</h3>
+        <p>Omega 3 y 6 de origen natural que nutren desde adentro, eliminando la caspa y dando un pelaje sedoso y radiante.</p>
+      </div>
 
-            <!-- Product 2 -->
-            <div class="product-card">
-              <span class="product-badge">Nuevo</span>
-              <div class="product-image">
-                <img src="images/obj2.png" alt="Omega 3 & 6">
-              </div>
-              <div class="product-info">
-                <span class="product-category">Suplementos • Perros y Gatos</span>
-                <h3>Omega 3 & 6 Plus</h3>
-                <p>Ácidos grasos esenciales para un pelaje brillante y piel saludable.</p>
-                <div class="product-footer">
-                  <span class="product-price">$38.000</span>
-                  <button class="btn-product">Comprar</button>
-                </div>
-              </div>
-            </div>
+      <!-- Benefit 3: Vitalidad -->
+      <div class="benefit-card content-glide">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3>Energía y Vitalidad</h3>
+        <p>Vitaminas del complejo B, hierro y antioxidantes que refuerzan el sistema inmune y mantienen a tu mascota activa y feliz.</p>
+      </div>
+    </div>
+  </section>
 
-            <!-- Product 3 -->
-            <div class="product-card">
-              <span class="product-badge">-15%</span>
-              <div class="product-image">
-                <img src="images/obj3.png" alt="Probióticos Digestivos">
-              </div>
-              <div class="product-info">
-                <span class="product-category">Digestión • Todas las mascotas</span>
-                <h3>Probióticos Digestivos</h3>
-                <p>Mejora la flora intestinal y optimiza la absorción de nutrientes.</p>
-                <div class="product-footer">
-                  <span class="product-price">$42.000<span class="original">$49.500</span></span>
-                  <button class="btn-product">Comprar</button>
-                </div>
-              </div>
-            </div>
+  <!-- PRODUCTS SECTION -->
+  <section id="productos" class="products-section">
+    <div class="products-header content-glide">
+      <span class="section-tag">Nuestra Tienda</span>
+      <h2>Productos Destacados</h2>
+      <p>Descubre nuestra línea completa de suplementos premium</p>
+    </div>
 
-            <!-- Product 4 -->
-            <div class="product-card">
-              <span class="product-badge">Popular</span>
-              <div class="product-image">
-                <img src="images/obj4.png" alt="Calcio + Vitamina D">
-              </div>
-              <div class="product-info">
-                <span class="product-category">Huesos • Perros grandes</span>
-                <h3>Calcio + Vitamina D</h3>
-                <p>Fortalece huesos y articulaciones, ideal para razas grandes.</p>
-                <div class="product-footer">
-                  <span class="product-price">$52.000</span>
-                  <button class="btn-product">Comprar</button>
-                </div>
-              </div>
-            </div>
+    <!-- Category Filters -->
+    <div class="category-filters content-glide">
+      <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="perros">Perros</button>
+      <button class="filter-btn" data-filter="gatos">Gatos</button>
+      <button class="filter-btn" data-filter="senior">Senior</button>
+    </div>
 
-            <!-- Product 5 -->
-            <div class="product-card">
-              <span class="product-badge">-25%</span>
-              <div class="product-image">
-                <img src="images/obj5.png" alt="Vitaminas Senior">
-              </div>
-              <div class="product-info">
-                <span class="product-category">Senior • +7 años</span>
-                <h3>Vitaminas Senior</h3>
-                <p>Fórmula especial para mascotas mayores con antioxidantes.</p>
-                <div class="product-footer">
-                  <span class="product-price">$48.000<span class="original">$64.000</span></span>
-                  <button class="btn-product">Comprar</button>
-                </div>
-              </div>
+    <div class="products-scroll-container">
+      <div class="products-scroll-wrapper">
+        <div class="products-track">
+          <!-- Product 1 -->
+          <div class="product-card" data-category="perros">
+            <span class="product-badge">-20%</span>
+            <div class="product-image">
+              <img src="images/obj1.png" alt="Multivitamínico Canino">
             </div>
-
-            <!-- Product 6 -->
-            <div class="product-card">
-              <span class="product-badge">Oferta</span>
-              <div class="product-image">
-                <img src="images/obj6.png" alt="Pack Completo">
-              </div>
-              <div class="product-info">
-                <span class="product-category">Pack • Ahorro</span>
-                <h3>Pack Bienestar Total</h3>
-                <p>Incluye multivitamínico, omega y probióticos. ¡Ahorra 30%!</p>
-                <div class="product-footer">
-                  <span class="product-price">$89.000<span class="original">$125.000</span></span>
-                  <button class="btn-product">Comprar</button>
-                </div>
+            <div class="product-info">
+              <span class="product-category">Vitaminas • Perros</span>
+              <h3>Multivitamínico Premium</h3>
+              <p>Fórmula completa con 18 vitaminas y minerales esenciales.</p>
+              <div class="product-footer">
+                <span class="product-price">$45.000<span class="original">$56.000</span></span>
+                <button class="btn-product">Comprar</button>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Carousel Controls -->
-        <div class="carousel-controls">
-          <button class="carousel-btn carousel-btn-prev">
-            <svg viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="carousel-dots"></div>
-          <button class="carousel-btn carousel-btn-next">
-            <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-        </div>
-      </div>
-    </section>
+          <!-- Product 2 -->
+          <div class="product-card" data-category="perros gatos">
+            <span class="product-badge">Nuevo</span>
+            <div class="product-image">
+              <img src="images/obj2.png" alt="Omega 3 & 6">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Suplementos • Universal</span>
+              <h3>Omega 3 & 6 Plus</h3>
+              <p>Ácidos grasos esenciales para piel y pelaje saludable.</p>
+              <div class="product-footer">
+                <span class="product-price">$38.000</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
 
-    <!-- CTA SECTION -->
-    <section id="contacto" class="cta-section">
-      <div class="cta-content">
-        <h2>¿Listo para cuidar a tu <span>mejor amigo?</span></h2>
-        <p>Coordina tu pedido por WhatsApp y recibe tus productos en la puerta de tu casa. Pago contraentrega disponible.</p>
-        <div class="cta-buttons">
-          <a href="https://wa.me/573001234567?text=Hola!%20Me%20interesa%20conocer%20más%20sobre%20los%20productos%20de%20Serena%20Vet" class="btn-primary" target="_blank">
-            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-            Escribir por WhatsApp
-          </a>
-          <a href="#productos" class="btn-secondary">
-            Ver productos
-          </a>
-        </div>
-      </div>
-    </section>
+          <!-- Product 3 -->
+          <div class="product-card" data-category="perros gatos">
+            <span class="product-badge">-15%</span>
+            <div class="product-image">
+              <img src="images/obj3.png" alt="Probióticos">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Digestión • Universal</span>
+              <h3>Probióticos Digestivos</h3>
+              <p>Mejora la flora intestinal y optimiza la absorción.</p>
+              <div class="product-footer">
+                <span class="product-price">$42.000<span class="original">$49.500</span></span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-      <div class="footer-content">
-        <div class="footer-brand">
-          <a href="#" class="logo">serena<span>vet</span></a>
-          <p>Cuidamos la salud de tus mascotas con productos de la más alta calidad. Vitaminas, suplementos y más, directo a tu hogar.</p>
-        </div>
-        <div class="footer-column">
-          <h4>Navegación</h4>
-          <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#vitaminas">Vitaminas</a></li>
-            <li><a href="#productos">Productos</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-          </ul>
-        </div>
-        <div class="footer-column">
-          <h4>Productos</h4>
-          <ul>
-            <li><a href="#">Perros</a></li>
-            <li><a href="#">Gatos</a></li>
-            <li><a href="#">Suplementos</a></li>
-            <li><a href="#">Ofertas</a></li>
-          </ul>
-        </div>
-        <div class="footer-column">
-          <h4>Contacto</h4>
-          <ul>
-            <li><a href="#">WhatsApp</a></li>
-            <li><a href="#">Instagram</a></li>
-            <li><a href="#">Facebook</a></li>
-            <li><a href="#">Email</a></li>
-          </ul>
+          <!-- Product 4 -->
+          <div class="product-card" data-category="perros">
+            <span class="product-badge">Popular</span>
+            <div class="product-image">
+              <img src="images/obj4.png" alt="Calcio + Vitamina D">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Huesos • Perros Grandes</span>
+              <h3>Calcio + Vitamina D</h3>
+              <p>Fortalece huesos y articulaciones, ideal para razas grandes.</p>
+              <div class="product-footer">
+                <span class="product-price">$52.000</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 5 -->
+          <div class="product-card" data-category="senior">
+            <span class="product-badge">-25%</span>
+            <div class="product-image">
+              <img src="images/obj5.png" alt="Vitaminas Senior">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Senior • +7 Años</span>
+              <h3>Vitaminas Senior</h3>
+              <p>Fórmula especial con antioxidantes para mascotas mayores.</p>
+              <div class="product-footer">
+                <span class="product-price">$48.000<span class="original">$64.000</span></span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 6 -->
+          <div class="product-card" data-category="gatos">
+            <span class="product-badge">Gatos</span>
+            <div class="product-image">
+              <img src="images/obj6.png" alt="Pack Felino">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Pack • Gatos</span>
+              <h3>Pack Vitalidad Felina</h3>
+              <p>Combinación perfecta de taurina, biotina y omega para gatos.</p>
+              <div class="product-footer">
+                <span class="product-price">$55.000</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 7 -->
+          <div class="product-card" data-category="perros gatos">
+            <span class="product-badge">Oferta</span>
+            <div class="product-image">
+              <img src="images/obj7.png" alt="Pack Completo">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Pack • Ahorro</span>
+              <h3>Pack Bienestar Total</h3>
+              <p>Multivitamínico, omega y probióticos. ¡Ahorra 30%!</p>
+              <div class="product-footer">
+                <span class="product-price">$89.000<span class="original">$125.000</span></span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 8 -->
+          <div class="product-card" data-category="perros">
+            <span class="product-badge">Nuevo</span>
+            <div class="product-image">
+              <img src="images/obj8.png" alt="Articulaciones Plus">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Movilidad • Perros</span>
+              <h3>Articulaciones Plus</h3>
+              <p>Glucosamina, condroitina y MSM para máxima movilidad.</p>
+              <div class="product-footer">
+                <span class="product-price">$62.000</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>© 2024 Serena Vet. Todos los derechos reservados.</p>
-        <div class="social-links">
-          <a href="#" aria-label="Instagram">
-            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-          </a>
-          <a href="#" aria-label="Facebook">
-            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-          </a>
-          <a href="#" aria-label="TikTok">
-            <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
-          </a>
+
+      <!-- Scroll Controls -->
+      <div class="scroll-controls">
+        <button class="scroll-btn scroll-prev">
+          <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="scroll-btn scroll-next">
+          <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS SECTION -->
+  <section id="testimonios" class="testimonials-section">
+    <div class="section-header content-glide">
+      <span class="section-tag">Testimonios</span>
+      <h2>Lo que dicen nuestros clientes</h2>
+    </div>
+
+    <div class="testimonials-container content-glide">
+      <div class="testimonial-carousel">
+        <div class="testimonial-track">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-card">
+            <div class="quote-mark">"</div>
+            <p class="testimonial-text">Mi perro <span>Max</span> tenía problemas en sus articulaciones y desde que empezamos con el suplemento de glucosamina, ¡es otro! Ahora corre como cuando era cachorro.</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">C</div>
+              <div class="author-info">
+                <h4>Carolina Mendoza</h4>
+                <p>Dueña de <span class="pet-name">Max</span>, Golden Retriever</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testimonial-card">
+            <div class="quote-mark">"</div>
+            <p class="testimonial-text">El pelaje de <span>Luna</span> nunca había estado tan brillante. Los omegas de Serena Vet marcaron una diferencia increíble en solo 3 semanas.</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">A</div>
+              <div class="author-info">
+                <h4>Andrés Jiménez</h4>
+                <p>Dueño de <span class="pet-name">Luna</span>, Gata Persa</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="testimonial-card">
+            <div class="quote-mark">"</div>
+            <p class="testimonial-text">Mi <span>Rocky</span> tiene 12 años y gracias a las vitaminas senior, tiene más energía que nunca. La atención por WhatsApp fue excelente y el envío súper rápido.</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">M</div>
+              <div class="author-info">
+                <h4>María Elena Torres</h4>
+                <p>Dueña de <span class="pet-name">Rocky</span>, Labrador Senior</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </footer>
-  </div>
+
+      <!-- Testimonial Navigation -->
+      <div class="testimonial-nav">
+        <button class="testimonial-dot active" data-index="0"></button>
+        <button class="testimonial-dot" data-index="1"></button>
+        <button class="testimonial-dot" data-index="2"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL SECTION -->
+  <section id="contacto" class="cta-section">
+    <div class="cta-content content-glide">
+      <h2>¿Listos para dar el siguiente paso en la salud de tu mascota?</h2>
+      <p>Coordina tu pedido por WhatsApp y recibe asesoría personalizada de nuestro equipo de especialistas.</p>
+      <a href="https://wa.me/573001234567?text=Hola!%20Me%20interesa%20conocer%20más%20sobre%20los%20suplementos%20de%20Serena%20Vet" class="cta-button" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Chatea con un Especialista Ahora
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <div class="logo-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          </div>
+          serena<span>vet</span>
+        </a>
+        <p>Cuidamos la salud de tus mascotas con suplementos de la más alta calidad veterinaria. Tu compañero merece lo mejor.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#beneficios">Beneficios</a></li>
+          <li><a href="#productos">Productos</a></li>
+          <li><a href="#testimonios">Testimonios</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Productos</h4>
+        <ul>
+          <li><a href="#">Perros</a></li>
+          <li><a href="#">Gatos</a></li>
+          <li><a href="#">Senior</a></li>
+          <li><a href="#">Ofertas</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://wa.me/573001234567" target="_blank">WhatsApp</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="mailto:info@serenapet.com">Email</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Serena Vet. Todos los derechos reservados.</p>
+      <div class="social-links">
+        <a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="#" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a href="#" aria-label="TikTok">
+          <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
 
   <!-- WHATSAPP FLOATING BUTTON -->
-  <a href="https://wa.me/573001234567?text=Hola!%20Me%20interesa%20conocer%20más%20sobre%20los%20productos%20de%20Serena%20Vet" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+  <a href="https://wa.me/573001234567?text=Hola!%20Me%20interesa%20conocer%20más%20sobre%20los%20suplementos%20de%20Serena%20Vet" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
   </a>
 
-  <!-- GSAP with ScrollTrigger & ScrollTo -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
-
-  <script>
-    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-
-    /* ============================================
-       CURSOR GLOW EFFECT
-    ============================================ */
-    const cursorGlow = document.createElement('div');
-    cursorGlow.classList.add('cursor-glow');
-    document.body.appendChild(cursorGlow);
-
-    let mouseX = 0, mouseY = 0;
-    let glowX = 0, glowY = 0;
-
-    document.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    });
-
-    // Smooth cursor follow
-    function animateCursor() {
-      glowX += (mouseX - glowX) * 0.1;
-      glowY += (mouseY - glowY) * 0.1;
-      cursorGlow.style.left = glowX + 'px';
-      cursorGlow.style.top = glowY + 'px';
-      requestAnimationFrame(animateCursor);
-    }
-    animateCursor();
-
-    /* ============================================
-       NAVBAR SCROLL EFFECT
-    ============================================ */
-    const navbar = document.querySelector('.navbar');
-    
-    ScrollTrigger.create({
-      start: 100,
-      onUpdate: (self) => {
-        if (self.direction === 1 && window.scrollY > 100) {
-          navbar.classList.add('scrolled');
-        } else if (window.scrollY <= 100) {
-          navbar.classList.remove('scrolled');
-        }
-      }
-    });
-
-    /* ============================================
-       MOBILE MENU
-    ============================================ */
-    const hamburger = document.querySelector('.hamburger');
-    const navLinksEl = document.querySelector('.nav-links');
-
-    hamburger.addEventListener('click', () => {
-      navLinksEl.classList.toggle('active');
-      const spans = hamburger.querySelectorAll('span');
-      if (navLinksEl.classList.contains('active')) {
-        gsap.to(spans[0], { rotation: 45, y: 8, duration: 0.3 });
-        gsap.to(spans[1], { opacity: 0, duration: 0.2 });
-        gsap.to(spans[2], { rotation: -45, y: -8, duration: 0.3 });
-      } else {
-        gsap.to(spans[0], { rotation: 0, y: 0, duration: 0.3 });
-        gsap.to(spans[1], { opacity: 1, duration: 0.2 });
-        gsap.to(spans[2], { rotation: 0, y: 0, duration: 0.3 });
-      }
-    });
-
-    // Close menu on link click
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinksEl.classList.remove('active');
-        const spans = hamburger.querySelectorAll('span');
-        gsap.to(spans[0], { rotation: 0, y: 0, duration: 0.3 });
-        gsap.to(spans[1], { opacity: 1, duration: 0.2 });
-        gsap.to(spans[2], { rotation: 0, y: 0, duration: 0.3 });
-      });
-    });
-
-    /* ============================================
-       FLOATING ANIMATION (HERO)
-    ============================================ */
-    const items = gsap.utils.toArray(".floating");
-    const container = document.querySelector('.g-container');
-
-    const cols = 4;
-    const rows = Math.ceil(items.length / cols);
-    const cellWidth = window.innerWidth / cols;
-    const cellHeight = window.innerHeight / rows;
-
-    const itemData = [];
-
-    function randomFloat(min, max) {
-      return Math.random() * (max - min) + min;
-    }
-
-    items.forEach((el, index) => {
-      const col = index % cols;
-      const row = Math.floor(index / cols);
-      
-      const baseX = col * cellWidth + cellWidth * 0.1;
-      const baseY = row * cellHeight + cellHeight * 0.1;
-      
-      const size = randomFloat(150, 280);
-      const offsetX = randomFloat(-30, 30);
-      const offsetY = randomFloat(-30, 30);
-      const depth = randomFloat(0.7, 1.1);
-      const zIndex = Math.floor(depth * 10);
-
-      itemData.push({ el, baseX, baseY, offsetX, offsetY, depth, size });
-      
-      gsap.set(el, {
-        width: size,
-        height: 'auto',
-        x: baseX + offsetX,
-        y: baseY + offsetY,
-        scale: depth,
-        zIndex: zIndex,
-        opacity: 0
-      });
-
-      gsap.to(el, {
-        opacity: 1,
-        duration: 1.2,
-        delay: index * 0.1,
-        ease: "power2.out"
-      });
-
-      floatAnimation(el, baseX, baseY, depth);
-    });
-
-    function floatAnimation(el, baseX, baseY, baseScale) {
-      const driftRange = 60;
-      const duration = randomFloat(8, 15);
-      
-      const targetX = baseX + randomFloat(-driftRange, driftRange);
-      const targetY = baseY + randomFloat(-driftRange, driftRange);
-      const rotation = randomFloat(-8, 8);
-      
-      const scrollScale = gsap.getProperty(el, "scale");
-      const targetScale = scrollScale + randomFloat(-0.03, 0.03);
-
-      gsap.to(el, {
-        x: targetX,
-        y: targetY,
-        rotation: rotation,
-        scale: Math.max(baseScale * 0.9, Math.min(baseScale * 3, targetScale)),
-        duration: duration,
-        ease: "sine.inOut",
-        onComplete: () => floatAnimation(el, baseX, baseY, baseScale)
-      });
-    }
-
-    /* SCROLL-TRIGGERED ZOOM EFFECT */
-    const centerX = window.innerWidth / 2;
-    const centerY = window.innerHeight / 2;
-
-    ScrollTrigger.create({
-      trigger: ".g-container",
-      start: "top top",
-      end: "bottom top",
-      pin: true,
-      scrub: 1.5,
-      onUpdate: (self) => {
-        const progress = self.progress;
-        
-        items.forEach((el, index) => {
-          const data = itemData[index];
-          const elX = gsap.getProperty(el, "x");
-          const elY = gsap.getProperty(el, "y");
-          const dirX = (elX - centerX) * progress * 1.5;
-          const dirY = (elY - centerY) * progress * 1.5;
-          const zoomScale = data.depth + (progress * 2.5);
-          const opacity = 1 - (progress * 0.8);
-          
-          gsap.to(el, {
-            scale: zoomScale,
-            xPercent: dirX * 0.5,
-            yPercent: dirY * 0.5,
-            opacity: Math.max(0, opacity),
-            duration: 0.3,
-            ease: "none",
-            overwrite: "auto"
-          });
-        });
-      }
-    });
-
-    /* ============================================
-       SMOOTH SCROLL ANIMATIONS FOR SECTIONS
-    ============================================ */
-    
-    // Features section entrance
-    gsap.from(".features-section", {
-      scrollTrigger: {
-        trigger: ".features-section",
-        start: "top 95%",
-      },
-      y: 30,
-      opacity: 0,
-      duration: 1,
-      ease: "power3.out"
-    });
-
-    // Vitamins section - content animation
-    const vitaminsContent = document.querySelector('.vitamins-content');
-    const vitaminsVisual = document.querySelector('.vitamins-visual');
-
-    gsap.to(vitaminsContent, {
-      scrollTrigger: {
-        trigger: ".vitamins-section",
-        start: "top 75%",
-        end: "center center",
-        scrub: false,
-      },
-      y: 0,
-      opacity: 1,
-      duration: 1.2,
-      ease: "power3.out",
-      onStart: () => vitaminsContent.classList.add('visible')
-    });
-
-    gsap.to(vitaminsVisual, {
-      scrollTrigger: {
-        trigger: ".vitamins-section",
-        start: "top 70%",
-      },
-      y: 0,
-      opacity: 1,
-      duration: 1.4,
-      delay: 0.2,
-      ease: "power3.out",
-      onStart: () => vitaminsVisual.classList.add('visible')
-    });
-
-    // Vitamin cards parallax on scroll
-    gsap.utils.toArray('.vitamin-card').forEach((card, i) => {
-      gsap.to(card, {
-        scrollTrigger: {
-          trigger: ".vitamins-section",
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 1
-        },
-        y: -30 * (i + 1),
-        ease: "none"
-      });
-    });
-
-    // Benefits list stagger animation
-    gsap.from(".benefits-list li", {
-      scrollTrigger: {
-        trigger: ".benefits-list",
-        start: "top 85%"
-      },
-      x: -40,
-      opacity: 0,
-      duration: 0.6,
-      stagger: 0.1,
-      ease: "power3.out"
-    });
-
-    // Products header animation
-    gsap.from(".products-header", {
-      scrollTrigger: {
-        trigger: ".products-header",
-        start: "top 80%"
-      },
-      y: 60,
-      opacity: 0,
-      duration: 1,
-      ease: "power3.out"
-    });
-
-    // Product cards stagger animation with enhanced effect
-    gsap.from(".product-card", {
-      scrollTrigger: {
-        trigger: ".products-section",
-        start: "top 65%"
-      },
-      y: 100,
-      opacity: 0,
-      scale: 0.9,
-      duration: 1,
-      stagger: 0.12,
-      ease: "power3.out"
-    });
-
-    // CTA section reveal
-    gsap.from(".cta-content", {
-      scrollTrigger: {
-        trigger: ".cta-section",
-        start: "top 75%"
-      },
-      y: 80,
-      opacity: 0,
-      duration: 1.2,
-      ease: "power3.out"
-    });
-
-    gsap.from(".cta-buttons", {
-      scrollTrigger: {
-        trigger: ".cta-section",
-        start: "top 70%"
-      },
-      y: 40,
-      opacity: 0,
-      duration: 1,
-      delay: 0.3,
-      ease: "power3.out"
-    });
-
-    // Footer columns stagger
-    gsap.from(".footer-column, .footer-brand", {
-      scrollTrigger: {
-        trigger: ".footer",
-        start: "top 85%"
-      },
-      y: 50,
-      opacity: 0,
-      duration: 0.8,
-      stagger: 0.15,
-      ease: "power3.out"
-    });
-
-    /* ============================================
-       PRODUCT CAROUSEL
-    ============================================ */
-    const track = document.querySelector('.carousel-track');
-    const prevBtn = document.querySelector('.carousel-btn-prev');
-    const nextBtn = document.querySelector('.carousel-btn-next');
-    const dotsContainer = document.querySelector('.carousel-dots');
-    const productCards = document.querySelectorAll('.product-card');
-
-    let currentIndex = 0;
-    let cardsPerView = 3;
-
-    function updateCardsPerView() {
-      const width = window.innerWidth;
-      if (width <= 768) {
-        cardsPerView = 1;
-      } else if (width <= 1024) {
-        cardsPerView = 2;
-      } else {
-        cardsPerView = 3;
-      }
-      createDots();
-      updateCarousel();
-    }
-
-    function createDots() {
-      const numDots = Math.max(1, productCards.length - cardsPerView + 1);
-      dotsContainer.innerHTML = '';
-      
-      for (let i = 0; i < numDots; i++) {
-        const dot = document.createElement('button');
-        dot.classList.add('carousel-dot');
-        if (i === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => goToSlide(i));
-        dotsContainer.appendChild(dot);
-      }
-    }
-
-    function updateCarousel() {
-      if (!productCards[0]) return;
-      const cardWidth = productCards[0].offsetWidth;
-      const gap = 32;
-      const offset = currentIndex * (cardWidth + gap);
-      track.style.transform = `translateX(-${offset}px)`;
-      
-      const dots = document.querySelectorAll('.carousel-dot');
-      dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentIndex);
-      });
-      
-      prevBtn.style.opacity = currentIndex === 0 ? '0.5' : '1';
-      const maxIndex = productCards.length - cardsPerView;
-      nextBtn.style.opacity = currentIndex >= maxIndex ? '0.5' : '1';
-    }
-
-    function goToSlide(index) {
-      const maxIndex = Math.max(0, productCards.length - cardsPerView);
-      currentIndex = Math.max(0, Math.min(index, maxIndex));
-      updateCarousel();
-    }
-
-    function nextSlide() {
-      const maxIndex = productCards.length - cardsPerView;
-      if (currentIndex < maxIndex) {
-        currentIndex++;
-        updateCarousel();
-      }
-    }
-
-    function prevSlide() {
-      if (currentIndex > 0) {
-        currentIndex--;
-        updateCarousel();
-      }
-    }
-
-    prevBtn.addEventListener('click', prevSlide);
-    nextBtn.addEventListener('click', nextSlide);
-
-    // Touch/swipe support
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    track.addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0].screenX;
-    });
-
-    track.addEventListener('touchend', (e) => {
-      touchEndX = e.changedTouches[0].screenX;
-      if (touchEndX < touchStartX - 50) nextSlide();
-      if (touchEndX > touchStartX + 50) prevSlide();
-    });
-
-    // Initialize
-    updateCardsPerView();
-    window.addEventListener('resize', () => {
-      updateCardsPerView();
-    });
-
-    /* ============================================
-       PRODUCT BUY BUTTON - WhatsApp redirect
-    ============================================ */
-    document.querySelectorAll('.btn-product').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const card = e.target.closest('.product-card');
-        const productName = card.querySelector('h3').textContent;
-        const productPrice = card.querySelector('.product-price').textContent.split('$')[1].split(' ')[0];
-        const message = `Hola! Me interesa el producto: ${productName} ($${productPrice}). ¿Está disponible?`;
-        const whatsappUrl = `https://wa.me/573001234567?text=${encodeURIComponent(message)}`;
-        window.open(whatsappUrl, '_blank');
-      });
-    });
-
-    /* ============================================
-       GSAP SMOOTH SCROLL FOR ANCHOR LINKS
-    ============================================ */
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const target = document.querySelector(targetId);
-        if (target) {
-          const offset = 80;
-          const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
-          
-          gsap.to(window, {
-            duration: 1.5,
-            scrollTo: { y: targetPosition, autoKill: false },
-            ease: "power3.inOut"
-          });
-        }
-      });
-    });
-
-    /* ============================================
-       MAGNETIC BUTTON EFFECT
-    ============================================ */
-    document.querySelectorAll('.btn-product, .carousel-btn, .nav-cta, .btn-primary, .btn-secondary').forEach(btn => {
-      btn.addEventListener('mousemove', (e) => {
-        const rect = btn.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-        
-        gsap.to(btn, {
-          x: x * 0.3,
-          y: y * 0.3,
-          duration: 0.3,
-          ease: "power2.out"
-        });
-      });
-      
-      btn.addEventListener('mouseleave', () => {
-        gsap.to(btn, {
-          x: 0,
-          y: 0,
-          duration: 0.5,
-          ease: "elastic.out(1, 0.5)"
-        });
-      });
-    });
-
-    /* ============================================
-       PARALLAX ON SCROLL FOR HERO BACKGROUND
-    ============================================ */
-    gsap.to(".g-container::before", {
-      scrollTrigger: {
-        trigger: ".g-container",
-        start: "top top",
-        end: "bottom top",
-        scrub: true
-      },
-      y: "30%",
-      ease: "none"
-    });
-
-    /* ============================================
-       RESIZE HANDLER FOR FLOATING ITEMS
-    ============================================ */
-    window.addEventListener('resize', () => {
-      const newCellWidth = window.innerWidth / cols;
-      const newCellHeight = window.innerHeight / rows;
-      
-      items.forEach((el, index) => {
-        const col = index % cols;
-        const row = Math.floor(index / cols);
-        const baseX = col * newCellWidth + newCellWidth * 0.1;
-        const baseY = row * newCellHeight + newCellHeight * 0.1;
-        
-        itemData[index].baseX = baseX;
-        itemData[index].baseY = baseY;
-        
-        gsap.to(el, {
-          x: baseX + randomFloat(-30, 30),
-          y: baseY + randomFloat(-30, 30),
-          duration: 1,
-          ease: "power2.out"
-        });
-      });
-    });
-
-    /* ============================================
-       PAGE LOAD ANIMATION
-    ============================================ */
-    window.addEventListener('load', () => {
-      // Animate page transition out
-      gsap.fromTo('.page-transition', 
-        { scaleY: 1, transformOrigin: 'top' },
-        { scaleY: 0, duration: 1, ease: 'power3.inOut', delay: 0.2 }
-      );
-      
-      // Animate navbar in
-      gsap.from('.navbar', {
-        y: -100,
-        opacity: 0,
-        duration: 1,
-        delay: 0.5,
-        ease: 'power3.out'
-      });
-    });
-
-    /* ============================================
-       SECTION PROGRESS INDICATOR
-    ============================================ */
-    // Create progress bar
-    const progressBar = document.createElement('div');
-    progressBar.style.cssText = `
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--color-accent), var(--color-teal), var(--color-purple));
-      z-index: 10001;
-      transform-origin: left;
-      transform: scaleX(0);
-    `;
-    document.body.appendChild(progressBar);
-
-    gsap.to(progressBar, {
-      scaleX: 1,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: document.body,
-        start: 'top top',
-        end: 'bottom bottom',
-        scrub: 0.3
-      }
-    });
-
-    /* ============================================
-       REVEAL ANIMATIONS ON SCROLL
-    ============================================ */
-    // Add reveal class to elements that should animate
-    const revealElements = document.querySelectorAll('.section-tag, .vitamins-content h2, .vitamins-content p, .products-header h2, .products-header p');
-    
-    revealElements.forEach(el => {
-      gsap.from(el, {
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 90%',
-          toggleActions: 'play none none none'
-        },
-        y: 50,
-        opacity: 0,
-        duration: 1,
-        ease: 'power3.out'
-      });
-    });
-
-    console.log('🐾 Serena Vet - Loaded Successfully');
-  </script>
+  <script src="script.js"></script>
 
 </body>
 </html>
