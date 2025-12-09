@@ -6,6 +6,43 @@
 document.addEventListener('DOMContentLoaded', () => {
   
   /* ============================================
+     ENSURE HERO IMAGES GRID IS ALWAYS VISIBLE
+  ============================================ */
+  const ensureGridAlwaysVisible = () => {
+    const heroImagesContainer = document.querySelector('.hero-floating-images');
+    const floatingImages = document.querySelectorAll('.floating-img');
+    
+    if (heroImagesContainer) {
+      heroImagesContainer.style.opacity = '1';
+      heroImagesContainer.style.visibility = 'visible';
+      heroImagesContainer.style.transform = 'translateY(0)';
+    }
+    
+    floatingImages.forEach(img => {
+      img.style.opacity = '1';
+      img.style.visibility = 'visible';
+    });
+  };
+  
+  // Ensure visible on load
+  ensureGridAlwaysVisible();
+  
+  // Ensure visible on every scroll (prevents any fade effects)
+  window.addEventListener('scroll', ensureGridAlwaysVisible, { passive: true });
+  
+  // Ensure visible after any DOM changes
+  const gridObserver = new MutationObserver(ensureGridAlwaysVisible);
+  const heroSection = document.querySelector('.hero-section');
+  if (heroSection) {
+    gridObserver.observe(heroSection, { 
+      childList: true, 
+      subtree: true, 
+      attributes: true,
+      attributeFilter: ['style', 'class']
+    });
+  }
+  
+  /* ============================================
      CUSTOM CURSOR - Active Halo Effect
   ============================================ */
   const cursor = document.querySelector('.custom-cursor');
@@ -85,31 +122,47 @@ document.addEventListener('DOMContentLoaded', () => {
     // Hero content scale down effect on scroll
     if (heroSection && heroContent) {
       const heroHeight = heroSection.offsetHeight;
-      const progress = Math.min(scrollY / (heroHeight * 0.5), 1);
+      const heroRect = heroSection.getBoundingClientRect();
+      const heroTop = heroRect.top + scrollY;
       
-      // Scale down effect (~8%)
-      const scale = 1 - (progress * 0.08);
-      const opacity = 1 - (progress * 0.8);
-      
-      heroContent.style.transform = `scale(${scale})`;
-      heroContent.style.opacity = opacity;
-      
-      // Floating images parallax and fade
-      const floatingImages = document.querySelectorAll('.floating-img');
-      floatingImages.forEach((img, index) => {
-        const speed = 0.3 + (index * 0.05);
-        const imgOpacity = Math.max(0, 1 - (progress * 1.2));
-        const translateY = scrollY * speed;
+      // Only fade when scrolling significantly past the hero section (at least 200px past start)
+      // This ensures images stay visible while in the hero section
+      if (scrollY > 200 && scrollY > heroTop + heroHeight * 0.3) {
+        const scrollPastHero = scrollY - heroTop;
+        const progress = Math.min(scrollPastHero / (heroHeight * 0.5), 1);
         
-        img.style.transform = `translateY(-${translateY}px)`;
-        img.style.opacity = imgOpacity;
-      });
+        // Scale down effect (~8%)
+        const scale = 1 - (progress * 0.08);
+        const opacity = Math.max(0, 1 - (progress * 0.8));
+        
+        heroContent.style.transform = `scale(${scale})`;
+        heroContent.style.opacity = opacity;
+      } else {
+        // In hero section - keep fully visible (remove inline styles to let CSS take over)
+        heroContent.style.removeProperty('transform');
+        heroContent.style.removeProperty('opacity');
+      }
     }
     
     lastScrollY = scrollY;
   }
   
   window.addEventListener('scroll', handleScroll, { passive: true });
+  
+  // Initialize scroll state on page load
+  window.addEventListener('load', () => {
+    handleScroll();
+  });
+  
+  // Also run on initial load if already loaded
+  if (document.readyState === 'complete') {
+    handleScroll();
+  } else {
+    // Run once DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      handleScroll();
+    });
+  }
   
   /* ============================================
      MOBILE MENU
@@ -410,18 +463,6 @@ document.addEventListener('DOMContentLoaded', () => {
       navbar.style.transform = 'translateY(0)';
     }, 100);
     
-    // Animate floating images
-    const floatingImages = document.querySelectorAll('.floating-img');
-    floatingImages.forEach((img, index) => {
-      img.style.opacity = '0';
-      img.style.transform = 'translateY(50px)';
-      
-      setTimeout(() => {
-        img.style.transition = 'opacity 1s ease, transform 1s ease';
-        img.style.opacity = '1';
-        img.style.transform = 'translateY(0)';
-      }, 200 + (index * 100));
-    });
   });
   
   /* ============================================
