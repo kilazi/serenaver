@@ -970,10 +970,7 @@
     }
 
     .product-card.filtered-out {
-      opacity: 0.2;
-      transform: scale(0.9) rotateY(5deg);
-      pointer-events: none;
-      filter: grayscale(80%);
+      display: none !important;
     }
 
     /* Compact Badge */
@@ -3270,6 +3267,7 @@
             card.style.display = '';
           } else {
             card.classList.add('filtered-out');
+            card.style.display = 'none';
           }
         });
       });
