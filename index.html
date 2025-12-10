@@ -1350,6 +1350,61 @@
       color: var(--color-charcoal);
     }
 
+    /* Variant Selector Styles */
+    .canvas-variant-section {
+      margin-bottom: 1rem;
+      display: none;
+    }
+
+    .canvas-variant-section.active {
+      display: block;
+    }
+
+    .canvas-variant-label {
+      font-size: 0.85rem;
+      color: var(--color-charcoal);
+      font-weight: 500;
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+
+    .canvas-variant-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .variant-btn {
+      padding: 0.5rem 1rem;
+      background: var(--color-white);
+      border: 2px solid var(--color-border);
+      border-radius: 25px;
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--color-charcoal);
+      cursor: pointer;
+      transition: all 0.3s var(--ease-out-expo);
+      white-space: nowrap;
+    }
+
+    .variant-btn:hover {
+      border-color: var(--color-primary);
+      background: var(--color-primary-light);
+    }
+
+    .variant-btn.active {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: white;
+      box-shadow: 0 4px 12px rgba(104, 187, 89, 0.3);
+    }
+
+    .variant-btn.active:hover {
+      background: var(--color-primary-dark);
+      border-color: var(--color-primary-dark);
+    }
+
     .canvas-actions {
       display: flex;
       flex-direction: column;
@@ -1536,6 +1591,15 @@
       .btn-continue {
         font-size: 0.9rem;
         padding: 0.75rem 1rem;
+      }
+      
+      .canvas-variant-buttons {
+        gap: 0.4rem;
+      }
+      
+      .variant-btn {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.75rem;
       }
     }
 
@@ -2336,7 +2400,8 @@
           </div>
 
           <!-- CARDIAL B -->
-          <div class="product-card" data-category="perros gatos cardiologia">
+          <div class="product-card" data-category="perros gatos cardiologia" 
+               data-variants='[{"name":"2.5 mg","price":"Consultar","image":"images/obj2.png"},{"name":"5 mg","price":"Consultar","image":"images/obj2.png"},{"name":"10 mg","price":"Consultar","image":"images/obj2.png"}]'>
             <span class="product-badge">Nuevo</span>
             <div class="product-image">
               <img src="images/obj2.png" alt="Cardial B">
@@ -2548,7 +2613,8 @@
           </div>
 
           <!-- ECTHOL COLLAR PERROS -->
-          <div class="product-card" data-category="perros antiparasitarios">
+          <div class="product-card" data-category="perros antiparasitarios"
+               data-variants='[{"name":"Perro chico","price":"Consultar","image":"images/placeholder.png"},{"name":"Perro grande","price":"Consultar","image":"images/placeholder.png"}]'>
             <span class="product-badge">Perros</span>
             <div class="product-image">
               <img src="images/placeholder.png" alt="Ecthol Collar Perros">
@@ -2564,7 +2630,8 @@
           </div>
 
           <!-- ECTHOL GMP GATOS -->
-          <div class="product-card" data-category="gatos antiparasitarios">
+          <div class="product-card" data-category="gatos antiparasitarios"
+               data-variants='[{"name":"Menos de 5 kg","price":"Consultar","image":"images/placeholder.png"},{"name":"Más de 5 kg","price":"Consultar","image":"images/placeholder.png"}]'>
             <span class="product-badge">Gatos</span>
             <div class="product-image">
               <img src="images/placeholder.png" alt="Ecthol GMP Gatos">
@@ -2580,7 +2647,8 @@
           </div>
 
           <!-- ECTHOL GMP PERROS -->
-          <div class="product-card" data-category="perros antiparasitarios">
+          <div class="product-card" data-category="perros antiparasitarios"
+               data-variants='[{"name":"5 kg","price":"Consultar","image":"images/placeholder.png"},{"name":"6-10 kg","price":"Consultar","image":"images/placeholder.png"},{"name":"11-20 kg","price":"Consultar","image":"images/placeholder.png"},{"name":"21-40 kg","price":"Consultar","image":"images/placeholder.png"}]'>
             <span class="product-badge">Perros</span>
             <div class="product-image">
               <img src="images/placeholder.png" alt="Ecthol GMP Perros">
@@ -2596,7 +2664,8 @@
           </div>
 
           <!-- ECTHOL HALO COLLAR PERROS -->
-          <div class="product-card" data-category="perros antiparasitarios">
+          <div class="product-card" data-category="perros antiparasitarios"
+               data-variants='[{"name":"Menos de 10 kg","price":"Consultar","image":"images/placeholder.png"},{"name":"Más de 10 kg","price":"Consultar","image":"images/placeholder.png"}]'>
             <span class="product-badge">Nuevo</span>
             <div class="product-image">
               <img src="images/placeholder.png" alt="Ecthol Halo Collar Perros">
@@ -2692,7 +2761,8 @@
           </div>
 
           <!-- FLOXADAY COMPRIMIDOS -->
-          <div class="product-card" data-category="perros gatos antibioticos">
+          <div class="product-card" data-category="perros gatos antibioticos"
+               data-variants='[{"name":"100 mg","price":"Consultar","image":"images/placeholder.png"},{"name":"200 mg","price":"Consultar","image":"images/placeholder.png"},{"name":"400 mg","price":"Consultar","image":"images/placeholder.png"}]'>
             <div class="product-image">
               <img src="images/placeholder.png" alt="Floxaday Comprimidos">
             </div>
@@ -3111,7 +3181,8 @@
           </div>
 
           <!-- OL TRANS FLEX -->
-          <div class="product-card" data-category="perros gatos suplementos">
+          <div class="product-card" data-category="perros gatos suplementos"
+               data-variants='[{"name":"21 comprimidos","price":"Consultar","image":"images/obj3.png"},{"name":"70 comprimidos","price":"Consultar","image":"images/obj3.png"}]'>
             <span class="product-badge">-15%</span>
             <div class="product-image">
               <img src="images/obj3.png" alt="Ol Trans Flex">
@@ -3172,7 +3243,8 @@
           </div>
 
           <!-- PIMOCARD -->
-          <div class="product-card" data-category="perros gatos cardiologia">
+          <div class="product-card" data-category="perros gatos cardiologia"
+               data-variants='[{"name":"1.25 mg","price":"Consultar","image":"images/obj1.png"},{"name":"2.5 mg","price":"Consultar","image":"images/obj1.png"},{"name":"5 mg","price":"Consultar","image":"images/obj1.png"},{"name":"10 mg","price":"Consultar","image":"images/obj1.png"}]'>
             <span class="product-badge">-20%</span>
             <div class="product-image">
               <img src="images/obj1.png" alt="Pimocard">
@@ -3505,6 +3577,14 @@
       <p class="canvas-product-description" id="canvasDescription">
         Descripción detallada del producto. Aquí encontrarás toda la información sobre ingredientes, modo de uso y beneficios para tu mascota.
       </p>
+      
+      <!-- Variant Selector -->
+      <div class="canvas-variant-section" id="canvasVariantSection">
+        <span class="canvas-variant-label" id="canvasVariantLabel">Selecciona una presentación:</span>
+        <div class="canvas-variant-buttons" id="canvasVariantButtons">
+          <!-- Variant buttons will be generated dynamically -->
+        </div>
+      </div>
       
       <div class="canvas-quantity">
         <span class="canvas-quantity-label">Cantidad:</span>
@@ -3877,10 +3957,16 @@
     const qtyIncrease = document.getElementById('qtyIncrease');
     const btnAddCart = document.getElementById('btnAddCart');
     const btnDelivery = document.getElementById('btnDelivery');
+    
+    // Variant selector elements
+    const canvasVariantSection = document.getElementById('canvasVariantSection');
+    const canvasVariantButtons = document.getElementById('canvasVariantButtons');
 
     let currentQuantity = 1;
     let currentProduct = null;
     let currentUnitPrice = 0;
+    let currentVariants = null;
+    let selectedVariant = null;
 
     // Product descriptions database
     const productDescriptions = {
@@ -3924,12 +4010,47 @@
       }
     }
 
+    // Select a variant and update canvas display
+    function selectVariant(variant, button) {
+      // Update active button state
+      canvasVariantButtons.querySelectorAll('.variant-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      button.classList.add('active');
+      
+      // Update selected variant
+      selectedVariant = variant;
+      
+      // Update image
+      canvasImage.src = variant.image;
+      
+      // Update price
+      currentUnitPrice = parsePrice(variant.price);
+      canvasPrice.textContent = currentUnitPrice > 0 ? formatPrice(currentUnitPrice) : variant.price;
+      
+      // Update current product with variant info
+      if (currentProduct) {
+        currentProduct.price = variant.price;
+        currentProduct.image = variant.image;
+        currentProduct.unitPrice = currentUnitPrice;
+        currentProduct.selectedVariant = variant.name;
+      }
+      
+      // Recalculate total
+      updateTotalPrice();
+    }
+
     // Open canvas with product details
     function openCanvas(card) {
       const name = card.querySelector('.product-info h3').textContent;
       const category = card.querySelector('.product-category').textContent;
       const priceText = card.querySelector('.product-price').textContent.trim();
       const image = card.querySelector('.product-image img').src;
+      
+      // Check if product has variants
+      const variantsData = card.dataset.variants;
+      currentVariants = variantsData ? JSON.parse(variantsData) : null;
+      selectedVariant = null;
 
       // Parse unit price
       currentUnitPrice = parsePrice(priceText);
@@ -3949,7 +4070,34 @@
       updateTotalPrice();
 
       // Store current product
-      currentProduct = { name, category, price: priceText, image, unitPrice: currentUnitPrice };
+      currentProduct = { name, category, price: priceText, image, unitPrice: currentUnitPrice, selectedVariant: null };
+      
+      // Handle variants display
+      if (currentVariants && currentVariants.length > 0) {
+        // Clear previous variant buttons
+        canvasVariantButtons.innerHTML = '';
+        
+        // Create variant buttons
+        currentVariants.forEach((variant, index) => {
+          const btn = document.createElement('button');
+          btn.className = 'variant-btn';
+          btn.textContent = variant.name;
+          btn.addEventListener('click', () => selectVariant(variant, btn));
+          canvasVariantButtons.appendChild(btn);
+        });
+        
+        // Show variant section
+        canvasVariantSection.classList.add('active');
+        
+        // Auto-select first variant
+        const firstBtn = canvasVariantButtons.querySelector('.variant-btn');
+        if (firstBtn) {
+          selectVariant(currentVariants[0], firstBtn);
+        }
+      } else {
+        // Hide variant section if no variants
+        canvasVariantSection.classList.remove('active');
+      }
 
       // Show canvas
       canvasOverlay.classList.add('active');
@@ -3963,6 +4111,8 @@
       productCanvas.classList.remove('active');
       document.body.style.overflow = '';
       currentProduct = null;
+      currentVariants = null;
+      selectedVariant = null;
     }
 
     // Quantity controls
@@ -3995,7 +4145,8 @@
     btnAddCart.addEventListener('click', () => {
       if (currentProduct) {
         const priceInfo = buildPriceMessage();
-        const message = `Hola! Me gustaría agregar al carrito:\n\n*${currentProduct.name}*\nCantidad: ${currentQuantity}\n${priceInfo}`;
+        const variantInfo = currentProduct.selectedVariant ? `\nPresentación: ${currentProduct.selectedVariant}` : '';
+        const message = `Hola! Me gustaría agregar al carrito:\n\n*${currentProduct.name}*${variantInfo}\nCantidad: ${currentQuantity}\n${priceInfo}`;
         const whatsappUrl = `https://wa.me/573001234567?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');
       }
@@ -4005,7 +4156,8 @@
     btnDelivery.addEventListener('click', () => {
       if (currentProduct) {
         const priceInfo = buildPriceMessage();
-        const message = `Hola! Me gustaría solicitar entrega de:\n\n*${currentProduct.name}*\nCantidad: ${currentQuantity}\n${priceInfo}\n\n¿Podrían indicarme las opciones de entrega disponibles?`;
+        const variantInfo = currentProduct.selectedVariant ? `\nPresentación: ${currentProduct.selectedVariant}` : '';
+        const message = `Hola! Me gustaría solicitar entrega de:\n\n*${currentProduct.name}*${variantInfo}\nCantidad: ${currentQuantity}\n${priceInfo}\n\n¿Podrían indicarme las opciones de entrega disponibles?`;
         const whatsappUrl = `https://wa.me/573001234567?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');
       }
