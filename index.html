@@ -731,7 +731,7 @@
       position: relative;
       display: flex;
       flex-direction: column;
-      padding-top: 85px;
+      padding-top: 120px;
       overflow: hidden;
     }
 
@@ -764,39 +764,29 @@
 
     .products-header {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      flex-direction: column;
       padding: 0 5%;
-      margin-bottom: 0.8rem;
+      margin-bottom: 1.5rem;
       position: relative;
       z-index: 10;
+      gap: 1rem;
     }
 
     .products-header-left {
       display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    .products-title {
-      text-align: right;
-    }
-
-    .products-title h2 {
-      font-family: var(--font-display);
-      font-size: clamp(1.4rem, 3vw, 1.8rem);
-      color: var(--color-charcoal);
-      margin-bottom: 0;
+      align-items: flex-start;
+      width: 100%;
     }
 
     /* Category Filters - In Header */
     .category-filters {
       display: flex;
-      gap: 0.5rem;
+      gap: 0.6rem;
       position: relative;
       z-index: 10;
       flex-wrap: wrap;
-      max-width: 70%;
+      width: 100%;
+      align-items: center;
     }
 
     .filter-btn {
@@ -1415,7 +1405,7 @@
 
       /* Products Section Mobile */
       .products-section {
-        padding-top: 80px;
+        padding-top: 100px;
       }
 
       .products-section::before,
@@ -1428,12 +1418,7 @@
         align-items: flex-start;
         gap: 1rem;
         margin-bottom: 1rem;
-      }
-
-      .products-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.8rem;
+        padding-top: 0;
       }
 
       .products-header-left {
@@ -1442,16 +1427,6 @@
         align-items: center;
         gap: 0.8rem;
         width: 100%;
-      }
-
-      .products-title {
-        width: 100%;
-        text-align: left;
-        order: -1;
-      }
-
-      .products-title h2 {
-        font-size: 1.3rem;
       }
 
       .category-filters {
@@ -1640,11 +1615,7 @@
       }
 
       .products-section {
-        padding-top: 75px;
-      }
-
-      .products-title h2 {
-        font-size: 1.1rem;
+        padding-top: 90px;
       }
 
       .filter-btn {
@@ -1841,9 +1812,6 @@
             <button class="filter-btn" data-filter="higiene">🦷 Higiene Bucal</button>
             <button class="filter-btn" data-filter="antibioticos">💉 Antibióticos</button>
           </div>
-        </div>
-        <div class="products-title">
-          <h2>Productos Destacados</h2>
         </div>
       </div>
 
@@ -3317,22 +3285,22 @@
     // Add magnetic hover effect to product cards
     function addHoverEffects() {
       document.querySelectorAll('.product-card').forEach(card => {
-        card.addEventListener('mousemove', (e) => {
+      card.addEventListener('mousemove', (e) => {
           if (card.classList.contains('filtered-out')) return;
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          const centerX = rect.width / 2;
-          const centerY = rect.height / 2;
-          const rotateX = (y - centerY) / 20;
-          const rotateY = (centerX - x) / 20;
-          
-          card.style.transform = `translateY(-10px) scale(1.02) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-        });
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = (y - centerY) / 20;
+        const rotateY = (centerX - x) / 20;
+        
+        card.style.transform = `translateY(-10px) scale(1.02) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      });
 
-        card.addEventListener('mouseleave', () => {
-          card.style.transform = '';
-        });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
       });
     }
     addHoverEffects();
@@ -3363,12 +3331,12 @@
     function buildProductsData() {
       const data = [];
       document.querySelectorAll('.product-card').forEach((card, index) => {
-        const name = card.querySelector('.product-info h3').textContent;
-        const category = card.querySelector('.product-category').textContent;
-        const price = card.querySelector('.product-price').childNodes[0].textContent.trim();
-        const image = card.querySelector('.product-image img').src;
+      const name = card.querySelector('.product-info h3').textContent;
+      const category = card.querySelector('.product-category').textContent;
+      const price = card.querySelector('.product-price').childNodes[0].textContent.trim();
+      const image = card.querySelector('.product-image img').src;
         data.push({ name, category, price, image, index, element: card });
-      });
+    });
       return data;
     }
     let productsData = buildProductsData();
