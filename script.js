@@ -141,37 +141,39 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   
   /* ============================================
-     MOBILE MENU
+     MOBILE MENU (if hamburger exists)
   ============================================ */
   const hamburger = document.querySelector('.hamburger');
   const navLinks = document.querySelector('.nav-links');
   
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    
-    // Animate hamburger
-    const spans = hamburger.querySelectorAll('span');
-    if (navLinks.classList.contains('active')) {
-      spans[0].style.transform = 'rotate(45deg) translateY(10px)';
-      spans[1].style.opacity = '0';
-      spans[2].style.transform = 'rotate(-45deg) translateY(-10px)';
-    } else {
-      spans[0].style.transform = 'none';
-      spans[1].style.opacity = '1';
-      spans[2].style.transform = 'none';
-    }
-  });
-  
-  // Close menu on link click
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('active');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      
+      // Animate hamburger
       const spans = hamburger.querySelectorAll('span');
-      spans[0].style.transform = 'none';
-      spans[1].style.opacity = '1';
-      spans[2].style.transform = 'none';
+      if (navLinks.classList.contains('active')) {
+        spans[0].style.transform = 'rotate(45deg) translateY(10px)';
+        spans[1].style.opacity = '0';
+        spans[2].style.transform = 'rotate(-45deg) translateY(-10px)';
+      } else {
+        spans[0].style.transform = 'none';
+        spans[1].style.opacity = '1';
+        spans[2].style.transform = 'none';
+      }
     });
-  });
+    
+    // Close menu on link click
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        const spans = hamburger.querySelectorAll('span');
+        spans[0].style.transform = 'none';
+        spans[1].style.opacity = '1';
+        spans[2].style.transform = 'none';
+      });
+    });
+  }
   
   /* ============================================
      CONTENT GLIDE - Scroll Reveal Animation
@@ -509,13 +511,15 @@ document.addEventListener('DOMContentLoaded', () => {
      KEYBOARD NAVIGATION
   ============================================ */
   document.addEventListener('keydown', (e) => {
-    // Escape to close mobile menu
-    if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+    // Escape to close mobile menu (if exists)
+    if (e.key === 'Escape' && navLinks && navLinks.classList.contains('active')) {
       navLinks.classList.remove('active');
-      const spans = hamburger.querySelectorAll('span');
-      spans[0].style.transform = 'none';
-      spans[1].style.opacity = '1';
-      spans[2].style.transform = 'none';
+      if (hamburger) {
+        const spans = hamburger.querySelectorAll('span');
+        spans[0].style.transform = 'none';
+        spans[1].style.opacity = '1';
+        spans[2].style.transform = 'none';
+      }
     }
     
     // Arrow keys for testimonials
