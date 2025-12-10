@@ -1703,8 +1703,23 @@
     }
 
     @media (max-width: 768px) {
+      /* MOBILE: Convert from horizontal slide to vertical scroll */
       body {
         cursor: auto;
+        overflow-y: auto;
+        overflow-x: hidden;
+        height: auto;
+      }
+
+      .slide-container {
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        transform: none !important;
+      }
+
+      .slide-container.show-products {
+        transform: none !important;
       }
 
       .navbar {
@@ -1748,12 +1763,15 @@
         font-size: 0.85rem;
       }
 
+      /* Hero Section Mobile - Stack Vertically */
       .hero-section {
-        flex-direction: column;
-        justify-content: center;
-        padding: 100px 4% 3rem;
+        width: 100%;
+        height: auto;
         min-height: auto;
-        gap: 2rem;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 100px 5% 2rem;
+        gap: 1.5rem;
       }
 
       .hero-content {
@@ -1765,34 +1783,40 @@
       }
 
       .hero-content h1 {
-        font-size: clamp(2rem, 8vw, 3rem);
-        margin-bottom: 1.2rem;
+        font-size: clamp(1.6rem, 7vw, 2.2rem);
+        margin-bottom: 1rem;
+        line-height: 1.2;
       }
 
       .hero-content p {
-        margin: 0 auto 2rem;
-        font-size: clamp(0.95rem, 3vw, 1.1rem);
+        margin: 0 auto 1.5rem;
+        font-size: clamp(0.9rem, 3vw, 1rem);
+        padding: 0 0.5rem;
       }
 
       .hero-cta {
-        padding: 1rem 2rem;
-        font-size: 0.95rem;
+        padding: 0.9rem 1.8rem;
+        font-size: 0.9rem;
+        width: auto;
+        display: inline-flex;
       }
 
       .hero-floating-images {
         flex: none;
         width: 100%;
-        height: 350px;
+        height: 280px;
         max-height: none;
         order: 2;
+        padding: 0;
       }
 
       .images-track {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(2, 1fr);
-        gap: 0.8rem;
+        gap: 0.6rem;
         height: 100%;
+        padding: 0;
       }
 
       .floating-img {
@@ -1806,8 +1830,8 @@
       }
 
       .flip-card-text {
-        font-size: 0.85rem;
-        padding: 1rem;
+        font-size: 0.7rem;
+        padding: 0.6rem;
       }
 
       .flip-card-wrapper:nth-child(1),
@@ -1838,9 +1862,13 @@
         grid-row: 2 / 3;
       }
 
-      /* Products Section Mobile */
+      /* Products Section Mobile - Vertical Layout */
       .products-section {
-        padding-top: 100px;
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+        padding-top: 2rem;
+        padding-bottom: 100px;
       }
 
       .products-section::before,
@@ -1851,16 +1879,16 @@
       .products-header {
         flex-direction: column;
         align-items: flex-start;
-        gap: 1rem;
+        gap: 0.8rem;
         margin-bottom: 1rem;
-        padding-top: 0;
+        padding: 0 5%;
       }
 
       .products-header-left {
         flex-direction: row;
         flex-wrap: wrap;
         align-items: center;
-        gap: 0.8rem;
+        gap: 0.6rem;
         width: 100%;
       }
 
@@ -1879,24 +1907,29 @@
       }
 
       .filter-btn {
-        padding: 0.35rem 0.7rem;
-        font-size: 0.65rem;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.7rem;
         flex-shrink: 0;
       }
 
       .products-horizontal-container {
-        padding: 0 4%;
+        padding: 0 5%;
+        height: auto;
+        flex: none;
       }
 
       .products-track {
         grid-template-columns: repeat(2, 1fr);
         grid-auto-rows: auto;
         gap: 0.8rem;
-        padding: 0.8rem 1rem 0.8rem 0;
+        padding: 0.5rem 0;
+        max-height: none;
+        overflow-y: visible;
+        overflow-x: hidden;
       }
 
       .products-track::-webkit-scrollbar {
-        width: 8px;
+        display: none;
       }
 
       .product-card {
@@ -1904,13 +1937,13 @@
       }
 
       .product-image {
-        height: 100px;
-        min-height: 100px;
+        height: 110px;
+        min-height: 110px;
         border-radius: 14px 14px 0 0;
       }
 
       .product-info {
-        padding: 0.6rem;
+        padding: 0.7rem;
       }
 
       .product-info h3 {
@@ -1918,7 +1951,7 @@
       }
 
       .product-info p {
-        font-size: 0.68rem;
+        font-size: 0.72rem;
         margin-bottom: 0.5rem;
       }
 
@@ -1949,144 +1982,152 @@
       }
 
       .logo {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
       }
 
       .logo-icon {
-        width: 28px;
-        height: 28px;
+        width: 26px;
+        height: 26px;
+        border-radius: 8px;
       }
 
       .logo-icon svg {
-        width: 16px;
-        height: 16px;
+        width: 15px;
+        height: 15px;
       }
 
       .search-input {
-        padding: 0.55rem 1.8rem 0.55rem 2.1rem;
+        padding: 0.5rem 1.6rem 0.5rem 2rem;
         font-size: 0.8rem;
       }
 
       .search-icon {
         width: 14px;
         height: 14px;
-        left: 0.7rem;
+        left: 0.6rem;
       }
 
       .search-clear {
-        width: 20px;
-        height: 20px;
-        right: 0.6rem;
+        width: 18px;
+        height: 18px;
+        right: 0.5rem;
       }
 
       .search-clear svg {
-        width: 12px;
-        height: 12px;
+        width: 10px;
+        height: 10px;
       }
 
       .search-results {
-        max-height: 200px;
+        max-height: 180px;
         border-radius: 12px;
       }
 
       .search-result-item {
-        padding: 0.5rem 0.7rem;
-        gap: 0.6rem;
+        padding: 0.5rem 0.6rem;
+        gap: 0.5rem;
       }
 
       .search-result-image {
-        width: 32px;
-        height: 32px;
+        width: 30px;
+        height: 30px;
         border-radius: 8px;
       }
 
       .search-result-name {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
       }
 
       .search-result-category {
-        font-size: 0.6rem;
+        font-size: 0.55rem;
       }
 
       .search-result-price {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
       }
 
       .hero-section {
-        padding: 100px 4% 2rem;
-        gap: 1.5rem;
+        padding: 90px 4% 1.5rem;
+        gap: 1rem;
       }
 
       .hero-content h1 {
-        font-size: clamp(1.8rem, 9vw, 2.5rem);
-        line-height: 1.2;
-        margin-bottom: 1rem;
+        font-size: clamp(1.4rem, 6.5vw, 1.8rem);
+        line-height: 1.25;
+        margin-bottom: 0.8rem;
       }
 
       .hero-content p {
-        font-size: 0.95rem;
-        margin-bottom: 1.5rem;
+        font-size: 0.85rem;
+        margin-bottom: 1.2rem;
+        line-height: 1.5;
       }
 
       .hero-cta {
-        padding: 0.9rem 1.8rem;
-        font-size: 0.9rem;
-        width: 100%;
-        justify-content: center;
+        padding: 0.8rem 1.5rem;
+        font-size: 0.85rem;
+        width: auto;
       }
 
       .hero-floating-images {
-        height: 280px;
+        height: 220px;
       }
 
       .images-track {
-        gap: 0.5rem;
+        gap: 0.4rem;
       }
 
       .floating-img {
-        border-radius: 10px;
+        border-radius: 8px;
       }
 
       .flip-card-wrapper,
       .flip-card-front,
       .flip-card-back {
-        border-radius: 10px;
+        border-radius: 8px;
       }
 
       .flip-card-text {
-        font-size: 0.75rem;
-        padding: 0.8rem;
+        font-size: 0.6rem;
+        padding: 0.5rem;
+        line-height: 1.3;
       }
 
       .products-section {
-        padding-top: 90px;
+        padding-top: 1.5rem;
+        padding-bottom: 80px;
+      }
+
+      .products-header {
+        padding: 0 4%;
+        gap: 0.6rem;
       }
 
       .filter-btn {
-        padding: 0.3rem 0.5rem;
+        padding: 0.35rem 0.6rem;
         font-size: 0.6rem;
         flex-shrink: 0;
+      }
+
+      .products-horizontal-container {
+        padding: 0 4%;
       }
 
       .products-track {
         grid-template-columns: repeat(2, 1fr);
         grid-auto-rows: auto;
-        gap: 0.6rem;
-        padding: 0.6rem 0.8rem 0.6rem 0;
-      }
-
-      .products-track::-webkit-scrollbar {
-        width: 6px;
+        gap: 0.5rem;
+        padding: 0.4rem 0;
       }
 
       .product-card {
-        border-radius: 12px;
+        border-radius: 10px;
       }
 
       .product-image {
-        height: 80px;
-        min-height: 80px;
-        border-radius: 12px 12px 0 0;
+        height: 90px;
+        min-height: 90px;
+        border-radius: 10px 10px 0 0;
       }
 
       .product-info {
@@ -2094,7 +2135,8 @@
       }
 
       .product-info h3 {
-        font-size: 0.75rem;
+        font-size: 0.72rem;
+        line-height: 1.3;
       }
 
       .product-info p {
@@ -2141,6 +2183,84 @@
       .whatsapp-float svg {
         width: 24px;
         height: 24px;
+      }
+    }
+
+    /* Very small phones (360px and below) */
+    @media (max-width: 360px) {
+      .navbar {
+        padding: 0.5rem 3%;
+      }
+
+      .logo {
+        font-size: 1rem;
+      }
+
+      .logo-icon {
+        width: 24px;
+        height: 24px;
+      }
+
+      .logo-icon svg {
+        width: 14px;
+        height: 14px;
+      }
+
+      .search-input {
+        padding: 0.45rem 1.4rem 0.45rem 1.8rem;
+        font-size: 0.75rem;
+      }
+
+      .hero-section {
+        padding: 85px 3% 1rem;
+      }
+
+      .hero-content h1 {
+        font-size: 1.3rem;
+      }
+
+      .hero-content p {
+        font-size: 0.8rem;
+      }
+
+      .hero-cta {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.8rem;
+      }
+
+      .hero-floating-images {
+        height: 180px;
+      }
+
+      .flip-card-text {
+        font-size: 0.5rem;
+        padding: 0.4rem;
+      }
+
+      .products-header {
+        padding: 0 3%;
+      }
+
+      .products-horizontal-container {
+        padding: 0 3%;
+      }
+
+      .filter-btn {
+        padding: 0.3rem 0.5rem;
+        font-size: 0.55rem;
+      }
+
+      .product-image {
+        height: 75px;
+        min-height: 75px;
+      }
+
+      .product-info h3 {
+        font-size: 0.68rem;
+      }
+
+      .product-info p {
+        font-size: 0.58rem;
       }
     }
   </style>
@@ -3687,17 +3807,38 @@
 
     const productsSection = document.querySelector('.products-section');
 
+    // Check if mobile viewport
+    function isMobile() {
+      return window.innerWidth <= 768;
+    }
+
     function showProducts() {
-      slideContainer.classList.add('show-products');
-      // Trigger entrance animations after slide transition starts
-      setTimeout(() => {
-        productsSection.classList.add('products-visible');
-      }, 400);
+      if (isMobile()) {
+        // On mobile: scroll to products section
+        productsSection.scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => {
+          productsSection.classList.add('products-visible');
+        }, 300);
+      } else {
+        // On desktop: use slide animation
+        slideContainer.classList.add('show-products');
+        // Trigger entrance animations after slide transition starts
+        setTimeout(() => {
+          productsSection.classList.add('products-visible');
+        }, 400);
+      }
     }
 
     function showHero() {
-      slideContainer.classList.remove('show-products');
-      productsSection.classList.remove('products-visible');
+      if (isMobile()) {
+        // On mobile: scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        productsSection.classList.remove('products-visible');
+      } else {
+        // On desktop: use slide animation
+        slideContainer.classList.remove('show-products');
+        productsSection.classList.remove('products-visible');
+      }
     }
 
     showProductsBtn.addEventListener('click', showProducts);
@@ -3705,6 +3846,11 @@
       e.preventDefault();
       showHero();
     });
+    
+    // On mobile, show products visible by default for scrolling
+    if (isMobile()) {
+      productsSection.classList.add('products-visible');
+    }
 
     // Category filters
     const filterBtns = document.querySelectorAll('.filter-btn');
@@ -4199,6 +4345,24 @@
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && productCanvas.classList.contains('active')) {
         closeCanvas();
+      }
+    });
+
+    // Handle viewport resize for mobile/desktop switching
+    let lastIsMobile = isMobile();
+    window.addEventListener('resize', () => {
+      const currentIsMobile = isMobile();
+      if (currentIsMobile !== lastIsMobile) {
+        // Viewport changed between mobile and desktop
+        if (currentIsMobile) {
+          // Switched to mobile: enable scroll mode
+          slideContainer.classList.remove('show-products');
+          productsSection.classList.add('products-visible');
+        } else {
+          // Switched to desktop: reset state
+          productsSection.classList.remove('products-visible');
+        }
+        lastIsMobile = currentIsMobile;
       }
     });
   </script>
