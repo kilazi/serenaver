@@ -196,7 +196,7 @@
       border-radius: 16px;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
       border: 1px solid var(--color-border);
-      max-height: 320px;
+      max-height: 400px;
       overflow-y: auto;
       opacity: 0;
       visibility: hidden;
@@ -792,18 +792,20 @@
     /* Category Filters - In Header */
     .category-filters {
       display: flex;
-      gap: 0.6rem;
+      gap: 0.5rem;
       position: relative;
       z-index: 10;
+      flex-wrap: wrap;
+      max-width: 70%;
     }
 
     .filter-btn {
-      padding: 0.5rem 1.2rem;
+      padding: 0.45rem 1rem;
       border: 2px solid var(--color-border);
       border-radius: 50px;
       background: var(--color-white);
       font-family: var(--font-body);
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       font-weight: 500;
       color: var(--color-gray);
       cursor: pointer;
@@ -856,7 +858,7 @@
     .products-track {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(2, 1fr);
+      grid-auto-rows: auto;
       gap: 1rem;
       padding: 1rem 1.5rem 1rem 0;
       width: 100%;
@@ -1043,6 +1045,16 @@
       filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
       position: relative;
       z-index: 2;
+    }
+
+    /* Fallback for missing images */
+    .product-image .placeholder-icon {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      color: var(--color-primary);
+      opacity: 0.6;
+      z-index: 1;
     }
 
     .product-card:hover .product-image img {
@@ -1444,12 +1456,13 @@
 
       .category-filters {
         flex-wrap: wrap;
-        gap: 0.5rem;
+        gap: 0.4rem;
+        max-width: 100%;
       }
 
       .filter-btn {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.7rem;
+        padding: 0.35rem 0.7rem;
+        font-size: 0.65rem;
       }
 
       .products-horizontal-container {
@@ -1458,7 +1471,7 @@
 
       .products-track {
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, 1fr);
+        grid-auto-rows: auto;
         gap: 0.8rem;
         padding: 0.8rem 1rem 0.8rem 0;
       }
@@ -1635,13 +1648,13 @@
       }
 
       .filter-btn {
-        padding: 0.35rem 0.6rem;
-        font-size: 0.65rem;
+        padding: 0.3rem 0.5rem;
+        font-size: 0.6rem;
       }
 
       .products-track {
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, 1fr);
+        grid-auto-rows: auto;
         gap: 0.6rem;
         padding: 0.6rem 0.8rem 0.6rem 0;
       }
@@ -1816,9 +1829,17 @@
           <!-- Category Filters in header -->
           <div class="category-filters">
             <button class="filter-btn active" data-filter="all">Todos</button>
-            <button class="filter-btn" data-filter="perros">Perros</button>
-            <button class="filter-btn" data-filter="gatos">Gatos</button>
-            <button class="filter-btn" data-filter="senior">Senior</button>
+            <button class="filter-btn" data-filter="perros">🐕 Perros</button>
+            <button class="filter-btn" data-filter="gatos">🐱 Gatos</button>
+            <button class="filter-btn" data-filter="cardiologia">❤️ Cardiología</button>
+            <button class="filter-btn" data-filter="antiparasitarios">🛡️ Antiparasitarios</button>
+            <button class="filter-btn" data-filter="oftalmologia">👁️ Oftalmología</button>
+            <button class="filter-btn" data-filter="dermatologia">✨ Dermatología</button>
+            <button class="filter-btn" data-filter="gastrointestinal">🍃 Gastrointestinal</button>
+            <button class="filter-btn" data-filter="suplementos">💊 Suplementos</button>
+            <button class="filter-btn" data-filter="dietas">🥗 Dietas MV</button>
+            <button class="filter-btn" data-filter="higiene">🦷 Higiene Bucal</button>
+            <button class="filter-btn" data-filter="antibioticos">💉 Antibióticos</button>
           </div>
         </div>
         <div class="products-title">
@@ -1828,141 +1849,1387 @@
 
       <div class="products-horizontal-container">
         <div class="products-track" id="productsTrack">
-          <!-- Product 1 -->
-          <div class="product-card" data-category="perros">
-            <span class="product-badge">-20%</span>
+          
+          <!-- ACEDAN GOTAS -->
+          <div class="product-card" data-category="perros gatos antiinflamatorios">
             <div class="product-image">
-              <img src="images/obj1.png" alt="Multivitamínico Canino">
+              <img src="images/placeholder.png" alt="Acedan Gotas">
             </div>
             <div class="product-info">
-              <span class="product-category">Vitaminas • Perros</span>
-              <h3>Multivitamínico Premium</h3>
-              <p>Fórmula completa con 18 vitaminas y minerales esenciales.</p>
+              <span class="product-category">Antiinflamatorio • Gotas</span>
+              <h3>Acedan Gotas</h3>
+              <p>Antiinflamatorio y analgésico en presentación gotas.</p>
               <div class="product-footer">
-                <span class="product-price">$45.000<span class="original">$56.000</span></span>
+                <span class="product-price">Consultar</span>
                 <button class="btn-product">Comprar</button>
               </div>
             </div>
           </div>
 
-          <!-- Product 2 -->
-          <div class="product-card" data-category="perros gatos">
-            <span class="product-badge">Nuevo</span>
+          <!-- ACEDAN INYECTABLE -->
+          <div class="product-card" data-category="perros gatos antiinflamatorios">
             <div class="product-image">
-              <img src="images/obj2.png" alt="Omega 3 & 6">
+              <img src="images/placeholder.png" alt="Acedan Inyectable">
             </div>
             <div class="product-info">
-              <span class="product-category">Suplementos • Universal</span>
-              <h3>Omega 3 & 6 Plus</h3>
-              <p>Ácidos grasos esenciales para piel y pelaje saludable.</p>
+              <span class="product-category">Antiinflamatorio • Inyectable</span>
+              <h3>Acedan Inyectable</h3>
+              <p>Antiinflamatorio y analgésico de acción rápida.</p>
               <div class="product-footer">
-                <span class="product-price">$38.000</span>
+                <span class="product-price">Consultar</span>
                 <button class="btn-product">Comprar</button>
               </div>
             </div>
           </div>
 
-          <!-- Product 3 -->
-          <div class="product-card" data-category="perros gatos">
-            <span class="product-badge">-15%</span>
+          <!-- ANAVIMIN COAT COMPRIMIDOS -->
+          <div class="product-card" data-category="perros gatos suplementos">
             <div class="product-image">
-              <img src="images/obj3.png" alt="Probióticos">
+              <img src="images/placeholder.png" alt="Anavimin Coat">
             </div>
             <div class="product-info">
-              <span class="product-category">Digestión • Universal</span>
-              <h3>Probióticos Digestivos</h3>
-              <p>Mejora la flora intestinal y optimiza la absorción.</p>
+              <span class="product-category">Suplementos • Piel y Pelo</span>
+              <h3>Anavimin Coat Comprimidos</h3>
+              <p>Suplemento vitamínico para el cuidado de piel y pelaje.</p>
               <div class="product-footer">
-                <span class="product-price">$42.000<span class="original">$49.500</span></span>
+                <span class="product-price">Consultar</span>
                 <button class="btn-product">Comprar</button>
               </div>
             </div>
           </div>
 
-          <!-- Product 4 -->
-          <div class="product-card" data-category="perros">
+          <!-- ANTI ULCERAS -->
+          <div class="product-card" data-category="perros gatos gastrointestinal">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Anti Ulceras">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Gastrointestinal • Protector</span>
+              <h3>Anti Ulceras</h3>
+              <p>Protector gástrico para tratamiento de úlceras.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- APETIL -->
+          <div class="product-card" data-category="perros gatos suplementos">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Apetil">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Suplementos • Estimulante</span>
+              <h3>Apetil</h3>
+              <p>Estimulante del apetito para mascotas inapetentes.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ATRIBEN -->
+          <div class="product-card" data-category="perros gatos gastrointestinal">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Atriben">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Gastrointestinal • Antidiarreico</span>
+              <h3>Atriben</h3>
+              <p>Tratamiento para trastornos gastrointestinales.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- BIOCLIN ENJUAGUE BUCAL -->
+          <div class="product-card" data-category="perros gatos higiene">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Bioclin Enjuague Bucal">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Higiene Bucal • Enjuague</span>
+              <h3>Bioclin Enjuague Bucal</h3>
+              <p>Enjuague bucal para higiene oral de mascotas.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- BIOCLIN GEL ANTIPLACA -->
+          <div class="product-card" data-category="perros gatos higiene">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Bioclin Gel Antiplaca">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Higiene Bucal • Gel</span>
+              <h3>Bioclin Gel Antiplaca</h3>
+              <p>Gel dental para prevención de placa y sarro.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- BUTORMIN -->
+          <div class="product-card" data-category="perros gatos antiinflamatorios">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Butormin">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Analgésico • Opiode</span>
+              <h3>Butormin</h3>
+              <p>Analgésico opioide para control del dolor.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARDIAL -->
+          <div class="product-card" data-category="perros gatos cardiologia">
             <span class="product-badge">Popular</span>
             <div class="product-image">
-              <img src="images/obj4.png" alt="Calcio + Vitamina D">
+              <img src="images/obj2.png" alt="Cardial">
             </div>
             <div class="product-info">
-              <span class="product-category">Huesos • Perros Grandes</span>
-              <h3>Calcio + Vitamina D</h3>
-              <p>Fortalece huesos y articulaciones, ideal para razas grandes.</p>
+              <span class="product-category">Cardiología • Universal</span>
+              <h3>Cardial</h3>
+              <p>Tratamiento cardiovascular para insuficiencia cardíaca.</p>
               <div class="product-footer">
-                <span class="product-price">$52.000</span>
+                <span class="product-price">Consultar</span>
                 <button class="btn-product">Comprar</button>
               </div>
             </div>
           </div>
 
-          <!-- Product 5 -->
-          <div class="product-card" data-category="senior">
+          <!-- CARDIAL B -->
+          <div class="product-card" data-category="perros gatos cardiologia">
+            <span class="product-badge">Nuevo</span>
+            <div class="product-image">
+              <img src="images/obj2.png" alt="Cardial B">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Cardiología • Universal</span>
+              <h3>Cardial B</h3>
+              <p>Suplemento cardiovascular con vitaminas del complejo B.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- CEFALEXINA 500 -->
+          <div class="product-card" data-category="perros gatos antibioticos">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Cefalexina 500">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Antibióticos • Cefalosporina</span>
+              <h3>Cefalexina 500</h3>
+              <p>Antibiótico de amplio espectro para infecciones bacterianas.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- CICLOSPORINA 1% OFTALDAY -->
+          <div class="product-card" data-category="perros gatos oftalmologia">
+            <div class="product-image">
+              <img src="images/obj4.png" alt="Ciclosporina 1% Oftalday">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Oftalmología • Gotas</span>
+              <h3>Ciclosporina 1% Oftalday</h3>
+              <p>Tratamiento oftálmico para ojo seco y queratitis.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- CICLOSPORINA 2% -->
+          <div class="product-card" data-category="perros gatos oftalmologia dermatologia">
+            <div class="product-image">
+              <img src="images/obj4.png" alt="Ciclosporina 2%">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Oftalmología • Dermatología</span>
+              <h3>Ciclosporina 2%</h3>
+              <p>Inmunomodulador para afecciones oculares y dermatológicas.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- CLORALEN -->
+          <div class="product-card" data-category="perros gatos antibioticos">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Cloralen">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Antibióticos • Cloranfenicol</span>
+              <h3>Cloralen</h3>
+              <p>Antibiótico para infecciones sensibles.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- CLORHEXIDINA -->
+          <div class="product-card" data-category="perros gatos higiene dermatologia">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Clorhexidina">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Higiene • Antiséptico</span>
+              <h3>Clorhexidina</h3>
+              <p>Antiséptico y desinfectante de uso tópico.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- CLORHEXIDINA GOTAS ÓTICAS -->
+          <div class="product-card" data-category="perros gatos higiene">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Clorhexidina Gotas Óticas">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Higiene • Ótico</span>
+              <h3>Clorhexidina Gotas Óticas</h3>
+              <p>Solución antiséptica para limpieza de oídos.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- COLIRAMA VIRAL -->
+          <div class="product-card" data-category="perros gatos oftalmologia">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Colirama Viral">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Oftalmología • Antiviral</span>
+              <h3>Colirama Viral</h3>
+              <p>Colirio antiviral para infecciones oculares.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- DERMOXIL -->
+          <div class="product-card" data-category="perros gatos dermatologia">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Dermoxil">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Dermatología • Shampoo</span>
+              <h3>Dermoxil</h3>
+              <p>Shampoo medicado para afecciones de la piel.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- DIURENE 40 -->
+          <div class="product-card" data-category="perros gatos cardiologia">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Diurene 40">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Cardiología • Diurético</span>
+              <h3>Diurene 40</h3>
+              <p>Diurético para tratamiento de edemas e insuficiencia cardíaca.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- DOZILAM -->
+          <div class="product-card" data-category="perros gatos">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Dozilam">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Sedante • Benzodiacepina</span>
+              <h3>Dozilam</h3>
+              <p>Sedante y ansiolítico de acción corta.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ECTHOL 5 -->
+          <div class="product-card" data-category="perros gatos antiparasitarios">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Ecthol 5">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Antiparasitarios • Externo</span>
+              <h3>Ecthol 5</h3>
+              <p>Antiparasitario externo de amplio espectro.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ECTHOL AP -->
+          <div class="product-card" data-category="perros gatos antiparasitarios">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Ecthol AP">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Antiparasitarios • Ambiental</span>
+              <h3>Ecthol AP</h3>
+              <p>Antiparasitario ambiental para control de plagas.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ECTHOL COLLAR GATOS -->
+          <div class="product-card" data-category="gatos antiparasitarios">
+            <span class="product-badge">Gatos</span>
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Ecthol Collar Gatos">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Antiparasitarios • Collar</span>
+              <h3>Ecthol Collar Gatos</h3>
+              <p>Collar antiparasitario de larga duración para gatos.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ECTHOL COLLAR PERROS -->
+          <div class="product-card" data-category="perros antiparasitarios">
+            <span class="product-badge">Perros</span>
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Ecthol Collar Perros">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Antiparasitarios • Collar</span>
+              <h3>Ecthol Collar Perros</h3>
+              <p>Collar antiparasitario de larga duración para perros.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ECTHOL GMP GATOS -->
+          <div class="product-card" data-category="gatos antiparasitarios">
+            <span class="product-badge">Gatos</span>
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Ecthol GMP Gatos">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Antiparasitarios • Pipeta</span>
+              <h3>Ecthol GMP Gatos</h3>
+              <p>Pipeta antiparasitaria para gatos adultos.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ECTHOL GMP PERROS -->
+          <div class="product-card" data-category="perros antiparasitarios">
+            <span class="product-badge">Perros</span>
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Ecthol GMP Perros">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Antiparasitarios • Pipeta</span>
+              <h3>Ecthol GMP Perros</h3>
+              <p>Pipeta antiparasitaria para perros adultos.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ECTHOL HALO COLLAR PERROS -->
+          <div class="product-card" data-category="perros antiparasitarios">
+            <span class="product-badge">Nuevo</span>
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Ecthol Halo Collar Perros">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Antiparasitarios • Collar</span>
+              <h3>Ecthol Halo Collar Perros</h3>
+              <p>Collar premium antiparasitario de larga duración.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ECTHOLANER COMPRIMIDOS PERROS -->
+          <div class="product-card" data-category="perros antiparasitarios">
+            <span class="product-badge">Popular</span>
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Ectholaner Comprimidos Perros">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Antiparasitarios • Oral</span>
+              <h3>Ectholaner Comprimidos Perros</h3>
+              <p>Antiparasitario oral de acción sistémica para perros.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ECTHONIL GATOS -->
+          <div class="product-card" data-category="gatos antiparasitarios">
+            <span class="product-badge">Gatos</span>
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Ecthonil Gatos">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Antiparasitarios • Spot-on</span>
+              <h3>Ecthonil Gatos</h3>
+              <p>Antiparasitario spot-on para gatos.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ECTHONIL PERROS -->
+          <div class="product-card" data-category="perros antiparasitarios">
+            <span class="product-badge">Perros</span>
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Ecthonil Perros">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Antiparasitarios • Spot-on</span>
+              <h3>Ecthonil Perros</h3>
+              <p>Antiparasitario spot-on para perros.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ENZIMAX -->
+          <div class="product-card" data-category="perros gatos gastrointestinal suplementos">
+            <span class="product-badge">Nuevo</span>
+            <div class="product-image">
+              <img src="images/obj8.png" alt="Enzimax">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Gastrointestinal • Enzimas</span>
+              <h3>Enzimax</h3>
+              <p>Suplemento enzimático para mejorar la digestión.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- EPITELIZANTE OCULAR OFTALDAY -->
+          <div class="product-card" data-category="perros gatos oftalmologia">
             <span class="product-badge">-25%</span>
             <div class="product-image">
-              <img src="images/obj5.png" alt="Vitaminas Senior">
+              <img src="images/obj5.png" alt="Epitelizante Ocular Oftalday">
             </div>
             <div class="product-info">
-              <span class="product-category">Senior • +7 Años</span>
-              <h3>Vitaminas Senior</h3>
-              <p>Fórmula especial con antioxidantes para mascotas mayores.</p>
+              <span class="product-category">Oftalmología • Regenerador</span>
+              <h3>Epitelizante Ocular Oftalday</h3>
+              <p>Tratamiento para regeneración del epitelio corneal.</p>
               <div class="product-footer">
-                <span class="product-price">$48.000<span class="original">$64.000</span></span>
+                <span class="product-price">Consultar</span>
                 <button class="btn-product">Comprar</button>
               </div>
             </div>
           </div>
 
-          <!-- Product 6 -->
+          <!-- FLOXADAY COMPRIMIDOS -->
+          <div class="product-card" data-category="perros gatos antibioticos">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Floxaday Comprimidos">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Antibióticos • Fluoroquinolona</span>
+              <h3>Floxaday Comprimidos</h3>
+              <p>Antibiótico de amplio espectro en comprimidos.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- FLOXADAY INYECTABLE -->
+          <div class="product-card" data-category="perros gatos antibioticos">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Floxaday Inyectable">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Antibióticos • Inyectable</span>
+              <h3>Floxaday Inyectable</h3>
+              <p>Antibiótico de amplio espectro inyectable.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- FLURBIPROFENO OFTALDAY -->
+          <div class="product-card" data-category="perros gatos oftalmologia">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Flurbiprofeno Oftalday">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Oftalmología • Antiinflamatorio</span>
+              <h3>Flurbiprofeno Oftalday</h3>
+              <p>Antiinflamatorio ocular no esteroideo.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- GABADAY -->
+          <div class="product-card" data-category="perros gatos">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Gabaday">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Neurología • Anticonvulsivo</span>
+              <h3>Gabaday</h3>
+              <p>Anticonvulsivo para control de epilepsia.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- GRISEOFULVINA 250/500 MG -->
+          <div class="product-card" data-category="perros gatos dermatologia">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Griseofulvina">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Dermatología • Antifúngico</span>
+              <h3>Griseofulvina 250/500 MG</h3>
+              <p>Antifúngico oral para dermatofitosis.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- IQ 180 -->
+          <div class="product-card" data-category="perros gatos suplementos">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="IQ 180">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Suplementos • Cognitivo</span>
+              <h3>IQ 180</h3>
+              <p>Suplemento para la salud cognitiva y cerebral.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- IVERMECTINA 250 MCG -->
+          <div class="product-card" data-category="perros gatos antiparasitarios">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Ivermectina 250 MCG">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Antiparasitarios • Interno</span>
+              <h3>Ivermectina 250 MCG</h3>
+              <p>Antiparasitario interno de amplio espectro.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- KETAMID -->
+          <div class="product-card" data-category="perros gatos">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Ketamid">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Anestésico • Disociativo</span>
+              <h3>Ketamid</h3>
+              <p>Anestésico disociativo de uso veterinario.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- KETAMINA 50 -->
+          <div class="product-card" data-category="perros gatos">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Ketamina 50">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Anestésico • Disociativo</span>
+              <h3>Ketamina 50</h3>
+              <p>Anestésico general disociativo 50mg/ml.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- MV GATOS GASTROINTESTINAL -->
+          <div class="product-card" data-category="gatos gastrointestinal dietas">
+            <span class="product-badge">Gatos</span>
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="MV Gatos Gastrointestinal">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Dietas MV • Gastrointestinal</span>
+              <h3>MV Gatos Gastrointestinal</h3>
+              <p>Dieta terapéutica para trastornos digestivos en gatos.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- MV GATOS OBESIDAD -->
+          <div class="product-card" data-category="gatos dietas">
+            <span class="product-badge">Gatos</span>
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="MV Gatos Obesidad">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Dietas MV • Control de Peso</span>
+              <h3>MV Gatos Obesidad</h3>
+              <p>Dieta baja en calorías para control de peso en gatos.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- MV GATOS RENAL -->
+          <div class="product-card" data-category="gatos dietas">
+            <span class="product-badge">Gatos</span>
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="MV Gatos Renal">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Dietas MV • Renal</span>
+              <h3>MV Gatos Renal</h3>
+              <p>Dieta terapéutica para enfermedad renal en gatos.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- MV GATOS URINARIO -->
+          <div class="product-card" data-category="gatos dietas">
+            <span class="product-badge">Gatos</span>
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="MV Gatos Urinario">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Dietas MV • Urinario</span>
+              <h3>MV Gatos Urinario</h3>
+              <p>Dieta para prevención de problemas urinarios en gatos.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- MV PERROS ARTICULAR -->
+          <div class="product-card" data-category="perros dietas">
+            <span class="product-badge">Perros</span>
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="MV Perros Articular">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Dietas MV • Articular</span>
+              <h3>MV Perros Articular</h3>
+              <p>Dieta con condroprotectores para salud articular.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- MV PERROS CARDIO -->
+          <div class="product-card" data-category="perros dietas cardiologia">
+            <span class="product-badge">Perros</span>
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="MV Perros Cardio">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Dietas MV • Cardio</span>
+              <h3>MV Perros Cardio</h3>
+              <p>Dieta baja en sodio para pacientes cardíacos.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- MV PERROS GASTROINTESTINAL -->
+          <div class="product-card" data-category="perros gastrointestinal dietas">
+            <span class="product-badge">Perros</span>
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="MV Perros Gastrointestinal">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Dietas MV • Gastrointestinal</span>
+              <h3>MV Perros Gastrointestinal</h3>
+              <p>Dieta terapéutica para trastornos digestivos en perros.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- MV PERROS OBESIDAD -->
+          <div class="product-card" data-category="perros dietas">
+            <span class="product-badge">Perros</span>
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="MV Perros Obesidad">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Dietas MV • Control de Peso</span>
+              <h3>MV Perros Obesidad</h3>
+              <p>Dieta baja en calorías para control de peso en perros.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- MV PERROS RENAL -->
+          <div class="product-card" data-category="perros dietas">
+            <span class="product-badge">Perros</span>
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="MV Perros Renal">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Dietas MV • Renal</span>
+              <h3>MV Perros Renal</h3>
+              <p>Dieta terapéutica para enfermedad renal en perros.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- MV PERROS SENSIBILIDAD DIETARIA -->
+          <div class="product-card" data-category="perros dietas">
+            <span class="product-badge">Perros</span>
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="MV Perros Sensibilidad Dietaria">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Dietas MV • Sensibilidad</span>
+              <h3>MV Perros Sensibilidad Dietaria</h3>
+              <p>Dieta hipoalergénica para perros con sensibilidades.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- NEOVITA -->
+          <div class="product-card" data-category="perros gatos suplementos">
+            <span class="product-badge">Oferta</span>
+            <div class="product-image">
+              <img src="images/obj7.png" alt="Neovita">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Suplementos • Vitamínico</span>
+              <h3>Neovita</h3>
+              <p>Complemento vitamínico y mineral completo.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- NOMAT -->
+          <div class="product-card" data-category="perros gatos antiparasitarios">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Nomat">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Antiparasitarios • Externo</span>
+              <h3>Nomat</h3>
+              <p>Repelente e insecticida para control de ectoparásitos.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- OFLOXACINA OFTALDAY -->
+          <div class="product-card" data-category="perros gatos oftalmologia antibioticos">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Ofloxacina Oftalday">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Oftalmología • Antibiótico</span>
+              <h3>Ofloxacina Oftalday</h3>
+              <p>Antibiótico oftálmico de amplio espectro.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- OHM -->
+          <div class="product-card" data-category="perros gatos">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Ohm">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Comportamiento • Calma</span>
+              <h3>OHM</h3>
+              <p>Suplemento natural para reducir estrés y ansiedad.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- OHM GATOS -->
           <div class="product-card" data-category="gatos">
             <span class="product-badge">Gatos</span>
             <div class="product-image">
-              <img src="images/obj6.png" alt="Pack Felino">
+              <img src="images/placeholder.png" alt="Ohm Gatos">
             </div>
             <div class="product-info">
-              <span class="product-category">Pack • Gatos</span>
-              <h3>Pack Vitalidad Felina</h3>
-              <p>Combinación perfecta de taurina, biotina y omega para gatos.</p>
+              <span class="product-category">Comportamiento • Calma</span>
+              <h3>OHM Gatos</h3>
+              <p>Fórmula especial para reducir el estrés en gatos.</p>
               <div class="product-footer">
-                <span class="product-price">$55.000</span>
+                <span class="product-price">Consultar</span>
                 <button class="btn-product">Comprar</button>
               </div>
             </div>
           </div>
 
-          <!-- Product 7 -->
-          <div class="product-card" data-category="perros gatos">
-            <span class="product-badge">Oferta</span>
+          <!-- OHM HOME GATOS -->
+          <div class="product-card" data-category="gatos">
+            <span class="product-badge">Gatos</span>
             <div class="product-image">
-              <img src="images/obj7.png" alt="Pack Completo">
+              <img src="images/placeholder.png" alt="Ohm Home Gatos">
             </div>
             <div class="product-info">
-              <span class="product-category">Pack • Ahorro</span>
-              <h3>Pack Bienestar Total</h3>
-              <p>Multivitamínico, omega y probióticos. ¡Ahorra 30%!</p>
+              <span class="product-category">Comportamiento • Ambiental</span>
+              <h3>OHM Home Gatos</h3>
+              <p>Difusor ambiental calmante para gatos.</p>
               <div class="product-footer">
-                <span class="product-price">$89.000<span class="original">$125.000</span></span>
+                <span class="product-price">Consultar</span>
                 <button class="btn-product">Comprar</button>
               </div>
             </div>
           </div>
 
-          <!-- Product 8 -->
+          <!-- OHM HOME PERROS -->
           <div class="product-card" data-category="perros">
-            <span class="product-badge">Nuevo</span>
+            <span class="product-badge">Perros</span>
             <div class="product-image">
-              <img src="images/obj8.png" alt="Articulaciones Plus">
+              <img src="images/placeholder.png" alt="Ohm Home Perros">
             </div>
             <div class="product-info">
-              <span class="product-category">Movilidad • Perros</span>
-              <h3>Articulaciones Plus</h3>
-              <p>Glucosamina, condroitina y MSM para máxima movilidad.</p>
+              <span class="product-category">Comportamiento • Ambiental</span>
+              <h3>OHM Home Perros</h3>
+              <p>Difusor ambiental calmante para perros.</p>
               <div class="product-footer">
-                <span class="product-price">$62.000</span>
+                <span class="product-price">Consultar</span>
                 <button class="btn-product">Comprar</button>
               </div>
             </div>
           </div>
+
+          <!-- OL TRANS -->
+          <div class="product-card" data-category="perros gatos suplementos">
+            <div class="product-image">
+              <img src="images/obj3.png" alt="Ol Trans">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Suplementos • Articular</span>
+              <h3>OL Trans</h3>
+              <p>Condroprotector para salud articular.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- OL TRANS FLEX -->
+          <div class="product-card" data-category="perros gatos suplementos">
+            <span class="product-badge">-15%</span>
+            <div class="product-image">
+              <img src="images/obj3.png" alt="Ol Trans Flex">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Suplementos • Movilidad</span>
+              <h3>OL Trans Flex</h3>
+              <p>Fórmula avanzada para movilidad y flexibilidad articular.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- OXITETRACICLINA -->
+          <div class="product-card" data-category="perros gatos antibioticos">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Oxitetraciclina">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Antibióticos • Tetraciclina</span>
+              <h3>Oxitetraciclina</h3>
+              <p>Antibiótico de amplio espectro para diversas infecciones.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PILERAN GOTAS -->
+          <div class="product-card" data-category="perros gatos gastrointestinal">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Pileran Gotas">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Gastrointestinal • Antiemético</span>
+              <h3>Pileran Gotas</h3>
+              <p>Antiemético en gotas para náuseas y vómitos.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PILERAN INYECTABLE -->
+          <div class="product-card" data-category="perros gatos gastrointestinal">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Pileran Inyectable">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Gastrointestinal • Antiemético</span>
+              <h3>Pileran Inyectable</h3>
+              <p>Antiemético inyectable de acción rápida.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PIMOCARD -->
+          <div class="product-card" data-category="perros gatos cardiologia">
+            <span class="product-badge">-20%</span>
+            <div class="product-image">
+              <img src="images/obj1.png" alt="Pimocard">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Cardiología • Inotrópico</span>
+              <h3>Pimocard</h3>
+              <p>Tratamiento para insuficiencia cardíaca congestiva.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- POTEN PET -->
+          <div class="product-card" data-category="perros suplementos">
+            <span class="product-badge">Perros</span>
+            <div class="product-image">
+              <img src="images/obj6.png" alt="Poten Pet">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Suplementos • Energético</span>
+              <h3>Poten Pet</h3>
+              <p>Suplemento nutricional energético para perros.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- POTEN PET GATOS -->
+          <div class="product-card" data-category="gatos suplementos">
+            <span class="product-badge">Gatos</span>
+            <div class="product-image">
+              <img src="images/obj6.png" alt="Poten Pet Gatos">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Suplementos • Energético</span>
+              <h3>Poten Pet Gatos</h3>
+              <p>Suplemento nutricional energético para gatos.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PREDNISOLONA 20 MG -->
+          <div class="product-card" data-category="perros gatos antiinflamatorios">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Prednisolona 20 MG">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Antiinflamatorio • Corticoide</span>
+              <h3>Prednisolona 20 MG</h3>
+              <p>Corticosteroide antiinflamatorio e inmunosupresor.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROTELIV -->
+          <div class="product-card" data-category="perros gatos gastrointestinal suplementos">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Proteliv">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Gastrointestinal • Hepático</span>
+              <h3>Proteliv</h3>
+              <p>Hepatoprotector para la salud del hígado.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROTELIV COMPRIMIDOS -->
+          <div class="product-card" data-category="perros gatos gastrointestinal suplementos">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Proteliv Comprimidos">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Gastrointestinal • Hepático</span>
+              <h3>Proteliv Comprimidos</h3>
+              <p>Hepatoprotector en comprimidos para fácil administración.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROTELIV GATOS -->
+          <div class="product-card" data-category="gatos gastrointestinal suplementos">
+            <span class="product-badge">Gatos</span>
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Proteliv Gatos">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Gastrointestinal • Hepático</span>
+              <h3>Proteliv Gatos</h3>
+              <p>Hepatoprotector formulado especialmente para gatos.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- RELAY C -->
+          <div class="product-card" data-category="perros gatos suplementos">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Relay C">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Suplementos • Vitamina C</span>
+              <h3>Relay C</h3>
+              <p>Suplemento de vitamina C para sistema inmune.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- SISTEMA ENDECTOCIDA -->
+          <div class="product-card" data-category="perros gatos antiparasitarios">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Sistema Endectocida">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Antiparasitarios • Completo</span>
+              <h3>Sistema Endectocida</h3>
+              <p>Sistema antiparasitario interno y externo completo.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- SOLUBRON 20 -->
+          <div class="product-card" data-category="perros gatos">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Solubron 20">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Respiratorio • Broncodilatador</span>
+              <h3>Solubron 20</h3>
+              <p>Broncodilatador y mucolítico para vías respiratorias.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- TONIPET -->
+          <div class="product-card" data-category="perros gatos suplementos">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Tonipet">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Suplementos • Reconstituyente</span>
+              <h3>Tonipet</h3>
+              <p>Reconstituyente vitamínico para mascotas en recuperación.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- TORACARD -->
+          <div class="product-card" data-category="perros gatos cardiologia">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Toracard">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Cardiología • Diurético</span>
+              <h3>Toracard</h3>
+              <p>Diurético de asa para insuficiencia cardíaca.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- TOTAL FULL CG PERROS Y GATOS -->
+          <div class="product-card" data-category="perros gatos antiparasitarios">
+            <span class="product-badge">Popular</span>
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Total Full CG">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Antiparasitarios • Completo</span>
+              <h3>Total Full CG Perros y Gatos</h3>
+              <p>Antiparasitario interno completo para cachorros y gatitos.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- TOTAL FULL LC PERROS -->
+          <div class="product-card" data-category="perros antiparasitarios">
+            <span class="product-badge">Perros</span>
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Total Full LC Perros">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Antiparasitarios • Comprimido</span>
+              <h3>Total Full LC Perros</h3>
+              <p>Antiparasitario interno en comprimidos para perros.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- TOTAL FULL LC GATOS -->
+          <div class="product-card" data-category="gatos antiparasitarios">
+            <span class="product-badge">Gatos</span>
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Total Full LC Gatos">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Antiparasitarios • Comprimido</span>
+              <h3>Total Full LC Gatos</h3>
+              <p>Antiparasitario interno en comprimidos para gatos.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- TOTAL FULL SUSPENSIÓN GATOS -->
+          <div class="product-card" data-category="gatos antiparasitarios">
+            <span class="product-badge">Gatos</span>
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Total Full Suspensión Gatos">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Antiparasitarios • Suspensión</span>
+              <h3>Total Full Suspensión Gatos</h3>
+              <p>Antiparasitario interno en suspensión para gatos.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- TOTAL FULL SUSPENSIÓN PERROS -->
+          <div class="product-card" data-category="perros antiparasitarios">
+            <span class="product-badge">Perros</span>
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Total Full Suspensión Perros">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Antiparasitarios • Suspensión</span>
+              <h3>Total Full Suspensión Perros</h3>
+              <p>Antiparasitario interno en suspensión para perros.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- UV DAY -->
+          <div class="product-card" data-category="perros gatos dermatologia">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="UV Day">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Dermatología • Protector Solar</span>
+              <h3>UV Day</h3>
+              <p>Protector solar para zonas sensibles de mascotas.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- VITAMÍNICO AEDK AVES -->
+          <div class="product-card" data-category="suplementos">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Vitamínico AEDK Aves">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Suplementos • Aves</span>
+              <h3>Vitamínico AEDK Aves</h3>
+              <p>Complejo vitamínico A, E, D y K para aves.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- VIVIRAM-V -->
+          <div class="product-card" data-category="perros gatos">
+            <div class="product-image">
+              <img src="images/placeholder.png" alt="Viviram-V">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Antiviral • Inmunomodulador</span>
+              <h3>Viviram-V</h3>
+              <p>Antiviral e inmunomodulador para infecciones virales.</p>
+              <div class="product-footer">
+                <span class="product-price">Consultar</span>
+                <button class="btn-product">Comprar</button>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -2017,7 +3284,7 @@
 
     // Category filters
     const filterBtns = document.querySelectorAll('.filter-btn');
-    const productCards = document.querySelectorAll('.product-card');
+    let productCards = document.querySelectorAll('.product-card');
 
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -2027,9 +3294,12 @@
 
         // Filter products
         const filter = btn.dataset.filter;
+        productCards = document.querySelectorAll('.product-card');
         productCards.forEach(card => {
-          if (filter === 'all' || card.dataset.category.includes(filter)) {
+          const categories = card.dataset.category || '';
+          if (filter === 'all' || categories.includes(filter)) {
             card.classList.remove('filtered-out');
+            card.style.display = '';
           } else {
             card.classList.add('filtered-out');
           }
@@ -2045,22 +3315,41 @@
     });
 
     // Add magnetic hover effect to product cards
-    productCards.forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const rotateX = (y - centerY) / 20;
-        const rotateY = (centerX - x) / 20;
-        
-        card.style.transform = `translateY(-10px) scale(1.02) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-      });
+    function addHoverEffects() {
+      document.querySelectorAll('.product-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          if (card.classList.contains('filtered-out')) return;
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = (y - centerY) / 20;
+          const rotateY = (centerX - x) / 20;
+          
+          card.style.transform = `translateY(-10px) scale(1.02) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
 
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = '';
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = '';
+        });
       });
+    }
+    addHoverEffects();
+
+    // Handle missing images with a nice placeholder
+    document.querySelectorAll('.product-image img').forEach(img => {
+      img.onerror = function() {
+        this.style.display = 'none';
+        if (!this.parentElement.querySelector('.placeholder-icon')) {
+          const placeholder = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+          placeholder.setAttribute('class', 'placeholder-icon');
+          placeholder.setAttribute('viewBox', '0 0 24 24');
+          placeholder.setAttribute('fill', 'currentColor');
+          placeholder.innerHTML = '<path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1zm-4.44-6.19l-2.35 3.02-1.56-1.88c-.2-.25-.58-.24-.78.01l-1.74 2.23c-.26.33-.02.81.39.81h8.98c.41 0 .65-.47.4-.8l-2.55-3.39c-.19-.26-.59-.26-.79 0z"/>';
+          this.parentElement.appendChild(placeholder);
+        }
+      };
     });
 
     // ============================================
@@ -2071,14 +3360,18 @@
     const searchClear = document.getElementById('searchClear');
 
     // Build products data from DOM
-    const productsData = [];
-    productCards.forEach((card, index) => {
-      const name = card.querySelector('.product-info h3').textContent;
-      const category = card.querySelector('.product-category').textContent;
-      const price = card.querySelector('.product-price').childNodes[0].textContent.trim();
-      const image = card.querySelector('.product-image img').src;
-      productsData.push({ name, category, price, image, index, element: card });
-    });
+    function buildProductsData() {
+      const data = [];
+      document.querySelectorAll('.product-card').forEach((card, index) => {
+        const name = card.querySelector('.product-info h3').textContent;
+        const category = card.querySelector('.product-category').textContent;
+        const price = card.querySelector('.product-price').childNodes[0].textContent.trim();
+        const image = card.querySelector('.product-image img').src;
+        data.push({ name, category, price, image, index, element: card });
+      });
+      return data;
+    }
+    let productsData = buildProductsData();
 
     // Search function
     function searchProducts(query) {
@@ -2086,6 +3379,9 @@
         searchResults.classList.remove('active');
         return;
       }
+
+      // Rebuild products data to ensure it's current
+      productsData = buildProductsData();
 
       const normalizedQuery = query.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
       
@@ -2111,7 +3407,8 @@
           </div>
         `;
       } else {
-        searchResults.innerHTML = results.map(product => `
+        const resultsHeader = `<div style="padding: 0.6rem 1rem; font-size: 0.75rem; color: var(--color-gray); border-bottom: 1px solid var(--color-border);">${results.length} producto${results.length !== 1 ? 's' : ''} encontrado${results.length !== 1 ? 's' : ''}</div>`;
+        const resultsHTML = results.slice(0, 15).map(product => `
           <div class="search-result-item" data-index="${product.index}">
             <div class="search-result-image">
               <img src="${product.image}" alt="${product.name}">
@@ -2123,6 +3420,7 @@
             <div class="search-result-price">${product.price}</div>
           </div>
         `).join('');
+        searchResults.innerHTML = resultsHeader + resultsHTML;
 
         // Add click handlers to results
         searchResults.querySelectorAll('.search-result-item').forEach(item => {
@@ -2138,7 +3436,11 @@
 
     // Select and highlight product
     function selectProduct(index) {
+      // Rebuild products data to ensure it's current
+      productsData = buildProductsData();
       const product = productsData[index];
+      
+      if (!product) return;
       
       // Clear search
       searchInput.value = '';
@@ -2148,7 +3450,10 @@
       // Reset filter to show all products
       filterBtns.forEach(b => b.classList.remove('active'));
       filterBtns[0].classList.add('active'); // "Todos" button
-      productCards.forEach(card => card.classList.remove('filtered-out'));
+      document.querySelectorAll('.product-card').forEach(card => {
+        card.classList.remove('filtered-out');
+        card.style.display = '';
+      });
 
       // Navigate to products section
       showProducts();
@@ -2156,10 +3461,17 @@
       // Wait for animation to complete, then highlight product
       setTimeout(() => {
         // Remove any existing highlights
-        productCards.forEach(card => card.classList.remove('highlighted'));
+        document.querySelectorAll('.product-card').forEach(card => card.classList.remove('highlighted'));
         
-        // Scroll to product
-        product.element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // Scroll to product within the products track
+        const productsTrack = document.getElementById('productsTrack');
+        const productRect = product.element.getBoundingClientRect();
+        const trackRect = productsTrack.getBoundingClientRect();
+        
+        productsTrack.scrollTo({
+          top: product.element.offsetTop - productsTrack.offsetTop - 20,
+          behavior: 'smooth'
+        });
         
         // Add highlight effect
         setTimeout(() => {
@@ -2181,6 +3493,8 @@
     });
 
     searchInput.addEventListener('focus', () => {
+      // Rebuild products data when focusing on search
+      productsData = buildProductsData();
       if (searchInput.value) {
         searchProducts(searchInput.value);
       }
