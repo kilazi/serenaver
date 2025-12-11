@@ -1875,6 +1875,239 @@
       color: #e31837;
     }
 
+    /* Selectable Presentation Cards */
+    .pimocard-presentation-card.selectable {
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .pimocard-presentation-card.selectable.selected {
+      border: 2px solid #e31837;
+      background: linear-gradient(145deg, #fff5f6 0%, #ffe8eb 100%);
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 20px 50px rgba(227, 24, 55, 0.2);
+    }
+
+    .pimocard-presentation-card.selectable.selected::before {
+      transform: scaleX(1);
+    }
+
+    .pimocard-presentation-card.selectable.selected .pimocard-presentation-icon {
+      background: linear-gradient(135deg, #e31837 0%, #c41230 100%);
+    }
+
+    .pimocard-presentation-card.selectable.selected .pimocard-presentation-icon svg {
+      color: #fff;
+    }
+
+    .pimocard-card-checkbox {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 24px;
+      height: 24px;
+      border: 2px solid #ddd;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .pimocard-presentation-card.selectable.selected .pimocard-card-checkbox {
+      background: linear-gradient(135deg, #e31837 0%, #c41230 100%);
+      border-color: #e31837;
+    }
+
+    .pimocard-card-checkbox svg {
+      width: 14px;
+      height: 14px;
+      color: #fff;
+      opacity: 0;
+      transform: scale(0.5);
+      transition: all 0.3s ease;
+    }
+
+    .pimocard-presentation-card.selectable.selected .pimocard-card-checkbox svg {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Quantity Controls for Cards */
+    .pimocard-card-quantity {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(227, 24, 55, 0.2);
+    }
+
+    .pimocard-presentation-card.selectable.selected .pimocard-card-quantity {
+      display: flex;
+    }
+
+    .pimocard-qty-btn {
+      width: 32px;
+      height: 32px;
+      border: none;
+      background: #fff;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .pimocard-qty-btn:hover {
+      background: #e31837;
+      color: #fff;
+    }
+
+    .pimocard-qty-btn svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .pimocard-qty-value {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #e31837;
+      min-width: 40px;
+      text-align: center;
+    }
+
+    /* Presentations Blocks */
+    .pimocard-presentations-block {
+      margin-bottom: 3rem;
+    }
+
+    .pimocard-presentations-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .pimocard-block-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .pimocard-block-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1.25rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .pimocard-block-badge.standard {
+      background: linear-gradient(135deg, #e31837 0%, #c41230 100%);
+      color: #fff;
+    }
+
+    .pimocard-block-badge.hospitalario {
+      background: linear-gradient(135deg, #1c1c1c 0%, #333 100%);
+      color: #fff;
+    }
+
+    .pimocard-block-badge svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .pimocard-block-subtitle {
+      font-size: 0.9rem;
+      color: #666;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Selected Summary */
+    .pimocard-selection-summary {
+      position: sticky;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(255,255,255,1) 80%, rgba(255,255,255,0));
+      padding: 2rem 2rem 1.5rem;
+      display: none;
+      z-index: 100;
+    }
+
+    .pimocard-selection-summary.active {
+      display: block;
+    }
+
+    .pimocard-selection-box {
+      background: linear-gradient(135deg, #1c1c1c 0%, #2d2d2d 100%);
+      border-radius: 20px;
+      padding: 1.5rem;
+      max-width: 600px;
+      margin: 0 auto;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .pimocard-selection-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .pimocard-selection-item {
+      background: rgba(227, 24, 55, 0.2);
+      color: #fff;
+      padding: 0.35rem 0.75rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .pimocard-selection-item .qty {
+      background: #e31837;
+      padding: 0.15rem 0.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+    }
+
+    .pimocard-add-cart-btn {
+      width: 100%;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, #e31837 0%, #c41230 100%);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      transition: all 0.3s ease;
+    }
+
+    .pimocard-add-cart-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(227, 24, 55, 0.4);
+    }
+
+    .pimocard-add-cart-btn svg {
+      width: 20px;
+      height: 20px;
+    }
+
     /* Combination Note */
     .pimocard-combination {
       background: linear-gradient(135deg, #fff5f6 0%, #ffe8eb 100%);
@@ -5100,49 +5333,231 @@
     </section>
 
     <!-- Products Section -->
-    <section class="pimocard-products">
+    <section class="pimocard-products" id="pimocardProductsSection">
       <h2 class="pimocard-section-title">Presentaciones Disponibles</h2>
-      <p class="pimocard-section-subtitle">Pimocard está disponible en cuatro presentaciones, cada estuche contiene 2 blisters con 10 comprimidos cada uno.</p>
+      <p class="pimocard-section-subtitle">Selecciona las presentaciones que deseas agregar a tu pedido</p>
       
-      <div class="pimocard-presentations-grid">
-        <div class="pimocard-presentation-card">
-          <div class="pimocard-presentation-icon">
+      <!-- Standard Presentations Block -->
+      <div class="pimocard-presentations-block">
+        <div class="pimocard-block-header">
+          <span class="pimocard-block-badge standard">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+              <line x1="9" y1="9" x2="15" y2="9"/>
+              <line x1="9" y1="15" x2="15" y2="15"/>
             </svg>
-          </div>
-          <div class="pimocard-presentation-dose">1.25 mg</div>
-          <div class="pimocard-presentation-info">2 blisters × 10 comprimidos<br>20 comprimidos por estuche</div>
+            Presentación Estándar
+          </span>
         </div>
+        <p class="pimocard-block-subtitle">Cada estuche contiene 2 blisters con 10 comprimidos cada uno (20 comprimidos por estuche)</p>
         
-        <div class="pimocard-presentation-card">
-          <div class="pimocard-presentation-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-            </svg>
+        <div class="pimocard-presentations-grid">
+          <div class="pimocard-presentation-card selectable" data-dose="1.25 mg" data-type="standard" data-qty="1">
+            <div class="pimocard-card-checkbox">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <div class="pimocard-presentation-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+                <polyline points="17 21 17 13 7 13 7 21"/>
+              </svg>
+            </div>
+            <div class="pimocard-presentation-dose">1.25 mg</div>
+            <div class="pimocard-presentation-info">2 blisters × 10 comprimidos<br>20 comprimidos por estuche</div>
+            <div class="pimocard-card-quantity">
+              <button class="pimocard-qty-btn" data-action="decrease">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </button>
+              <span class="pimocard-qty-value">1</span>
+              <button class="pimocard-qty-btn" data-action="increase">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </button>
+            </div>
           </div>
-          <div class="pimocard-presentation-dose">2.5 mg</div>
-          <div class="pimocard-presentation-info">2 blisters × 10 comprimidos<br>20 comprimidos por estuche</div>
+          
+          <div class="pimocard-presentation-card selectable" data-dose="2.5 mg" data-type="standard" data-qty="1">
+            <div class="pimocard-card-checkbox">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <div class="pimocard-presentation-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+                <polyline points="17 21 17 13 7 13 7 21"/>
+              </svg>
+            </div>
+            <div class="pimocard-presentation-dose">2.5 mg</div>
+            <div class="pimocard-presentation-info">2 blisters × 10 comprimidos<br>20 comprimidos por estuche</div>
+            <div class="pimocard-card-quantity">
+              <button class="pimocard-qty-btn" data-action="decrease">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </button>
+              <span class="pimocard-qty-value">1</span>
+              <button class="pimocard-qty-btn" data-action="increase">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </button>
+            </div>
+          </div>
+          
+          <div class="pimocard-presentation-card selectable" data-dose="5 mg" data-type="standard" data-qty="1">
+            <div class="pimocard-card-checkbox">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <div class="pimocard-presentation-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+                <polyline points="17 21 17 13 7 13 7 21"/>
+              </svg>
+            </div>
+            <div class="pimocard-presentation-dose">5 mg</div>
+            <div class="pimocard-presentation-info">2 blisters × 10 comprimidos<br>20 comprimidos por estuche</div>
+            <div class="pimocard-card-quantity">
+              <button class="pimocard-qty-btn" data-action="decrease">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </button>
+              <span class="pimocard-qty-value">1</span>
+              <button class="pimocard-qty-btn" data-action="increase">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </button>
+            </div>
+          </div>
+          
+          <div class="pimocard-presentation-card selectable" data-dose="10 mg" data-type="standard" data-qty="1">
+            <div class="pimocard-card-checkbox">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <div class="pimocard-presentation-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+                <polyline points="17 21 17 13 7 13 7 21"/>
+              </svg>
+            </div>
+            <div class="pimocard-presentation-dose">10 mg</div>
+            <div class="pimocard-presentation-info">2 blisters × 10 comprimidos<br>20 comprimidos por estuche</div>
+            <div class="pimocard-card-quantity">
+              <button class="pimocard-qty-btn" data-action="decrease">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </button>
+              <span class="pimocard-qty-value">1</span>
+              <button class="pimocard-qty-btn" data-action="increase">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </button>
+            </div>
+          </div>
         </div>
-        
-        <div class="pimocard-presentation-card">
-          <div class="pimocard-presentation-icon">
+      </div>
+
+      <!-- Hospitalario Presentations Block -->
+      <div class="pimocard-presentations-block">
+        <div class="pimocard-block-header">
+          <span class="pimocard-block-badge hospitalario">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9 22 9 12 15 12 15 22"/>
             </svg>
-          </div>
-          <div class="pimocard-presentation-dose">5 mg</div>
-          <div class="pimocard-presentation-info">2 blisters × 10 comprimidos<br>20 comprimidos por estuche</div>
+            Nuevas Presentaciones — Línea Hospitalaria
+          </span>
         </div>
+        <p class="pimocard-block-subtitle">Presentaciones hospitalarias con 10 blisters × 10 comprimidos cada uno (100 comprimidos por estuche)</p>
         
-        <div class="pimocard-presentation-card">
-          <div class="pimocard-presentation-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-            </svg>
+        <div class="pimocard-presentations-grid" style="grid-template-columns: repeat(3, 1fr);">
+          <div class="pimocard-presentation-card selectable" data-dose="2.5 mg Hospitalario" data-type="hospitalario" data-qty="1">
+            <div class="pimocard-card-checkbox">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <div class="pimocard-presentation-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+            </div>
+            <div class="pimocard-presentation-dose">2.5 mg</div>
+            <div class="pimocard-presentation-info">10 blisters × 10 comprimidos<br><strong>100 comprimidos por estuche</strong></div>
+            <div class="pimocard-card-quantity">
+              <button class="pimocard-qty-btn" data-action="decrease">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </button>
+              <span class="pimocard-qty-value">1</span>
+              <button class="pimocard-qty-btn" data-action="increase">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </button>
+            </div>
           </div>
-          <div class="pimocard-presentation-dose">10 mg</div>
-          <div class="pimocard-presentation-info">2 blisters × 10 comprimidos<br>20 comprimidos por estuche</div>
+          
+          <div class="pimocard-presentation-card selectable" data-dose="5 mg Hospitalario" data-type="hospitalario" data-qty="1">
+            <div class="pimocard-card-checkbox">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <div class="pimocard-presentation-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+            </div>
+            <div class="pimocard-presentation-dose">5 mg</div>
+            <div class="pimocard-presentation-info">10 blisters × 10 comprimidos<br><strong>100 comprimidos por estuche</strong></div>
+            <div class="pimocard-card-quantity">
+              <button class="pimocard-qty-btn" data-action="decrease">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </button>
+              <span class="pimocard-qty-value">1</span>
+              <button class="pimocard-qty-btn" data-action="increase">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </button>
+            </div>
+          </div>
+          
+          <div class="pimocard-presentation-card selectable" data-dose="10 mg Hospitalario" data-type="hospitalario" data-qty="1">
+            <div class="pimocard-card-checkbox">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <div class="pimocard-presentation-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+            </div>
+            <div class="pimocard-presentation-dose">10 mg</div>
+            <div class="pimocard-presentation-info">10 blisters × 10 comprimidos<br><strong>100 comprimidos por estuche</strong></div>
+            <div class="pimocard-card-quantity">
+              <button class="pimocard-qty-btn" data-action="decrease">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </button>
+              <span class="pimocard-qty-value">1</span>
+              <button class="pimocard-qty-btn" data-action="increase">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Selection Summary (Sticky at bottom) -->
+      <div class="pimocard-selection-summary" id="pimocardSelectionSummary">
+        <div class="pimocard-selection-box">
+          <div class="pimocard-selection-items" id="pimocardSelectionItems">
+            <!-- Selected items will be displayed here -->
+          </div>
+          <button class="pimocard-add-cart-btn" id="pimocardAddToCartBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+            </svg>
+            Solicitar Selección
+          </button>
         </div>
       </div>
     </section>
@@ -5161,32 +5576,6 @@
           La terapia con <strong>Pimocard</strong> debe siempre acompañar al tratamiento con <strong>Cardial B</strong>.<br><br>
           Esta combinación representa <strong>la terapia perfecta</strong> para el tratamiento de las afecciones cardíacas más frecuentes en animales de compañía.
         </p>
-      </div>
-    </section>
-
-    <!-- Hospitalario Section -->
-    <section class="pimocard-hospitalario">
-      <div style="text-align: center;">
-        <span class="pimocard-hospitalario-badge">Nuevas Presentaciones</span>
-        <h2 class="pimocard-section-title">Línea Hospitalaria</h2>
-        <p class="pimocard-section-subtitle">Presentaciones hospitalarias con mayor cantidad de comprimidos para clínicas y hospitales veterinarios.</p>
-        
-        <div class="pimocard-hospitalario-grid">
-          <div class="pimocard-hospitalario-card">
-            <div class="pimocard-hospitalario-dose">2.5 mg</div>
-            <div class="pimocard-hospitalario-info">10 blisters × 10 comprimidos<br>100 comprimidos por estuche</div>
-          </div>
-          
-          <div class="pimocard-hospitalario-card">
-            <div class="pimocard-hospitalario-dose">5 mg</div>
-            <div class="pimocard-hospitalario-info">10 blisters × 10 comprimidos<br>100 comprimidos por estuche</div>
-          </div>
-          
-          <div class="pimocard-hospitalario-card">
-            <div class="pimocard-hospitalario-dose">10 mg</div>
-            <div class="pimocard-hospitalario-info">10 blisters × 10 comprimidos<br>100 comprimidos por estuche</div>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -5970,7 +6359,7 @@
     });
 
     // Observe elements for animation
-    document.querySelectorAll('.pimocard-presentation-card, .pimocard-hospitalario-card, .pimocard-benefit-card, .pimocard-combination-box').forEach(el => {
+    document.querySelectorAll('.pimocard-presentation-card, .pimocard-benefit-card, .pimocard-combination-box').forEach(el => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(30px)';
       el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -5988,9 +6377,6 @@
       .pimocard-presentation-card:nth-child(2) { transition-delay: 0.1s !important; }
       .pimocard-presentation-card:nth-child(3) { transition-delay: 0.2s !important; }
       .pimocard-presentation-card:nth-child(4) { transition-delay: 0.3s !important; }
-      .pimocard-hospitalario-card:nth-child(1) { transition-delay: 0s !important; }
-      .pimocard-hospitalario-card:nth-child(2) { transition-delay: 0.1s !important; }
-      .pimocard-hospitalario-card:nth-child(3) { transition-delay: 0.2s !important; }
       .pimocard-benefit-card:nth-child(1) { transition-delay: 0s !important; }
       .pimocard-benefit-card:nth-child(2) { transition-delay: 0.15s !important; }
       .pimocard-benefit-card:nth-child(3) { transition-delay: 0.3s !important; }
@@ -6018,6 +6404,136 @@
         hearts.style.transform = `translateY(${scrollY * 0.2}px)`;
       }
     });
+
+    // ============================================
+    // PIMOCARD SELECTABLE PRESENTATIONS
+    // ============================================
+    const pimocardSelectableCards = document.querySelectorAll('.pimocard-presentation-card.selectable');
+    const pimocardSelectionSummary = document.getElementById('pimocardSelectionSummary');
+    const pimocardSelectionItems = document.getElementById('pimocardSelectionItems');
+    const pimocardAddToCartBtn = document.getElementById('pimocardAddToCartBtn');
+
+    // Track selected presentations
+    let selectedPresentations = {};
+
+    // Update selection summary display
+    function updatePimocardSelectionSummary() {
+      const selectedCount = Object.keys(selectedPresentations).length;
+      
+      if (selectedCount > 0) {
+        pimocardSelectionSummary.classList.add('active');
+        
+        // Build selection items HTML
+        let itemsHTML = '';
+        for (const [dose, qty] of Object.entries(selectedPresentations)) {
+          itemsHTML += `
+            <div class="pimocard-selection-item">
+              <span>${dose}</span>
+              <span class="qty">×${qty}</span>
+            </div>
+          `;
+        }
+        pimocardSelectionItems.innerHTML = itemsHTML;
+      } else {
+        pimocardSelectionSummary.classList.remove('active');
+        pimocardSelectionItems.innerHTML = '';
+      }
+    }
+
+    // Handle card selection
+    pimocardSelectableCards.forEach(card => {
+      // Click on card to toggle selection
+      card.addEventListener('click', (e) => {
+        // Don't toggle if clicking on quantity buttons
+        if (e.target.closest('.pimocard-qty-btn')) return;
+        
+        const dose = card.dataset.dose;
+        
+        if (card.classList.contains('selected')) {
+          // Deselect
+          card.classList.remove('selected');
+          delete selectedPresentations[dose];
+          card.dataset.qty = '1';
+          card.querySelector('.pimocard-qty-value').textContent = '1';
+        } else {
+          // Select
+          card.classList.add('selected');
+          selectedPresentations[dose] = 1;
+        }
+        
+        updatePimocardSelectionSummary();
+      });
+
+      // Quantity controls
+      const qtyBtns = card.querySelectorAll('.pimocard-qty-btn');
+      const qtyValue = card.querySelector('.pimocard-qty-value');
+      
+      qtyBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          
+          const dose = card.dataset.dose;
+          let qty = parseInt(card.dataset.qty) || 1;
+          
+          if (btn.dataset.action === 'increase' && qty < 99) {
+            qty++;
+          } else if (btn.dataset.action === 'decrease' && qty > 1) {
+            qty--;
+          }
+          
+          card.dataset.qty = qty;
+          qtyValue.textContent = qty;
+          
+          if (card.classList.contains('selected')) {
+            selectedPresentations[dose] = qty;
+            updatePimocardSelectionSummary();
+          }
+        });
+      });
+    });
+
+    // Add to cart button
+    pimocardAddToCartBtn.addEventListener('click', () => {
+      if (Object.keys(selectedPresentations).length === 0) return;
+      
+      // Build product info for delivery
+      let variantInfo = Object.entries(selectedPresentations)
+        .map(([dose, qty]) => `${dose} (×${qty})`)
+        .join(', ');
+      
+      currentProduct = {
+        name: 'Pimocard',
+        category: 'Cardiología • Inotrópico Positivo',
+        price: 'Consultar',
+        image: 'images/obj1.png',
+        unitPrice: 0,
+        selectedVariant: variantInfo
+      };
+      
+      // Close Pimocard modal and open delivery modal
+      closePimocardModal();
+      setTimeout(() => {
+        openDeliveryModal();
+      }, 300);
+    });
+
+    // Reset selections when modal closes
+    function resetPimocardSelections() {
+      selectedPresentations = {};
+      pimocardSelectableCards.forEach(card => {
+        card.classList.remove('selected');
+        card.dataset.qty = '1';
+        card.querySelector('.pimocard-qty-value').textContent = '1';
+      });
+      updatePimocardSelectionSummary();
+    }
+
+    // Update closePimocardModal to reset selections
+    const originalClosePimocardModal = closePimocardModal;
+    closePimocardModal = function() {
+      originalClosePimocardModal();
+      resetPimocardSelections();
+    };
 
     // Open canvas with product details
     function openCanvas(card) {
