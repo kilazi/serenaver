@@ -4496,11 +4496,17 @@
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
       transition: all 0.3s ease;
       border: 2px solid transparent;
+      cursor: pointer;
     }
 
     .cardialb-formula-card:hover {
       transform: translateY(-5px);
       border-color: #0066b3;
+    }
+
+    .cardialb-formula-card.selected {
+      border-color: #0066b3;
+      box-shadow: 0 10px 40px rgba(0, 102, 179, 0.2);
     }
 
     .cardialb-formula-dose {
@@ -8186,63 +8192,6 @@
       </div>
     </section>
 
-    <!-- Products Section -->
-    <section class="cardialb-products" id="cardialbProductsSection">
-      <h2 class="cardialb-section-title">Presentaciones Disponibles</h2>
-      <p class="cardialb-section-subtitle">Selecciona la presentación que deseas agregar a tu pedido</p>
-      
-      <div class="cardialb-presentations-container">
-        <div class="cardialb-presentations-block">
-          <div class="cardialb-block-header">
-            <span class="cardialb-block-badge">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                <line x1="9" y1="9" x2="15" y2="9"/>
-                <line x1="9" y1="15" x2="15" y2="15"/>
-              </svg>
-              Presentación Estándar
-            </span>
-          </div>
-          <p class="cardialb-block-subtitle">2 blisters × 10 comprimidos<br>(20 comprimidos por estuche)</p>
-          
-          <div class="cardialb-block-image-container">
-            <img class="cardialb-block-image" id="cardialbBlockImage" src="images/cardialb-10.webp" alt="Cardial B">
-          </div>
-          
-          <div class="cardialb-block-price-display">
-            <div class="cardialb-block-price-label">Precio</div>
-            <div class="cardialb-block-price-value" id="cardialbBlockPrice">Consultar</div>
-          </div>
-          
-          <div class="cardialb-options-container" id="cardialbOptions">
-            <button class="cardialb-option-bullet" data-dose="2.5 mg" data-price="0" data-image="images/cardialb-2.5.webp" data-weight="5 kg">
-              <span class="bullet-indicator"></span>
-              <span>2.5 mg</span>
-            </button>
-            <button class="cardialb-option-bullet" data-dose="5 mg" data-price="0" data-image="images/cardialb-5.webp" data-weight="10 kg">
-              <span class="bullet-indicator"></span>
-              <span>5 mg</span>
-            </button>
-            <button class="cardialb-option-bullet" data-dose="10 mg" data-price="0" data-image="images/cardialb-10.webp" data-weight="20 kg">
-              <span class="bullet-indicator"></span>
-              <span>10 mg</span>
-            </button>
-          </div>
-          
-          <div class="cardialb-block-quantity" id="cardialbQuantity">
-            <span class="cardialb-block-quantity-label">Cantidad:</span>
-            <button class="cardialb-block-qty-btn" data-action="decrease">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            </button>
-            <span class="cardialb-block-qty-value">1</span>
-            <button class="cardialb-block-qty-btn" data-action="increase">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Formula Section -->
     <section class="cardialb-formula">
       <div class="cardialb-formula-container">
@@ -8279,6 +8228,22 @@
             </div>
             <span class="cardialb-formula-weight">Para perros de ~20 kg</span>
           </div>
+        </div>
+        
+        <div class="cardialb-block-price-display">
+          <div class="cardialb-block-price-label">Precio</div>
+          <div class="cardialb-block-price-value" id="cardialbBlockPrice">Consultar</div>
+        </div>
+        
+        <div class="cardialb-block-quantity" id="cardialbQuantity">
+          <span class="cardialb-block-quantity-label">Cantidad:</span>
+          <button class="cardialb-block-qty-btn" data-action="decrease">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <span class="cardialb-block-qty-value">1</span>
+          <button class="cardialb-block-qty-btn" data-action="increase">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
         </div>
       </div>
     </section>
@@ -10006,11 +9971,9 @@
     });
 
     // ============================================
-    // CARDIAL B SELECTABLE PRESENTATIONS - BULLET BUTTONS
+    // CARDIAL B SELECTABLE PRESENTATIONS
     // ============================================
-    const cardialbBlockImage = document.getElementById('cardialbBlockImage');
     const cardialbBlockPrice = document.getElementById('cardialbBlockPrice');
-    const cardialbOptions = document.getElementById('cardialbOptions');
     const cardialbQuantity = document.getElementById('cardialbQuantity');
 
     // Track selected Cardial B presentation
@@ -10021,47 +9984,6 @@
       if (amount === 0 || !amount) return 'Consultar';
       return '$' + amount.toLocaleString('es-CO', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
     }
-
-    // Handle bullet button selection for Cardial B
-    cardialbOptions.querySelectorAll('.cardialb-option-bullet').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const dose = btn.dataset.dose;
-        const price = parseInt(btn.dataset.price) || 0;
-        const image = btn.dataset.image;
-        const weight = btn.dataset.weight;
-        
-        // Toggle selection
-        if (btn.classList.contains('selected')) {
-          // Deselect
-          btn.classList.remove('selected');
-          cardialbSelected = null;
-          cardialbQuantity.classList.remove('active');
-        } else {
-          // Deselect other buttons
-          cardialbOptions.querySelectorAll('.cardialb-option-bullet').forEach(b => b.classList.remove('selected'));
-          // Select this button
-          btn.classList.add('selected');
-          cardialbSelected = { dose, price, image, weight, qty: 1 };
-          cardialbQuantity.classList.add('active');
-          
-          // Update image and price
-          cardialbBlockImage.src = image;
-          cardialbBlockImage.classList.add('fade-in');
-          setTimeout(() => cardialbBlockImage.classList.remove('fade-in'), 500);
-          cardialbBlockPrice.textContent = formatCardialbPrice(price);
-          
-          // Update current product
-          currentProduct = {
-            name: 'Cardial B',
-            category: 'Cardiología • Vasodilatador',
-            price: formatCardialbPrice(price),
-            image: image,
-            unitPrice: price,
-            selectedVariant: dose + ' (para perros de ' + weight + ')'
-          };
-        }
-      });
-    });
 
     // Cardial B quantity controls
     cardialbQuantity.querySelectorAll('.cardialb-block-qty-btn').forEach(btn => {
@@ -10089,13 +10011,115 @@
       });
     });
 
+    // Handle formula card clicks
+    document.querySelectorAll('.cardialb-formula-card').forEach(card => {
+      card.addEventListener('click', () => {
+        // Get card data
+        const doseElement = card.querySelector('.cardialb-formula-dose');
+        const imageElement = card.querySelector('.cardialb-formula-image');
+        const weightElement = card.querySelector('.cardialb-formula-weight');
+        
+        if (!doseElement || !imageElement) return;
+        
+        const dose = doseElement.textContent.trim(); // e.g., "Cardial B 2.5"
+        const image = imageElement.src;
+        const weight = weightElement ? weightElement.textContent.trim() : '';
+        
+        // Extract dose number for matching (2.5, 5, or 10)
+        const doseMatch = dose.match(/(\d+(?:\.\d+)?)/);
+        const doseValue = doseMatch ? doseMatch[1] : '';
+        
+        // Deselect all formula cards
+        document.querySelectorAll('.cardialb-formula-card').forEach(c => c.classList.remove('selected'));
+        // Select this card
+        card.classList.add('selected');
+        
+        // Map dose values to price and weight data
+        const doseData = {
+          '2.5': { price: 0, weight: '5 kg', dose: '2.5 mg' },
+          '5': { price: 0, weight: '10 kg', dose: '5 mg' },
+          '10': { price: 0, weight: '20 kg', dose: '10 mg' }
+        };
+        
+        const data = doseData[doseValue] || { price: 0, weight: '', dose: doseValue + ' mg' };
+        
+        // Update selected data
+        cardialbSelected = { 
+          dose: data.dose, 
+          price: data.price, 
+          image: image, 
+          weight: data.weight, 
+          qty: 1 
+        };
+        
+        // Activate quantity and price display
+        cardialbQuantity.classList.add('active');
+        cardialbBlockPrice.textContent = formatCardialbPrice(data.price);
+        
+        // Reset quantity to 1
+        cardialbQuantity.querySelector('.cardialb-block-qty-value').textContent = '1';
+        
+        // Get price
+        const price = data.price;
+        
+        // Open canvas with product details
+        const canvasImage = document.getElementById('canvasImage');
+        const canvasTitle = document.getElementById('canvasTitle');
+        const canvasPrice = document.getElementById('canvasPrice');
+        const canvasDescription = document.getElementById('canvasDescription');
+        const canvasOverlay = document.getElementById('canvasOverlay');
+        const productCanvas = document.getElementById('productCanvas');
+        const canvasVariantSection = document.getElementById('canvasVariantSection');
+        
+        if (canvasImage && canvasTitle && canvasPrice && canvasDescription && canvasOverlay && productCanvas) {
+          // Populate canvas
+          canvasImage.src = image;
+          canvasTitle.textContent = dose;
+          
+          // Get components text
+          const componentsElement = card.querySelector('.cardialb-formula-components');
+          const componentsText = componentsElement ? componentsElement.textContent.trim() : '';
+          const description = `Cardial B ${doseValue} - ${componentsText}. ${weight}`;
+          canvasDescription.textContent = description;
+          
+          // Set price (use the price we already extracted)
+          canvasPrice.textContent = price > 0 ? formatCardialbPrice(price) : 'Consultar';
+          
+          // Hide variant section (we're showing specific product)
+          if (canvasVariantSection) {
+            canvasVariantSection.classList.remove('active');
+          }
+          
+          // Reset quantity in canvas
+          const qtyValue = document.getElementById('qtyValue');
+          if (qtyValue) {
+            qtyValue.textContent = '1';
+          }
+          
+          // Store current product
+          currentProduct = {
+            name: dose,
+            category: 'Cardiología • Vasodilatador',
+            price: price > 0 ? formatCardialbPrice(price) : 'Consultar',
+            image: image,
+            unitPrice: price,
+            selectedVariant: null
+          };
+          
+          // Show canvas
+          canvasOverlay.classList.add('active');
+          productCanvas.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+
     // Reset Cardial B selections when modal closes
     function resetCardialbSelections() {
       cardialbSelected = null;
       
       // Reset block
-      cardialbOptions.querySelectorAll('.cardialb-option-bullet').forEach(btn => btn.classList.remove('selected'));
-      cardialbBlockImage.src = 'images/cardialb-10.webp';
+      document.querySelectorAll('.cardialb-formula-card').forEach(card => card.classList.remove('selected'));
       cardialbBlockPrice.textContent = 'Consultar';
       cardialbQuantity.classList.remove('active');
       cardialbQuantity.querySelector('.cardialb-block-qty-value').textContent = '1';
