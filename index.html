@@ -2352,19 +2352,19 @@
     /* Floating Selection Canvas - positioned within section */
     .pimocard-selection-summary {
       position: absolute;
-      bottom: 20px;
+      top: 50%;
       right: 20px;
       z-index: 100;
       opacity: 0;
       visibility: hidden;
-      transform: translateX(30px);
+      transform: translateY(-50%) translateX(30px);
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .pimocard-selection-summary.active {
       opacity: 1;
       visibility: visible;
-      transform: translateX(0);
+      transform: translateY(-50%) translateX(0);
     }
 
     .pimocard-selection-box {
@@ -2657,7 +2657,12 @@
     @media (max-width: 900px) {
       .pimocard-selection-summary {
         right: 10px;
-        bottom: 10px;
+        top: 50%;
+        transform: translateY(-50%) translateX(30px);
+      }
+      
+      .pimocard-selection-summary.active {
+        transform: translateY(-50%) translateX(0);
       }
       
       .pimocard-selection-box {
@@ -2669,7 +2674,13 @@
       .pimocard-selection-summary {
         right: 5px;
         left: 5px;
+        top: auto;
         bottom: 10px;
+        transform: translateX(30px);
+      }
+      
+      .pimocard-selection-summary.active {
+        transform: translateX(0);
       }
       
       .pimocard-selection-box {
