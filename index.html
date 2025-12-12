@@ -3364,6 +3364,883 @@
       color: #e31837;
     }
 
+    /* ============================================
+       CARDIAL B FULL-SCREEN MODAL
+    ============================================ */
+    .cardialb-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 10000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .cardialb-modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .cardialb-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 10001;
+      overflow-y: auto;
+      overflow-x: hidden;
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(0.95);
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .cardialb-modal.active {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1);
+    }
+
+    .cardialb-close {
+      position: fixed;
+      top: 1.5rem;
+      right: 1.5rem;
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.95);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10002;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .cardialb-close:hover {
+      transform: rotate(90deg) scale(1.1);
+      background: #fff;
+    }
+
+    .cardialb-close svg {
+      width: 24px;
+      height: 24px;
+      color: #0066b3;
+    }
+
+    /* Cardial B Hero Section */
+    .cardialb-hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0066b3 0%, #004d8c 50%, #003366 100%);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .cardialb-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.5;
+    }
+
+    /* Cardial B Floating hearts animation */
+    .cardialb-hearts {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .cardialb-hearts .floating-heart {
+      position: absolute;
+      opacity: 0.15;
+      animation: floatHeartCardial 20s infinite ease-in-out;
+    }
+
+    .cardialb-hearts .floating-heart:nth-child(1) { left: 5%; animation-delay: 0s; }
+    .cardialb-hearts .floating-heart:nth-child(2) { left: 15%; animation-delay: 3s; }
+    .cardialb-hearts .floating-heart:nth-child(3) { left: 25%; animation-delay: 6s; }
+    .cardialb-hearts .floating-heart:nth-child(4) { left: 45%; animation-delay: 2s; }
+    .cardialb-hearts .floating-heart:nth-child(5) { left: 65%; animation-delay: 8s; }
+    .cardialb-hearts .floating-heart:nth-child(6) { left: 75%; animation-delay: 4s; }
+    .cardialb-hearts .floating-heart:nth-child(7) { left: 85%; animation-delay: 10s; }
+    .cardialb-hearts .floating-heart:nth-child(8) { left: 95%; animation-delay: 1s; }
+
+    @keyframes floatHeartCardial {
+      0%, 100% {
+        transform: translateY(100vh) rotate(0deg) scale(0.5);
+        opacity: 0;
+      }
+      10% { opacity: 0.15; }
+      90% { opacity: 0.15; }
+      100% {
+        transform: translateY(-100vh) rotate(360deg) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    /* Cardial B ECG Line Animation */
+    .cardialb-ecg {
+      position: absolute;
+      bottom: 10%;
+      left: 0;
+      right: 0;
+      height: 100px;
+      overflow: hidden;
+      opacity: 0.2;
+    }
+
+    .cardialb-ecg .ecg-line {
+      stroke: #fff;
+      stroke-width: 3;
+      fill: none;
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: drawEcgCardial 3s linear infinite;
+    }
+
+    @keyframes drawEcgCardial {
+      to { stroke-dashoffset: 0; }
+    }
+
+    .cardialb-hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 2rem;
+      max-width: 900px;
+    }
+
+    .cardialb-logo {
+      margin-bottom: 2rem;
+      animation: fadeInDownCardial 1s ease-out;
+    }
+
+    .cardialb-logo-text {
+      font-family: var(--font-display);
+      font-size: 4rem;
+      font-weight: 800;
+      color: #fff;
+      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+      letter-spacing: -0.02em;
+    }
+
+    .cardialb-logo-text .b-letter {
+      color: #ffcc00;
+      font-weight: 900;
+    }
+
+    .cardialb-logo-subtitle {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.8);
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      margin-top: 0.5rem;
+    }
+
+    .cardialb-hero-heart {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 2rem;
+      animation: heartBeatCardial 1.5s ease-in-out infinite;
+    }
+
+    .cardialb-hero-heart svg {
+      width: 100%;
+      height: 100%;
+      fill: #fff;
+      filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+    }
+
+    @keyframes heartBeatCardial {
+      0%, 100% { transform: scale(1); }
+      14% { transform: scale(1.15); }
+      28% { transform: scale(1); }
+      42% { transform: scale(1.15); }
+      70% { transform: scale(1); }
+    }
+
+    @keyframes fadeInDownCardial {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .cardialb-tagline {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: #ffcc00;
+      margin-bottom: 1rem;
+      animation: fadeInUpCardial 1s ease-out 0.2s both;
+    }
+
+    .cardialb-hero-description {
+      font-size: 1.25rem;
+      color: rgba(255, 255, 255, 0.95);
+      line-height: 1.8;
+      margin-bottom: 2rem;
+      animation: fadeInUpCardial 1s ease-out 0.3s both;
+    }
+
+    @keyframes fadeInUpCardial {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .cardialb-hero-indication {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 1.5rem 2rem;
+      font-size: 1rem;
+      color: #fff;
+      line-height: 1.7;
+      animation: fadeInUpCardial 1s ease-out 0.5s both;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .cardialb-scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: bounceCardial 2s infinite;
+    }
+
+    .cardialb-scroll-indicator svg {
+      width: 40px;
+      height: 40px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    @keyframes bounceCardial {
+      0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+      40% { transform: translateX(-50%) translateY(-15px); }
+      60% { transform: translateX(-50%) translateY(-7px); }
+    }
+
+    /* Cardial B Actions */
+    .cardialb-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .cardialb-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+    }
+
+    .cardialb-btn-primary {
+      background: #fff;
+      color: #0066b3;
+    }
+
+    .cardialb-btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .cardialb-btn-secondary {
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .cardialb-btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-3px);
+    }
+
+    .cardialb-btn svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Cardial B Products Section */
+    .cardialb-products {
+      background: #fff;
+      padding: 5rem 2rem;
+      position: relative;
+    }
+
+    .cardialb-section-title {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      color: #1c1c1c;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .cardialb-section-subtitle {
+      font-size: 1.1rem;
+      color: #666;
+      text-align: center;
+      margin-bottom: 3rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Cardial B Presentations Container */
+    .cardialb-presentations-container {
+      display: flex;
+      justify-content: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .cardialb-presentations-block {
+      background: #fff;
+      border-radius: 24px;
+      padding: 2rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      width: 100%;
+    }
+
+    .cardialb-block-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .cardialb-block-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1.25rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, #0066b3 0%, #004d8c 100%);
+      color: #fff;
+    }
+
+    .cardialb-block-badge svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .cardialb-block-subtitle {
+      font-size: 0.85rem;
+      color: #666;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+
+    .cardialb-block-image-container {
+      width: 100%;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(145deg, #f8f8f8 0%, #f0f0f0 100%);
+      border-radius: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cardialb-block-image {
+      max-width: 70%;
+      max-height: 180px;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.15));
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .cardialb-block-image.fade-in {
+      animation: fadeInImageCardial 0.5s ease;
+    }
+
+    @keyframes fadeInImageCardial {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .cardialb-block-price-display {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .cardialb-block-price-label {
+      font-size: 0.75rem;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.25rem;
+    }
+
+    .cardialb-block-price-value {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #0066b3;
+    }
+
+    /* Cardial B Bullet button options */
+    .cardialb-options-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .cardialb-option-bullet {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: #f0f0f0;
+      border: 1px solid #ddd;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #666;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      user-select: none;
+    }
+
+    .cardialb-option-bullet:hover {
+      background: #e8e8e8;
+      border-color: #ccc;
+      transform: translateY(-2px);
+    }
+
+    .cardialb-option-bullet.selected {
+      background: linear-gradient(135deg, #0066b3 0%, #004d8c 100%);
+      border-color: #0066b3;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(0, 102, 179, 0.3);
+    }
+
+    .cardialb-option-bullet .bullet-indicator {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: currentColor;
+      transition: all 0.3s ease;
+    }
+
+    .cardialb-option-bullet.selected .bullet-indicator {
+      background: #fff;
+      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+    }
+
+    /* Cardial B Quantity controls */
+    .cardialb-block-quantity {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .cardialb-block-quantity.active {
+      display: flex;
+    }
+
+    .cardialb-block-quantity-label {
+      font-size: 0.85rem;
+      color: #666;
+      font-weight: 500;
+    }
+
+    .cardialb-block-qty-btn {
+      width: 36px;
+      height: 36px;
+      border: none;
+      background: #f0f0f0;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .cardialb-block-qty-btn:hover {
+      background: #0066b3;
+      color: #fff;
+    }
+
+    .cardialb-block-qty-btn svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .cardialb-block-qty-value {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #0066b3;
+      min-width: 40px;
+      text-align: center;
+    }
+
+    /* Cardial B Formula Section */
+    .cardialb-formula {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      padding: 4rem 2rem;
+    }
+
+    .cardialb-formula-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .cardialb-formula-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .cardialb-formula-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .cardialb-formula-card:hover {
+      transform: translateY(-5px);
+      border-color: #0066b3;
+    }
+
+    .cardialb-formula-dose {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #0066b3;
+      margin-bottom: 1rem;
+    }
+
+    .cardialb-formula-components {
+      font-size: 0.85rem;
+      color: #666;
+      line-height: 1.8;
+    }
+
+    .cardialb-formula-components strong {
+      color: #333;
+    }
+
+    .cardialb-formula-weight {
+      display: inline-block;
+      background: linear-gradient(135deg, #0066b3 0%, #004d8c 100%);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+
+    /* Cardial B Aldosterone Section */
+    .cardialb-aldosterone {
+      background: linear-gradient(135deg, #003366 0%, #004d8c 100%);
+      padding: 5rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cardialb-aldosterone-content {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cardialb-aldosterone-title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: #fff;
+      margin-bottom: 2rem;
+    }
+
+    .cardialb-aldosterone-text {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.9;
+      margin-bottom: 2rem;
+    }
+
+    .cardialb-aldosterone-effects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .cardialb-effect-item {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .cardialb-effect-item svg {
+      width: 24px;
+      height: 24px;
+      color: #ffcc00;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Cardial B Benefits Section */
+    .cardialb-benefits {
+      background: #fff;
+      padding: 5rem 2rem;
+    }
+
+    .cardialb-benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .cardialb-benefit-card {
+      background: linear-gradient(145deg, #fff 0%, #f8f8f8 100%);
+      border-radius: 20px;
+      padding: 2rem;
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .cardialb-benefit-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 50px rgba(0, 102, 179, 0.1);
+    }
+
+    .cardialb-benefit-icon {
+      width: 60px;
+      height: 60px;
+      min-width: 60px;
+      background: linear-gradient(135deg, #e6f2ff 0%, #cce5ff 100%);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cardialb-benefit-icon svg {
+      width: 28px;
+      height: 28px;
+      color: #0066b3;
+    }
+
+    .cardialb-benefit-content h4 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: #1c1c1c;
+      margin-bottom: 0.5rem;
+    }
+
+    .cardialb-benefit-content p {
+      font-size: 0.9rem;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* Cardial B ACVIM Badge */
+    .cardialb-acvim {
+      background: linear-gradient(135deg, #0066b3 0%, #004d8c 100%);
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .cardialb-acvim-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .cardialb-acvim-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 1.5rem 2.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      margin-bottom: 1.5rem;
+    }
+
+    .cardialb-acvim-badge svg {
+      width: 48px;
+      height: 48px;
+      color: #ffcc00;
+    }
+
+    .cardialb-acvim-badge span {
+      font-size: 1.2rem;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .cardialb-acvim-text {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.7;
+    }
+
+    /* Cardial B Footer Section */
+    .cardialb-footer-section {
+      background: #f8f9fa;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .cardialb-tagline-final {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: #0066b3;
+      margin-bottom: 1rem;
+    }
+
+    .cardialb-experience-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: linear-gradient(135deg, #0066b3 0%, #004d8c 100%);
+      color: #fff;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      margin-bottom: 2rem;
+    }
+
+    .cardialb-experience-badge svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .cardialb-experience-badge span {
+      font-weight: 600;
+    }
+
+    /* Cardial B card highlight in product grid */
+    .product-card.cardialb-card {
+      border: 2px solid transparent;
+      background: linear-gradient(#fff, #fff) padding-box,
+                  linear-gradient(135deg, #0066b3, #004d8c) border-box;
+      position: relative;
+    }
+
+    .product-card.cardialb-card .product-badge {
+      background: linear-gradient(135deg, #0066b3 0%, #004d8c 100%);
+    }
+
+    .product-card.cardialb-card:hover {
+      border-color: transparent;
+      background: linear-gradient(#fff, #fff) padding-box,
+                  linear-gradient(135deg, #0066b3, #3399cc) border-box;
+    }
+
+    .product-card.cardialb-card::after {
+      background: linear-gradient(135deg, rgba(0, 102, 179, 0.2), rgba(0, 77, 140, 0.1));
+    }
+
+    /* Heart pulse icon for Cardial B */
+    .product-card.cardialb-card .product-category::before {
+      content: '💙';
+      margin-right: 0.35rem;
+      animation: heartPulseCardial 1.5s ease-in-out infinite;
+    }
+
+    @keyframes heartPulseCardial {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+
+    /* Cardial B card info styling */
+    .product-card.cardialb-card .product-info h3 {
+      color: #004d8c;
+    }
+
+    .product-card.cardialb-card:hover .product-info h3 {
+      color: #0066b3;
+    }
+
+    /* Cardial B Responsive */
+    @media (max-width: 768px) {
+      .cardialb-logo-text {
+        font-size: 3rem;
+      }
+      .cardialb-hero-description {
+        font-size: 1rem;
+      }
+      .cardialb-section-title {
+        font-size: 2rem;
+      }
+      .cardialb-formula-grid {
+        grid-template-columns: 1fr;
+      }
+      .cardialb-benefits-grid {
+        grid-template-columns: 1fr;
+      }
+      .cardialb-benefit-card {
+        flex-direction: column;
+        text-align: center;
+      }
+      .cardialb-benefit-icon {
+        margin: 0 auto;
+      }
+    }
+
     /* Canvas responsive */
     @media (max-width: 520px) {
       .product-canvas {
@@ -4866,16 +5743,17 @@
           </div>
 
           <!-- CARDIAL B -->
-          <div class="product-card" data-category="perros gatos cardiologia" 
-               data-variants='[{"name":"2.5 mg","price":"Consultar","image":"images/obj2.png"},{"name":"5 mg","price":"Consultar","image":"images/obj2.png"},{"name":"10 mg","price":"Consultar","image":"images/obj2.png"}]'>
-            <span class="product-badge">Nuevo</span>
+          <div class="product-card cardialb-card" data-category="perros gatos cardiologia" 
+               data-variants='[{"name":"2.5 mg","price":"Consultar","image":"images/obj2.png"},{"name":"5 mg","price":"Consultar","image":"images/obj2.png"},{"name":"10 mg","price":"Consultar","image":"images/obj2.png"}]'
+               data-extended="CardialB">
+            <span class="product-badge">Cardiología</span>
             <div class="product-image">
               <img src="images/obj2.png" alt="Cardial B">
             </div>
             <div class="product-info">
-              <span class="product-category">Cardiología • Universal</span>
+              <span class="product-category">Cardiología • Vasodilatador</span>
               <h3>Cardial B</h3>
-              <p>Suplemento cardiovascular con vitaminas del complejo B.</p>
+              <p>Benazepril + Espironolactona para insuficiencia cardíaca en perros.</p>
               <div class="product-footer">
                 <span class="product-price">Consultar</span>
               </div>
@@ -6462,6 +7340,327 @@
     </section>
   </div>
 
+  <!-- CARDIAL B FULL-SCREEN MODAL -->
+  <div class="cardialb-modal-overlay" id="cardialbOverlay"></div>
+  <div class="cardialb-modal" id="cardialbModal">
+    <button class="cardialb-close" id="cardialbClose">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <!-- Hero Section -->
+    <section class="cardialb-hero">
+      <div class="cardialb-hearts">
+        <svg class="floating-heart" width="40" height="40" viewBox="0 0 24 24" fill="rgba(255,255,255,0.8)"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <svg class="floating-heart" width="30" height="30" viewBox="0 0 24 24" fill="rgba(255,255,255,0.8)"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <svg class="floating-heart" width="50" height="50" viewBox="0 0 24 24" fill="rgba(255,255,255,0.8)"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <svg class="floating-heart" width="35" height="35" viewBox="0 0 24 24" fill="rgba(255,255,255,0.8)"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <svg class="floating-heart" width="45" height="45" viewBox="0 0 24 24" fill="rgba(255,255,255,0.8)"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <svg class="floating-heart" width="25" height="25" viewBox="0 0 24 24" fill="rgba(255,255,255,0.8)"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <svg class="floating-heart" width="55" height="55" viewBox="0 0 24 24" fill="rgba(255,255,255,0.8)"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <svg class="floating-heart" width="38" height="38" viewBox="0 0 24 24" fill="rgba(255,255,255,0.8)"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </div>
+
+      <div class="cardialb-ecg">
+        <svg width="100%" height="100" viewBox="0 0 1200 100" preserveAspectRatio="none">
+          <path class="ecg-line" d="M0,50 L100,50 L120,50 L140,20 L160,80 L180,50 L200,50 L300,50 L320,50 L340,20 L360,80 L380,50 L400,50 L500,50 L520,50 L540,20 L560,80 L580,50 L600,50 L700,50 L720,50 L740,20 L760,80 L780,50 L800,50 L900,50 L920,50 L940,20 L960,80 L980,50 L1000,50 L1100,50 L1120,50 L1140,20 L1160,80 L1180,50 L1200,50"/>
+        </svg>
+      </div>
+
+      <div class="cardialb-hero-content">
+        <div class="cardialb-logo">
+          <div class="cardialb-hero-heart">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <div class="cardialb-logo-text">CARDIAL <span class="b-letter">B</span></div>
+          <div class="cardialb-logo-subtitle">Cardiología Veterinaria</div>
+        </div>
+
+        <p class="cardialb-tagline">Doble protección en cada latido</p>
+
+        <p class="cardialb-hero-description">
+          <strong>Cardial B</strong> es un <strong>vasodilatador mixto</strong> y <strong>antagonista de la aldosterona</strong>, formulado con <strong>Benazepril</strong> y <strong>Espironolactona</strong> para el tratamiento integral de la insuficiencia cardíaca.
+        </p>
+
+        <div class="cardialb-hero-indication">
+          Está indicado para tratar los signos clínicos ya sean <strong>leves, moderados o graves</strong> de la insuficiencia cardíaca en perros, debido a <strong>patología valvular</strong> o <strong>cardiomiopatía dilatada</strong>.
+        </div>
+
+        <div class="cardialb-actions">
+          <button class="cardialb-btn cardialb-btn-primary" id="cardialbOrderBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+            </svg>
+            Solicitar Producto
+          </button>
+          <button class="cardialb-btn cardialb-btn-secondary" onclick="document.querySelector('.cardialb-products').scrollIntoView({behavior: 'smooth'})">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>
+            </svg>
+            Ver Presentaciones
+          </button>
+        </div>
+      </div>
+
+      <div class="cardialb-scroll-indicator">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="cardialb-products" id="cardialbProductsSection">
+      <h2 class="cardialb-section-title">Presentaciones Disponibles</h2>
+      <p class="cardialb-section-subtitle">Selecciona la presentación que deseas agregar a tu pedido</p>
+      
+      <div class="cardialb-presentations-container">
+        <div class="cardialb-presentations-block">
+          <div class="cardialb-block-header">
+            <span class="cardialb-block-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                <line x1="9" y1="9" x2="15" y2="9"/>
+                <line x1="9" y1="15" x2="15" y2="15"/>
+              </svg>
+              Presentación Estándar
+            </span>
+          </div>
+          <p class="cardialb-block-subtitle">2 blisters × 10 comprimidos<br>(20 comprimidos por estuche)</p>
+          
+          <div class="cardialb-block-image-container">
+            <img class="cardialb-block-image" id="cardialbBlockImage" src="images/obj2.png" alt="Cardial B">
+          </div>
+          
+          <div class="cardialb-block-price-display">
+            <div class="cardialb-block-price-label">Precio</div>
+            <div class="cardialb-block-price-value" id="cardialbBlockPrice">Consultar</div>
+          </div>
+          
+          <div class="cardialb-options-container" id="cardialbOptions">
+            <button class="cardialb-option-bullet" data-dose="2.5 mg" data-price="0" data-image="images/obj2.png" data-weight="5 kg">
+              <span class="bullet-indicator"></span>
+              <span>2.5 mg</span>
+            </button>
+            <button class="cardialb-option-bullet" data-dose="5 mg" data-price="0" data-image="images/obj2.png" data-weight="10 kg">
+              <span class="bullet-indicator"></span>
+              <span>5 mg</span>
+            </button>
+            <button class="cardialb-option-bullet" data-dose="10 mg" data-price="0" data-image="images/obj2.png" data-weight="20 kg">
+              <span class="bullet-indicator"></span>
+              <span>10 mg</span>
+            </button>
+          </div>
+          
+          <div class="cardialb-block-quantity" id="cardialbQuantity">
+            <span class="cardialb-block-quantity-label">Cantidad:</span>
+            <button class="cardialb-block-qty-btn" data-action="decrease">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <span class="cardialb-block-qty-value">1</span>
+            <button class="cardialb-block-qty-btn" data-action="increase">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Formula Section -->
+    <section class="cardialb-formula">
+      <div class="cardialb-formula-container">
+        <h2 class="cardialb-section-title">Fórmula por Presentación</h2>
+        <p class="cardialb-section-subtitle">Cada comprimido contiene la combinación perfecta de principios activos</p>
+        
+        <div class="cardialb-formula-grid">
+          <div class="cardialb-formula-card">
+            <div class="cardialb-formula-dose">Cardial B 2.5</div>
+            <div class="cardialb-formula-components">
+              <strong>Benazepril:</strong> 2.5 mg<br>
+              <strong>Espironolactona:</strong> 10 mg
+            </div>
+            <span class="cardialb-formula-weight">Para perros de ~5 kg</span>
+          </div>
+          
+          <div class="cardialb-formula-card">
+            <div class="cardialb-formula-dose">Cardial B 5</div>
+            <div class="cardialb-formula-components">
+              <strong>Benazepril:</strong> 5 mg<br>
+              <strong>Espironolactona:</strong> 20 mg
+            </div>
+            <span class="cardialb-formula-weight">Para perros de ~10 kg</span>
+          </div>
+          
+          <div class="cardialb-formula-card">
+            <div class="cardialb-formula-dose">Cardial B 10</div>
+            <div class="cardialb-formula-components">
+              <strong>Benazepril:</strong> 10 mg<br>
+              <strong>Espironolactona:</strong> 40 mg
+            </div>
+            <span class="cardialb-formula-weight">Para perros de ~20 kg</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Aldosterone Section -->
+    <section class="cardialb-aldosterone">
+      <div class="cardialb-hearts">
+        <svg class="floating-heart" width="40" height="40" viewBox="0 0 24 24" fill="rgba(255,255,255,0.8)"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <svg class="floating-heart" width="30" height="30" viewBox="0 0 24 24" fill="rgba(255,255,255,0.8)"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <svg class="floating-heart" width="50" height="50" viewBox="0 0 24 24" fill="rgba(255,255,255,0.8)"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <svg class="floating-heart" width="35" height="35" viewBox="0 0 24 24" fill="rgba(255,255,255,0.8)"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </div>
+
+      <div class="cardialb-aldosterone-content">
+        <h2 class="cardialb-aldosterone-title">Los efectos nocivos de la Aldosterona</h2>
+        <p class="cardialb-aldosterone-text">
+          Ante la presencia de enfermedad cardíaca, se produce un aumento en la liberación de aldosterona circulante. 
+          Esta se une a los receptores miocárdicos produciendo un <strong>reemplazo del músculo cardíaco por tejido fibroso</strong>, 
+          generando una pérdida de la capacidad contráctil del corazón.
+        </p>
+        
+        <div class="cardialb-aldosterone-effects">
+          <div class="cardialb-effect-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+            <div>Falla de relajación diastólica</div>
+          </div>
+          <div class="cardialb-effect-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 8v4l2 2"/>
+            </svg>
+            <div>Focos ectópicos ventriculares</div>
+          </div>
+          <div class="cardialb-effect-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+              <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+            <div>Arritmias y síncopes</div>
+          </div>
+          <div class="cardialb-effect-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+            <div>Alteraciones electrolíticas (K, Mg, Na)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="cardialb-benefits">
+      <h2 class="cardialb-section-title">Beneficios del Tratamiento</h2>
+      <p class="cardialb-section-subtitle">Cardial B ofrece múltiples ventajas para el tratamiento de la insuficiencia cardíaca</p>
+      
+      <div class="cardialb-benefits-grid">
+        <div class="cardialb-benefit-card">
+          <div class="cardialb-benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <div class="cardialb-benefit-content">
+            <h4>Doble Protección</h4>
+            <p>Actúa en diferentes niveles de la cascada del sistema renina-angiotensina-aldosterona (SRAA) para máxima eficacia.</p>
+          </div>
+        </div>
+        
+        <div class="cardialb-benefit-card">
+          <div class="cardialb-benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <div class="cardialb-benefit-content">
+            <h4>Una Toma Diaria</h4>
+            <p>Administración cada 24 horas para mayor comodidad y mejor adherencia al tratamiento.</p>
+          </div>
+        </div>
+        
+        <div class="cardialb-benefit-card">
+          <div class="cardialb-benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+          </div>
+          <div class="cardialb-benefit-content">
+            <h4>Eliminación Renal y Hepática</h4>
+            <p>Doble vía de eliminación para mayor seguridad en pacientes con diferentes condiciones.</p>
+          </div>
+        </div>
+        
+        <div class="cardialb-benefit-card">
+          <div class="cardialb-benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+          <div class="cardialb-benefit-content">
+            <h4>Máxima Protección Cardíaca</h4>
+            <p>Previene el reemplazo del músculo cardíaco por tejido fibroso y mejora la capacidad contráctil.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACVIM Section -->
+    <section class="cardialb-acvim">
+      <div class="cardialb-acvim-content">
+        <div class="cardialb-acvim-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="8" r="7"/>
+            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+          </svg>
+          <span>Recomendado por ACVIM</span>
+        </div>
+        <p class="cardialb-acvim-text">
+          Los principios activos de Cardial B están recomendados en los protocolos del 
+          <strong>American College of Veterinary Internal Medicine</strong> para el tratamiento 
+          de la insuficiencia cardíaca en caninos.
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <section class="cardialb-footer-section">
+      <h2 class="cardialb-tagline-final">Doble protección en cada latido</h2>
+      
+      <div class="cardialb-experience-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+          <path d="M2 17l10 5 10-5"/>
+          <path d="M2 12l10 5 10-5"/>
+        </svg>
+        <span>Holliday Scott - Líder en Cardiología Veterinaria</span>
+      </div>
+      
+      <div class="cardialb-actions">
+        <button class="cardialb-btn cardialb-btn-primary" id="cardialbOrderBtn2">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+          </svg>
+          Solicitar Cardial B
+        </button>
+        <button class="cardialb-btn cardialb-btn-secondary" id="cardialbCloseBottom">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="19" y1="12" x2="5" y2="12"/>
+            <polyline points="12 19 5 12 12 5"/>
+          </svg>
+          Volver a Productos
+        </button>
+      </div>
+    </section>
+  </div>
+
   <!-- DELIVERY FORM MODAL -->
   <div class="delivery-modal-overlay" id="deliveryModalOverlay">
     <div class="delivery-modal">
@@ -6976,7 +8175,7 @@
       'Acedan Gotas': 'Solución antiinflamatoria en gotas para administración oral. Ideal para el alivio del dolor y la inflamación en perros y gatos. Fácil dosificación para un tratamiento preciso.',
       'Acedan Inyectable': 'Antiinflamatorio de acción rápida para uso veterinario. Administración profesional recomendada. Efectivo para el tratamiento del dolor agudo.',
       'Cardial': 'Medicamento cardiovascular para el manejo de enfermedades cardíacas en mascotas. Formula especializada para mejorar la función cardíaca y la calidad de vida.',
-      'Cardial B': 'Nueva fórmula mejorada para el soporte cardiovascular. Incluye vitaminas del complejo B para un mejor funcionamiento del sistema circulatorio.',
+      'Cardial B': 'Cardial B es un vasodilatador mixto y antagonista de la aldosterona, formulado con Benazepril y Espironolactona. Indicado para tratar la insuficiencia cardíaca en perros debido a patología valvular o cardiomiopatía dilatada. Doble protección en cada latido.',
       'Anavimin Coat': 'Suplemento nutricional para piel y pelaje. Contiene vitaminas y minerales esenciales para mantener un pelo brillante y saludable.',
       'Anti Ulceras': 'Protector gástrico para el tratamiento y prevención de úlceras gastrointestinales. Ayuda a mantener la salud digestiva de tu mascota.',
       'Apetil': 'Estimulante del apetito para mascotas convalecientes o con inapetencia. Formula suave que favorece la recuperación nutricional.',
@@ -7033,6 +8232,42 @@
         themeColor: '#e31837',
         gradientStart: '#e31837',
         gradientEnd: '#c41230'
+      },
+      'CardialB': {
+        brand: 'Holliday',
+        tagline: 'Doble protección en cada latido.',
+        experience: 'Holliday Scott - Laboratorio líder en cardiología veterinaria',
+        benefits: [
+          {
+            icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+            title: 'Doble Protección',
+            description: 'Actúa en diferentes niveles del sistema renina-angiotensina-aldosterona (SRAA)'
+          },
+          {
+            icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
+            title: 'Una Toma Diaria',
+            description: 'Administración cada 24 horas para mayor comodidad'
+          },
+          {
+            icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>',
+            title: 'Eliminación Dual',
+            description: 'Eliminación renal y hepática para mayor seguridad'
+          },
+          {
+            icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>',
+            title: 'Protección Cardíaca',
+            description: 'Previene la fibrosis miocárdica causada por aldosterona'
+          }
+        ],
+        combinationNote: 'La combinación con Pimocard es ideal para el tratamiento integral de las afecciones cardíacas.',
+        presentations: [
+          { name: '2.5 mg', desc: '2 blisters x 10 comprimidos', weight: '~5 kg' },
+          { name: '5 mg', desc: '2 blisters x 10 comprimidos', weight: '~10 kg' },
+          { name: '10 mg', desc: '2 blisters x 10 comprimidos', weight: '~20 kg' }
+        ],
+        themeColor: '#0066b3',
+        gradientStart: '#0066b3',
+        gradientEnd: '#004d8c'
       }
     };
 
@@ -7625,6 +8860,263 @@
       resetPimocardSelections();
     };
 
+    // ============================================
+    // CARDIAL B FULL-SCREEN MODAL
+    // ============================================
+    const cardialbOverlay = document.getElementById('cardialbOverlay');
+    const cardialbModal = document.getElementById('cardialbModal');
+    const cardialbClose = document.getElementById('cardialbClose');
+    const cardialbCloseBottom = document.getElementById('cardialbCloseBottom');
+    const cardialbOrderBtn = document.getElementById('cardialbOrderBtn');
+    const cardialbOrderBtn2 = document.getElementById('cardialbOrderBtn2');
+
+    function openCardialbModal() {
+      cardialbOverlay.classList.add('active');
+      cardialbModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      
+      // Store current product for ordering
+      currentProduct = {
+        name: 'Cardial B',
+        category: 'Cardiología • Vasodilatador',
+        price: 'Consultar',
+        image: 'images/obj2.png',
+        unitPrice: 0,
+        selectedVariant: null
+      };
+    }
+
+    function closeCardialbModal() {
+      cardialbOverlay.classList.remove('active');
+      cardialbModal.classList.remove('active');
+      document.body.style.overflow = '';
+      // Scroll modal back to top for next opening
+      cardialbModal.scrollTop = 0;
+    }
+
+    // Cardial B modal event listeners
+    cardialbClose.addEventListener('click', closeCardialbModal);
+    cardialbCloseBottom.addEventListener('click', closeCardialbModal);
+    cardialbOverlay.addEventListener('click', closeCardialbModal);
+
+    // Order buttons - open delivery modal
+    cardialbOrderBtn.addEventListener('click', () => {
+      closeCardialbModal();
+      setTimeout(() => {
+        openDeliveryModal();
+      }, 300);
+    });
+
+    cardialbOrderBtn2.addEventListener('click', () => {
+      closeCardialbModal();
+      setTimeout(() => {
+        openDeliveryModal();
+      }, 300);
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && cardialbModal.classList.contains('active')) {
+        closeCardialbModal();
+      }
+    });
+
+    // Scroll-triggered animations for Cardial B modal
+    const cardialbObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('cardialb-animate-in');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    // Observe Cardial B elements for animation
+    document.querySelectorAll('.cardialb-formula-card, .cardialb-benefit-card, .cardialb-effect-item').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      cardialbObserver.observe(el);
+    });
+
+    document.querySelectorAll('.cardialb-aldosterone-content').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(40px)';
+      el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+      cardialbObserver.observe(el);
+    });
+
+    document.querySelectorAll('.cardialb-acvim-badge, .cardialb-acvim-text').forEach((el, index) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px) scale(0.95)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      el.style.transitionDelay = `${index * 0.15}s`;
+      cardialbObserver.observe(el);
+    });
+
+    document.querySelectorAll('.cardialb-products .cardialb-section-title, .cardialb-products .cardialb-section-subtitle').forEach((el, index) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+      el.style.transitionDelay = `${index * 0.1}s`;
+      cardialbObserver.observe(el);
+    });
+
+    document.querySelectorAll('.cardialb-presentations-block').forEach((el, index) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(40px) scale(0.98)';
+      el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+      el.style.transitionDelay = `${index * 0.2}s`;
+      cardialbObserver.observe(el);
+    });
+
+    // Add animation class styles for Cardial B
+    const cardialbAnimStyle = document.createElement('style');
+    cardialbAnimStyle.textContent = `
+      .cardialb-animate-in {
+        opacity: 1 !important;
+        transform: translateY(0) scale(1) !important;
+      }
+      .cardialb-formula-card:nth-child(1) { transition-delay: 0s !important; }
+      .cardialb-formula-card:nth-child(2) { transition-delay: 0.15s !important; }
+      .cardialb-formula-card:nth-child(3) { transition-delay: 0.3s !important; }
+      .cardialb-benefit-card:nth-child(1) { transition-delay: 0s !important; }
+      .cardialb-benefit-card:nth-child(2) { transition-delay: 0.15s !important; }
+      .cardialb-benefit-card:nth-child(3) { transition-delay: 0.3s !important; }
+      .cardialb-benefit-card:nth-child(4) { transition-delay: 0.45s !important; }
+      .cardialb-effect-item:nth-child(1) { transition-delay: 0s !important; }
+      .cardialb-effect-item:nth-child(2) { transition-delay: 0.1s !important; }
+      .cardialb-effect-item:nth-child(3) { transition-delay: 0.2s !important; }
+      .cardialb-effect-item:nth-child(4) { transition-delay: 0.3s !important; }
+    `;
+    document.head.appendChild(cardialbAnimStyle);
+
+    // Parallax scroll effect for Cardial B modal
+    cardialbModal.addEventListener('scroll', () => {
+      const scrollY = cardialbModal.scrollTop;
+      const heroContent = cardialbModal.querySelector('.cardialb-hero-content');
+      const ecgLine = cardialbModal.querySelector('.cardialb-ecg');
+      const hearts = cardialbModal.querySelector('.cardialb-hearts');
+      
+      if (heroContent && scrollY < window.innerHeight) {
+        heroContent.style.transform = `translateY(${scrollY * 0.3}px)`;
+        heroContent.style.opacity = 1 - (scrollY / (window.innerHeight * 0.8));
+      }
+      
+      if (ecgLine && scrollY < window.innerHeight) {
+        ecgLine.style.transform = `translateY(${scrollY * 0.5}px)`;
+      }
+      
+      if (hearts && scrollY < window.innerHeight) {
+        hearts.style.transform = `translateY(${scrollY * 0.2}px)`;
+      }
+    });
+
+    // ============================================
+    // CARDIAL B SELECTABLE PRESENTATIONS - BULLET BUTTONS
+    // ============================================
+    const cardialbBlockImage = document.getElementById('cardialbBlockImage');
+    const cardialbBlockPrice = document.getElementById('cardialbBlockPrice');
+    const cardialbOptions = document.getElementById('cardialbOptions');
+    const cardialbQuantity = document.getElementById('cardialbQuantity');
+
+    // Track selected Cardial B presentation
+    let cardialbSelected = null;
+
+    // Format price for Cardial B
+    function formatCardialbPrice(amount) {
+      if (amount === 0 || !amount) return 'Consultar';
+      return '$' + amount.toLocaleString('es-CO', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+    }
+
+    // Handle bullet button selection for Cardial B
+    cardialbOptions.querySelectorAll('.cardialb-option-bullet').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const dose = btn.dataset.dose;
+        const price = parseInt(btn.dataset.price) || 0;
+        const image = btn.dataset.image;
+        const weight = btn.dataset.weight;
+        
+        // Toggle selection
+        if (btn.classList.contains('selected')) {
+          // Deselect
+          btn.classList.remove('selected');
+          cardialbSelected = null;
+          cardialbQuantity.classList.remove('active');
+        } else {
+          // Deselect other buttons
+          cardialbOptions.querySelectorAll('.cardialb-option-bullet').forEach(b => b.classList.remove('selected'));
+          // Select this button
+          btn.classList.add('selected');
+          cardialbSelected = { dose, price, image, weight, qty: 1 };
+          cardialbQuantity.classList.add('active');
+          
+          // Update image and price
+          cardialbBlockImage.src = image;
+          cardialbBlockImage.classList.add('fade-in');
+          setTimeout(() => cardialbBlockImage.classList.remove('fade-in'), 500);
+          cardialbBlockPrice.textContent = formatCardialbPrice(price);
+          
+          // Update current product
+          currentProduct = {
+            name: 'Cardial B',
+            category: 'Cardiología • Vasodilatador',
+            price: formatCardialbPrice(price),
+            image: image,
+            unitPrice: price,
+            selectedVariant: dose + ' (para perros de ' + weight + ')'
+          };
+        }
+      });
+    });
+
+    // Cardial B quantity controls
+    cardialbQuantity.querySelectorAll('.cardialb-block-qty-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const action = btn.dataset.action;
+        const qtyDisplay = cardialbQuantity.querySelector('.cardialb-block-qty-value');
+        let qty = parseInt(qtyDisplay.textContent) || 1;
+        
+        if (action === 'increase' && qty < 99) {
+          qty++;
+        } else if (action === 'decrease' && qty > 1) {
+          qty--;
+        }
+        
+        qtyDisplay.textContent = qty;
+        
+        if (cardialbSelected) {
+          cardialbSelected.qty = qty;
+          // Update price if applicable
+          if (cardialbSelected.price > 0) {
+            cardialbBlockPrice.textContent = formatCardialbPrice(cardialbSelected.price * qty);
+          }
+        }
+      });
+    });
+
+    // Reset Cardial B selections when modal closes
+    function resetCardialbSelections() {
+      cardialbSelected = null;
+      
+      // Reset block
+      cardialbOptions.querySelectorAll('.cardialb-option-bullet').forEach(btn => btn.classList.remove('selected'));
+      cardialbBlockImage.src = 'images/obj2.png';
+      cardialbBlockPrice.textContent = 'Consultar';
+      cardialbQuantity.classList.remove('active');
+      cardialbQuantity.querySelector('.cardialb-block-qty-value').textContent = '1';
+    }
+
+    // Update closeCardialbModal to reset selections
+    const originalCloseCardialbModal = closeCardialbModal;
+    closeCardialbModal = function() {
+      originalCloseCardialbModal();
+      resetCardialbSelections();
+    };
+
     // Open canvas with product details
     function openCanvas(card) {
       const name = card.querySelector('.product-info h3').textContent;
@@ -7635,6 +9127,12 @@
       // Check if this is Pimocard - open fullscreen modal instead
       if (card.classList.contains('pimocard-card') || name === 'Pimocard') {
         openPimocardModal();
+        return;
+      }
+
+      // Check if this is Cardial B - open fullscreen modal instead
+      if (card.classList.contains('cardialb-card') || name === 'Cardial B') {
+        openCardialbModal();
         return;
       }
       
