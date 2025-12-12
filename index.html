@@ -89,17 +89,19 @@
     .logo-icon {
       width: 36px;
       height: 36px;
-      background: var(--color-primary);
-      border-radius: 10px;
+      background: #FF0000;
+      border-radius: 0;
       display: flex;
       align-items: center;
       justify-content: center;
+      animation: heartBeat 1.5s ease-in-out infinite;
     }
 
     .logo-icon svg {
       width: 22px;
       height: 22px;
       fill: white;
+      filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
     }
 
     .logo span {
@@ -4158,7 +4160,7 @@
       .logo-icon {
         width: 26px;
         height: 26px;
-        border-radius: 8px;
+        border-radius: 0;
       }
 
       .logo-icon svg {
