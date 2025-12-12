@@ -4532,6 +4532,15 @@
       margin-top: 1rem;
     }
 
+    .cardialb-formula-image {
+      width: 100%;
+      max-width: 200px;
+      height: auto;
+      margin: 0 auto 1rem;
+      border-radius: 10px;
+      object-fit: contain;
+    }
+
     /* Cardial B Aldosterone Section */
     .cardialb-aldosterone {
       background: linear-gradient(135deg, #003366 0%, #004d8c 100%);
@@ -8197,7 +8206,7 @@
           <p class="cardialb-block-subtitle">2 blisters × 10 comprimidos<br>(20 comprimidos por estuche)</p>
           
           <div class="cardialb-block-image-container">
-            <img class="cardialb-block-image" id="cardialbBlockImage" src="images/obj2.png" alt="Cardial B">
+            <img class="cardialb-block-image" id="cardialbBlockImage" src="images/cardialb-10.webp" alt="Cardial B">
           </div>
           
           <div class="cardialb-block-price-display">
@@ -8206,15 +8215,15 @@
           </div>
           
           <div class="cardialb-options-container" id="cardialbOptions">
-            <button class="cardialb-option-bullet" data-dose="2.5 mg" data-price="0" data-image="images/obj2.png" data-weight="5 kg">
+            <button class="cardialb-option-bullet" data-dose="2.5 mg" data-price="0" data-image="images/cardialb-2.5.webp" data-weight="5 kg">
               <span class="bullet-indicator"></span>
               <span>2.5 mg</span>
             </button>
-            <button class="cardialb-option-bullet" data-dose="5 mg" data-price="0" data-image="images/obj2.png" data-weight="10 kg">
+            <button class="cardialb-option-bullet" data-dose="5 mg" data-price="0" data-image="images/cardialb-5.webp" data-weight="10 kg">
               <span class="bullet-indicator"></span>
               <span>5 mg</span>
             </button>
-            <button class="cardialb-option-bullet" data-dose="10 mg" data-price="0" data-image="images/obj2.png" data-weight="20 kg">
+            <button class="cardialb-option-bullet" data-dose="10 mg" data-price="0" data-image="images/cardialb-10.webp" data-weight="20 kg">
               <span class="bullet-indicator"></span>
               <span>10 mg</span>
             </button>
@@ -8242,6 +8251,7 @@
         
         <div class="cardialb-formula-grid">
           <div class="cardialb-formula-card">
+            <img src="images/cardialb-2.5.webp" alt="Cardial B 2.5" class="cardialb-formula-image">
             <div class="cardialb-formula-dose">Cardial B 2.5</div>
             <div class="cardialb-formula-components">
               <strong>Benazepril:</strong> 2.5 mg<br>
@@ -8251,6 +8261,7 @@
           </div>
           
           <div class="cardialb-formula-card">
+            <img src="images/cardialb-5.webp" alt="Cardial B 5" class="cardialb-formula-image">
             <div class="cardialb-formula-dose">Cardial B 5</div>
             <div class="cardialb-formula-components">
               <strong>Benazepril:</strong> 5 mg<br>
@@ -8260,6 +8271,7 @@
           </div>
           
           <div class="cardialb-formula-card">
+            <img src="images/cardialb-10.webp" alt="Cardial B 10" class="cardialb-formula-image">
             <div class="cardialb-formula-dose">Cardial B 10</div>
             <div class="cardialb-formula-components">
               <strong>Benazepril:</strong> 10 mg<br>
@@ -8647,6 +8659,76 @@
     const filterBtns = document.querySelectorAll('.filter-btn');
     let productCards = document.querySelectorAll('.product-card');
 
+    // Popularity order for "todos" filter
+    const popularityOrder = [
+      'pimocard',
+      'cardial b',
+      'ciclosporina',
+      'enzimax',
+      'oltransflex',
+      'cardial',
+      'flurbiprofeno'
+    ];
+
+    // Function to get product name from card
+    function getProductName(card) {
+      const h3 = card.querySelector('h3');
+      return h3 ? h3.textContent.trim().toLowerCase() : '';
+    }
+
+    // Function to get popularity index
+    function getPopularityIndex(productName) {
+      // Check for exact matches first
+      for (let i = 0; i < popularityOrder.length; i++) {
+        if (productName.includes(popularityOrder[i])) {
+          return i;
+        }
+      }
+      // If not in popularity list, return a high number to sort to end
+      return popularityOrder.length + 1;
+    }
+
+    // Function to sort products by popularity
+    function sortProductsByPopularity() {
+      const productsTrack = document.getElementById('productsTrack');
+      if (!productsTrack) return;
+
+      // Refresh productCards list
+      productCards = document.querySelectorAll('.product-card');
+
+      // Separate visible and hidden cards
+      const visibleCards = Array.from(productCards).filter(card => 
+        !card.classList.contains('filtered-out') && card.style.display !== 'none'
+      );
+      const hiddenCards = Array.from(productCards).filter(card => 
+        card.classList.contains('filtered-out') || card.style.display === 'none'
+      );
+
+      // Sort visible cards by popularity
+      visibleCards.sort((a, b) => {
+        const nameA = getProductName(a);
+        const nameB = getProductName(b);
+        const indexA = getPopularityIndex(nameA);
+        const indexB = getPopularityIndex(nameB);
+
+        // If both are in popularity list, sort by their index
+        if (indexA < popularityOrder.length && indexB < popularityOrder.length) {
+          return indexA - indexB;
+        }
+        // If only A is in list, A comes first
+        if (indexA < popularityOrder.length) return -1;
+        // If only B is in list, B comes first
+        if (indexB < popularityOrder.length) return 1;
+        // If neither is in list, maintain original order
+        return 0;
+      });
+
+      // Re-append all cards: sorted visible cards first, then hidden cards
+      [...visibleCards, ...hiddenCards].forEach(card => {
+        productsTrack.appendChild(card);
+      });
+    }
+
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         // Update active button
@@ -8666,8 +8748,19 @@
             card.style.display = 'none';
           }
         });
+
+        // Sort by popularity when "todos" is selected
+        if (filter === 'all') {
+          sortProductsByPopularity();
+        }
       });
     });
+
+    // Sort products on initial page load if "Todos" is active
+    const activeFilter = document.querySelector('.filter-btn.active');
+    if (activeFilter && activeFilter.dataset.filter === 'all') {
+      sortProductsByPopularity();
+    }
 
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
@@ -9778,7 +9871,7 @@
         name: 'Cardial B',
         category: 'Cardiología • Vasodilatador',
         price: 'Consultar',
-        image: 'images/obj2.png',
+        image: 'images/cardialb-10.webp',
         unitPrice: 0,
         selectedVariant: null
       };
@@ -10002,7 +10095,7 @@
       
       // Reset block
       cardialbOptions.querySelectorAll('.cardialb-option-bullet').forEach(btn => btn.classList.remove('selected'));
-      cardialbBlockImage.src = 'images/obj2.png';
+      cardialbBlockImage.src = 'images/cardialb-10.webp';
       cardialbBlockPrice.textContent = 'Consultar';
       cardialbQuantity.classList.remove('active');
       cardialbQuantity.querySelector('.cardialb-block-qty-value').textContent = '1';
