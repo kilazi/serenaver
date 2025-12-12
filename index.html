@@ -4474,11 +4474,24 @@
     .cardialb-formula {
       background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
       padding: 4rem 2rem;
+      position: relative;
     }
 
     .cardialb-formula-container {
       max-width: 1000px;
       margin: 0 auto;
+      position: relative;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .cardialb-formula-container.centered {
+      position: relative;
+    }
+    
+    @media (max-width: 1000px) {
+      .cardialb-formula-container.centered {
+        transform: none;
+      }
     }
 
     .cardialb-formula-grid {
@@ -4545,6 +4558,349 @@
       margin: 0 auto 1rem;
       border-radius: 10px;
       object-fit: contain;
+    }
+
+    /* Cardial B Selection Summary */
+    .cardialb-selection-summary {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      z-index: 100;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(30px);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .cardialb-selection-summary.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .cardialb-selection-box {
+      background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+      border-radius: 20px;
+      padding: 0;
+      width: 320px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 102, 179, 0.1);
+      border: 2px solid #0066b3;
+      overflow: hidden;
+    }
+
+    .cardialb-selection-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.25rem;
+      background: linear-gradient(135deg, #1c1c1c 0%, #2d2d2d 100%);
+      border-bottom: 2px solid #0066b3;
+    }
+
+    .cardialb-selection-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .cardialb-selection-title svg {
+      width: 20px;
+      height: 20px;
+      color: #0066b3;
+    }
+
+    .cardialb-selection-close {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .cardialb-selection-close:hover {
+      background: rgba(0, 102, 179, 0.3);
+    }
+
+    .cardialb-selection-close svg {
+      width: 14px;
+      height: 14px;
+      color: #fff;
+    }
+
+    .cardialb-selection-items {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      max-height: 280px;
+      overflow-y: auto;
+    }
+
+    .cardialb-selection-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 1.25rem;
+      background: #fff;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      transition: background 0.2s ease;
+    }
+
+    .cardialb-selection-item:hover {
+      background: rgba(0, 102, 179, 0.03);
+    }
+
+    .cardialb-selection-item-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .cardialb-selection-item-dose {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #1c1c1c;
+    }
+
+    .cardialb-selection-item-weight {
+      font-size: 0.7rem;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .cardialb-selection-item-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .cardialb-selection-qty-btn {
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      background: #fff;
+      border: 1px solid #ddd;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .cardialb-selection-qty-btn:hover {
+      background: #0066b3;
+      border-color: #0066b3;
+      color: #fff;
+    }
+
+    .cardialb-selection-qty-btn svg {
+      width: 12px;
+      height: 12px;
+    }
+
+    .cardialb-selection-qty-value {
+      min-width: 24px;
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #1c1c1c;
+    }
+
+    .cardialb-selection-item-delete {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(0, 102, 179, 0.1);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .cardialb-selection-item-delete:hover {
+      background: #0066b3;
+    }
+
+    .cardialb-selection-item-delete svg {
+      width: 14px;
+      height: 14px;
+      color: #0066b3;
+      transition: color 0.2s ease;
+    }
+
+    .cardialb-selection-item-delete:hover svg {
+      color: #fff;
+    }
+
+    .cardialb-selection-item-price {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #0066b3;
+      min-width: 70px;
+      text-align: right;
+    }
+
+    .cardialb-selection-total {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.25rem;
+      background: #f8f8f8;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .cardialb-selection-total-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #666;
+    }
+
+    .cardialb-selection-total-value {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #0066b3;
+    }
+
+    .cardialb-selection-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      padding: 1rem 1.25rem;
+      background: #fff;
+    }
+
+    .cardialb-add-cart-btn {
+      width: 100%;
+      padding: 0.85rem 1.25rem;
+      background: linear-gradient(135deg, #0066b3 0%, #004d8c 100%);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      transition: all 0.3s ease;
+    }
+
+    .cardialb-add-cart-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 102, 179, 0.4);
+    }
+
+    .cardialb-add-cart-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .cardialb-consult-btn {
+      width: 100%;
+      padding: 0.85rem 1.25rem;
+      background: #fff;
+      color: #1c1c1c;
+      border: 2px solid #ddd;
+      border-radius: 50px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      transition: all 0.3s ease;
+    }
+
+    .cardialb-consult-btn:hover {
+      border-color: #0066b3;
+      background: rgba(0, 102, 179, 0.05);
+      color: #0066b3;
+    }
+
+    .cardialb-consult-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .cardialb-selection-empty {
+      text-align: center;
+      padding: 2rem 1.25rem;
+      color: #999;
+    }
+
+    .cardialb-selection-empty svg {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 0.5rem;
+      opacity: 0.3;
+    }
+
+    .cardialb-selection-empty p {
+      font-size: 0.85rem;
+    }
+
+    /* Responsive for floating canvas */
+    @media (max-width: 900px) {
+      .cardialb-selection-summary {
+        right: 10px;
+        bottom: 10px;
+        transform: translateY(30px);
+      }
+      
+      .cardialb-selection-summary.active {
+        transform: translateY(0);
+      }
+      
+      .cardialb-selection-box {
+        width: 280px;
+      }
+    }
+    
+    @media (max-width: 600px) {
+      .cardialb-selection-summary {
+        right: 5px;
+        left: 5px;
+        bottom: 10px;
+        transform: translateY(30px);
+      }
+      
+      .cardialb-selection-summary.active {
+        transform: translateY(0);
+      }
+      
+      .cardialb-selection-box {
+        width: 100%;
+        max-height: 50vh;
+      }
+      
+      .cardialb-selection-items {
+        max-height: 150px;
+      }
+      
+      .cardialb-selection-item {
+        padding: 0.7rem 1rem;
+      }
+      
+      .cardialb-selection-item-price {
+        min-width: 60px;
+        font-size: 0.8rem;
+      }
     }
 
     /* Cardial B Aldosterone Section */
@@ -8245,6 +8601,47 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
           </button>
         </div>
+
+        <!-- Floating Selection Canvas (Right Side) -->
+        <div class="cardialb-selection-summary" id="cardialbSelectionSummary">
+          <div class="cardialb-selection-box">
+            <div class="cardialb-selection-header">
+              <div class="cardialb-selection-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                </svg>
+                Tu Selección
+              </div>
+              <button class="cardialb-selection-close" id="cardialbSelectionClose">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+              </button>
+            </div>
+            <div class="cardialb-selection-items" id="cardialbSelectionItems">
+              <!-- Selected items will be displayed here dynamically -->
+            </div>
+            <div class="cardialb-selection-total" id="cardialbSelectionTotal">
+              <span class="cardialb-selection-total-label">Total</span>
+              <span class="cardialb-selection-total-value">$0</span>
+            </div>
+            <div class="cardialb-selection-actions">
+              <button class="cardialb-add-cart-btn" id="cardialbRequestDeliveryBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
+                </svg>
+                Solicitar Entrega
+              </button>
+              <button class="cardialb-consult-btn" id="cardialbConsultBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+                Consultar Precio
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -9975,8 +10372,14 @@
     // ============================================
     const cardialbBlockPrice = document.getElementById('cardialbBlockPrice');
     const cardialbQuantity = document.getElementById('cardialbQuantity');
+    const cardialbSelectionSummary = document.getElementById('cardialbSelectionSummary');
+    const cardialbSelectionItems = document.getElementById('cardialbSelectionItems');
+    const cardialbSelectionClose = document.getElementById('cardialbSelectionClose');
+    const cardialbRequestDeliveryBtn = document.getElementById('cardialbRequestDeliveryBtn');
+    const cardialbConsultBtn = document.getElementById('cardialbConsultBtn');
 
-    // Track selected Cardial B presentation
+    // Track selected Cardial B presentations
+    let cardialbSelectedPresentations = {};
     let cardialbSelected = null;
 
     // Format price for Cardial B
@@ -10006,6 +10409,12 @@
           // Update price if applicable
           if (cardialbSelected.price > 0) {
             cardialbBlockPrice.textContent = formatCardialbPrice(cardialbSelected.price * qty);
+          }
+          
+          // Update selected presentations
+          if (cardialbSelectedPresentations[cardialbSelected.dose]) {
+            cardialbSelectedPresentations[cardialbSelected.dose].qty = qty;
+            updateCardialbSelectionSummary();
           }
         }
       });
@@ -10052,12 +10461,23 @@
           qty: 1 
         };
         
+        // Add to selected presentations
+        cardialbSelectedPresentations[data.dose] = {
+          qty: 1,
+          price: data.price,
+          weight: data.weight,
+          image: image
+        };
+        
         // Activate quantity and price display
         cardialbQuantity.classList.add('active');
         cardialbBlockPrice.textContent = formatCardialbPrice(data.price);
         
         // Reset quantity to 1
         cardialbQuantity.querySelector('.cardialb-block-qty-value').textContent = '1';
+        
+        // Update selection summary
+        updateCardialbSelectionSummary();
         
         // Get price
         const price = data.price;
@@ -10114,15 +10534,216 @@
       });
     });
 
+    // Update Cardial B selection summary
+    function updateCardialbSelectionSummary() {
+      const selectedCount = Object.keys(cardialbSelectedPresentations).length;
+      
+      if (selectedCount > 0 && cardialbSelectionSummary) {
+        cardialbSelectionSummary.classList.add('active');
+        
+        // Center the container
+        if (formulaContainer) {
+          formulaContainer.classList.add('centered');
+        }
+        
+        // Block scrolling on modal
+        if (cardialbModal) {
+          cardialbModal.style.overflowY = 'hidden';
+          document.body.style.overflow = 'hidden';
+        }
+        
+        // Build selection items HTML and calculate total
+        let itemsHTML = '';
+        let totalPrice = 0;
+        
+        for (const [dose, data] of Object.entries(cardialbSelectedPresentations)) {
+          const subtotal = data.price * data.qty;
+          totalPrice += subtotal;
+          
+          itemsHTML += `
+            <div class="cardialb-selection-item" data-dose="${dose}">
+              <div class="cardialb-selection-item-info">
+                <div class="cardialb-selection-item-dose">${dose}</div>
+                <div class="cardialb-selection-item-weight">${data.weight}</div>
+              </div>
+              <div class="cardialb-selection-item-controls">
+                <button class="cardialb-selection-qty-btn" data-action="decrease" data-dose="${dose}">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </button>
+                <span class="cardialb-selection-qty-value">${data.qty}</span>
+                <button class="cardialb-selection-qty-btn" data-action="increase" data-dose="${dose}">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </button>
+                <button class="cardialb-selection-item-delete" data-dose="${dose}">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                  </svg>
+                </button>
+                <div class="cardialb-selection-item-price">${formatCardialbPrice(subtotal)}</div>
+              </div>
+            </div>
+          `;
+        }
+        
+        if (cardialbSelectionItems) {
+          cardialbSelectionItems.innerHTML = itemsHTML;
+        }
+        
+        // Update total display
+        const cardialbSelectionTotal = document.getElementById('cardialbSelectionTotal');
+        if (cardialbSelectionTotal) {
+          cardialbSelectionTotal.querySelector('.cardialb-selection-total-value').textContent = formatCardialbPrice(totalPrice);
+        }
+        
+        // Attach event listeners to quantity buttons and delete buttons
+        attachCardialbSelectionItemEvents();
+      } else {
+        if (cardialbSelectionSummary) {
+          cardialbSelectionSummary.classList.remove('active');
+        }
+        
+        // Uncenter the container
+        if (formulaContainer) {
+          formulaContainer.classList.remove('centered');
+        }
+        
+        // Unblock scrolling on modal
+        if (cardialbModal) {
+          cardialbModal.style.overflowY = '';
+          document.body.style.overflow = '';
+        }
+        
+        if (cardialbSelectionItems) {
+          cardialbSelectionItems.innerHTML = '';
+        }
+        const cardialbSelectionTotal = document.getElementById('cardialbSelectionTotal');
+        if (cardialbSelectionTotal) {
+          cardialbSelectionTotal.querySelector('.cardialb-selection-total-value').textContent = '$0';
+        }
+      }
+    }
+
+    // Attach events to selection item controls
+    function attachCardialbSelectionItemEvents() {
+      // Quantity buttons
+      document.querySelectorAll('.cardialb-selection-qty-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const action = btn.dataset.action;
+          const dose = btn.dataset.dose;
+          
+          if (cardialbSelectedPresentations[dose]) {
+            if (action === 'increase') {
+              cardialbSelectedPresentations[dose].qty++;
+            } else if (action === 'decrease' && cardialbSelectedPresentations[dose].qty > 1) {
+              cardialbSelectedPresentations[dose].qty--;
+            }
+            updateCardialbSelectionSummary();
+          }
+        });
+      });
+      
+      // Delete buttons
+      document.querySelectorAll('.cardialb-selection-item-delete').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const dose = btn.dataset.dose;
+          delete cardialbSelectedPresentations[dose];
+          
+          // Also deselect the formula card
+          document.querySelectorAll('.cardialb-formula-card').forEach(card => {
+            const cardDose = card.querySelector('.cardialb-formula-dose').textContent.trim();
+            if (cardDose.includes(dose.replace(' mg', ''))) {
+              card.classList.remove('selected');
+            }
+          });
+          
+          updateCardialbSelectionSummary();
+          
+          // If no items left, reset quantity display
+          if (Object.keys(cardialbSelectedPresentations).length === 0) {
+            cardialbQuantity.classList.remove('active');
+            cardialbBlockPrice.textContent = 'Consultar';
+          }
+        });
+      });
+    }
+
+    // Close button for selection canvas
+    if (cardialbSelectionClose) {
+      cardialbSelectionClose.addEventListener('click', () => {
+        const formulaContainer = document.querySelector('.cardialb-formula-container');
+        const cardialbModal = document.getElementById('cardialbModal');
+        
+        if (cardialbSelectionSummary) {
+          cardialbSelectionSummary.classList.remove('active');
+        }
+        
+        // Uncenter the container
+        if (formulaContainer) {
+          formulaContainer.classList.remove('centered');
+        }
+        
+        // Unblock scrolling on modal
+        if (cardialbModal) {
+          cardialbModal.style.overflowY = '';
+          document.body.style.overflow = '';
+        }
+      });
+    }
+
+    // Request delivery button action - opens delivery modal
+    if (cardialbRequestDeliveryBtn) {
+      cardialbRequestDeliveryBtn.addEventListener('click', () => {
+        if (Object.keys(cardialbSelectedPresentations).length === 0) return;
+        
+        // Build product info for delivery with prices
+        let totalPrice = 0;
+        let variantInfo = Object.entries(cardialbSelectedPresentations)
+          .map(([dose, data]) => {
+            totalPrice += data.price * data.qty;
+            return `${dose} (×${data.qty})`;
+          })
+          .join(', ');
+        
+        currentProduct = {
+          name: 'Cardial B',
+          category: 'Cardiología • Vasodilatador',
+          price: formatCardialbPrice(totalPrice),
+          image: 'images/cardialb-10.webp',
+          unitPrice: totalPrice,
+          selectedVariant: variantInfo
+        };
+        
+        // Close Cardial B modal and open delivery modal
+        closeCardialbModal();
+        setTimeout(() => {
+          openDeliveryModal();
+        }, 300);
+      });
+    }
+
+    // Consult button action
+    if (cardialbConsultBtn) {
+      cardialbConsultBtn.addEventListener('click', () => {
+        // You can add custom action here, like opening a contact form
+        console.log('Consultar precio clicked');
+      });
+    }
+
     // Reset Cardial B selections when modal closes
     function resetCardialbSelections() {
       cardialbSelected = null;
+      cardialbSelectedPresentations = {};
       
       // Reset block
       document.querySelectorAll('.cardialb-formula-card').forEach(card => card.classList.remove('selected'));
       cardialbBlockPrice.textContent = 'Consultar';
       cardialbQuantity.classList.remove('active');
       cardialbQuantity.querySelector('.cardialb-block-qty-value').textContent = '1';
+      
+      // Update selection summary
+      updateCardialbSelectionSummary();
     }
 
     // Update closeCardialbModal to reset selections
