@@ -2027,9 +2027,8 @@
     }
 
     .pimocard-block-badge.hospitalario {
-      background: rgba(227, 24, 55, 0.2);
-      color: #e31837;
-      border: 1px solid rgba(227, 24, 55, 0.3);
+      background: linear-gradient(135deg, #e31837 0%, #c41230 100%);
+      color: #fff;
     }
 
     .pimocard-block-badge svg {
@@ -2712,14 +2711,14 @@
     .pimocard-combination-container {
       max-width: 1200px;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 3rem;
+      display: flex;
+      justify-content: center;
       align-items: center;
     }
 
     .pimocard-combination-content {
-      padding-right: 2rem;
+      text-align: center;
+      max-width: 800px;
     }
 
     .pimocard-combination-title {
@@ -2761,7 +2760,8 @@
       font-size: 1.15rem;
       color: #555;
       line-height: 1.7;
-      max-width: 500px;
+      max-width: 100%;
+      margin: 0 auto;
     }
 
     .pimocard-combination-products {
@@ -2848,42 +2848,21 @@
     /* Responsive for combination section */
     @media (max-width: 900px) {
       .pimocard-combination-container {
-        grid-template-columns: 1fr;
         text-align: center;
       }
 
       .pimocard-combination-content {
-        padding-right: 0;
-      }
-
-      .pimocard-combination-subtitle {
-        margin: 0 auto;
+        padding: 0 1rem;
       }
 
       .pimocard-combination-title {
         font-size: 2rem;
-      }
-
-      .pimocard-combination-products {
-        height: 280px;
-      }
-
-      .combination-product img {
-        transform: scale(0.8);
       }
     }
 
     @media (max-width: 600px) {
       .pimocard-combination-title {
         font-size: 1.5rem;
-      }
-
-      .pimocard-combination-products {
-        height: 200px;
-      }
-
-      .combination-product img {
-        transform: scale(0.6);
       }
     }
 
@@ -6231,35 +6210,6 @@
           <p class="pimocard-combination-subtitle">
             La combinación perfecta para el tratamiento de las afecciones cardíacas más frecuentes en animales de compañía.
           </p>
-        </div>
-        
-        <div class="pimocard-combination-products">
-          <div class="combination-product-stack">
-            <!-- Pimocard products (top row) -->
-            <div class="combination-product pimocard-10">
-              <img src="images/obj1.png" alt="Pimocard 10mg">
-            </div>
-            <div class="combination-product pimocard-5">
-              <img src="images/obj1.png" alt="Pimocard 5mg">
-            </div>
-            <div class="combination-product pimocard-25">
-              <img src="images/obj1.png" alt="Pimocard 2.5mg">
-            </div>
-            <div class="combination-product pimocard-125">
-              <img src="images/obj1.png" alt="Pimocard 1.25mg">
-            </div>
-            
-            <!-- Cardial B products (bottom row) -->
-            <div class="combination-product cardial-25">
-              <img src="images/obj1.png" alt="Cardial B 2.5mg">
-            </div>
-            <div class="combination-product cardial-10">
-              <img src="images/obj1.png" alt="Cardial B 10mg">
-            </div>
-            <div class="combination-product cardial-5">
-              <img src="images/obj1.png" alt="Cardial B 5mg">
-            </div>
-          </div>
         </div>
       </div>
     </section>
