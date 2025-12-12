@@ -6434,6 +6434,9 @@
     // Premium Page Load Animation
     // Trigger the animation sequence after everything is ready
     document.addEventListener('DOMContentLoaded', () => {
+      // Restore last page view before animations
+      restorePageState();
+      
       // Wait for images to start loading and next paint cycle
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
@@ -6457,7 +6460,37 @@
       return window.innerWidth <= 768;
     }
 
+    // Save current page state to localStorage
+    function savePageState(isProductsView) {
+      localStorage.setItem('lastPageView', isProductsView ? 'products' : 'hero');
+    }
+
+    // Restore page state from localStorage
+    function restorePageState() {
+      const lastPageView = localStorage.getItem('lastPageView');
+      if (lastPageView === 'products') {
+        if (isMobile()) {
+          // On mobile: show products and scroll to them
+          productsSection.classList.add('products-visible');
+          // Scroll after a short delay to ensure DOM is ready and layout is complete
+          setTimeout(() => {
+            productsSection.scrollIntoView({ behavior: 'auto' });
+          }, 100);
+        } else {
+          // On desktop: show products view immediately
+          slideContainer.classList.add('show-products');
+          setTimeout(() => {
+            productsSection.classList.add('products-visible');
+          }, 100);
+        }
+      } else if (isMobile() && lastPageView !== 'products') {
+        // On mobile, if last view was hero, ensure we're at the top
+        window.scrollTo({ top: 0, behavior: 'auto' });
+      }
+    }
+
     function showProducts() {
+      savePageState(true);
       if (isMobile()) {
         // On mobile: scroll to products section
         productsSection.scrollIntoView({ behavior: 'smooth' });
@@ -6475,6 +6508,7 @@
     }
 
     function showHero() {
+      savePageState(false);
       if (isMobile()) {
         // On mobile: scroll to top
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -6492,8 +6526,8 @@
       showHero();
     });
     
-    // On mobile, show products visible by default for scrolling
-    if (isMobile()) {
+    // On mobile, show products visible by default for scrolling (only if not restored from localStorage)
+    if (isMobile() && localStorage.getItem('lastPageView') !== 'products') {
       productsSection.classList.add('products-visible');
     }
 
