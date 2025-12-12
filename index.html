@@ -7114,6 +7114,30 @@
     function blockScrolling() {
       document.body.style.overflow = 'hidden';
       if (pimocardModal) {
+        // Get the presentaciones disponibles section
+        const productsSection = document.getElementById('pimocardProductsSection');
+        if (productsSection) {
+          // Get the modal's current scroll position
+          const currentScrollTop = pimocardModal.scrollTop;
+          
+          // Get the section's offset relative to the modal's content
+          const sectionOffsetTop = productsSection.offsetTop;
+          
+          // Calculate viewport height
+          const viewportHeight = window.innerHeight;
+          
+          // Get the section's height
+          const sectionHeight = productsSection.offsetHeight;
+          
+          // Calculate the scroll position to center the section vertically
+          // Center = section top + (section height / 2) - (viewport height / 2)
+          const targetScrollTop = sectionOffsetTop + (sectionHeight / 2) - (viewportHeight / 2);
+          
+          // Scroll to center the section (instant scroll, then block)
+          pimocardModal.scrollTop = Math.max(0, targetScrollTop);
+        }
+        
+        // Block scrolling
         pimocardModal.style.overflowY = 'hidden';
         pimocardModal.style.overflowX = 'hidden';
       }
