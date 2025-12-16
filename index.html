@@ -3996,6 +3996,634 @@
     }
 
     /* ============================================
+       ENZIMAX CANVAS MODAL (Right Side)
+    ============================================ */
+    .enzimax-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 10000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .enzimax-modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .enzimax-modal {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 42.5%;
+      max-width: 680px;
+      height: 100vh;
+      z-index: 10001;
+      overflow-y: auto;
+      overflow-x: hidden;
+      background: #fff;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(100%);
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: -10px 0 40px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .enzimax-modal.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(0);
+    }
+
+    .enzimax-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.95);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10002;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .enzimax-close:hover {
+      transform: rotate(90deg) scale(1.1);
+      background: #fff;
+    }
+
+    .enzimax-close svg {
+      width: 24px;
+      height: 24px;
+      color: var(--color-primary-dark);
+    }
+
+    .enzimax-brand-logo {
+      position: absolute;
+      top: 1.5rem;
+      left: 1.5rem;
+      max-width: 100px;
+      height: auto;
+      z-index: 10002;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 0.5rem;
+      border-radius: 8px;
+    }
+
+    /* Hero Section */
+    .enzimax-hero {
+      min-height: 50vh;
+      background: #ffffff;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 3rem 2rem;
+      flex-shrink: 0;
+    }
+
+    .enzimax-hero::before {
+      display: none;
+    }
+
+    .enzimax-hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 2rem;
+      max-width: 100%;
+    }
+
+    .enzimax-logo {
+      margin-bottom: 2rem;
+      animation: fadeInDown 1s ease-out;
+    }
+
+
+    .enzimax-logo-text {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 800;
+      color: #0066CC;
+      text-shadow: none;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .enzimax-logo-subtitle {
+      font-size: 0.9rem;
+      color: var(--color-gray);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-top: 0.5rem;
+      font-weight: 500;
+    }
+
+    .enzimax-hero-description {
+      font-size: 1rem;
+      color: var(--color-charcoal);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      animation: fadeInUp 1s ease-out 0.3s both;
+    }
+
+    .enzimax-hero-indication {
+      background: var(--color-light-gray);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 1.5rem 2rem;
+      font-size: 0.9rem;
+      color: var(--color-charcoal);
+      line-height: 1.7;
+      animation: fadeInUp 1s ease-out 0.5s both;
+      border: 1px solid var(--color-border);
+      text-align: left;
+    }
+
+    .enzimax-hero-indication strong {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+
+    /* Products Section */
+    .enzimax-products {
+      background: #fff;
+      padding: 3rem 2rem;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .enzimax-section-title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: #1c1c1c;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .enzimax-section-subtitle {
+      font-size: 1rem;
+      color: #666;
+      text-align: center;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .enzimax-presentations-container {
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    .enzimax-presentation-card {
+      background: linear-gradient(145deg, #fff 0%, #f8f8f8 100%);
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+
+    .enzimax-presentation-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-primary-dark));
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .enzimax-presentation-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(104, 187, 89, 0.15);
+    }
+
+    .enzimax-presentation-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .enzimax-presentation-image {
+      max-width: 200px;
+      height: auto;
+      margin: 1rem auto;
+      display: block;
+    }
+
+    .enzimax-presentation-info {
+      font-size: 0.9rem;
+      color: #666;
+      line-height: 1.5;
+      margin: 1rem 0;
+    }
+
+    .enzimax-block-quantity {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(104, 187, 89, 0.2);
+    }
+
+    .enzimax-block-quantity-label {
+      font-weight: 600;
+      color: #1c1c1c;
+    }
+
+    .enzimax-block-qty-btn {
+      width: 36px;
+      height: 36px;
+      border: none;
+      background: var(--color-primary);
+      color: #fff;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .enzimax-block-qty-btn:hover {
+      background: var(--color-primary-dark);
+      transform: scale(1.1);
+    }
+
+    .enzimax-block-qty-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .enzimax-block-qty-value {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--color-primary-dark);
+      min-width: 40px;
+      text-align: center;
+    }
+
+    /* Selection Summary - At Bottom */
+    .enzimax-selection-summary {
+      position: relative;
+      margin-top: auto;
+    }
+
+    .enzimax-selection-summary.active {
+      display: block;
+    }
+
+    .enzimax-selection-box {
+      position: sticky;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+      border-top: 2px solid var(--color-primary);
+      padding: 1.5rem 2rem;
+      box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.1);
+      max-width: 100%;
+    }
+
+    .enzimax-selection-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .enzimax-selection-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+    }
+
+    .enzimax-selection-title svg {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+    .enzimax-selection-items {
+      max-height: 200px;
+      overflow-y: auto;
+      margin-bottom: 1rem;
+    }
+
+    .enzimax-selection-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1rem;
+      background: #fff;
+      border-radius: 12px;
+      margin-bottom: 0.5rem;
+      border: 1px solid rgba(104, 187, 89, 0.2);
+    }
+
+    .enzimax-selection-item-info {
+      flex: 1;
+    }
+
+    .enzimax-selection-item-dose {
+      font-weight: 600;
+      color: #1c1c1c;
+      font-size: 0.9rem;
+    }
+
+    .enzimax-selection-item-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .enzimax-selection-qty-btn {
+      width: 28px;
+      height: 28px;
+      border: none;
+      background: var(--color-primary-light);
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .enzimax-selection-qty-btn:hover {
+      background: var(--color-primary);
+      color: #fff;
+    }
+
+    .enzimax-selection-qty-btn svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .enzimax-selection-qty-value {
+      font-weight: 600;
+      color: var(--color-primary-dark);
+      min-width: 30px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    .enzimax-selection-item-delete {
+      width: 28px;
+      height: 28px;
+      border: none;
+      background: #fee;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      margin-left: 0.5rem;
+    }
+
+    .enzimax-selection-item-delete:hover {
+      background: #fcc;
+    }
+
+    .enzimax-selection-item-delete svg {
+      width: 14px;
+      height: 14px;
+      color: #c00;
+    }
+
+    .enzimax-selection-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      border-top: 2px solid rgba(104, 187, 89, 0.2);
+      margin-top: 1rem;
+    }
+
+    .enzimax-selection-total-label {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #1c1c1c;
+    }
+
+    .enzimax-selection-total-value {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+    }
+
+    .enzimax-selection-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .enzimax-add-cart-btn,
+    .enzimax-consult-btn {
+      width: 100%;
+      padding: 1rem;
+      border: none;
+      border-radius: 12px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .enzimax-add-cart-btn {
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+      color: #fff;
+    }
+
+    .enzimax-add-cart-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(104, 187, 89, 0.3);
+    }
+
+    .enzimax-add-cart-btn svg {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+    .enzimax-consult-btn {
+      background: transparent;
+      color: var(--color-primary-dark);
+      border: 2px solid var(--color-primary-dark);
+    }
+
+    .enzimax-consult-btn:hover {
+      background: var(--color-primary-dark);
+      color: #fff;
+    }
+
+    .enzimax-consult-btn svg {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+    .enzimax-selection-empty {
+      text-align: center;
+      padding: 1rem;
+      color: #999;
+    }
+
+    .enzimax-selection-empty svg {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 1rem;
+      opacity: 0.3;
+    }
+    
+    .enzimax-selection-items:has(.enzimax-selection-item) .enzimax-selection-empty {
+      display: none !important;
+    }
+
+    /* Benefits Section */
+    .enzimax-benefits {
+      background: #fff;
+      padding: 3rem 2rem;
+      flex-shrink: 0;
+    }
+
+    .enzimax-benefits-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      max-width: 100%;
+      margin: 0 auto 2rem;
+    }
+
+    .enzimax-benefit-card {
+      background: linear-gradient(145deg, #fff 0%, #fafafa 100%);
+      border-radius: 20px;
+      padding: 1.5rem;
+      display: flex;
+      gap: 1rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .enzimax-benefit-card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 15px 50px rgba(104, 187, 89, 0.15);
+    }
+
+    .enzimax-benefit-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--color-primary-light) 0%, #c8e6c9 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .enzimax-benefit-icon svg {
+      width: 28px;
+      height: 28px;
+      color: var(--color-primary-dark);
+    }
+
+    .enzimax-benefit-content h4 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1c1c1c;
+      margin-bottom: 0.5rem;
+    }
+
+    .enzimax-benefit-content p {
+      font-size: 0.9rem;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .enzimax-modal {
+        width: 60%;
+        max-width: 700px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .enzimax-modal {
+        width: 80%;
+        max-width: 600px;
+      }
+      
+      .enzimax-logo-text {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .enzimax-modal {
+        width: 100%;
+        max-width: 100%;
+      }
+      
+      .enzimax-logo-text {
+        font-size: 2rem;
+      }
+      
+      .enzimax-hero-description {
+        font-size: 0.9rem;
+      }
+      
+      .enzimax-section-title {
+        font-size: 1.5rem;
+      }
+      
+      .enzimax-benefit-card {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .enzimax-benefit-icon {
+        margin: 0 auto;
+      }
+    }
+
+    /* ============================================
        CARDIAL FULL-SCREEN MODAL
     ============================================ */
     .cardial-modal-overlay {
@@ -7152,7 +7780,7 @@
           <!-- ACEDAN GOTAS -->
           <div class="product-card" data-category="perros gatos antiinflamatorios">
             <div class="product-image">
-              <img src="images/placeholder.png" alt="Acedan Gotas">
+              <img src="images/acedan-gotas.jpg" alt="Acedan Gotas">
             </div>
             <div class="product-info">
               <span class="product-category">Antiinflamatorio • Gotas</span>
@@ -7167,7 +7795,7 @@
           <!-- ACEDAN INYECTABLE -->
           <div class="product-card" data-category="perros gatos antiinflamatorios">
             <div class="product-image">
-              <img src="images/placeholder.png" alt="Acedan Inyectable">
+              <img src="images/acedan.jpg" alt="Acedan Inyectable">
             </div>
             <div class="product-info">
               <span class="product-category">Antiinflamatorio • Inyectable</span>
@@ -7182,7 +7810,7 @@
           <!-- ANAVIMIN COAT COMPRIMIDOS -->
           <div class="product-card" data-category="perros gatos suplementos">
             <div class="product-image">
-              <img src="images/placeholder.png" alt="Anavimin Coat">
+              <img src="images/anavimin.jpeg" alt="Anavimin Coat">
             </div>
             <div class="product-info">
               <span class="product-category">Suplementos • Piel y Pelo</span>
@@ -7212,7 +7840,7 @@
           <!-- APETIL -->
           <div class="product-card" data-category="perros gatos suplementos">
             <div class="product-image">
-              <img src="images/placeholder.png" alt="Apetil">
+              <img src="images/apetil.jpg" alt="Apetil">
             </div>
             <div class="product-info">
               <span class="product-category">Suplementos • Estimulante</span>
@@ -7289,7 +7917,7 @@
                data-extended="Cardial">
             <span class="product-badge">Cardiología</span>
             <div class="product-image">
-              <img src="images/obj1.png" alt="Cardial">
+              <img src="images/cardial.webp" alt="Cardial">
             </div>
             <div class="product-info">
               <span class="product-category">Cardiología • Enalapril + Espironolactona</span>
@@ -7303,11 +7931,11 @@
 
           <!-- CARDIAL B -->
           <div class="product-card cardialb-card" data-category="perros gatos cardiologia" 
-               data-variants='[{"name":"2.5 mg","price":"Consultar","image":"images/obj2.png"},{"name":"5 mg","price":"Consultar","image":"images/obj2.png"},{"name":"10 mg","price":"Consultar","image":"images/obj2.png"}]'
+               data-variants='[{"name":"2.5 mg","price":"Consultar","image":"images/cardialb-2.5.webp"},{"name":"5 mg","price":"Consultar","image":"images/cardialb-5.webp"},{"name":"10 mg","price":"Consultar","image":"images/cardialb-10.webp"}]'
                data-extended="CardialB">
             <span class="product-badge">Cardiología</span>
             <div class="product-image">
-              <img src="images/obj2.png" alt="Cardial B">
+              <img src="images/cardialb-2.5.webp" alt="Cardial B">
             </div>
             <div class="product-info">
               <span class="product-category">Cardiología • Vasodilatador</span>
@@ -7352,7 +7980,7 @@
           <!-- CICLOSPORINA 2% -->
           <div class="product-card" data-category="perros gatos oftalmologia dermatologia">
             <div class="product-image">
-              <img src="images/obj4.png" alt="Ciclosporina 2%">
+              <img src="images/ciclosporina.jpg" alt="Ciclosporina 2%">
             </div>
             <div class="product-info">
               <span class="product-category">Oftalmología • Dermatología</span>
@@ -7412,7 +8040,7 @@
           <!-- COLIRAMA VIRAL -->
           <div class="product-card" data-category="perros gatos oftalmologia">
             <div class="product-image">
-              <img src="images/placeholder.png" alt="Colirama Viral">
+              <img src="images/colirama-viral-10ml-colirama-viral-10ml.jpg" alt="Colirama Viral">
             </div>
             <div class="product-info">
               <span class="product-category">Oftalmología • Antiviral</span>
@@ -7503,7 +8131,7 @@
           <div class="product-card" data-category="gatos antiparasitarios">
             <span class="product-badge">Gatos</span>
             <div class="product-image">
-              <img src="images/placeholder.png" alt="Ecthol Collar Gatos">
+              <img src="images/ecthol-collar.png" alt="Ecthol Collar Gatos">
             </div>
             <div class="product-info">
               <span class="product-category">Antiparasitarios • Collar</span>
@@ -7517,10 +8145,10 @@
 
           <!-- ECTHOL COLLAR PERROS -->
           <div class="product-card" data-category="perros antiparasitarios"
-               data-variants='[{"name":"Perro chico","price":"Consultar","image":"images/placeholder.png"},{"name":"Perro grande","price":"Consultar","image":"images/placeholder.png"}]'>
+               data-variants='[{"name":"Perro chico","price":"Consultar","image":"images/ecthol-collar.png"},{"name":"Perro grande","price":"Consultar","image":"images/ecthol-collar.png"}]'>
             <span class="product-badge">Perros</span>
             <div class="product-image">
-              <img src="images/placeholder.png" alt="Ecthol Collar Perros">
+              <img src="images/ecthol-collar.png" alt="Ecthol Collar Perros">
             </div>
             <div class="product-info">
               <span class="product-category">Antiparasitarios • Collar</span>
@@ -7635,7 +8263,7 @@
           <div class="product-card" data-category="perros gatos gastrointestinal suplementos">
             <span class="product-badge">Nuevo</span>
             <div class="product-image">
-              <img src="images/obj8.png" alt="Enzimax">
+              <img src="images/enzimax.webp" alt="Enzimax">
             </div>
             <div class="product-info">
               <span class="product-category">Gastrointestinal • Enzimas</span>
@@ -7651,7 +8279,7 @@
           <div class="product-card" data-category="perros gatos oftalmologia">
             <span class="product-badge">-25%</span>
             <div class="product-image">
-              <img src="images/obj5.png" alt="Epitelizante Ocular Oftalday">
+              <img src="images/epitelizante.jpg" alt="Epitelizante Ocular Oftalday">
             </div>
             <div class="product-info">
               <span class="product-category">Oftalmología • Regenerador</span>
@@ -7697,7 +8325,7 @@
           <!-- FLURBIPROFENO OFTALDAY -->
           <div class="product-card" data-category="perros gatos oftalmologia">
             <div class="product-image">
-              <img src="images/placeholder.png" alt="Flurbiprofeno Oftalday">
+              <img src="images/flurbiprofeno.jpg" alt="Flurbiprofeno Oftalday">
             </div>
             <div class="product-info">
               <span class="product-category">Oftalmología • Antiinflamatorio</span>
@@ -7963,7 +8591,7 @@
           <div class="product-card" data-category="perros gatos suplementos">
             <span class="product-badge">Oferta</span>
             <div class="product-image">
-              <img src="images/obj7.png" alt="Neovita">
+              <img src="images/neovita.png" alt="Neovita">
             </div>
             <div class="product-info">
               <span class="product-category">Suplementos • Vitamínico</span>
@@ -7993,7 +8621,7 @@
           <!-- OFLOXACINA OFTALDAY -->
           <div class="product-card" data-category="perros gatos oftalmologia antibioticos">
             <div class="product-image">
-              <img src="images/placeholder.png" alt="Ofloxacina Oftalday">
+              <img src="images/ofloxacina.jpg" alt="Ofloxacina Oftalday">
             </div>
             <div class="product-info">
               <span class="product-category">Oftalmología • Antibiótico</span>
@@ -8151,7 +8779,7 @@
                data-extended="Pimocard">
             <span class="product-badge">Cardiología</span>
             <div class="product-image">
-              <img src="images/obj1.png" alt="Pimocard">
+              <img src="images/pimo-1.25.png" alt="Pimocard">
             </div>
             <div class="product-info">
               <span class="product-category">Cardiología • Inotrópico Positivo</span>
@@ -8259,7 +8887,7 @@
           <!-- RELAY C -->
           <div class="product-card" data-category="perros gatos suplementos">
             <div class="product-image">
-              <img src="images/placeholder.png" alt="Relay C">
+              <img src="images/relay-c.png" alt="Relay C">
             </div>
             <div class="product-info">
               <span class="product-category">Suplementos • Vitamina C</span>
@@ -8304,7 +8932,7 @@
           <!-- TONIPET -->
           <div class="product-card" data-category="perros gatos suplementos">
             <div class="product-image">
-              <img src="images/placeholder.png" alt="Tonipet">
+              <img src="images/tonipet.jpg" alt="Tonipet">
             </div>
             <div class="product-info">
               <span class="product-category">Suplementos • Reconstituyente</span>
@@ -8319,7 +8947,7 @@
           <!-- TORACARD -->
           <div class="product-card" data-category="perros gatos cardiologia">
             <div class="product-image">
-              <img src="images/placeholder.png" alt="Toracard">
+              <img src="images/toracard.jpg" alt="Toracard">
             </div>
             <div class="product-info">
               <span class="product-category">Cardiología • Diurético</span>
@@ -8335,7 +8963,7 @@
           <div class="product-card" data-category="perros gatos antiparasitarios">
             <span class="product-badge">Popular</span>
             <div class="product-image">
-              <img src="images/placeholder.png" alt="Total Full CG">
+              <img src="images/total-full-gatos.webp" alt="Total Full CG">
             </div>
             <div class="product-info">
               <span class="product-category">Antiparasitarios • Completo</span>
@@ -8351,7 +8979,7 @@
           <div class="product-card" data-category="perros antiparasitarios">
             <span class="product-badge">Perros</span>
             <div class="product-image">
-              <img src="images/placeholder.png" alt="Total Full LC Perros">
+              <img src="images/total-full-lc-perros.webp" alt="Total Full LC Perros">
             </div>
             <div class="product-info">
               <span class="product-category">Antiparasitarios • Comprimido</span>
@@ -8367,7 +8995,7 @@
           <div class="product-card" data-category="gatos antiparasitarios">
             <span class="product-badge">Gatos</span>
             <div class="product-image">
-              <img src="images/placeholder.png" alt="Total Full LC Gatos">
+              <img src="images/total-full-lc-gatos.png" alt="Total Full LC Gatos">
             </div>
             <div class="product-info">
               <span class="product-category">Antiparasitarios • Comprimido</span>
@@ -8383,7 +9011,7 @@
           <div class="product-card" data-category="gatos antiparasitarios">
             <span class="product-badge">Gatos</span>
             <div class="product-image">
-              <img src="images/placeholder.png" alt="Total Full Suspensión Gatos">
+              <img src="images/total-full-gatos.webp" alt="Total Full Suspensión Gatos">
             </div>
             <div class="product-info">
               <span class="product-category">Antiparasitarios • Suspensión</span>
@@ -8399,7 +9027,7 @@
           <div class="product-card" data-category="perros antiparasitarios">
             <span class="product-badge">Perros</span>
             <div class="product-image">
-              <img src="images/placeholder.png" alt="Total Full Suspensión Perros">
+              <img src="images/total-full-perros.webp" alt="Total Full Suspensión Perros">
             </div>
             <div class="product-info">
               <span class="product-category">Antiparasitarios • Suspensión</span>
@@ -8414,7 +9042,7 @@
           <!-- UV DAY -->
           <div class="product-card" data-category="perros gatos dermatologia">
             <div class="product-image">
-              <img src="images/placeholder.png" alt="UV Day">
+              <img src="images/uv-day.jpg" alt="UV Day">
             </div>
             <div class="product-info">
               <span class="product-category">Dermatología • Protector Solar</span>
@@ -8444,7 +9072,7 @@
           <!-- VIVIRAM-V -->
           <div class="product-card" data-category="perros gatos">
             <div class="product-image">
-              <img src="images/placeholder.png" alt="Viviram-V">
+              <img src="images/viviram.jpg" alt="Viviram-V">
             </div>
             <div class="product-info">
               <span class="product-category">Antiviral • Inmunomodulador</span>
@@ -9050,6 +9678,169 @@
             Añadir al carrito
           </button>
           <button class="ciclosporina-consult-btn" id="ciclosporinaRequestDeliveryBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+            Solicitar entrega
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ENZIMAX CANVAS MODAL -->
+  <div class="enzimax-modal-overlay" id="enzimaxOverlay"></div>
+  <div class="enzimax-modal" id="enzimaxModal">
+    <img src="images/holliday.webp" alt="Holliday" class="enzimax-brand-logo">
+    <button class="enzimax-close" id="enzimaxClose">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <!-- Hero Section -->
+    <section class="enzimax-hero">
+      <div class="enzimax-hero-content">
+        <div class="enzimax-logo">
+          <div class="enzimax-logo-text">ENZIMAX</div>
+          <div class="enzimax-logo-subtitle">/ Único suplemento dietario formulado con enzimas proteolíticas</div>
+        </div>
+
+        <p class="enzimax-hero-description">
+          Las enzimas vegetales de <strong>Enzimax</strong> fragmentan las partículas de los alimentos favoreciendo una mayor absorción de sus nutrientes. Está indicado para mejorar la digestión y absorción de dietas caseras y comerciales.
+        </p>
+
+        <div class="enzimax-hero-indication">
+          <strong>Complementario a tratamientos por:</strong>
+          Flatulencias, Diarreas, Síndrome de mala digestión, Síndrome de mala absorción, Enfermedad intestinal inflamatoria crónica, Gastritis crónicas, Disbacteriosis, Gastroenteritis infecciosas, Parasitosis internas, Insuficiencias pancreáticas, Hepatopatías, Períodos de convalecencia, Tratamientos oncológicos.
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="enzimax-products" id="enzimaxProductsSection">
+      <h2 class="enzimax-section-title">Presentación Disponible</h2>
+      <p class="enzimax-section-subtitle">Envase que contiene 2 blisters por 10 comprimidos de 200 mg cada uno</p>
+      
+      <div class="enzimax-presentations-container">
+        <div class="enzimax-presentation-card">
+          <img class="enzimax-presentation-image" src="images/enzimax.webp" alt="Enzimax">
+          <div class="enzimax-presentation-info">
+            <strong>FÓRMULA</strong><br>
+            Cada comprimido de 200 mg contiene:<br>
+            Bromelina (32 mg*) equivalente a 8 unidades FIP<br>
+            Papaína (1,6 mg**) equivalente a 48000 unidades USP<br>
+            Betaina HCI (5 mg*)<br>
+            Excipientes c.s.
+          </div>
+          
+          <div class="enzimax-block-quantity" id="enzimaxQuantity">
+            <span class="enzimax-block-quantity-label">Cantidad:</span>
+            <button class="enzimax-block-qty-btn" data-action="decrease">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <span class="enzimax-block-qty-value">1</span>
+            <button class="enzimax-block-qty-btn" data-action="increase">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="enzimax-benefits">
+      <h2 class="enzimax-section-title">Componentes Activos</h2>
+      <p class="enzimax-section-subtitle">Enzimax contiene enzimas proteolíticas vegetales con múltiples beneficios</p>
+      
+      <div class="enzimax-benefits-grid">
+        <div class="enzimax-benefit-card">
+          <div class="enzimax-benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/>
+            </svg>
+          </div>
+          <div class="enzimax-benefit-content">
+            <h4>Bromelina</h4>
+            <p>Enzima proteolítica extraída de la piña tropical. Acción antiinflamatoria, inmunomoduladora, anticoagulante, antiedematosa y mucolítica. Reduce los niveles de tromboxano y prostaglandinas que intervienen en el proceso inflamatorio.</p>
+          </div>
+        </div>
+        
+        <div class="enzimax-benefit-card">
+          <div class="enzimax-benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 16v-4"/>
+              <path d="M12 8h.01"/>
+            </svg>
+          </div>
+          <div class="enzimax-benefit-content">
+            <h4>Betaina HCI</h4>
+            <p>Compuesto tri-metilado del aminoácido extraído de la remolacha azucarera. Coadyuvante en el metabolismo de las grasas, colabora en la digestión de lípidos y desdoblamiento de proteínas. Fortalece la salud hepática y colabora con la hidratación celular.</p>
+          </div>
+        </div>
+        
+        <div class="enzimax-benefit-card">
+          <div class="enzimax-benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+          </div>
+          <div class="enzimax-benefit-content">
+            <h4>Papaína</h4>
+            <p>Enzima proteolítica extraída del látex de la papaya. Favorece la digestión de los alimentos y funciona como regulador intestinal. Su contenido en pectina aumenta la masa fecal ayudando a la evacuación. Acción antihelmíntica colaborando en la eliminación de nematodos.</p>
+          </div>
+        </div>
+        
+        <div class="enzimax-benefit-card">
+          <div class="enzimax-benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+          <div class="enzimax-benefit-content">
+            <h4>Administración</h4>
+            <p>Una dosis diaria previa a las comidas (idealmente 20 minutos antes de la ingesta). Comprimidos de fácil administración. Práctico y simple de suministrar.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Selection Summary - At Bottom -->
+    <div class="enzimax-selection-summary active" id="enzimaxSelectionSummary">
+      <div class="enzimax-selection-box">
+        <div class="enzimax-selection-header">
+          <div class="enzimax-selection-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+            </svg>
+            Tu Selección
+          </div>
+        </div>
+        <div class="enzimax-selection-items" id="enzimaxSelectionItems">
+          <div class="enzimax-selection-empty">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+            </svg>
+            <p>No hay productos seleccionados</p>
+          </div>
+        </div>
+        <div class="enzimax-selection-total" id="enzimaxSelectionTotal">
+          <span class="enzimax-selection-total-label">Total</span>
+          <span class="enzimax-selection-total-value">$0</span>
+        </div>
+        <div class="enzimax-selection-actions">
+          <button class="enzimax-add-cart-btn" id="enzimaxAddToCartBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+            </svg>
+            Añadir al carrito
+          </button>
+          <button class="enzimax-consult-btn" id="enzimaxRequestDeliveryBtn">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
             </svg>
@@ -11014,6 +11805,162 @@
       updateCiclosporinaSelection();
     }
 
+    // ============================================
+    // ============================================
+    // ENZIMAX CANVAS MODAL (Right Side)
+    // ============================================
+    const enzimaxOverlay = document.getElementById('enzimaxOverlay');
+    const enzimaxModal = document.getElementById('enzimaxModal');
+    const enzimaxClose = document.getElementById('enzimaxClose');
+
+    function openEnzimaxModal() {
+      enzimaxOverlay.classList.add('active');
+      enzimaxModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      
+      // Store current product for ordering
+      currentProduct = {
+        name: 'Enzimax',
+        category: 'Gastrointestinal • Enzimas',
+        price: 'Consultar',
+        image: 'images/enzimax.webp',
+        unitPrice: 0,
+        selectedVariant: null
+      };
+      
+      // Initialize selection summary
+      setTimeout(() => {
+        updateEnzimaxSelection();
+      }, 100);
+    }
+
+    function closeEnzimaxModal() {
+      enzimaxOverlay.classList.remove('active');
+      enzimaxModal.classList.remove('active');
+      document.body.style.overflow = '';
+      // Scroll modal back to top for next opening
+      enzimaxModal.scrollTop = 0;
+    }
+
+    // Enzimax modal event listeners
+    if (enzimaxClose) {
+      enzimaxClose.addEventListener('click', closeEnzimaxModal);
+    }
+    if (enzimaxOverlay) {
+      enzimaxOverlay.addEventListener('click', closeEnzimaxModal);
+    }
+
+    // Order buttons - open delivery modal
+    const enzimaxAddToCartBtn = document.getElementById('enzimaxAddToCartBtn');
+    const enzimaxRequestDeliveryBtn = document.getElementById('enzimaxRequestDeliveryBtn');
+
+    if (enzimaxAddToCartBtn) {
+      enzimaxAddToCartBtn.addEventListener('click', () => {
+        closeEnzimaxModal();
+        setTimeout(() => {
+          openDeliveryModal();
+        }, 300);
+      });
+    }
+
+    if (enzimaxRequestDeliveryBtn) {
+      enzimaxRequestDeliveryBtn.addEventListener('click', () => {
+        closeEnzimaxModal();
+        setTimeout(() => {
+          openDeliveryModal();
+        }, 300);
+      });
+    }
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && enzimaxModal && enzimaxModal.classList.contains('active')) {
+        closeEnzimaxModal();
+      }
+    });
+
+    // Quantity controls for Enzimax
+    const enzimaxQuantity = document.getElementById('enzimaxQuantity');
+    if (enzimaxQuantity) {
+      const qtyValue = enzimaxQuantity.querySelector('.enzimax-block-qty-value');
+      const qtyButtons = enzimaxQuantity.querySelectorAll('.enzimax-block-qty-btn');
+
+      qtyButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const action = btn.dataset.action;
+          let currentQty = parseInt(qtyValue.textContent) || 1;
+
+          if (action === 'increase') {
+            currentQty++;
+          } else if (action === 'decrease' && currentQty > 1) {
+            currentQty--;
+          }
+
+          qtyValue.textContent = currentQty;
+          updateEnzimaxSelection();
+        });
+      });
+    }
+
+    // Update selection summary
+    function updateEnzimaxSelection() {
+      const enzimaxSelectionItems = document.getElementById('enzimaxSelectionItems');
+      const enzimaxSelectionTotal = document.getElementById('enzimaxSelectionTotal');
+      const qtyValue = document.querySelector('#enzimaxQuantity .enzimax-block-qty-value');
+      
+      if (!enzimaxSelectionItems || !enzimaxSelectionTotal || !qtyValue) return;
+
+      const quantity = parseInt(qtyValue.textContent) || 1;
+
+      // Always show the item if quantity > 0
+      enzimaxSelectionItems.innerHTML = `
+        <div class="enzimax-selection-item">
+          <div class="enzimax-selection-item-info">
+            <div class="enzimax-selection-item-dose">Enzimax - 2 blisters x 10 comprimidos (200 mg)</div>
+          </div>
+          <div class="enzimax-selection-item-controls">
+            <button class="enzimax-selection-qty-btn" data-action="decrease">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <span class="enzimax-selection-qty-value">${quantity}</span>
+            <button class="enzimax-selection-qty-btn" data-action="increase">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+          </div>
+        </div>
+      `;
+
+      // Add event listeners to selection item controls
+      const selectionQtyButtons = enzimaxSelectionItems.querySelectorAll('.enzimax-selection-qty-btn');
+      selectionQtyButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const action = btn.dataset.action;
+          let currentQty = parseInt(enzimaxSelectionItems.querySelector('.enzimax-selection-qty-value').textContent) || 1;
+
+          if (action === 'increase') {
+            currentQty++;
+          } else if (action === 'decrease' && currentQty > 1) {
+            currentQty--;
+          }
+
+          enzimaxSelectionItems.querySelector('.enzimax-selection-qty-value').textContent = currentQty;
+          qtyValue.textContent = currentQty;
+          updateEnzimaxSelection();
+        });
+      });
+
+      // Update total
+      const totalValue = enzimaxSelectionTotal.querySelector('.enzimax-selection-total-value');
+      if (totalValue) {
+        totalValue.textContent = quantity > 0 ? 'Consultar Precio' : '$0';
+      }
+    }
+
+    // Initialize selection on load
+    if (enzimaxQuantity) {
+      updateEnzimaxSelection();
+    }
+
     // CARDIAL FULL-SCREEN MODAL
     // ============================================
     const cardialOverlay = document.getElementById('cardialOverlay');
@@ -11716,6 +12663,12 @@
       // Check if this is Ciclosporina - open canvas modal instead
       if (card.classList.contains('ciclosporina-card') || name.includes('Ciclosporina')) {
         openCiclosporinaModal();
+        return;
+      }
+
+      // Check if this is Enzimax - open canvas modal instead
+      if (card.classList.contains('enzimax-card') || name === 'Enzimax') {
+        openEnzimaxModal();
         return;
       }
 
