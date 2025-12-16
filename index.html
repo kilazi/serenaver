@@ -295,9 +295,9 @@
 
     /* Selected Product Highlight */
     .product-card.highlighted {
-      animation: highlightPulse 1.5s ease-out;
+      /* animation: highlightPulse 1.5s ease-out;
       border-color: var(--color-primary);
-      box-shadow: 0 0 0 4px rgba(104, 187, 89, 0.3), 0 20px 40px rgba(104, 187, 89, 0.2);
+      box-shadow: 0 0 0 4px rgba(104, 187, 89, 0.3), 0 20px 40px rgba(104, 187, 89, 0.2); */
     }
 
     @keyframes highlightPulse {
@@ -1065,17 +1065,8 @@
       filter: blur(15px);
     }
 
-    .product-card:hover {
-      transform: translateY(-10px) scale(1.02);
-      border-color: var(--color-primary-light);
-      box-shadow: 
-        0 20px 40px rgba(104, 187, 89, 0.18),
-        0 0 30px rgba(104, 187, 89, 0.08);
-    }
 
-    .product-card:hover::after {
-      opacity: 0.4;
-    }
+  
 
     .product-card.filtered-out {
       display: none !important;
@@ -1129,10 +1120,10 @@
 
     .product-image img {
       max-width: 65%;
-      max-height: 80%;
+      max-height: 120%;
       object-fit: contain;
       transition: all 0.5s var(--ease-out-expo);
-      filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
+      /* filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2)); */
       position: relative;
       z-index: 2;
     }
@@ -1149,7 +1140,7 @@
 
     .product-card:hover .product-image img {
       transform: scale(1.12) translateY(-5px);
-      filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.25));
+      /* filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.25)); */
     }
 
     .product-info {
@@ -6870,7 +6861,7 @@
           <div class="product-card" data-category="gatos antiparasitarios">
             <span class="product-badge">Gatos</span>
             <div class="product-image">
-              <img src="images/placeholder.png" alt="Ecthol Collar Gatos">
+              <img src="images/ecthol-collar.png" alt="Ecthol Collar Gatos">
             </div>
             <div class="product-info">
               <span class="product-category">Antiparasitarios • Collar</span>
@@ -6884,10 +6875,10 @@
 
           <!-- ECTHOL COLLAR PERROS -->
           <div class="product-card" data-category="perros antiparasitarios"
-               data-variants='[{"name":"Perro chico","price":"Consultar","image":"images/placeholder.png"},{"name":"Perro grande","price":"Consultar","image":"images/placeholder.png"}]'>
+               data-variants='[{"name":"Perro chico","price":"Consultar","image":"images/ecthol-collar.png"},{"name":"Perro grande","price":"Consultar","image":"images/ecthol-collar.png"}]'>
             <span class="product-badge">Perros</span>
             <div class="product-image">
-              <img src="images/placeholder.png" alt="Ecthol Collar Perros">
+              <img src="images/ecthol-collar.png" alt="Ecthol Collar Perros">
             </div>
             <div class="product-info">
               <span class="product-category">Antiparasitarios • Collar</span>
@@ -7109,7 +7100,7 @@
           <!-- IQ 180 -->
           <div class="product-card" data-category="perros gatos suplementos">
             <div class="product-image">
-              <img src="images/placeholder.png" alt="IQ 180">
+              <img src="images/iq-180.jpg" alt="IQ 180">
             </div>
             <div class="product-info">
               <span class="product-category">Suplementos • Cognitivo</span>
@@ -7360,7 +7351,7 @@
           <!-- OFLOXACINA OFTALDAY -->
           <div class="product-card" data-category="perros gatos oftalmologia antibioticos">
             <div class="product-image">
-              <img src="images/placeholder.png" alt="Ofloxacina Oftalday">
+              <img src="images/ofloxacina.jpg" alt="Ofloxacina Oftalday">
             </div>
             <div class="product-info">
               <span class="product-category">Oftalmología • Antibiótico</span>
@@ -7452,10 +7443,10 @@
 
           <!-- OL TRANS FLEX -->
           <div class="product-card" data-category="perros gatos suplementos"
-               data-variants='[{"name":"21 comprimidos","price":"Consultar","image":"images/obj3.png"},{"name":"70 comprimidos","price":"Consultar","image":"images/obj3.png"}]'>
+               data-variants='[{"name":"21 comprimidos","price":"Consultar","image":"images/oltrans-flex.webp"},{"name":"70 comprimidos","price":"Consultar","image":"images/oltrans-flex.webp"}]'>
             <span class="product-badge">-15%</span>
             <div class="product-image">
-              <img src="images/obj3.png" alt="Ol Trans Flex">
+              <img src="images/oltrans-flex.webp" alt="Ol Trans Flex">
             </div>
             <div class="product-info">
               <span class="product-category">Suplementos • Movilidad</span>
@@ -7626,7 +7617,7 @@
           <!-- RELAY C -->
           <div class="product-card" data-category="perros gatos suplementos">
             <div class="product-image">
-              <img src="images/placeholder.png" alt="Relay C">
+              <img src="images/relay-c.png" alt="Relay C">
             </div>
             <div class="product-info">
               <span class="product-category">Suplementos • Vitamina C</span>
@@ -7671,7 +7662,7 @@
           <!-- TONIPET -->
           <div class="product-card" data-category="perros gatos suplementos">
             <div class="product-image">
-              <img src="images/placeholder.png" alt="Tonipet">
+              <img src="images/tonipet.jpg" alt="Tonipet">
             </div>
             <div class="product-info">
               <span class="product-category">Suplementos • Reconstituyente</span>
@@ -7686,7 +7677,7 @@
           <!-- TORACARD -->
           <div class="product-card" data-category="perros gatos cardiologia">
             <div class="product-image">
-              <img src="images/placeholder.png" alt="Toracard">
+              <img src="images/toracard.jpg" alt="Toracard">
             </div>
             <div class="product-info">
               <span class="product-category">Cardiología • Diurético</span>
@@ -7718,7 +7709,7 @@
           <div class="product-card" data-category="perros antiparasitarios">
             <span class="product-badge">Perros</span>
             <div class="product-image">
-              <img src="images/placeholder.png" alt="Total Full LC Perros">
+              <img src="images/total-full-lc-perros.webp" alt="Total Full LC Perros">
             </div>
             <div class="product-info">
               <span class="product-category">Antiparasitarios • Comprimido</span>
@@ -7734,7 +7725,7 @@
           <div class="product-card" data-category="gatos antiparasitarios">
             <span class="product-badge">Gatos</span>
             <div class="product-image">
-              <img src="images/placeholder.png" alt="Total Full LC Gatos">
+              <img src="images/total-full-lc-gatos.png" alt="Total Full LC Gatos">
             </div>
             <div class="product-info">
               <span class="product-category">Antiparasitarios • Comprimido</span>
@@ -7750,7 +7741,7 @@
           <div class="product-card" data-category="gatos antiparasitarios">
             <span class="product-badge">Gatos</span>
             <div class="product-image">
-              <img src="images/placeholder.png" alt="Total Full Suspensión Gatos">
+              <img src="images/total-full-gatos.webp" alt="Total Full Suspensión Gatos">
             </div>
             <div class="product-info">
               <span class="product-category">Antiparasitarios • Suspensión</span>
@@ -7766,7 +7757,7 @@
           <div class="product-card" data-category="perros antiparasitarios">
             <span class="product-badge">Perros</span>
             <div class="product-image">
-              <img src="images/placeholder.png" alt="Total Full Suspensión Perros">
+              <img src="images/total-full-perros.webp" alt="Total Full Suspensión Perros">
             </div>
             <div class="product-info">
               <span class="product-category">Antiparasitarios • Suspensión</span>
@@ -7781,7 +7772,7 @@
           <!-- UV DAY -->
           <div class="product-card" data-category="perros gatos dermatologia">
             <div class="product-image">
-              <img src="images/placeholder.png" alt="UV Day">
+              <img src="images/uv-day.jpg" alt="UV Day">
             </div>
             <div class="product-info">
               <span class="product-category">Dermatología • Protector Solar</span>
@@ -7796,7 +7787,7 @@
           <!-- VITAMÍNICO AEDK AVES -->
           <div class="product-card" data-category="suplementos">
             <div class="product-image">
-              <img src="images/placeholder.png" alt="Vitamínico AEDK Aves">
+              <img src="images/vitaminico-aedk.jpg" alt="Vitamínico AEDK Aves">
             </div>
             <div class="product-info">
               <span class="product-category">Suplementos • Aves</span>
@@ -7811,7 +7802,7 @@
           <!-- VIVIRAM-V -->
           <div class="product-card" data-category="perros gatos">
             <div class="product-image">
-              <img src="images/placeholder.png" alt="Viviram-V">
+              <img src="images/viviram.jpg" alt="Viviram-V">
             </div>
             <div class="product-info">
               <span class="product-category">Antiviral • Inmunomodulador</span>
@@ -8382,7 +8373,7 @@
             <strong>Enalapril Base</strong> (como maleato) 5 mg<br>
             <strong>Espironolactona</strong> 5 mg
           </div>
-          <img class="cardial-presentation-image" src="images/obj1.png" alt="Cardial 5 mg">
+          <img class="cardial-presentation-image" src="images/cardial5.webp" alt="Cardial 5 mg">
           <div class="cardial-presentation-price">Consultar Precio</div>
           
           <div class="cardial-block-quantity" id="cardialQuantity">
