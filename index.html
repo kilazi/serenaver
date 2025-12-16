@@ -3389,8 +3389,8 @@
       position: fixed;
       top: 0;
       right: 0;
-      width: 50%;
-      max-width: 800px;
+      width: 42.5%;
+      max-width: 680px;
       height: 100vh;
       z-index: 10001;
       overflow-y: auto;
@@ -3443,7 +3443,7 @@
     /* Hero Section */
     .ciclosporina-hero {
       min-height: 50vh;
-      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 50%, #2d7a3d 100%);
+      background: #ffffff;
       position: relative;
       display: flex;
       align-items: center;
@@ -3454,11 +3454,7 @@
     }
 
     .ciclosporina-hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      opacity: 0.5;
+      display: none;
     }
 
     .ciclosporina-hero-content {
@@ -3474,19 +3470,32 @@
       animation: fadeInDown 1s ease-out;
     }
 
+    .ciclosporina-brand-logo {
+      display: block;
+      margin: 0 auto 1.5rem;
+      max-width: 120px;
+      height: auto;
+      background: transparent;
+      animation: fadeInDown 1s ease-out 0.2s both;
+      opacity: 1;
+      visibility: visible;
+      z-index: 2;
+      position: relative;
+    }
+
     .ciclosporina-logo-text {
       font-family: var(--font-display);
       font-size: 3rem;
       font-weight: 800;
-      color: #fff;
-      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+      color: var(--color-primary-dark);
+      text-shadow: none;
       letter-spacing: -0.02em;
       margin-bottom: 0.5rem;
     }
 
     .ciclosporina-logo-subtitle {
       font-size: 0.9rem;
-      color: rgba(255, 255, 255, 0.9);
+      color: var(--color-gray);
       text-transform: uppercase;
       letter-spacing: 0.2em;
       margin-top: 0.5rem;
@@ -3495,22 +3504,22 @@
 
     .ciclosporina-hero-description {
       font-size: 1rem;
-      color: rgba(255, 255, 255, 0.95);
+      color: var(--color-charcoal);
       line-height: 1.8;
       margin-bottom: 1.5rem;
       animation: fadeInUp 1s ease-out 0.3s both;
     }
 
     .ciclosporina-hero-indication {
-      background: rgba(255, 255, 255, 0.15);
+      background: var(--color-light-gray);
       backdrop-filter: blur(10px);
       border-radius: 16px;
       padding: 1.5rem 2rem;
       font-size: 0.9rem;
-      color: #fff;
+      color: var(--color-charcoal);
       line-height: 1.7;
       animation: fadeInUp 1s ease-out 0.5s both;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid var(--color-border);
       text-align: left;
     }
 
@@ -8903,6 +8912,7 @@
     <!-- Hero Section -->
     <section class="ciclosporina-hero">
       <div class="ciclosporina-hero-content">
+        <img src="images/holliday.webp" alt="Holliday" class="ciclosporina-brand-logo">
         <div class="ciclosporina-logo">
           <div class="ciclosporina-logo-text">CICLOSPORINA 1%</div>
           <div class="ciclosporina-logo-subtitle">/ Inmunomodulador. Lacrimomimético. Antiinflamatorio.</div>
