@@ -2107,8 +2107,8 @@
     }
 
     .pimocard-presentations-block.hospitalario-block {
-      background: linear-gradient(145deg, #1c1c1c 0%, #2d2d2d 100%);
-      border: none;
+      background: #fff;
+      border: 1px solid #ddd;
     }
 
     .pimocard-block-header {
@@ -2153,33 +2153,36 @@
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-block-subtitle {
-      color: rgba(255, 255, 255, 0.6);
+      color: #666;
     }
 
     /* General product image placeholder for each block */
     .pimocard-block-image-container {
       width: 100%;
-      height: 200px;
+      height: 180px;
       display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 1.5rem;
-      background: linear-gradient(145deg, #f8f8f8 0%, #f0f0f0 100%);
+      padding: 0.75rem;
+      background: transparent;
       border-radius: 16px;
       position: relative;
       overflow: hidden;
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-block-image-container {
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: transparent;
+      border: none;
     }
 
     .pimocard-block-image {
-      max-width: 70%;
-      max-height: 180px;
+      max-width: 65%;
+      max-height: 260px;
+      width: auto;
+      height: auto;
       object-fit: contain;
-      filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.15));
+      /* filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.15)); */
       transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
@@ -2212,7 +2215,7 @@
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-block-price-label {
-      color: rgba(255, 255, 255, 0.5);
+      color: #999;
     }
 
     .pimocard-block-price-value {
@@ -2223,7 +2226,7 @@
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-block-price-value {
-      color: #ff6b7a;
+      color: #e31837;
     }
 
     /* Bullet button options */
@@ -2252,9 +2255,9 @@
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-option-bullet {
-      background: rgba(255, 255, 255, 0.05);
-      border-color: rgba(255, 255, 255, 0.1);
-      color: rgba(255, 255, 255, 0.7);
+      background: #f0f0f0;
+      border-color: #ddd;
+      color: #666;
     }
 
     .pimocard-option-bullet:hover {
@@ -2264,8 +2267,8 @@
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-option-bullet:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.2);
+      background: #e8e8e8;
+      border-color: #ccc;
     }
 
     .pimocard-option-bullet.selected {
@@ -2306,7 +2309,7 @@
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-block-quantity {
-      border-top-color: rgba(255, 255, 255, 0.1);
+      border-top-color: rgba(0, 0, 0, 0.1);
     }
 
     .pimocard-block-quantity.active {
@@ -2320,7 +2323,7 @@
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-block-quantity-label {
-      color: rgba(255, 255, 255, 0.7);
+      color: #666;
     }
 
     .pimocard-block-qty-btn {
@@ -2338,7 +2341,8 @@
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-block-qty-btn {
-      background: rgba(255, 255, 255, 0.1);
+      background: #fff;
+      color: #1c1c1c;
     }
 
     .pimocard-block-qty-btn:hover {
@@ -2366,7 +2370,7 @@
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-block-qty-value {
-      color: #fff;
+      color: #1c1c1c;
     }
 
     /* Price styling */
@@ -2395,14 +2399,13 @@
 
     /* Hospitalario card styling */
     .pimocard-presentations-block.hospitalario-block .pimocard-presentation-card {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: linear-gradient(145deg, #fff 0%, #f8f8f8 100%);
+      border: 1px solid #ddd;
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-presentation-card:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(227, 24, 55, 0.5);
+      background: linear-gradient(145deg, #fff 0%, #f0f0f0 100%);
+      border-color: #e31837;
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-presentation-card.selected {
@@ -2411,24 +2414,24 @@
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-presentation-dose {
-      color: #fff;
+      color: #e31837;
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-presentation-info {
-      color: rgba(255, 255, 255, 0.7);
+      color: #666;
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-presentation-price {
-      color: #ff6b7a;
+      color: #e31837;
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-presentation-icon {
-      background: rgba(227, 24, 55, 0.2);
+      background: linear-gradient(135deg, #fff5f6 0%, #ffe8eb 100%);
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-qty-btn {
-      background: rgba(255, 255, 255, 0.1);
-      color: #fff;
+      background: #fff;
+      color: #1c1c1c;
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-qty-btn:hover {
@@ -2436,11 +2439,11 @@
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-qty-value {
-      color: #fff;
+      color: #1c1c1c;
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-card-quantity {
-      border-top-color: rgba(255, 255, 255, 0.1);
+      border-top-color: rgba(0, 0, 0, 0.1);
     }
 
     /* Responsive for side-by-side blocks */
@@ -7520,7 +7523,7 @@
                data-extended="Pimocard">
             <span class="product-badge">Cardiología</span>
             <div class="product-image">
-              <img src="images/obj1.png" alt="Pimocard">
+              <img src="images/pimo-10.png" alt="Pimocard">
             </div>
             <div class="product-info">
               <span class="product-category">Cardiología • Inotrópico Positivo</span>
@@ -8011,11 +8014,11 @@
               Presentación Estándar
             </span>
           </div>
-          <p class="pimocard-block-subtitle">2 blisters × 10 comprimidos<br>(20 comprimidos por estuche)</p>
+          <p class="pimocard-block-subtitle">(20 comprimidos por estuche)</p>
           
           <!-- General Image Placeholder -->
           <div class="pimocard-block-image-container">
-            <img class="pimocard-block-image" id="standardBlockImage" src="images/obj1.png" alt="Pimocard">
+            <img class="pimocard-block-image" id="standardBlockImage" src="images/pimo-1.25.png" alt="Pimocard">
           </div>
           
           <!-- Price Display -->
@@ -8026,19 +8029,19 @@
           
           <!-- Bullet Button Options -->
           <div class="pimocard-options-container" id="standardOptions">
-            <button class="pimocard-option-bullet" data-dose="1.25 mg" data-type="standard" data-price="45000" data-image="images/obj1.png">
+            <button class="pimocard-option-bullet" data-dose="1.25 mg" data-type="standard" data-price="45000" data-image="images/pimo-1.25.png">
               <span class="bullet-indicator"></span>
               <span>1.25 mg</span>
             </button>
-            <button class="pimocard-option-bullet" data-dose="2.5 mg" data-type="standard" data-price="55000" data-image="images/obj1.png">
+            <button class="pimocard-option-bullet" data-dose="2.5 mg" data-type="standard" data-price="55000" data-image="images/pimo-2.5.png">
               <span class="bullet-indicator"></span>
               <span>2.5 mg</span>
             </button>
-            <button class="pimocard-option-bullet" data-dose="5 mg" data-type="standard" data-price="75000" data-image="images/obj1.png">
+            <button class="pimocard-option-bullet" data-dose="5 mg" data-type="standard" data-price="75000" data-image="images/pimo-5.png">
               <span class="bullet-indicator"></span>
               <span>5 mg</span>
             </button>
-            <button class="pimocard-option-bullet" data-dose="10 mg" data-type="standard" data-price="95000" data-image="images/obj1.png">
+            <button class="pimocard-option-bullet" data-dose="10 mg" data-type="standard" data-price="95000" data-image="images/pimo-10.png">
               <span class="bullet-indicator"></span>
               <span>10 mg</span>
             </button>
@@ -8072,7 +8075,7 @@
           
           <!-- General Image Placeholder -->
           <div class="pimocard-block-image-container">
-            <img class="pimocard-block-image" id="hospitalarioBlockImage" src="images/obj1.png" alt="Pimocard Hospitalario">
+            <img class="pimocard-block-image" id="hospitalarioBlockImage" src="images/pimo-2.5.png" alt="Pimocard Hospitalario">
           </div>
           
           <!-- Price Display -->
@@ -8083,15 +8086,15 @@
           
           <!-- Bullet Button Options -->
           <div class="pimocard-options-container" id="hospitalarioOptions">
-            <button class="pimocard-option-bullet" data-dose="2.5 mg Hospitalario" data-type="hospitalario" data-price="220000" data-image="images/obj1.png">
+            <button class="pimocard-option-bullet" data-dose="2.5 mg Hospitalario" data-type="hospitalario" data-price="220000" data-image="images/pimo-2.5.png">
               <span class="bullet-indicator"></span>
               <span>2.5 mg</span>
             </button>
-            <button class="pimocard-option-bullet" data-dose="5 mg Hospitalario" data-type="hospitalario" data-price="320000" data-image="images/obj1.png">
+            <button class="pimocard-option-bullet" data-dose="5 mg Hospitalario" data-type="hospitalario" data-price="320000" data-image="images/pimo-5-hosp.png">
               <span class="bullet-indicator"></span>
               <span>5 mg</span>
             </button>
-            <button class="pimocard-option-bullet" data-dose="10 mg Hospitalario" data-type="hospitalario" data-price="420000" data-image="images/obj1.png">
+            <button class="pimocard-option-bullet" data-dose="10 mg Hospitalario" data-type="hospitalario" data-price="420000" data-image="images/pimo-10-hosp.png">
               <span class="bullet-indicator"></span>
               <span>10 mg</span>
             </button>
@@ -10048,12 +10051,12 @@
       
       // Reset standard block
       standardOptions.querySelectorAll('.pimocard-option-bullet').forEach(btn => btn.classList.remove('selected'));
-      standardBlockImage.src = 'images/obj1.png';
+      standardBlockImage.src = 'images/pimo-1.25.png';
       standardBlockPrice.textContent = '$45.000';
       
       // Reset hospitalario block
       hospitalarioOptions.querySelectorAll('.pimocard-option-bullet').forEach(btn => btn.classList.remove('selected'));
-      hospitalarioBlockImage.src = 'images/obj1.png';
+      hospitalarioBlockImage.src = 'images/pimo-2.5.png';
       hospitalarioBlockPrice.textContent = '$220.000';
       
       updatePimocardSelectionSummary();
