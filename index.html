@@ -1107,7 +1107,7 @@
     .product-image {
       height: 120px;
       min-height: 120px;
-      background: linear-gradient(180deg, rgba(104, 187, 89, 0.12) 0%, rgba(104, 187, 89, 0.04) 100%);
+      background: transparent;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1118,13 +1118,8 @@
 
     /* Floating particles in image */
     .product-image::before {
-      content: '';
-      position: absolute;
-      width: 150%;
-      height: 150%;
-      background: radial-gradient(circle at center, rgba(104, 187, 89, 0.15) 0%, transparent 50%);
-      animation: imageGlow 4s ease-in-out infinite;
-      pointer-events: none;
+      content: none;
+      display: none;
     }
 
     @keyframes imageGlow {
