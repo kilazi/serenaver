@@ -295,9 +295,9 @@
 
     /* Selected Product Highlight */
     .product-card.highlighted {
-      /* animation: highlightPulse 1.5s ease-out;
+      animation: highlightPulse 1.5s ease-out;
       border-color: var(--color-primary);
-      box-shadow: 0 0 0 4px rgba(104, 187, 89, 0.3), 0 20px 40px rgba(104, 187, 89, 0.2); */
+      box-shadow: 0 0 0 4px rgba(104, 187, 89, 0.3), 0 20px 40px rgba(104, 187, 89, 0.2);
     }
 
     @keyframes highlightPulse {
@@ -1065,8 +1065,17 @@
       filter: blur(15px);
     }
 
+    .product-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      border-color: var(--color-primary-light);
+      box-shadow: 
+        0 20px 40px rgba(104, 187, 89, 0.18),
+        0 0 30px rgba(104, 187, 89, 0.08);
+    }
 
-  
+    .product-card:hover::after {
+      opacity: 0.4;
+    }
 
     .product-card.filtered-out {
       display: none !important;
@@ -1098,7 +1107,7 @@
     .product-image {
       height: 120px;
       min-height: 120px;
-      background: transparent;
+      background: linear-gradient(180deg, rgba(104, 187, 89, 0.12) 0%, rgba(104, 187, 89, 0.04) 100%);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1109,8 +1118,13 @@
 
     /* Floating particles in image */
     .product-image::before {
-      content: none;
-      display: none;
+      content: '';
+      position: absolute;
+      width: 150%;
+      height: 150%;
+      background: radial-gradient(circle at center, rgba(104, 187, 89, 0.15) 0%, transparent 50%);
+      animation: imageGlow 4s ease-in-out infinite;
+      pointer-events: none;
     }
 
     @keyframes imageGlow {
@@ -1120,10 +1134,10 @@
 
     .product-image img {
       max-width: 65%;
-      max-height: 120%;
+      max-height: 80%;
       object-fit: contain;
       transition: all 0.5s var(--ease-out-expo);
-      /* filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2)); */
+      filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
       position: relative;
       z-index: 2;
     }
@@ -1140,7 +1154,7 @@
 
     .product-card:hover .product-image img {
       transform: scale(1.12) translateY(-5px);
-      /* filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.25)); */
+      filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.25));
     }
 
     .product-info {
@@ -2093,8 +2107,8 @@
     }
 
     .pimocard-presentations-block.hospitalario-block {
-      background: #fff;
-      border: 1px solid #ddd;
+      background: linear-gradient(145deg, #1c1c1c 0%, #2d2d2d 100%);
+      border: none;
     }
 
     .pimocard-block-header {
@@ -2139,7 +2153,7 @@
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-block-subtitle {
-      color: #666;
+      color: rgba(255, 255, 255, 0.6);
     }
 
     /* General product image placeholder for each block */
@@ -2201,7 +2215,7 @@
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-block-price-label {
-      color: #999;
+      color: rgba(255, 255, 255, 0.5);
     }
 
     .pimocard-block-price-value {
@@ -2212,7 +2226,7 @@
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-block-price-value {
-      color: #e31837;
+      color: #ff6b7a;
     }
 
     /* Bullet button options */
@@ -2241,9 +2255,9 @@
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-option-bullet {
-      background: #f0f0f0;
-      border-color: #ddd;
-      color: #666;
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.7);
     }
 
     .pimocard-option-bullet:hover {
@@ -2253,8 +2267,8 @@
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-option-bullet:hover {
-      background: #e8e8e8;
-      border-color: #ccc;
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
     }
 
     .pimocard-option-bullet.selected {
@@ -2295,7 +2309,7 @@
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-block-quantity {
-      border-top-color: rgba(0, 0, 0, 0.1);
+      border-top-color: rgba(255, 255, 255, 0.1);
     }
 
     .pimocard-block-quantity.active {
@@ -2309,7 +2323,7 @@
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-block-quantity-label {
-      color: #666;
+      color: rgba(255, 255, 255, 0.7);
     }
 
     .pimocard-block-qty-btn {
@@ -2327,8 +2341,7 @@
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-block-qty-btn {
-      background: #fff;
-      color: #1c1c1c;
+      background: rgba(255, 255, 255, 0.1);
     }
 
     .pimocard-block-qty-btn:hover {
@@ -2356,7 +2369,7 @@
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-block-qty-value {
-      color: #1c1c1c;
+      color: #fff;
     }
 
     /* Price styling */
@@ -2385,13 +2398,14 @@
 
     /* Hospitalario card styling */
     .pimocard-presentations-block.hospitalario-block .pimocard-presentation-card {
-      background: linear-gradient(145deg, #fff 0%, #f8f8f8 100%);
-      border: 1px solid #ddd;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-presentation-card:hover {
-      background: linear-gradient(145deg, #fff 0%, #f0f0f0 100%);
-      border-color: #e31837;
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(227, 24, 55, 0.5);
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-presentation-card.selected {
@@ -2400,24 +2414,24 @@
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-presentation-dose {
-      color: #e31837;
+      color: #fff;
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-presentation-info {
-      color: #666;
+      color: rgba(255, 255, 255, 0.7);
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-presentation-price {
-      color: #e31837;
+      color: #ff6b7a;
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-presentation-icon {
-      background: linear-gradient(135deg, #fff5f6 0%, #ffe8eb 100%);
+      background: rgba(227, 24, 55, 0.2);
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-qty-btn {
-      background: #fff;
-      color: #1c1c1c;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-qty-btn:hover {
@@ -2425,11 +2439,11 @@
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-qty-value {
-      color: #1c1c1c;
+      color: #fff;
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-card-quantity {
-      border-top-color: rgba(0, 0, 0, 0.1);
+      border-top-color: rgba(255, 255, 255, 0.1);
     }
 
     /* Responsive for side-by-side blocks */
@@ -3351,6 +3365,625 @@
 
     .product-card.pimocard-card:hover .product-info h3 {
       color: #e31837;
+    }
+
+    /* ============================================
+       CICLOSPORINA CANVAS MODAL (Right Side)
+    ============================================ */
+    .ciclosporina-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 10000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .ciclosporina-modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .ciclosporina-modal {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 50%;
+      max-width: 800px;
+      height: 100vh;
+      z-index: 10001;
+      overflow-y: auto;
+      overflow-x: hidden;
+      background: #fff;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(100%);
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: -10px 0 40px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ciclosporina-modal.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(0);
+    }
+
+    .ciclosporina-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.95);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10002;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .ciclosporina-close:hover {
+      transform: rotate(90deg) scale(1.1);
+      background: #fff;
+    }
+
+    .ciclosporina-close svg {
+      width: 24px;
+      height: 24px;
+      color: var(--color-primary-dark);
+    }
+
+    /* Hero Section */
+    .ciclosporina-hero {
+      min-height: 50vh;
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 50%, #2d7a3d 100%);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 3rem 2rem;
+      flex-shrink: 0;
+    }
+
+    .ciclosporina-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.5;
+    }
+
+    .ciclosporina-hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 2rem;
+      max-width: 100%;
+    }
+
+    .ciclosporina-logo {
+      margin-bottom: 2rem;
+      animation: fadeInDown 1s ease-out;
+    }
+
+    .ciclosporina-logo-text {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 800;
+      color: #fff;
+      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .ciclosporina-logo-subtitle {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.9);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-top: 0.5rem;
+      font-weight: 500;
+    }
+
+    .ciclosporina-hero-description {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.95);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      animation: fadeInUp 1s ease-out 0.3s both;
+    }
+
+    .ciclosporina-hero-indication {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 1.5rem 2rem;
+      font-size: 0.9rem;
+      color: #fff;
+      line-height: 1.7;
+      animation: fadeInUp 1s ease-out 0.5s both;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      text-align: left;
+    }
+
+    .ciclosporina-hero-indication strong {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+
+    /* Products Section */
+    .ciclosporina-products {
+      background: #fff;
+      padding: 3rem 2rem;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .ciclosporina-section-title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: #1c1c1c;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .ciclosporina-section-subtitle {
+      font-size: 1rem;
+      color: #666;
+      text-align: center;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .ciclosporina-presentations-container {
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    .ciclosporina-presentation-card {
+      background: linear-gradient(145deg, #fff 0%, #f8f8f8 100%);
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+
+    .ciclosporina-presentation-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-primary-dark));
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .ciclosporina-presentation-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(104, 187, 89, 0.15);
+    }
+
+    .ciclosporina-presentation-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .ciclosporina-presentation-image {
+      max-width: 200px;
+      height: auto;
+      margin: 1rem auto;
+      display: block;
+    }
+
+    .ciclosporina-presentation-info {
+      font-size: 0.9rem;
+      color: #666;
+      line-height: 1.5;
+      margin: 1rem 0;
+    }
+
+    .ciclosporina-block-quantity {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(104, 187, 89, 0.2);
+    }
+
+    .ciclosporina-block-quantity-label {
+      font-weight: 600;
+      color: #1c1c1c;
+    }
+
+    .ciclosporina-block-qty-btn {
+      width: 36px;
+      height: 36px;
+      border: none;
+      background: var(--color-primary);
+      color: #fff;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .ciclosporina-block-qty-btn:hover {
+      background: var(--color-primary-dark);
+      transform: scale(1.1);
+    }
+
+    .ciclosporina-block-qty-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .ciclosporina-block-qty-value {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--color-primary-dark);
+      min-width: 40px;
+      text-align: center;
+    }
+
+    /* Selection Summary - At Bottom */
+    .ciclosporina-selection-summary {
+      position: relative;
+      margin-top: auto;
+    }
+
+    .ciclosporina-selection-summary.active {
+      display: block;
+    }
+
+    .ciclosporina-selection-box {
+      position: sticky;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+      border-top: 2px solid var(--color-primary);
+      padding: 1.5rem 2rem;
+      box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.1);
+      max-width: 100%;
+    }
+
+    .ciclosporina-selection-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .ciclosporina-selection-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+    }
+
+    .ciclosporina-selection-title svg {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+    .ciclosporina-selection-items {
+      max-height: 200px;
+      overflow-y: auto;
+      margin-bottom: 1rem;
+    }
+
+    .ciclosporina-selection-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1rem;
+      background: #fff;
+      border-radius: 12px;
+      margin-bottom: 0.5rem;
+      border: 1px solid rgba(104, 187, 89, 0.2);
+    }
+
+    .ciclosporina-selection-item-info {
+      flex: 1;
+    }
+
+    .ciclosporina-selection-item-dose {
+      font-weight: 600;
+      color: #1c1c1c;
+      font-size: 0.9rem;
+    }
+
+    .ciclosporina-selection-item-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .ciclosporina-selection-qty-btn {
+      width: 28px;
+      height: 28px;
+      border: none;
+      background: var(--color-primary-light);
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .ciclosporina-selection-qty-btn:hover {
+      background: var(--color-primary);
+      color: #fff;
+    }
+
+    .ciclosporina-selection-qty-btn svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .ciclosporina-selection-qty-value {
+      font-weight: 600;
+      color: var(--color-primary-dark);
+      min-width: 30px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    .ciclosporina-selection-item-delete {
+      width: 28px;
+      height: 28px;
+      border: none;
+      background: #fee;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      margin-left: 0.5rem;
+    }
+
+    .ciclosporina-selection-item-delete:hover {
+      background: #fcc;
+    }
+
+    .ciclosporina-selection-item-delete svg {
+      width: 14px;
+      height: 14px;
+      color: #c00;
+    }
+
+    .ciclosporina-selection-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      border-top: 2px solid rgba(104, 187, 89, 0.2);
+      margin-top: 1rem;
+    }
+
+    .ciclosporina-selection-total-label {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #1c1c1c;
+    }
+
+    .ciclosporina-selection-total-value {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+    }
+
+    .ciclosporina-selection-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .ciclosporina-add-cart-btn,
+    .ciclosporina-consult-btn {
+      width: 100%;
+      padding: 1rem;
+      border: none;
+      border-radius: 12px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .ciclosporina-add-cart-btn {
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+      color: #fff;
+    }
+
+    .ciclosporina-add-cart-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(104, 187, 89, 0.3);
+    }
+
+    .ciclosporina-add-cart-btn svg {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+    .ciclosporina-consult-btn {
+      background: transparent;
+      color: var(--color-primary-dark);
+      border: 2px solid var(--color-primary-dark);
+    }
+
+    .ciclosporina-consult-btn:hover {
+      background: var(--color-primary-dark);
+      color: #fff;
+    }
+
+    .ciclosporina-consult-btn svg {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+    .ciclosporina-selection-empty {
+      text-align: center;
+      padding: 1rem;
+      color: #999;
+    }
+
+    .ciclosporina-selection-empty svg {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 1rem;
+      opacity: 0.3;
+    }
+    
+    .ciclosporina-selection-items:has(.ciclosporina-selection-item) .ciclosporina-selection-empty {
+      display: none !important;
+    }
+
+    /* Benefits Section */
+    .ciclosporina-benefits {
+      background: #fff;
+      padding: 3rem 2rem;
+      flex-shrink: 0;
+    }
+
+    .ciclosporina-benefits-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      max-width: 100%;
+      margin: 0 auto 2rem;
+    }
+
+    .ciclosporina-benefit-card {
+      background: linear-gradient(145deg, #fff 0%, #fafafa 100%);
+      border-radius: 20px;
+      padding: 1.5rem;
+      display: flex;
+      gap: 1rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .ciclosporina-benefit-card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 15px 50px rgba(104, 187, 89, 0.15);
+    }
+
+    .ciclosporina-benefit-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--color-primary-light) 0%, #c8e6c9 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .ciclosporina-benefit-icon svg {
+      width: 28px;
+      height: 28px;
+      color: var(--color-primary-dark);
+    }
+
+    .ciclosporina-benefit-content h4 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1c1c1c;
+      margin-bottom: 0.5rem;
+    }
+
+    .ciclosporina-benefit-content p {
+      font-size: 0.9rem;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .ciclosporina-modal {
+        width: 60%;
+        max-width: 700px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .ciclosporina-modal {
+        width: 80%;
+        max-width: 600px;
+      }
+      
+      .ciclosporina-logo-text {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .ciclosporina-modal {
+        width: 100%;
+        max-width: 100%;
+      }
+      
+      .ciclosporina-logo-text {
+        font-size: 2rem;
+      }
+      
+      .ciclosporina-hero-description {
+        font-size: 0.9rem;
+      }
+      
+      .ciclosporina-section-title {
+        font-size: 1.5rem;
+      }
+      
+      .ciclosporina-benefit-card {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .ciclosporina-benefit-icon {
+        margin: 0 auto;
+      }
     }
 
     /* ============================================
@@ -6510,7 +7143,7 @@
           <!-- ACEDAN GOTAS -->
           <div class="product-card" data-category="perros gatos antiinflamatorios">
             <div class="product-image">
-              <img src="images/acedan-gotas.jpg" alt="Acedan Gotas">
+              <img src="images/placeholder.png" alt="Acedan Gotas">
             </div>
             <div class="product-info">
               <span class="product-category">Antiinflamatorio • Gotas</span>
@@ -6525,7 +7158,7 @@
           <!-- ACEDAN INYECTABLE -->
           <div class="product-card" data-category="perros gatos antiinflamatorios">
             <div class="product-image">
-              <img src="images/acedan.jpg" alt="Acedan Inyectable">
+              <img src="images/placeholder.png" alt="Acedan Inyectable">
             </div>
             <div class="product-info">
               <span class="product-category">Antiinflamatorio • Inyectable</span>
@@ -6540,7 +7173,7 @@
           <!-- ANAVIMIN COAT COMPRIMIDOS -->
           <div class="product-card" data-category="perros gatos suplementos">
             <div class="product-image">
-              <img src="images/anavimin.jpeg" alt="Anavimin Coat">
+              <img src="images/placeholder.png" alt="Anavimin Coat">
             </div>
             <div class="product-info">
               <span class="product-category">Suplementos • Piel y Pelo</span>
@@ -6570,7 +7203,7 @@
           <!-- APETIL -->
           <div class="product-card" data-category="perros gatos suplementos">
             <div class="product-image">
-              <img src="images/apetil.jpg" alt="Apetil">
+              <img src="images/placeholder.png" alt="Apetil">
             </div>
             <div class="product-info">
               <span class="product-category">Suplementos • Estimulante</span>
@@ -6647,7 +7280,7 @@
                data-extended="Cardial">
             <span class="product-badge">Cardiología</span>
             <div class="product-image">
-              <img src="images/cardial.webp" alt="Cardial">
+              <img src="images/obj1.png" alt="Cardial">
             </div>
             <div class="product-info">
               <span class="product-category">Cardiología • Enalapril + Espironolactona</span>
@@ -6665,7 +7298,7 @@
                data-extended="CardialB">
             <span class="product-badge">Cardiología</span>
             <div class="product-image">
-              <img src="images/cardialb-10.webp" alt="Cardial B">
+              <img src="images/obj2.png" alt="Cardial B">
             </div>
             <div class="product-info">
               <span class="product-category">Cardiología • Vasodilatador</span>
@@ -6693,14 +7326,14 @@
           </div>
 
           <!-- CICLOSPORINA 1% OFTALDAY -->
-          <div class="product-card" data-category="perros gatos oftalmologia">
+          <div class="product-card ciclosporina-card" data-category="perros gatos oftalmologia">
             <div class="product-image">
               <img src="images/ciclosporina.jpg" alt="Ciclosporina 1% Oftalday">
             </div>
             <div class="product-info">
-              <span class="product-category">Oftalmología • Gotas</span>
-              <h3>Ciclosporina 1% Oftalday</h3>
-              <p>Tratamiento oftálmico para ojo seco y queratitis.</p>
+              <span class="product-category">Oftalmología • Ungüento</span>
+              <h3>Ciclosporina 1%</h3>
+              <p>Ungüento oftálmico estéril. Inmunomodulador, lacrimomimético y antiinflamatorio.</p>
               <div class="product-footer">
                 <span class="product-price">Consultar</span>
               </div>
@@ -6710,7 +7343,7 @@
           <!-- CICLOSPORINA 2% -->
           <div class="product-card" data-category="perros gatos oftalmologia dermatologia">
             <div class="product-image">
-              <img src="images/ciclosporina.jpg" alt="Ciclosporina 2%">
+              <img src="images/obj4.png" alt="Ciclosporina 2%">
             </div>
             <div class="product-info">
               <span class="product-category">Oftalmología • Dermatología</span>
@@ -6770,7 +7403,7 @@
           <!-- COLIRAMA VIRAL -->
           <div class="product-card" data-category="perros gatos oftalmologia">
             <div class="product-image">
-              <img src="images/colirama-viral-10ml-colirama-viral-10ml.jpg" alt="Colirama Viral">
+              <img src="images/placeholder.png" alt="Colirama Viral">
             </div>
             <div class="product-info">
               <span class="product-category">Oftalmología • Antiviral</span>
@@ -6861,7 +7494,7 @@
           <div class="product-card" data-category="gatos antiparasitarios">
             <span class="product-badge">Gatos</span>
             <div class="product-image">
-              <img src="images/ecthol-collar.png" alt="Ecthol Collar Gatos">
+              <img src="images/placeholder.png" alt="Ecthol Collar Gatos">
             </div>
             <div class="product-info">
               <span class="product-category">Antiparasitarios • Collar</span>
@@ -6875,10 +7508,10 @@
 
           <!-- ECTHOL COLLAR PERROS -->
           <div class="product-card" data-category="perros antiparasitarios"
-               data-variants='[{"name":"Perro chico","price":"Consultar","image":"images/ecthol-collar.png"},{"name":"Perro grande","price":"Consultar","image":"images/ecthol-collar.png"}]'>
+               data-variants='[{"name":"Perro chico","price":"Consultar","image":"images/placeholder.png"},{"name":"Perro grande","price":"Consultar","image":"images/placeholder.png"}]'>
             <span class="product-badge">Perros</span>
             <div class="product-image">
-              <img src="images/ecthol-collar.png" alt="Ecthol Collar Perros">
+              <img src="images/placeholder.png" alt="Ecthol Collar Perros">
             </div>
             <div class="product-info">
               <span class="product-category">Antiparasitarios • Collar</span>
@@ -6993,7 +7626,7 @@
           <div class="product-card" data-category="perros gatos gastrointestinal suplementos">
             <span class="product-badge">Nuevo</span>
             <div class="product-image">
-              <img src="images/enzimax.webp" alt="Enzimax">
+              <img src="images/obj8.png" alt="Enzimax">
             </div>
             <div class="product-info">
               <span class="product-category">Gastrointestinal • Enzimas</span>
@@ -7009,7 +7642,7 @@
           <div class="product-card" data-category="perros gatos oftalmologia">
             <span class="product-badge">-25%</span>
             <div class="product-image">
-              <img src="images/epitelizante.jpg" alt="Epitelizante Ocular Oftalday">
+              <img src="images/obj5.png" alt="Epitelizante Ocular Oftalday">
             </div>
             <div class="product-info">
               <span class="product-category">Oftalmología • Regenerador</span>
@@ -7055,7 +7688,7 @@
           <!-- FLURBIPROFENO OFTALDAY -->
           <div class="product-card" data-category="perros gatos oftalmologia">
             <div class="product-image">
-              <img src="images/flurbiprofeno.jpg" alt="Flurbiprofeno Oftalday">
+              <img src="images/placeholder.png" alt="Flurbiprofeno Oftalday">
             </div>
             <div class="product-info">
               <span class="product-category">Oftalmología • Antiinflamatorio</span>
@@ -7100,7 +7733,7 @@
           <!-- IQ 180 -->
           <div class="product-card" data-category="perros gatos suplementos">
             <div class="product-image">
-              <img src="images/iq-180.jpg" alt="IQ 180">
+              <img src="images/placeholder.png" alt="IQ 180">
             </div>
             <div class="product-info">
               <span class="product-category">Suplementos • Cognitivo</span>
@@ -7305,7 +7938,7 @@
           <div class="product-card" data-category="perros dietas">
             <span class="product-badge">Perros</span>
             <div class="product-image">
-              <img src="images/mv-sensibilidad-dietaria.jpg" alt="MV Perros Sensibilidad Dietaria">
+              <img src="images/placeholder.png" alt="MV Perros Sensibilidad Dietaria">
             </div>
             <div class="product-info">
               <span class="product-category">Dietas MV • Sensibilidad</span>
@@ -7321,7 +7954,7 @@
           <div class="product-card" data-category="perros gatos suplementos">
             <span class="product-badge">Oferta</span>
             <div class="product-image">
-              <img src="images/neovita.png" alt="Neovita">
+              <img src="images/obj7.png" alt="Neovita">
             </div>
             <div class="product-info">
               <span class="product-category">Suplementos • Vitamínico</span>
@@ -7351,7 +7984,7 @@
           <!-- OFLOXACINA OFTALDAY -->
           <div class="product-card" data-category="perros gatos oftalmologia antibioticos">
             <div class="product-image">
-              <img src="images/ofloxacina.jpg" alt="Ofloxacina Oftalday">
+              <img src="images/placeholder.png" alt="Ofloxacina Oftalday">
             </div>
             <div class="product-info">
               <span class="product-category">Oftalmología • Antibiótico</span>
@@ -7443,10 +8076,10 @@
 
           <!-- OL TRANS FLEX -->
           <div class="product-card" data-category="perros gatos suplementos"
-               data-variants='[{"name":"21 comprimidos","price":"Consultar","image":"images/oltrans-flex.webp"},{"name":"70 comprimidos","price":"Consultar","image":"images/oltrans-flex.webp"}]'>
+               data-variants='[{"name":"21 comprimidos","price":"Consultar","image":"images/obj3.png"},{"name":"70 comprimidos","price":"Consultar","image":"images/obj3.png"}]'>
             <span class="product-badge">-15%</span>
             <div class="product-image">
-              <img src="images/oltrans-flex.webp" alt="Ol Trans Flex">
+              <img src="images/obj3.png" alt="Ol Trans Flex">
             </div>
             <div class="product-info">
               <span class="product-category">Suplementos • Movilidad</span>
@@ -7509,7 +8142,7 @@
                data-extended="Pimocard">
             <span class="product-badge">Cardiología</span>
             <div class="product-image">
-              <img src="images/pimo-10.png" alt="Pimocard">
+              <img src="images/obj1.png" alt="Pimocard">
             </div>
             <div class="product-info">
               <span class="product-category">Cardiología • Inotrópico Positivo</span>
@@ -7525,7 +8158,7 @@
           <div class="product-card" data-category="perros suplementos">
             <span class="product-badge">Perros</span>
             <div class="product-image">
-              <img src="images/potenpet.png" alt="Poten Pet">
+              <img src="images/obj6.png" alt="Poten Pet">
             </div>
             <div class="product-info">
               <span class="product-category">Suplementos • Energético</span>
@@ -7617,7 +8250,7 @@
           <!-- RELAY C -->
           <div class="product-card" data-category="perros gatos suplementos">
             <div class="product-image">
-              <img src="images/relay-c.png" alt="Relay C">
+              <img src="images/placeholder.png" alt="Relay C">
             </div>
             <div class="product-info">
               <span class="product-category">Suplementos • Vitamina C</span>
@@ -7662,7 +8295,7 @@
           <!-- TONIPET -->
           <div class="product-card" data-category="perros gatos suplementos">
             <div class="product-image">
-              <img src="images/tonipet.jpg" alt="Tonipet">
+              <img src="images/placeholder.png" alt="Tonipet">
             </div>
             <div class="product-info">
               <span class="product-category">Suplementos • Reconstituyente</span>
@@ -7677,7 +8310,7 @@
           <!-- TORACARD -->
           <div class="product-card" data-category="perros gatos cardiologia">
             <div class="product-image">
-              <img src="images/toracard.jpg" alt="Toracard">
+              <img src="images/placeholder.png" alt="Toracard">
             </div>
             <div class="product-info">
               <span class="product-category">Cardiología • Diurético</span>
@@ -7709,7 +8342,7 @@
           <div class="product-card" data-category="perros antiparasitarios">
             <span class="product-badge">Perros</span>
             <div class="product-image">
-              <img src="images/total-full-lc-perros.webp" alt="Total Full LC Perros">
+              <img src="images/placeholder.png" alt="Total Full LC Perros">
             </div>
             <div class="product-info">
               <span class="product-category">Antiparasitarios • Comprimido</span>
@@ -7725,7 +8358,7 @@
           <div class="product-card" data-category="gatos antiparasitarios">
             <span class="product-badge">Gatos</span>
             <div class="product-image">
-              <img src="images/total-full-lc-gatos.png" alt="Total Full LC Gatos">
+              <img src="images/placeholder.png" alt="Total Full LC Gatos">
             </div>
             <div class="product-info">
               <span class="product-category">Antiparasitarios • Comprimido</span>
@@ -7741,7 +8374,7 @@
           <div class="product-card" data-category="gatos antiparasitarios">
             <span class="product-badge">Gatos</span>
             <div class="product-image">
-              <img src="images/total-full-gatos.webp" alt="Total Full Suspensión Gatos">
+              <img src="images/placeholder.png" alt="Total Full Suspensión Gatos">
             </div>
             <div class="product-info">
               <span class="product-category">Antiparasitarios • Suspensión</span>
@@ -7757,7 +8390,7 @@
           <div class="product-card" data-category="perros antiparasitarios">
             <span class="product-badge">Perros</span>
             <div class="product-image">
-              <img src="images/total-full-perros.webp" alt="Total Full Suspensión Perros">
+              <img src="images/placeholder.png" alt="Total Full Suspensión Perros">
             </div>
             <div class="product-info">
               <span class="product-category">Antiparasitarios • Suspensión</span>
@@ -7772,7 +8405,7 @@
           <!-- UV DAY -->
           <div class="product-card" data-category="perros gatos dermatologia">
             <div class="product-image">
-              <img src="images/uv-day.jpg" alt="UV Day">
+              <img src="images/placeholder.png" alt="UV Day">
             </div>
             <div class="product-info">
               <span class="product-category">Dermatología • Protector Solar</span>
@@ -7787,7 +8420,7 @@
           <!-- VITAMÍNICO AEDK AVES -->
           <div class="product-card" data-category="suplementos">
             <div class="product-image">
-              <img src="images/vitaminico-aedk.jpg" alt="Vitamínico AEDK Aves">
+              <img src="images/placeholder.png" alt="Vitamínico AEDK Aves">
             </div>
             <div class="product-info">
               <span class="product-category">Suplementos • Aves</span>
@@ -7802,7 +8435,7 @@
           <!-- VIVIRAM-V -->
           <div class="product-card" data-category="perros gatos">
             <div class="product-image">
-              <img src="images/viviram.jpg" alt="Viviram-V">
+              <img src="images/placeholder.png" alt="Viviram-V">
             </div>
             <div class="product-info">
               <span class="product-category">Antiviral • Inmunomodulador</span>
@@ -8257,6 +8890,166 @@
     </section>
   </div>
 
+  <!-- CICLOSPORINA CANVAS MODAL (Right Side) -->
+  <div class="ciclosporina-modal-overlay" id="ciclosporinaOverlay"></div>
+  <div class="ciclosporina-modal" id="ciclosporinaModal">
+    <button class="ciclosporina-close" id="ciclosporinaClose">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <!-- Hero Section -->
+    <section class="ciclosporina-hero">
+      <div class="ciclosporina-hero-content">
+        <div class="ciclosporina-logo">
+          <div class="ciclosporina-logo-text">CICLOSPORINA 1%</div>
+          <div class="ciclosporina-logo-subtitle">/ Inmunomodulador. Lacrimomimético. Antiinflamatorio.</div>
+        </div>
+
+        <p class="ciclosporina-hero-description">
+          Ungüento estéril a base de <strong>Ciclosporina A</strong> (calidad U.S.P)
+        </p>
+
+        <div class="ciclosporina-hero-indication">
+          <strong>Indicado para:</strong>
+          el tratamiento de la queratoconjuntivitis seca (QCS) y la queratitis superficial crónica (pannus), conjuntivitis plasmocítica, queratitis punteada superficial, blefaritis ulcerativa del canto nasal, escleritis y epiescleritis.
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="ciclosporina-products" id="ciclosporinaProductsSection">
+      <h2 class="ciclosporina-section-title">Presentación Disponible</h2>
+      <p class="ciclosporina-section-subtitle">Pomo con 3,5 g. con aplicador oftálmico</p>
+      
+      <div class="ciclosporina-presentations-container">
+        <div class="ciclosporina-presentation-card">
+          <img class="ciclosporina-presentation-image" src="images/ciclosporina.jpg" alt="Ciclosporina 1%">
+          <div class="ciclosporina-presentation-info">
+            <strong>FÓRMULA</strong><br>
+            Cada 100 g de ungüento contiene:<br>
+            Ciclosporina A (USP)...............1 g<br>
+            Excipientes c.s.
+          </div>
+          
+          <div class="ciclosporina-block-quantity" id="ciclosporinaQuantity">
+            <span class="ciclosporina-block-quantity-label">Cantidad:</span>
+            <button class="ciclosporina-block-qty-btn" data-action="decrease">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <span class="ciclosporina-block-qty-value">1</span>
+            <button class="ciclosporina-block-qty-btn" data-action="increase">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="ciclosporina-benefits">
+      <h2 class="ciclosporina-section-title">Beneficios del Producto</h2>
+      <p class="ciclosporina-section-subtitle">Ciclosporina 1% ofrece múltiples beneficios para el tratamiento de afecciones oculares</p>
+      
+      <div class="ciclosporina-benefits-grid">
+        <div class="ciclosporina-benefit-card">
+          <div class="ciclosporina-benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+          </div>
+          <div class="ciclosporina-benefit-content">
+            <h4>Inmunomodulador</h4>
+            <p>Con afinidad por la córnea y la esclerótica. Su formulación de calidad U.S.P garantiza la pureza y la eficacia del principio activo.</p>
+          </div>
+        </div>
+        
+        <div class="ciclosporina-benefit-card">
+          <div class="ciclosporina-benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 16v-4"/>
+              <path d="M12 8h.01"/>
+            </svg>
+          </div>
+          <div class="ciclosporina-benefit-content">
+            <h4>Lacrimomimético</h4>
+            <p>Ayuda a restaurar la producción de lágrimas y mejora la lubricación ocular en casos de queratoconjuntivitis seca.</p>
+          </div>
+        </div>
+        
+        <div class="ciclosporina-benefit-card">
+          <div class="ciclosporina-benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/>
+            </svg>
+          </div>
+          <div class="ciclosporina-benefit-content">
+            <h4>Antiinflamatorio</h4>
+            <p>Reduce la inflamación ocular asociada a enfermedades inmunomediadas, mejorando el confort y la salud del ojo.</p>
+          </div>
+        </div>
+        
+        <div class="ciclosporina-benefit-card">
+          <div class="ciclosporina-benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+          <div class="ciclosporina-benefit-content">
+            <h4>Solución Efectiva</h4>
+            <p>Ofrece una solución efectiva para manejar afecciones oculares relacionadas con la falta de producción de lágrimas y otras enfermedades inmunomediadas en perros.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Selection Summary - At Bottom -->
+    <div class="ciclosporina-selection-summary active" id="ciclosporinaSelectionSummary">
+      <div class="ciclosporina-selection-box">
+        <div class="ciclosporina-selection-header">
+          <div class="ciclosporina-selection-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+            </svg>
+            Tu Selección
+          </div>
+        </div>
+        <div class="ciclosporina-selection-items" id="ciclosporinaSelectionItems">
+          <div class="ciclosporina-selection-empty">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+            </svg>
+            <p>No hay productos seleccionados</p>
+          </div>
+        </div>
+        <div class="ciclosporina-selection-total" id="ciclosporinaSelectionTotal">
+          <span class="ciclosporina-selection-total-label">Total</span>
+          <span class="ciclosporina-selection-total-value">$0</span>
+        </div>
+        <div class="ciclosporina-selection-actions">
+          <button class="ciclosporina-add-cart-btn" id="ciclosporinaAddToCartBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+            </svg>
+            Añadir al carrito
+          </button>
+          <button class="ciclosporina-consult-btn" id="ciclosporinaRequestDeliveryBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+            Solicitar entrega
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- CARDIAL FULL-SCREEN MODAL -->
   <div class="cardial-modal-overlay" id="cardialOverlay"></div>
   <div class="cardial-modal" id="cardialModal">
@@ -8373,7 +9166,7 @@
             <strong>Enalapril Base</strong> (como maleato) 5 mg<br>
             <strong>Espironolactona</strong> 5 mg
           </div>
-          <img class="cardial-presentation-image" src="images/cardial5.webp" alt="Cardial 5 mg">
+          <img class="cardial-presentation-image" src="images/obj1.png" alt="Cardial 5 mg">
           <div class="cardial-presentation-price">Consultar Precio</div>
           
           <div class="cardial-block-quantity" id="cardialQuantity">
@@ -10056,6 +10849,161 @@
     };
 
     // ============================================
+    // ============================================
+    // CICLOSPORINA CANVAS MODAL (Right Side)
+    // ============================================
+    const ciclosporinaOverlay = document.getElementById('ciclosporinaOverlay');
+    const ciclosporinaModal = document.getElementById('ciclosporinaModal');
+    const ciclosporinaClose = document.getElementById('ciclosporinaClose');
+
+    function openCiclosporinaModal() {
+      ciclosporinaOverlay.classList.add('active');
+      ciclosporinaModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      
+      // Store current product for ordering
+      currentProduct = {
+        name: 'Ciclosporina 1%',
+        category: 'Oftalmología • Inmunomodulador',
+        price: 'Consultar',
+        image: 'images/ciclosporina.jpg',
+        unitPrice: 0,
+        selectedVariant: null
+      };
+      
+      // Initialize selection summary
+      setTimeout(() => {
+        updateCiclosporinaSelection();
+      }, 100);
+    }
+
+    function closeCiclosporinaModal() {
+      ciclosporinaOverlay.classList.remove('active');
+      ciclosporinaModal.classList.remove('active');
+      document.body.style.overflow = '';
+      // Scroll modal back to top for next opening
+      ciclosporinaModal.scrollTop = 0;
+    }
+
+    // Ciclosporina modal event listeners
+    if (ciclosporinaClose) {
+      ciclosporinaClose.addEventListener('click', closeCiclosporinaModal);
+    }
+    if (ciclosporinaOverlay) {
+      ciclosporinaOverlay.addEventListener('click', closeCiclosporinaModal);
+    }
+
+    // Order buttons - open delivery modal
+    const ciclosporinaAddToCartBtn = document.getElementById('ciclosporinaAddToCartBtn');
+    const ciclosporinaRequestDeliveryBtn = document.getElementById('ciclosporinaRequestDeliveryBtn');
+
+    if (ciclosporinaAddToCartBtn) {
+      ciclosporinaAddToCartBtn.addEventListener('click', () => {
+        closeCiclosporinaModal();
+        setTimeout(() => {
+          openDeliveryModal();
+        }, 300);
+      });
+    }
+
+    if (ciclosporinaRequestDeliveryBtn) {
+      ciclosporinaRequestDeliveryBtn.addEventListener('click', () => {
+        closeCiclosporinaModal();
+        setTimeout(() => {
+          openDeliveryModal();
+        }, 300);
+      });
+    }
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && ciclosporinaModal && ciclosporinaModal.classList.contains('active')) {
+        closeCiclosporinaModal();
+      }
+    });
+
+    // Quantity controls for Ciclosporina
+    const ciclosporinaQuantity = document.getElementById('ciclosporinaQuantity');
+    if (ciclosporinaQuantity) {
+      const qtyValue = ciclosporinaQuantity.querySelector('.ciclosporina-block-qty-value');
+      const qtyButtons = ciclosporinaQuantity.querySelectorAll('.ciclosporina-block-qty-btn');
+
+      qtyButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const action = btn.dataset.action;
+          let currentQty = parseInt(qtyValue.textContent) || 1;
+
+          if (action === 'increase') {
+            currentQty++;
+          } else if (action === 'decrease' && currentQty > 1) {
+            currentQty--;
+          }
+
+          qtyValue.textContent = currentQty;
+          updateCiclosporinaSelection();
+        });
+      });
+    }
+
+    // Update selection summary
+    function updateCiclosporinaSelection() {
+      const ciclosporinaSelectionItems = document.getElementById('ciclosporinaSelectionItems');
+      const ciclosporinaSelectionTotal = document.getElementById('ciclosporinaSelectionTotal');
+      const qtyValue = document.querySelector('#ciclosporinaQuantity .ciclosporina-block-qty-value');
+      
+      if (!ciclosporinaSelectionItems || !ciclosporinaSelectionTotal || !qtyValue) return;
+
+      const quantity = parseInt(qtyValue.textContent) || 1;
+
+      // Always show the item if quantity > 0
+      ciclosporinaSelectionItems.innerHTML = `
+        <div class="ciclosporina-selection-item">
+          <div class="ciclosporina-selection-item-info">
+            <div class="ciclosporina-selection-item-dose">Ciclosporina 1% - 3.5g</div>
+          </div>
+          <div class="ciclosporina-selection-item-controls">
+            <button class="ciclosporina-selection-qty-btn" data-action="decrease">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <span class="ciclosporina-selection-qty-value">${quantity}</span>
+            <button class="ciclosporina-selection-qty-btn" data-action="increase">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+          </div>
+        </div>
+      `;
+
+      // Add event listeners to selection item controls
+      const selectionQtyButtons = ciclosporinaSelectionItems.querySelectorAll('.ciclosporina-selection-qty-btn');
+      selectionQtyButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const action = btn.dataset.action;
+          let currentQty = parseInt(ciclosporinaSelectionItems.querySelector('.ciclosporina-selection-qty-value').textContent) || 1;
+
+          if (action === 'increase') {
+            currentQty++;
+          } else if (action === 'decrease' && currentQty > 1) {
+            currentQty--;
+          }
+
+          ciclosporinaSelectionItems.querySelector('.ciclosporina-selection-qty-value').textContent = currentQty;
+          qtyValue.textContent = currentQty;
+          updateCiclosporinaSelection();
+        });
+      });
+
+      // Update total
+      const totalValue = ciclosporinaSelectionTotal.querySelector('.ciclosporina-selection-total-value');
+      if (totalValue) {
+        totalValue.textContent = quantity > 0 ? 'Consultar Precio' : '$0';
+      }
+    }
+
+    // Initialize selection on load
+    if (ciclosporinaQuantity) {
+      updateCiclosporinaSelection();
+    }
+
     // CARDIAL FULL-SCREEN MODAL
     // ============================================
     const cardialOverlay = document.getElementById('cardialOverlay');
@@ -10755,6 +11703,12 @@
         return;
       }
 
+      // Check if this is Ciclosporina - open canvas modal instead
+      if (card.classList.contains('ciclosporina-card') || name.includes('Ciclosporina')) {
+        openCiclosporinaModal();
+        return;
+      }
+
       // Check if this is Cardial B - open fullscreen modal instead (check this first to avoid matching "Cardial")
       if (card.classList.contains('cardialb-card') || name === 'Cardial B') {
         openCardialbModal();
@@ -11027,7 +11981,6 @@
         alert('Por favor completa todos los campos');
         return;
       }
-
       // Build message
       const priceInfo = buildPriceMessage();
       const variantInfo = currentProduct.selectedVariant ? `\nPresentación: ${currentProduct.selectedVariant}` : '';
