@@ -3368,9 +3368,9 @@
     }
 
     /* ============================================
-       CICLOSPORINA CANVAS MODAL (Right Side)
+       GENERAL PRODUCT MODAL (Right Side)
     ============================================ */
-    .ciclosporina-modal-overlay {
+    .product-modal-overlay {
       position: fixed;
       inset: 0;
       background: rgba(0, 0, 0, 0.5);
@@ -3380,12 +3380,12 @@
       transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .ciclosporina-modal-overlay.active {
+    .product-modal-overlay.active {
       opacity: 1;
       visibility: visible;
     }
 
-    .ciclosporina-modal {
+    .product-modal {
       position: fixed;
       top: 0;
       right: 0;
@@ -3405,13 +3405,13 @@
       flex-direction: column;
     }
 
-    .ciclosporina-modal.active {
+    .product-modal.active {
       opacity: 1;
       visibility: visible;
       transform: translateX(0);
     }
 
-    .ciclosporina-close {
+    .product-close {
       position: absolute;
       top: 1.5rem;
       right: 1.5rem;
@@ -3429,19 +3429,19 @@
       transition: all 0.3s ease;
     }
 
-    .ciclosporina-close:hover {
+    .product-close:hover {
       transform: rotate(90deg) scale(1.1);
       background: #fff;
     }
 
-    .ciclosporina-close svg {
+    .product-close svg {
       width: 24px;
       height: 24px;
       color: var(--color-primary-dark);
     }
 
     /* Hero Section */
-    .ciclosporina-hero {
+    .product-hero {
       min-height: 50vh;
       background: #ffffff;
       position: relative;
@@ -3453,11 +3453,11 @@
       flex-shrink: 0;
     }
 
-    .ciclosporina-hero::before {
+    .product-hero::before {
       display: none;
     }
 
-    .ciclosporina-hero-content {
+    .product-hero-content {
       position: relative;
       z-index: 1;
       text-align: center;
@@ -3465,12 +3465,12 @@
       max-width: 100%;
     }
 
-    .ciclosporina-logo {
+    .product-logo {
       margin-bottom: 2rem;
       animation: fadeInDown 1s ease-out;
     }
 
-    .ciclosporina-brand-logo {
+    .product-brand-logo {
       position: absolute;
       top: 1.5rem;
       left: 1.5rem;
@@ -3482,7 +3482,7 @@
       border-radius: 8px;
     }
 
-    .ciclosporina-logo-text {
+    .product-logo-text {
       font-family: var(--font-display);
       font-size: 3rem;
       font-weight: 800;
@@ -3492,7 +3492,7 @@
       margin-bottom: 0.5rem;
     }
 
-    .ciclosporina-logo-subtitle {
+    .product-logo-subtitle {
       font-size: 0.9rem;
       color: var(--color-gray);
       text-transform: uppercase;
@@ -3501,7 +3501,7 @@
       font-weight: 500;
     }
 
-    .ciclosporina-hero-description {
+    .product-hero-description {
       font-size: 1rem;
       color: var(--color-charcoal);
       line-height: 1.8;
@@ -3509,7 +3509,7 @@
       animation: fadeInUp 1s ease-out 0.3s both;
     }
 
-    .ciclosporina-hero-indication {
+    .product-hero-indication {
       background: var(--color-light-gray);
       backdrop-filter: blur(10px);
       border-radius: 16px;
@@ -3522,21 +3522,21 @@
       text-align: left;
     }
 
-    .ciclosporina-hero-indication strong {
+    .product-hero-indication strong {
       display: block;
       margin-bottom: 0.5rem;
       font-size: 1rem;
     }
 
     /* Products Section */
-    .ciclosporina-products {
+    .product-products {
       background: #fff;
       padding: 3rem 2rem;
       position: relative;
       flex-shrink: 0;
     }
 
-    .ciclosporina-section-title {
+    .product-section-title {
       font-family: var(--font-display);
       font-size: 2rem;
       color: #1c1c1c;
@@ -3544,7 +3544,7 @@
       margin-bottom: 1rem;
     }
 
-    .ciclosporina-section-subtitle {
+    .product-section-subtitle {
       font-size: 1rem;
       color: #666;
       text-align: center;
@@ -3554,12 +3554,12 @@
       margin-right: auto;
     }
 
-    .ciclosporina-presentations-container {
+    .product-presentations-container {
       max-width: 100%;
       margin: 0 auto;
     }
 
-    .ciclosporina-presentation-card {
+    .product-presentation-card {
       background: linear-gradient(145deg, #fff 0%, #f8f8f8 100%);
       border-radius: 20px;
       padding: 2rem 1.5rem;
@@ -3571,7 +3571,7 @@
       margin-bottom: 2rem;
     }
 
-    .ciclosporina-presentation-card::before {
+    .product-presentation-card::before {
       content: '';
       position: absolute;
       top: 0;
@@ -3583,30 +3583,30 @@
       transition: transform 0.4s ease;
     }
 
-    .ciclosporina-presentation-card:hover {
+    .product-presentation-card:hover {
       transform: translateY(-10px);
       box-shadow: 0 20px 50px rgba(104, 187, 89, 0.15);
     }
 
-    .ciclosporina-presentation-card:hover::before {
+    .product-presentation-card:hover::before {
       transform: scaleX(1);
     }
 
-    .ciclosporina-presentation-image {
+    .product-presentation-image {
       max-width: 200px;
       height: auto;
       margin: 1rem auto;
       display: block;
     }
 
-    .ciclosporina-presentation-info {
+    .product-presentation-info {
       font-size: 0.9rem;
       color: #666;
       line-height: 1.5;
       margin: 1rem 0;
     }
 
-    .ciclosporina-block-quantity {
+    .product-block-quantity {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -3616,12 +3616,12 @@
       border-top: 1px solid rgba(104, 187, 89, 0.2);
     }
 
-    .ciclosporina-block-quantity-label {
+    .product-block-quantity-label {
       font-weight: 600;
       color: #1c1c1c;
     }
 
-    .ciclosporina-block-qty-btn {
+    .product-block-qty-btn {
       width: 36px;
       height: 36px;
       border: none;
@@ -3636,17 +3636,17 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
-    .ciclosporina-block-qty-btn:hover {
+    .product-block-qty-btn:hover {
       background: var(--color-primary-dark);
       transform: scale(1.1);
     }
 
-    .ciclosporina-block-qty-btn svg {
+    .product-block-qty-btn svg {
       width: 18px;
       height: 18px;
     }
 
-    .ciclosporina-block-qty-value {
+    .product-block-qty-value {
       font-family: var(--font-display);
       font-size: 1.2rem;
       font-weight: 600;
@@ -3656,16 +3656,16 @@
     }
 
     /* Selection Summary - At Bottom */
-    .ciclosporina-selection-summary {
+    .product-selection-summary {
       position: relative;
       margin-top: auto;
     }
 
-    .ciclosporina-selection-summary.active {
+    .product-selection-summary.active {
       display: block;
     }
 
-    .ciclosporina-selection-box {
+    .product-selection-box {
       position: sticky;
       bottom: 0;
       left: 0;
@@ -3678,14 +3678,14 @@
       max-width: 100%;
     }
 
-    .ciclosporina-selection-header {
+    .product-selection-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
       margin-bottom: 1rem;
     }
 
-    .ciclosporina-selection-title {
+    .product-selection-title {
       display: flex;
       align-items: center;
       gap: 0.5rem;
@@ -3695,19 +3695,19 @@
       color: var(--color-primary-dark);
     }
 
-    .ciclosporina-selection-title svg {
+    .product-selection-title svg {
       width: 20px;
       height: 20px;
       flex-shrink: 0;
     }
 
-    .ciclosporina-selection-items {
+    .product-selection-items {
       max-height: 200px;
       overflow-y: auto;
       margin-bottom: 1rem;
     }
 
-    .ciclosporina-selection-item {
+    .product-selection-item {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -3718,23 +3718,23 @@
       border: 1px solid rgba(104, 187, 89, 0.2);
     }
 
-    .ciclosporina-selection-item-info {
+    .product-selection-item-info {
       flex: 1;
     }
 
-    .ciclosporina-selection-item-dose {
+    .product-selection-item-dose {
       font-weight: 600;
       color: #1c1c1c;
       font-size: 0.9rem;
     }
 
-    .ciclosporina-selection-item-controls {
+    .product-selection-item-controls {
       display: flex;
       align-items: center;
       gap: 0.5rem;
     }
 
-    .ciclosporina-selection-qty-btn {
+    .product-selection-qty-btn {
       width: 28px;
       height: 28px;
       border: none;
@@ -3747,17 +3747,17 @@
       transition: all 0.3s ease;
     }
 
-    .ciclosporina-selection-qty-btn:hover {
+    .product-selection-qty-btn:hover {
       background: var(--color-primary);
       color: #fff;
     }
 
-    .ciclosporina-selection-qty-btn svg {
+    .product-selection-qty-btn svg {
       width: 14px;
       height: 14px;
     }
 
-    .ciclosporina-selection-qty-value {
+    .product-selection-qty-value {
       font-weight: 600;
       color: var(--color-primary-dark);
       min-width: 30px;
@@ -3765,7 +3765,7 @@
       font-size: 0.9rem;
     }
 
-    .ciclosporina-selection-item-delete {
+    .product-selection-item-delete {
       width: 28px;
       height: 28px;
       border: none;
@@ -3779,17 +3779,17 @@
       margin-left: 0.5rem;
     }
 
-    .ciclosporina-selection-item-delete:hover {
+    .product-selection-item-delete:hover {
       background: #fcc;
     }
 
-    .ciclosporina-selection-item-delete svg {
+    .product-selection-item-delete svg {
       width: 14px;
       height: 14px;
       color: #c00;
     }
 
-    .ciclosporina-selection-total {
+    .product-selection-total {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -3798,28 +3798,28 @@
       margin-top: 1rem;
     }
 
-    .ciclosporina-selection-total-label {
+    .product-selection-total-label {
       font-weight: 700;
       font-size: 1.1rem;
       color: #1c1c1c;
     }
 
-    .ciclosporina-selection-total-value {
+    .product-selection-total-value {
       font-family: var(--font-display);
       font-size: 1.5rem;
       font-weight: 700;
       color: var(--color-primary-dark);
     }
 
-    .ciclosporina-selection-actions {
+    .product-selection-actions {
       display: flex;
       flex-direction: column;
       gap: 0.75rem;
       margin-top: 1rem;
     }
 
-    .ciclosporina-add-cart-btn,
-    .ciclosporina-consult-btn {
+    .product-add-cart-btn,
+    .product-consult-btn {
       width: 100%;
       padding: 1rem;
       border: none;
@@ -3835,64 +3835,64 @@
       transition: all 0.3s ease;
     }
 
-    .ciclosporina-add-cart-btn {
+    .product-add-cart-btn {
       background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
       color: #fff;
     }
 
-    .ciclosporina-add-cart-btn:hover {
+    .product-add-cart-btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 20px rgba(104, 187, 89, 0.3);
     }
 
-    .ciclosporina-add-cart-btn svg {
+    .product-add-cart-btn svg {
       width: 20px;
       height: 20px;
       flex-shrink: 0;
     }
 
-    .ciclosporina-consult-btn {
+    .product-consult-btn {
       background: transparent;
       color: var(--color-primary-dark);
       border: 2px solid var(--color-primary-dark);
     }
 
-    .ciclosporina-consult-btn:hover {
+    .product-consult-btn:hover {
       background: var(--color-primary-dark);
       color: #fff;
     }
 
-    .ciclosporina-consult-btn svg {
+    .product-consult-btn svg {
       width: 20px;
       height: 20px;
       flex-shrink: 0;
     }
 
-    .ciclosporina-selection-empty {
+    .product-selection-empty {
       text-align: center;
       padding: 1rem;
       color: #999;
     }
 
-    .ciclosporina-selection-empty svg {
+    .product-selection-empty svg {
       width: 48px;
       height: 48px;
       margin-bottom: 1rem;
       opacity: 0.3;
     }
     
-    .ciclosporina-selection-items:has(.ciclosporina-selection-item) .ciclosporina-selection-empty {
+    .product-selection-items:has(.product-selection-item) .product-selection-empty {
       display: none !important;
     }
 
     /* Benefits Section */
-    .ciclosporina-benefits {
+    .product-benefits {
       background: #fff;
       padding: 3rem 2rem;
       flex-shrink: 0;
     }
 
-    .ciclosporina-benefits-grid {
+    .product-benefits-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 1.5rem;
@@ -3900,7 +3900,7 @@
       margin: 0 auto 2rem;
     }
 
-    .ciclosporina-benefit-card {
+    .product-benefit-card {
       background: linear-gradient(145deg, #fff 0%, #fafafa 100%);
       border-radius: 20px;
       padding: 1.5rem;
@@ -3911,12 +3911,12 @@
       border: 1px solid rgba(0, 0, 0, 0.05);
     }
 
-    .ciclosporina-benefit-card:hover {
+    .product-benefit-card:hover {
       transform: translateY(-5px) scale(1.02);
       box-shadow: 0 15px 50px rgba(104, 187, 89, 0.15);
     }
 
-    .ciclosporina-benefit-icon {
+    .product-benefit-icon {
       width: 50px;
       height: 50px;
       background: linear-gradient(135deg, var(--color-primary-light) 0%, #c8e6c9 100%);
@@ -3927,13 +3927,13 @@
       flex-shrink: 0;
     }
 
-    .ciclosporina-benefit-icon svg {
+    .product-benefit-icon svg {
       width: 28px;
       height: 28px;
       color: var(--color-primary-dark);
     }
 
-    .ciclosporina-benefit-content h4 {
+    .product-benefit-content h4 {
       font-family: var(--font-display);
       font-size: 1.1rem;
       font-weight: 700;
@@ -3941,55 +3941,81 @@
       margin-bottom: 0.5rem;
     }
 
-    .ciclosporina-benefit-content p {
+    .product-benefit-content p {
       font-size: 0.9rem;
       color: #666;
       line-height: 1.6;
     }
+    
+    .product-benefit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem;
+      background: linear-gradient(145deg, #fff 0%, #fafafa 100%);
+      border-radius: 12px;
+      margin-bottom: 1rem;
+    }
+    
+    .product-checkmark {
+      width: 24px;
+      height: 24px;
+      color: var(--color-primary);
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+    }
+    
+    .product-benefit-item p {
+      flex: 1;
+      font-size: 0.9rem;
+      color: #666;
+      line-height: 1.6;
+      margin: 0;
+    }
 
     /* Responsive */
     @media (max-width: 1200px) {
-      .ciclosporina-modal {
+      .product-modal {
         width: 60%;
         max-width: 700px;
       }
     }
 
     @media (max-width: 900px) {
-      .ciclosporina-modal {
+      .product-modal {
         width: 80%;
         max-width: 600px;
       }
       
-      .ciclosporina-logo-text {
+      .product-logo-text {
         font-size: 2.5rem;
       }
     }
 
     @media (max-width: 600px) {
-      .ciclosporina-modal {
+      .product-modal {
         width: 100%;
         max-width: 100%;
       }
       
-      .ciclosporina-logo-text {
+      .product-logo-text {
         font-size: 2rem;
       }
       
-      .ciclosporina-hero-description {
+      .product-hero-description {
         font-size: 0.9rem;
       }
       
-      .ciclosporina-section-title {
+      .product-section-title {
         font-size: 1.5rem;
       }
       
-      .ciclosporina-benefit-card {
+      .product-benefit-card {
         flex-direction: column;
         text-align: center;
       }
       
-      .ciclosporina-benefit-icon {
+      .product-benefit-icon {
         margin: 0 auto;
       }
     }
@@ -10049,11 +10075,11 @@
     </section>
   </div>
 
-  <!-- CICLOSPORINA CANVAS MODAL (Right Side) -->
-  <div class="ciclosporina-modal-overlay" id="ciclosporinaOverlay"></div>
-  <div class="ciclosporina-modal" id="ciclosporinaModal">
-    <img src="images/holliday-logo.png" alt="Holliday" class="ciclosporina-brand-logo">
-    <button class="ciclosporina-close" id="ciclosporinaClose">
+  <!-- GENERAL PRODUCT MODAL (Right Side) -->
+  <div class="product-modal-overlay" id="productModalOverlay"></div>
+  <div class="product-modal" id="productModal">
+    <img src="images/holliday-logo.png" alt="Holliday" class="product-brand-logo" id="productBrandLogo">
+    <button class="product-close" id="productClose">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
         <line x1="18" y1="6" x2="6" y2="18"></line>
         <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -10061,116 +10087,27 @@
     </button>
 
     <!-- Hero Section -->
-    <section class="ciclosporina-hero">
-      <div class="ciclosporina-hero-content">
-        <div class="ciclosporina-logo">
-          <div class="ciclosporina-logo-text">CICLOSPORINA 1%</div>
-          <div class="ciclosporina-logo-subtitle">/ Inmunomodulador. Lacrimomimético. Antiinflamatorio.</div>
-        </div>
-
-        <p class="ciclosporina-hero-description">
-          Ungüento estéril a base de <strong>Ciclosporina A</strong> (calidad U.S.P)
-        </p>
-
-        <div class="ciclosporina-hero-indication">
-          <strong>Indicado para:</strong>
-          el tratamiento de la queratoconjuntivitis seca (QCS) y la queratitis superficial crónica (pannus), conjuntivitis plasmocítica, queratitis punteada superficial, blefaritis ulcerativa del canto nasal, escleritis y epiescleritis.
-        </div>
+    <section class="product-hero" id="productHero">
+      <div class="product-hero-content" id="productHeroContent">
+        <!-- Content will be populated dynamically -->
       </div>
     </section>
 
     <!-- Products Section -->
-    <section class="ciclosporina-products" id="ciclosporinaProductsSection">
-      <h2 class="ciclosporina-section-title">Presentación Disponible</h2>
-      <p class="ciclosporina-section-subtitle">Pomo con 3,5 g. con aplicador oftálmico</p>
-      
-      <div class="ciclosporina-presentations-container">
-        <div class="ciclosporina-presentation-card">
-          <img class="ciclosporina-presentation-image" src="images/ciclosporina.jpg" alt="Ciclosporina 1%">
-          <div class="ciclosporina-presentation-info">
-            <strong>FÓRMULA</strong><br>
-            Cada 100 g de ungüento contiene:<br>
-            Ciclosporina A (USP)...............1 g<br>
-            Excipientes c.s.
-          </div>
-          
-          <div class="ciclosporina-block-quantity" id="ciclosporinaQuantity">
-            <span class="ciclosporina-block-quantity-label">Cantidad:</span>
-            <button class="ciclosporina-block-qty-btn" data-action="decrease">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            </button>
-            <span class="ciclosporina-block-qty-value">1</span>
-            <button class="ciclosporina-block-qty-btn" data-action="increase">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            </button>
-          </div>
-        </div>
-      </div>
+    <section class="product-products" id="productProductsSection">
+      <!-- Content will be populated dynamically -->
     </section>
 
     <!-- Benefits Section -->
-    <section class="ciclosporina-benefits">
-      <h2 class="ciclosporina-section-title">Beneficios del Producto</h2>
-      <p class="ciclosporina-section-subtitle">Ciclosporina 1% ofrece múltiples beneficios para el tratamiento de afecciones oculares</p>
-      
-      <div class="ciclosporina-benefits-grid">
-        <div class="ciclosporina-benefit-card">
-          <div class="ciclosporina-benefit-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-            </svg>
-          </div>
-          <div class="ciclosporina-benefit-content">
-            <h4>Inmunomodulador</h4>
-            <p>Con afinidad por la córnea y la esclerótica. Su formulación de calidad U.S.P garantiza la pureza y la eficacia del principio activo.</p>
-          </div>
-        </div>
-        
-        <div class="ciclosporina-benefit-card">
-          <div class="ciclosporina-benefit-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M12 16v-4"/>
-              <path d="M12 8h.01"/>
-            </svg>
-          </div>
-          <div class="ciclosporina-benefit-content">
-            <h4>Lacrimomimético</h4>
-            <p>Ayuda a restaurar la producción de lágrimas y mejora la lubricación ocular en casos de queratoconjuntivitis seca.</p>
-          </div>
-        </div>
-        
-        <div class="ciclosporina-benefit-card">
-          <div class="ciclosporina-benefit-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/>
-            </svg>
-          </div>
-          <div class="ciclosporina-benefit-content">
-            <h4>Antiinflamatorio</h4>
-            <p>Reduce la inflamación ocular asociada a enfermedades inmunomediadas, mejorando el confort y la salud del ojo.</p>
-          </div>
-        </div>
-        
-        <div class="ciclosporina-benefit-card">
-          <div class="ciclosporina-benefit-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-            </svg>
-          </div>
-          <div class="ciclosporina-benefit-content">
-            <h4>Solución Efectiva</h4>
-            <p>Ofrece una solución efectiva para manejar afecciones oculares relacionadas con la falta de producción de lágrimas y otras enfermedades inmunomediadas en perros.</p>
-          </div>
-        </div>
-      </div>
+    <section class="product-benefits" id="productBenefitsSection">
+      <!-- Content will be populated dynamically -->
     </section>
 
     <!-- Selection Summary - At Bottom -->
-    <div class="ciclosporina-selection-summary active" id="ciclosporinaSelectionSummary">
-      <div class="ciclosporina-selection-box">
-        <div class="ciclosporina-selection-header">
-          <div class="ciclosporina-selection-title">
+    <div class="product-selection-summary active" id="productSelectionSummary">
+      <div class="product-selection-box">
+        <div class="product-selection-header">
+          <div class="product-selection-title">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
               <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
@@ -10178,8 +10115,8 @@
             Tu Selección
           </div>
         </div>
-        <div class="ciclosporina-selection-items" id="ciclosporinaSelectionItems">
-          <div class="ciclosporina-selection-empty">
+        <div class="product-selection-items" id="productSelectionItems">
+          <div class="product-selection-empty">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
               <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
@@ -10187,305 +10124,19 @@
             <p>No hay productos seleccionados</p>
           </div>
         </div>
-        <div class="ciclosporina-selection-total" id="ciclosporinaSelectionTotal">
-          <span class="ciclosporina-selection-total-label">Total</span>
-          <span class="ciclosporina-selection-total-value">$0</span>
+        <div class="product-selection-total" id="productSelectionTotal">
+          <span class="product-selection-total-label">Total</span>
+          <span class="product-selection-total-value">$0</span>
         </div>
-        <div class="ciclosporina-selection-actions">
-          <button class="ciclosporina-add-cart-btn" id="ciclosporinaAddToCartBtn">
+        <div class="product-selection-actions">
+          <button class="product-add-cart-btn" id="productAddToCartBtn">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
               <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
             </svg>
             Añadir al carrito
           </button>
-          <button class="ciclosporina-consult-btn" id="ciclosporinaRequestDeliveryBtn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
-            </svg>
-            Solicitar entrega
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ENZIMAX CANVAS MODAL -->
-  <div class="enzimax-modal-overlay" id="enzimaxOverlay"></div>
-  <div class="enzimax-modal" id="enzimaxModal">
-    <img src="images/holliday-logo.png" alt="Holliday" class="enzimax-brand-logo">
-    <button class="enzimax-close" id="enzimaxClose">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="18" y1="6" x2="6" y2="18"></line>
-        <line x1="6" y1="6" x2="18" y2="18"></line>
-      </svg>
-    </button>
-
-    <!-- Hero Section -->
-    <section class="enzimax-hero">
-      <div class="enzimax-hero-content">
-        <div class="enzimax-logo">
-          <div class="enzimax-logo-text">ENZIMAX</div>
-          <div class="enzimax-logo-subtitle">/ Único suplemento dietario formulado con enzimas proteolíticas</div>
-        </div>
-
-        <p class="enzimax-hero-description">
-          Las enzimas vegetales de <strong>Enzimax</strong> fragmentan las partículas de los alimentos favoreciendo una mayor absorción de sus nutrientes. Está indicado para mejorar la digestión y absorción de dietas caseras y comerciales.
-        </p>
-
-        <div class="enzimax-hero-indication">
-          <strong>Complementario a tratamientos por:</strong>
-          Flatulencias, Diarreas, Síndrome de mala digestión, Síndrome de mala absorción, Enfermedad intestinal inflamatoria crónica, Gastritis crónicas, Disbacteriosis, Gastroenteritis infecciosas, Parasitosis internas, Insuficiencias pancreáticas, Hepatopatías, Períodos de convalecencia, Tratamientos oncológicos.
-        </div>
-      </div>
-    </section>
-
-    <!-- Products Section -->
-    <section class="enzimax-products" id="enzimaxProductsSection">
-      <h2 class="enzimax-section-title">Presentación Disponible</h2>
-      <p class="enzimax-section-subtitle">Envase que contiene 2 blisters por 10 comprimidos de 200 mg cada uno</p>
-      
-      <div class="enzimax-presentations-container">
-        <div class="enzimax-presentation-card">
-          <img class="enzimax-presentation-image" src="images/enzimax.webp" alt="Enzimax">
-          <div class="enzimax-presentation-info">
-            <strong>FÓRMULA</strong><br>
-            Cada comprimido de 200 mg contiene:<br>
-            Bromelina (32 mg*) equivalente a 8 unidades FIP<br>
-            Papaína (1,6 mg**) equivalente a 48000 unidades USP<br>
-            Betaina HCI (5 mg*)<br>
-            Excipientes c.s.
-          </div>
-          
-          <div class="enzimax-block-quantity" id="enzimaxQuantity">
-            <span class="enzimax-block-quantity-label">Cantidad:</span>
-            <button class="enzimax-block-qty-btn" data-action="decrease">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            </button>
-            <span class="enzimax-block-qty-value">1</span>
-            <button class="enzimax-block-qty-btn" data-action="increase">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Benefits Section -->
-    <section class="enzimax-benefits">
-      <h2 class="enzimax-section-title">Componentes Activos</h2>
-      <p class="enzimax-section-subtitle">Enzimax contiene enzimas proteolíticas vegetales con múltiples beneficios</p>
-      
-      <div class="enzimax-benefits-grid">
-        <div class="enzimax-benefit-card">
-          <div class="enzimax-benefit-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/>
-            </svg>
-          </div>
-          <div class="enzimax-benefit-content">
-            <h4>Bromelina</h4>
-            <p>Enzima proteolítica extraída de la piña tropical. Acción antiinflamatoria, inmunomoduladora, anticoagulante, antiedematosa y mucolítica. Reduce los niveles de tromboxano y prostaglandinas que intervienen en el proceso inflamatorio.</p>
-          </div>
-        </div>
-        
-        <div class="enzimax-benefit-card">
-          <div class="enzimax-benefit-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M12 16v-4"/>
-              <path d="M12 8h.01"/>
-            </svg>
-          </div>
-          <div class="enzimax-benefit-content">
-            <h4>Betaina HCI</h4>
-            <p>Compuesto tri-metilado del aminoácido extraído de la remolacha azucarera. Coadyuvante en el metabolismo de las grasas, colabora en la digestión de lípidos y desdoblamiento de proteínas. Fortalece la salud hepática y colabora con la hidratación celular.</p>
-          </div>
-        </div>
-        
-        <div class="enzimax-benefit-card">
-          <div class="enzimax-benefit-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-            </svg>
-          </div>
-          <div class="enzimax-benefit-content">
-            <h4>Papaína</h4>
-            <p>Enzima proteolítica extraída del látex de la papaya. Favorece la digestión de los alimentos y funciona como regulador intestinal. Su contenido en pectina aumenta la masa fecal ayudando a la evacuación. Acción antihelmíntica colaborando en la eliminación de nematodos.</p>
-          </div>
-        </div>
-        
-        <div class="enzimax-benefit-card">
-          <div class="enzimax-benefit-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-            </svg>
-          </div>
-          <div class="enzimax-benefit-content">
-            <h4>Administración</h4>
-            <p>Una dosis diaria previa a las comidas (idealmente 20 minutos antes de la ingesta). Comprimidos de fácil administración. Práctico y simple de suministrar.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Selection Summary - At Bottom -->
-    <div class="enzimax-selection-summary active" id="enzimaxSelectionSummary">
-      <div class="enzimax-selection-box">
-        <div class="enzimax-selection-header">
-          <div class="enzimax-selection-title">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
-              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
-            </svg>
-            Tu Selección
-          </div>
-        </div>
-        <div class="enzimax-selection-items" id="enzimaxSelectionItems">
-          <div class="enzimax-selection-empty">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
-              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
-            </svg>
-            <p>No hay productos seleccionados</p>
-          </div>
-        </div>
-        <div class="enzimax-selection-total" id="enzimaxSelectionTotal">
-          <span class="enzimax-selection-total-label">Total</span>
-          <span class="enzimax-selection-total-value">$0</span>
-        </div>
-        <div class="enzimax-selection-actions">
-          <button class="enzimax-add-cart-btn" id="enzimaxAddToCartBtn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
-              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
-            </svg>
-            Añadir al carrito
-          </button>
-          <button class="enzimax-consult-btn" id="enzimaxRequestDeliveryBtn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
-            </svg>
-            Solicitar entrega
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- FLURBIPROFENO CANVAS MODAL -->
-  <div class="flurbiprofeno-modal-overlay" id="flurbiprofenoOverlay"></div>
-  <div class="flurbiprofeno-modal" id="flurbiprofenoModal">
-    <img src="images/holliday-logo.png" alt="Holliday" class="flurbiprofeno-brand-logo">
-    <button class="flurbiprofeno-close" id="flurbiprofenoClose">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="18" y1="6" x2="6" y2="18"></line>
-        <line x1="6" y1="6" x2="18" y2="18"></line>
-      </svg>
-    </button>
-
-    <!-- Hero Section -->
-    <section class="flurbiprofeno-hero">
-      <div class="flurbiprofeno-hero-content">
-        <div class="flurbiprofeno-logo">
-          <div class="flurbiprofeno-logo-text">FLURBIPROFENO</div>
-          <div class="flurbiprofeno-logo-subtitle">/ Antiinflamatorio no esteroide de última generación.</div>
-          <div class="flurbiprofeno-logo-description">Colirio estéril a base de Flurbiprofeno.</div>
-        </div>
-
-        <div class="flurbiprofeno-benefits-list">
-          <div class="flurbiprofeno-benefit-item">
-            <svg class="flurbiprofeno-checkmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-            <p>El flurbiprofeno es un antiinflamatorio no esteroideo (AINE) que inhibe las enzimas COX-1 y COX-2, responsables de la síntesis de prostaglandinas.</p>
-          </div>
-          <div class="flurbiprofeno-benefit-item">
-            <svg class="flurbiprofeno-checkmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-            <p>Es eficaz en la reducción de la inflamación y el dolor, proporcionando un alivio asociado con diversas condiciones oculares.</p>
-          </div>
-          <div class="flurbiprofeno-benefit-item">
-            <svg class="flurbiprofeno-checkmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-            <p>El inicio de acción es rápido, otorgando alivio en un corto período de tiempo, lo cual es importante para el manejo de condiciones agudas y mejorar el confort del animal.</p>
-          </div>
-        </div>
-
-        <div class="flurbiprofeno-hero-indication">
-          <strong>Indicado en tratamiento de procesos inflamatorios:</strong>
-          Conjuntivitis, uveitis leves y moderadas. En cirugías intraoculares (inhibición de la miosis intraoperatoria). También en post reparación de úlceras corneales con gran vascularización, procesos dolorosos oculares y en reemplazo de glucocorticoides tópicos cuando están contraindicados y en asociación con estos, en procesos inflamatorios muy severos.
-        </div>
-      </div>
-    </section>
-
-    <!-- Products Section -->
-    <section class="flurbiprofeno-products" id="flurbiprofenoProductsSection">
-      <div class="flurbiprofeno-presentation-box">
-        <strong>PRESENTACIÓN FRASCO OFTÁLMICO POR 5 ml.</strong>
-      </div>
-      
-      <div class="flurbiprofeno-presentations-container">
-        <div class="flurbiprofeno-presentation-card">
-          <img class="flurbiprofeno-presentation-image" src="images/flurbiprofeno.jpg" alt="Flurbiprofeno">
-          
-          <div class="flurbiprofeno-block-quantity" id="flurbiprofenoQuantity">
-            <span class="flurbiprofeno-block-quantity-label">Cantidad:</span>
-            <button class="flurbiprofeno-block-qty-btn" data-action="decrease">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            </button>
-            <span class="flurbiprofeno-block-qty-value">1</span>
-            <button class="flurbiprofeno-block-qty-btn" data-action="increase">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="flurbiprofeno-formula-box">
-        <strong>FÓRMULA</strong><br>
-        Cada 100 ml contiene:<br>
-        Flurbiprofeno...............0,1 g<br>
-        Excipientes c.s.
-      </div>
-    </section>
-
-    <!-- Selection Summary - At Bottom -->
-    <div class="flurbiprofeno-selection-summary active" id="flurbiprofenoSelectionSummary">
-      <div class="flurbiprofeno-selection-box">
-        <div class="flurbiprofeno-selection-header">
-          <div class="flurbiprofeno-selection-title">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
-              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
-            </svg>
-            Tu Selección
-          </div>
-        </div>
-        <div class="flurbiprofeno-selection-items" id="flurbiprofenoSelectionItems">
-          <div class="flurbiprofeno-selection-empty">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
-              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
-            </svg>
-            <p>No hay productos seleccionados</p>
-          </div>
-        </div>
-        <div class="flurbiprofeno-selection-total" id="flurbiprofenoSelectionTotal">
-          <span class="flurbiprofeno-selection-total-label">Total</span>
-          <span class="flurbiprofeno-selection-total-value">$0</span>
-        </div>
-        <div class="flurbiprofeno-selection-actions">
-          <button class="flurbiprofeno-add-cart-btn" id="flurbiprofenoAddToCartBtn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
-              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
-            </svg>
-            Añadir al carrito
-          </button>
-          <button class="flurbiprofeno-consult-btn" id="flurbiprofenoRequestDeliveryBtn">
+          <button class="product-consult-btn" id="productRequestDeliveryBtn">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
             </svg>
@@ -12296,437 +11947,287 @@
 
     // ============================================
     // ============================================
-    // CICLOSPORINA CANVAS MODAL (Right Side)
+    // GENERAL PRODUCT MODAL SYSTEM
     // ============================================
-    const ciclosporinaOverlay = document.getElementById('ciclosporinaOverlay');
-    const ciclosporinaModal = document.getElementById('ciclosporinaModal');
-    const ciclosporinaClose = document.getElementById('ciclosporinaClose');
-
-    function openCiclosporinaModal() {
-      ciclosporinaOverlay.classList.add('active');
-      ciclosporinaModal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      
-      // Store current product for ordering
-      currentProduct = {
+    const productModalOverlay = document.getElementById('productModalOverlay');
+    const productModal = document.getElementById('productModal');
+    const productClose = document.getElementById('productClose');
+    
+    // Product database - stores product information
+    const productDatabase = {
+      'Ciclosporina 1%': {
         name: 'Ciclosporina 1%',
         category: 'Oftalmología • Inmunomodulador',
         price: 'Consultar',
         image: 'images/ciclosporina.jpg',
-        unitPrice: 0,
-        selectedVariant: null
-      };
-      
-      // Initialize selection summary
-      setTimeout(() => {
-        updateCiclosporinaSelection();
-      }, 100);
-    }
-
-    function closeCiclosporinaModal() {
-      ciclosporinaOverlay.classList.remove('active');
-      ciclosporinaModal.classList.remove('active');
-      document.body.style.overflow = '';
-      // Scroll modal back to top for next opening
-      ciclosporinaModal.scrollTop = 0;
-    }
-
-    // Ciclosporina modal event listeners
-    if (ciclosporinaClose) {
-      ciclosporinaClose.addEventListener('click', closeCiclosporinaModal);
-    }
-    if (ciclosporinaOverlay) {
-      ciclosporinaOverlay.addEventListener('click', closeCiclosporinaModal);
-    }
-
-    // Order buttons - open delivery modal
-    const ciclosporinaAddToCartBtn = document.getElementById('ciclosporinaAddToCartBtn');
-    const ciclosporinaRequestDeliveryBtn = document.getElementById('ciclosporinaRequestDeliveryBtn');
-
-    if (ciclosporinaAddToCartBtn) {
-      ciclosporinaAddToCartBtn.addEventListener('click', () => {
-        closeCiclosporinaModal();
-        setTimeout(() => {
-          openDeliveryModal();
-        }, 300);
-      });
-    }
-
-    if (ciclosporinaRequestDeliveryBtn) {
-      ciclosporinaRequestDeliveryBtn.addEventListener('click', () => {
-        closeCiclosporinaModal();
-        setTimeout(() => {
-          openDeliveryModal();
-        }, 300);
-      });
-    }
-
-    // Close on Escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && ciclosporinaModal && ciclosporinaModal.classList.contains('active')) {
-        closeCiclosporinaModal();
-      }
-    });
-
-    // Quantity controls for Ciclosporina
-    const ciclosporinaQuantity = document.getElementById('ciclosporinaQuantity');
-    if (ciclosporinaQuantity) {
-      const qtyValue = ciclosporinaQuantity.querySelector('.ciclosporina-block-qty-value');
-      const qtyButtons = ciclosporinaQuantity.querySelectorAll('.ciclosporina-block-qty-btn');
-
-      qtyButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          const action = btn.dataset.action;
-          let currentQty = parseInt(qtyValue.textContent) || 1;
-
-          if (action === 'increase') {
-            currentQty++;
-          } else if (action === 'decrease' && currentQty > 1) {
-            currentQty--;
-          }
-
-          qtyValue.textContent = currentQty;
-          updateCiclosporinaSelection();
-        });
-      });
-    }
-
-    // Update selection summary
-    function updateCiclosporinaSelection() {
-      const ciclosporinaSelectionItems = document.getElementById('ciclosporinaSelectionItems');
-      const ciclosporinaSelectionTotal = document.getElementById('ciclosporinaSelectionTotal');
-      const qtyValue = document.querySelector('#ciclosporinaQuantity .ciclosporina-block-qty-value');
-      
-      if (!ciclosporinaSelectionItems || !ciclosporinaSelectionTotal || !qtyValue) return;
-
-      const quantity = parseInt(qtyValue.textContent) || 1;
-
-      // Always show the item if quantity > 0
-      ciclosporinaSelectionItems.innerHTML = `
-        <div class="ciclosporina-selection-item">
-          <div class="ciclosporina-selection-item-info">
-            <div class="ciclosporina-selection-item-dose">Ciclosporina 1% - 3.5g</div>
-          </div>
-          <div class="ciclosporina-selection-item-controls">
-            <button class="ciclosporina-selection-qty-btn" data-action="decrease">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            </button>
-            <span class="ciclosporina-selection-qty-value">${quantity}</span>
-            <button class="ciclosporina-selection-qty-btn" data-action="increase">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            </button>
-          </div>
-        </div>
-      `;
-
-      // Add event listeners to selection item controls
-      const selectionQtyButtons = ciclosporinaSelectionItems.querySelectorAll('.ciclosporina-selection-qty-btn');
-      selectionQtyButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          const action = btn.dataset.action;
-          let currentQty = parseInt(ciclosporinaSelectionItems.querySelector('.ciclosporina-selection-qty-value').textContent) || 1;
-
-          if (action === 'increase') {
-            currentQty++;
-          } else if (action === 'decrease' && currentQty > 1) {
-            currentQty--;
-          }
-
-          ciclosporinaSelectionItems.querySelector('.ciclosporina-selection-qty-value').textContent = currentQty;
-          qtyValue.textContent = currentQty;
-          updateCiclosporinaSelection();
-        });
-      });
-
-      // Update total
-      const totalValue = ciclosporinaSelectionTotal.querySelector('.ciclosporina-selection-total-value');
-      if (totalValue) {
-        totalValue.textContent = quantity > 0 ? 'Consultar Precio' : '$0';
-      }
-    }
-
-    // Initialize selection on load
-    if (ciclosporinaQuantity) {
-      updateCiclosporinaSelection();
-    }
-
-    // ============================================
-    // ============================================
-    // ENZIMAX CANVAS MODAL (Right Side)
-    // ============================================
-    const enzimaxOverlay = document.getElementById('enzimaxOverlay');
-    const enzimaxModal = document.getElementById('enzimaxModal');
-    const enzimaxClose = document.getElementById('enzimaxClose');
-
-    function openEnzimaxModal() {
-      enzimaxOverlay.classList.add('active');
-      enzimaxModal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      
-      // Store current product for ordering
-      currentProduct = {
+        logoText: 'CICLOSPORINA 1%',
+        logoSubtitle: '/ Inmunomodulador. Lacrimomimético. Antiinflamatorio.',
+        description: 'Ungüento estéril a base de <strong>Ciclosporina A</strong> (calidad U.S.P)',
+        indication: '<strong>Indicado para:</strong> el tratamiento de la queratoconjuntivitis seca (QCS) y la queratitis superficial crónica (pannus), conjuntivitis plasmocítica, queratitis punteada superficial, blefaritis ulcerativa del canto nasal, escleritis y epiescleritis.',
+        presentationTitle: 'Presentación Disponible',
+        presentationSubtitle: 'Pomo con 3,5 g. con aplicador oftálmico',
+        formula: '<strong>FÓRMULA</strong><br>Cada 100 g de ungüento contiene:<br>Ciclosporina A (USP)...............1 g<br>Excipientes c.s.',
+        benefitsTitle: 'Beneficios del Producto',
+        benefitsSubtitle: 'Ciclosporina 1% ofrece múltiples beneficios para el tratamiento de afecciones oculares',
+        benefits: [
+          { title: 'Inmunomodulador', description: 'Con afinidad por la córnea y la esclerótica. Su formulación de calidad U.S.P garantiza la pureza y la eficacia del principio activo.' },
+          { title: 'Lacrimomimético', description: 'Ayuda a restaurar la producción de lágrimas y mejora la lubricación ocular en casos de queratoconjuntivitis seca.' },
+          { title: 'Antiinflamatorio', description: 'Reduce la inflamación ocular asociada a enfermedades inmunomediadas, mejorando el confort y la salud del ojo.' },
+          { title: 'Solución Efectiva', description: 'Ofrece una solución efectiva para manejar afecciones oculares relacionadas con la falta de producción de lágrimas y otras enfermedades inmunomediadas en perros.' }
+        ]
+      },
+      'Enzimax': {
         name: 'Enzimax',
         category: 'Gastrointestinal • Enzimas',
         price: 'Consultar',
         image: 'images/enzimax.webp',
-        unitPrice: 0,
-        selectedVariant: null
-      };
-      
-      // Initialize selection summary
-      setTimeout(() => {
-        updateEnzimaxSelection();
-      }, 100);
-    }
-
-    function closeEnzimaxModal() {
-      enzimaxOverlay.classList.remove('active');
-      enzimaxModal.classList.remove('active');
-      document.body.style.overflow = '';
-      // Scroll modal back to top for next opening
-      enzimaxModal.scrollTop = 0;
-    }
-
-    // Enzimax modal event listeners
-    if (enzimaxClose) {
-      enzimaxClose.addEventListener('click', closeEnzimaxModal);
-    }
-    if (enzimaxOverlay) {
-      enzimaxOverlay.addEventListener('click', closeEnzimaxModal);
-    }
-
-    // Order buttons - open delivery modal
-    const enzimaxAddToCartBtn = document.getElementById('enzimaxAddToCartBtn');
-    const enzimaxRequestDeliveryBtn = document.getElementById('enzimaxRequestDeliveryBtn');
-
-    if (enzimaxAddToCartBtn) {
-      enzimaxAddToCartBtn.addEventListener('click', () => {
-        closeEnzimaxModal();
-        setTimeout(() => {
-          openDeliveryModal();
-        }, 300);
-      });
-    }
-
-    if (enzimaxRequestDeliveryBtn) {
-      enzimaxRequestDeliveryBtn.addEventListener('click', () => {
-        closeEnzimaxModal();
-        setTimeout(() => {
-          openDeliveryModal();
-        }, 300);
-      });
-    }
-
-    // Close on Escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && enzimaxModal && enzimaxModal.classList.contains('active')) {
-        closeEnzimaxModal();
-      }
-    });
-
-    // Quantity controls for Enzimax
-    const enzimaxQuantity = document.getElementById('enzimaxQuantity');
-    if (enzimaxQuantity) {
-      const qtyValue = enzimaxQuantity.querySelector('.enzimax-block-qty-value');
-      const qtyButtons = enzimaxQuantity.querySelectorAll('.enzimax-block-qty-btn');
-
-      qtyButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          const action = btn.dataset.action;
-          let currentQty = parseInt(qtyValue.textContent) || 1;
-
-          if (action === 'increase') {
-            currentQty++;
-          } else if (action === 'decrease' && currentQty > 1) {
-            currentQty--;
-          }
-
-          qtyValue.textContent = currentQty;
-          updateEnzimaxSelection();
-        });
-      });
-    }
-
-    // Update selection summary
-    function updateEnzimaxSelection() {
-      const enzimaxSelectionItems = document.getElementById('enzimaxSelectionItems');
-      const enzimaxSelectionTotal = document.getElementById('enzimaxSelectionTotal');
-      const qtyValue = document.querySelector('#enzimaxQuantity .enzimax-block-qty-value');
-      
-      if (!enzimaxSelectionItems || !enzimaxSelectionTotal || !qtyValue) return;
-
-      const quantity = parseInt(qtyValue.textContent) || 1;
-
-      // Always show the item if quantity > 0
-      enzimaxSelectionItems.innerHTML = `
-        <div class="enzimax-selection-item">
-          <div class="enzimax-selection-item-info">
-            <div class="enzimax-selection-item-dose">Enzimax - 2 blisters x 10 comprimidos (200 mg)</div>
-          </div>
-          <div class="enzimax-selection-item-controls">
-            <button class="enzimax-selection-qty-btn" data-action="decrease">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            </button>
-            <span class="enzimax-selection-qty-value">${quantity}</span>
-            <button class="enzimax-selection-qty-btn" data-action="increase">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            </button>
-          </div>
-        </div>
-      `;
-
-      // Add event listeners to selection item controls
-      const selectionQtyButtons = enzimaxSelectionItems.querySelectorAll('.enzimax-selection-qty-btn');
-      selectionQtyButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          const action = btn.dataset.action;
-          let currentQty = parseInt(enzimaxSelectionItems.querySelector('.enzimax-selection-qty-value').textContent) || 1;
-
-          if (action === 'increase') {
-            currentQty++;
-          } else if (action === 'decrease' && currentQty > 1) {
-            currentQty--;
-          }
-
-          enzimaxSelectionItems.querySelector('.enzimax-selection-qty-value').textContent = currentQty;
-          qtyValue.textContent = currentQty;
-          updateEnzimaxSelection();
-        });
-      });
-
-      // Update total
-      const totalValue = enzimaxSelectionTotal.querySelector('.enzimax-selection-total-value');
-      if (totalValue) {
-        totalValue.textContent = quantity > 0 ? 'Consultar Precio' : '$0';
-      }
-    }
-
-    // Initialize selection on load
-    if (enzimaxQuantity) {
-      updateEnzimaxSelection();
-    }
-
-    // ============================================
-    // FLURBIPROFENO CANVAS MODAL (Right Side)
-    // ============================================
-    const flurbiprofenoOverlay = document.getElementById('flurbiprofenoOverlay');
-    const flurbiprofenoModal = document.getElementById('flurbiprofenoModal');
-    const flurbiprofenoClose = document.getElementById('flurbiprofenoClose');
-
-    function openFlurbiprofenoModal() {
-      flurbiprofenoOverlay.classList.add('active');
-      flurbiprofenoModal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      
-      // Store current product for ordering
-      currentProduct = {
-        name: 'Flurbiprofeno Oftalday',
+        logoText: 'ENZIMAX',
+        logoSubtitle: '/ Único suplemento dietario formulado con enzimas proteolíticas',
+        description: 'Las enzimas vegetales de <strong>Enzimax</strong> fragmentan las partículas de los alimentos favoreciendo una mayor absorción de sus nutrientes. Está indicado para mejorar la digestión y absorción de dietas caseras y comerciales.',
+        indication: '<strong>Complementario a tratamientos por:</strong> Flatulencias, Diarreas, Síndrome de mala digestión, Síndrome de mala absorción, Enfermedad intestinal inflamatoria crónica, Gastritis crónicas, Disbacteriosis, Gastroenteritis infecciosas, Parasitosis internas, Insuficiencias pancreáticas, Hepatopatías, Períodos de convalecencia, Tratamientos oncológicos.',
+        presentationTitle: 'Presentación Disponible',
+        presentationSubtitle: 'Envase que contiene 2 blisters por 10 comprimidos de 200 mg cada uno',
+        formula: '<strong>FÓRMULA</strong><br>Cada comprimido de 200 mg contiene:<br>Bromelina (32 mg*) equivalente a 8 unidades FIP<br>Papaína (1,6 mg**) equivalente a 48000 unidades USP<br>Betaina HCI (5 mg*)<br>Excipientes c.s.',
+        benefitsTitle: 'Componentes Activos',
+        benefitsSubtitle: 'Enzimax contiene enzimas proteolíticas vegetales con múltiples beneficios',
+        benefits: [
+          { title: 'Bromelina', description: 'Enzima proteolítica extraída de la piña tropical. Acción antiinflamatoria, inmunomoduladora, anticoagulante, antiedematosa y mucolítica. Reduce los niveles de tromboxano y prostaglandinas que intervienen en el proceso inflamatorio.' },
+          { title: 'Betaina HCI', description: 'Compuesto tri-metilado del aminoácido extraído de la remolacha azucarera. Coadyuvante en el metabolismo de las grasas, colabora en la digestión de lípidos y desdoblamiento de proteínas. Fortalece la salud hepática y colabora con la hidratación celular.' },
+          { title: 'Papaína', description: 'Enzima proteolítica extraída del látex de la papaya. Favorece la digestión de los alimentos y funciona como regulador intestinal. Su contenido en pectina aumenta la masa fecal ayudando a la evacuación. Acción antihelmíntica colaborando en la eliminación de nematodos.' },
+          { title: 'Administración', description: 'Una dosis diaria previa a las comidas (idealmente 20 minutos antes de la ingesta). Comprimidos de fácil administración. Práctico y simple de suministrar.' }
+        ]
+      },
+      'Flurbiprofeno': {
+        name: 'Flurbiprofeno',
         category: 'Oftalmología • Antiinflamatorio',
         price: 'Consultar',
         image: 'images/flurbiprofeno.jpg',
+        logoText: 'FLURBIPROFENO',
+        logoSubtitle: '/ Antiinflamatorio no esteroide de última generación.',
+        description: 'Colirio estéril a base de Flurbiprofeno.',
+        indication: '<strong>Indicado en tratamiento de procesos inflamatorios:</strong> Conjuntivitis, uveitis leves y moderadas. En cirugías intraoculares (inhibición de la miosis intraoperatoria). También en post reparación de úlceras corneales con gran vascularización, procesos dolorosos oculares y en reemplazo de glucocorticoides tópicos cuando están contraindicados y en asociación con estos, en procesos inflamatorios muy severos.',
+        presentationTitle: 'PRESENTACIÓN FRASCO OFTÁLMICO POR 5 ml.',
+        presentationSubtitle: '',
+        formula: '<strong>FÓRMULA</strong><br>Cada 100 ml contiene:<br>Flurbiprofeno...............0,1 g<br>Excipientes c.s.',
+        benefitsTitle: '',
+        benefitsSubtitle: '',
+        benefits: [
+          { title: '', description: 'El flurbiprofeno es un antiinflamatorio no esteroideo (AINE) que inhibe las enzimas COX-1 y COX-2, responsables de la síntesis de prostaglandinas.' },
+          { title: '', description: 'Es eficaz en la reducción de la inflamación y el dolor, proporcionando un alivio asociado con diversas condiciones oculares.' },
+          { title: '', description: 'El inicio de acción es rápido, otorgando alivio en un corto período de tiempo, lo cual es importante para el manejo de condiciones agudas y mejorar el confort del animal.' }
+        ]
+      }
+    };
+    
+    // Unified shopping cart
+    let shoppingCart = [];
+    
+    // General modal functions
+    function openProductModal(productName, fallbackData = null) {
+      let productData = productDatabase[productName];
+      
+      // If product not in database, use fallback data or create default
+      if (!productData && fallbackData) {
+        productData = {
+          name: fallbackData.name || productName,
+          category: fallbackData.category || '',
+          price: fallbackData.price || 'Consultar',
+          image: fallbackData.image || 'images/placeholder.png',
+          logoText: fallbackData.name || productName,
+          logoSubtitle: fallbackData.category || '',
+          description: fallbackData.description || `<strong>${fallbackData.name || productName}</strong>`,
+          indication: '',
+          presentationTitle: 'Información del Producto',
+          presentationSubtitle: '',
+          formula: 'Consultar información detallada',
+          benefitsTitle: '',
+          benefitsSubtitle: '',
+          benefits: []
+        };
+      } else if (!productData) {
+        console.error('Product not found:', productName);
+        return;
+      }
+      
+      // Show modal
+      productModalOverlay.classList.add('active');
+      productModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      
+      // Populate modal content
+      populateProductModal(productData);
+      
+      // Store current product for ordering
+      currentProduct = {
+        name: productData.name,
+        category: productData.category,
+        price: productData.price,
+        image: productData.image,
         unitPrice: 0,
         selectedVariant: null
       };
       
       // Initialize selection summary
       setTimeout(() => {
-        updateFlurbiprofenoSelection();
+        updateProductSelection();
       }, 100);
     }
-
-    function closeFlurbiprofenoModal() {
-      flurbiprofenoOverlay.classList.remove('active');
-      flurbiprofenoModal.classList.remove('active');
+    
+    function closeProductModal() {
+      productModalOverlay.classList.remove('active');
+      productModal.classList.remove('active');
       document.body.style.overflow = '';
-      // Scroll modal back to top for next opening
-      flurbiprofenoModal.scrollTop = 0;
+      productModal.scrollTop = 0;
     }
-
-    // Flurbiprofeno modal event listeners
-    if (flurbiprofenoClose) {
-      flurbiprofenoClose.addEventListener('click', closeFlurbiprofenoModal);
-    }
-    if (flurbiprofenoOverlay) {
-      flurbiprofenoOverlay.addEventListener('click', closeFlurbiprofenoModal);
-    }
-
-    // Order buttons - open delivery modal
-    const flurbiprofenoAddToCartBtn = document.getElementById('flurbiprofenoAddToCartBtn');
-    const flurbiprofenoRequestDeliveryBtn = document.getElementById('flurbiprofenoRequestDeliveryBtn');
-
-    if (flurbiprofenoAddToCartBtn) {
-      flurbiprofenoAddToCartBtn.addEventListener('click', () => {
-        closeFlurbiprofenoModal();
-        setTimeout(() => {
-          openDeliveryModal();
-        }, 300);
-      });
-    }
-
-    if (flurbiprofenoRequestDeliveryBtn) {
-      flurbiprofenoRequestDeliveryBtn.addEventListener('click', () => {
-        closeFlurbiprofenoModal();
-        setTimeout(() => {
-          openDeliveryModal();
-        }, 300);
-      });
-    }
-
-    // Close on Escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && flurbiprofenoModal && flurbiprofenoModal.classList.contains('active')) {
-        closeFlurbiprofenoModal();
-      }
-    });
-
-    // Quantity controls for Flurbiprofeno
-    const flurbiprofenoQuantity = document.getElementById('flurbiprofenoQuantity');
-    if (flurbiprofenoQuantity) {
-      const qtyValue = flurbiprofenoQuantity.querySelector('.flurbiprofeno-block-qty-value');
-      const qtyButtons = flurbiprofenoQuantity.querySelectorAll('.flurbiprofeno-block-qty-btn');
-
-      qtyButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          const action = btn.dataset.action;
-          let currentQty = parseInt(qtyValue.textContent) || 1;
-
-          if (action === 'increase') {
-            currentQty++;
-          } else if (action === 'decrease' && currentQty > 1) {
-            currentQty--;
-          }
-
-          qtyValue.textContent = currentQty;
-          updateFlurbiprofenoSelection();
-        });
-      });
-    }
-
-    // Update selection summary
-    function updateFlurbiprofenoSelection() {
-      const flurbiprofenoSelectionItems = document.getElementById('flurbiprofenoSelectionItems');
-      const flurbiprofenoSelectionTotal = document.getElementById('flurbiprofenoSelectionTotal');
+    
+    function populateProductModal(productData) {
+      const heroContent = document.getElementById('productHeroContent');
+      const productsSection = document.getElementById('productProductsSection');
+      const benefitsSection = document.getElementById('productBenefitsSection');
       
-      if (!flurbiprofenoSelectionItems || !flurbiprofenoQuantity) return;
-
-      const quantity = parseInt(flurbiprofenoQuantity.querySelector('.flurbiprofeno-block-qty-value').textContent) || 0;
-
-      // Clear existing items
-      flurbiprofenoSelectionItems.innerHTML = '';
-
-      if (quantity > 0) {
-        const item = document.createElement('div');
-        item.className = 'flurbiprofeno-selection-item';
-        item.innerHTML = `
-          <div class="flurbiprofeno-selection-item-info">
-            <div class="flurbiprofeno-selection-item-name">Flurbiprofeno Oftalday</div>
-            <div class="flurbiprofeno-selection-item-price">Cantidad: ${quantity}</div>
+      // Populate hero section
+      heroContent.innerHTML = `
+        <div class="product-logo">
+          <div class="product-logo-text">${productData.logoText}</div>
+          <div class="product-logo-subtitle">${productData.logoSubtitle}</div>
+        </div>
+        <p class="product-hero-description">${productData.description}</p>
+        <div class="product-hero-indication">${productData.indication}</div>
+      `;
+      
+      // Populate products section
+      productsSection.innerHTML = `
+        <h2 class="product-section-title">${productData.presentationTitle}</h2>
+        ${productData.presentationSubtitle ? `<p class="product-section-subtitle">${productData.presentationSubtitle}</p>` : ''}
+        <div class="product-presentations-container">
+          <div class="product-presentation-card">
+            <img class="product-presentation-image" src="${productData.image}" alt="${productData.name}">
+            <div class="product-presentation-info">${productData.formula}</div>
+            <div class="product-block-quantity" id="productQuantity">
+              <span class="product-block-quantity-label">Cantidad:</span>
+              <button class="product-block-qty-btn" data-action="decrease">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </button>
+              <span class="product-block-qty-value">1</span>
+              <button class="product-block-qty-btn" data-action="increase">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+      
+      // Populate benefits section
+      if (productData.benefits && productData.benefits.length > 0) {
+        benefitsSection.innerHTML = `
+          <h2 class="product-section-title">${productData.benefitsTitle}</h2>
+          <p class="product-section-subtitle">${productData.benefitsSubtitle}</p>
+          <div class="product-benefits-grid">
+            ${productData.benefits.map((benefit, index) => `
+              <div class="product-benefit-card">
+                ${benefit.title ? `
+                <div class="product-benefit-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                  </svg>
+                </div>
+                <div class="product-benefit-content">
+                  <h4>${benefit.title}</h4>
+                  <p>${benefit.description}</p>
+                </div>
+                ` : `
+                <div class="product-benefit-item">
+                  <svg class="product-checkmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <p>${benefit.description}</p>
+                </div>
+                `}
+              </div>
+            `).join('')}
           </div>
         `;
-        flurbiprofenoSelectionItems.appendChild(item);
       } else {
-        flurbiprofenoSelectionItems.innerHTML = `
-          <div class="flurbiprofeno-selection-empty">
+        benefitsSection.innerHTML = '';
+      }
+      
+      // Setup quantity controls
+      setupProductQuantityControls();
+    }
+    
+    function setupProductQuantityControls() {
+      const productQuantity = document.getElementById('productQuantity');
+      if (productQuantity) {
+        const qtyValue = productQuantity.querySelector('.product-block-qty-value');
+        const qtyButtons = productQuantity.querySelectorAll('.product-block-qty-btn');
+        
+        qtyButtons.forEach(btn => {
+          btn.addEventListener('click', () => {
+            const action = btn.dataset.action;
+            let currentQty = parseInt(qtyValue.textContent) || 1;
+            
+            if (action === 'increase') {
+              currentQty++;
+            } else if (action === 'decrease' && currentQty > 1) {
+              currentQty--;
+            }
+            
+            qtyValue.textContent = currentQty;
+            updateProductSelection();
+          });
+        });
+      }
+    }
+    
+    function updateProductSelection() {
+      const productSelectionItems = document.getElementById('productSelectionItems');
+      const productSelectionTotal = document.getElementById('productSelectionTotal');
+      const productQuantity = document.getElementById('productQuantity');
+      
+      if (!productSelectionItems || !productSelectionTotal || !productQuantity) return;
+      
+      const qtyValue = productQuantity.querySelector('.product-block-qty-value');
+      const quantity = parseInt(qtyValue.textContent) || 1;
+      
+      if (quantity > 0) {
+        productSelectionItems.innerHTML = `
+          <div class="product-selection-item">
+            <div class="product-selection-item-info">
+              <div class="product-selection-item-dose">${currentProduct.name}</div>
+            </div>
+            <div class="product-selection-item-controls">
+              <button class="product-selection-qty-btn" data-action="decrease">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </button>
+              <span class="product-selection-qty-value">${quantity}</span>
+              <button class="product-selection-qty-btn" data-action="increase">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </button>
+            </div>
+          </div>
+        `;
+        
+        // Add event listeners to selection item controls
+        const selectionQtyButtons = productSelectionItems.querySelectorAll('.product-selection-qty-btn');
+        selectionQtyButtons.forEach(btn => {
+          btn.addEventListener('click', () => {
+            const action = btn.dataset.action;
+            let currentQty = parseInt(productSelectionItems.querySelector('.product-selection-qty-value').textContent) || 1;
+            
+            if (action === 'increase') {
+              currentQty++;
+            } else if (action === 'decrease' && currentQty > 1) {
+              currentQty--;
+            }
+            
+            productSelectionItems.querySelector('.product-selection-qty-value').textContent = currentQty;
+            qtyValue.textContent = currentQty;
+            updateProductSelection();
+          });
+        });
+      } else {
+        productSelectionItems.innerHTML = `
+          <div class="product-selection-empty">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
               <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
@@ -12735,18 +12236,77 @@
           </div>
         `;
       }
-
+      
       // Update total
-      const totalValue = flurbiprofenoSelectionTotal.querySelector('.flurbiprofeno-selection-total-value');
+      const totalValue = productSelectionTotal.querySelector('.product-selection-total-value');
       if (totalValue) {
         totalValue.textContent = quantity > 0 ? 'Consultar Precio' : '$0';
       }
     }
-
-    // Initialize selection on load
-    if (flurbiprofenoQuantity) {
-      updateFlurbiprofenoSelection();
+    
+    // Product modal event listeners
+    if (productClose) {
+      productClose.addEventListener('click', closeProductModal);
     }
+    if (productModalOverlay) {
+      productModalOverlay.addEventListener('click', closeProductModal);
+    }
+    
+    // Unified buttons for all products
+    const productAddToCartBtn = document.getElementById('productAddToCartBtn');
+    const productRequestDeliveryBtn = document.getElementById('productRequestDeliveryBtn');
+    
+    if (productAddToCartBtn) {
+      productAddToCartBtn.addEventListener('click', () => {
+        const productQuantity = document.getElementById('productQuantity');
+        const qtyValue = productQuantity ? productQuantity.querySelector('.product-block-qty-value') : null;
+        const quantity = qtyValue ? parseInt(qtyValue.textContent) || 1 : 1;
+        
+        // Add to shopping cart
+        shoppingCart.push({
+          name: currentProduct.name,
+          category: currentProduct.category,
+          price: currentProduct.price,
+          image: currentProduct.image,
+          quantity: quantity
+        });
+        
+        closeProductModal();
+        setTimeout(() => {
+          openDeliveryModal();
+        }, 300);
+      });
+    }
+    
+    if (productRequestDeliveryBtn) {
+      productRequestDeliveryBtn.addEventListener('click', () => {
+        const productQuantity = document.getElementById('productQuantity');
+        const qtyValue = productQuantity ? productQuantity.querySelector('.product-block-qty-value') : null;
+        const quantity = qtyValue ? parseInt(qtyValue.textContent) || 1 : 1;
+        
+        // Add to shopping cart
+        shoppingCart.push({
+          name: currentProduct.name,
+          category: currentProduct.category,
+          price: currentProduct.price,
+          image: currentProduct.image,
+          quantity: quantity
+        });
+        
+        closeProductModal();
+        setTimeout(() => {
+          openDeliveryModal();
+        }, 300);
+      });
+    }
+    
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && productModal && productModal.classList.contains('active')) {
+        closeProductModal();
+      }
+    });
+
 
     // CARDIAL FULL-SCREEN MODAL
     // ============================================
@@ -13447,24 +13007,6 @@
         return;
       }
 
-      // Check if this is Ciclosporina - open canvas modal instead
-      if (card.classList.contains('ciclosporina-card') || name.includes('Ciclosporina')) {
-        openCiclosporinaModal();
-        return;
-      }
-
-      // Check if this is Enzimax - open canvas modal instead
-      if (card.classList.contains('enzimax-card') || name === 'Enzimax') {
-        openEnzimaxModal();
-        return;
-      }
-
-      // Check if this is Flurbiprofeno - open canvas modal instead
-      if (card.classList.contains('flurbiprofeno-card') || name.includes('Flurbiprofeno')) {
-        openFlurbiprofenoModal();
-        return;
-      }
-
       // Check if this is Cardial B - open fullscreen modal instead (check this first to avoid matching "Cardial")
       if (card.classList.contains('cardialb-card') || name === 'Cardial B') {
         openCardialbModal();
@@ -13476,6 +13018,34 @@
         openCardialModal();
         return;
       }
+
+      // All other products open the general product modal
+      // Check if product is in database
+      let productKey = null;
+      if (productDatabase[name]) {
+        productKey = name;
+      } else if (name.includes('Ciclosporina')) {
+        productKey = 'Ciclosporina 1%';
+      } else if (name === 'Enzimax') {
+        productKey = 'Enzimax';
+      } else if (name.includes('Flurbiprofeno')) {
+        productKey = 'Flurbiprofeno';
+      }
+      
+      // Open modal with product data (use fallback if not in database)
+      if (productKey) {
+        openProductModal(productKey);
+      } else {
+        // Use fallback data for products not in database
+        openProductModal(name, {
+          name: name,
+          category: category,
+          price: priceText,
+          image: image,
+          description: card.querySelector('.product-info p')?.textContent || ''
+        });
+      }
+      return;
       
       // Check if product has variants
       const variantsData = card.dataset.variants;
