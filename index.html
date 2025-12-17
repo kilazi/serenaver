@@ -835,7 +835,7 @@
       width: 100vw;
       height: 100vh;
       flex-shrink: 0;
-      background: linear-gradient(180deg, #F8FBF7 0%, var(--color-white) 100%);
+      background: var(--color-white);
       position: relative;
       display: flex;
       flex-direction: column;
@@ -1003,85 +1003,16 @@
       overflow: visible;
       border: 1px solid var(--color-border);
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-      transition: all 0.5s var(--ease-out-expo);
-      transform-style: preserve-3d;
-      perspective: 1000px;
       position: relative;
-      opacity: 0;
-      transform: translateY(40px) rotateX(8deg);
       display: flex;
       flex-direction: column;
-    }
-
-    /* Card entrance animation */
-    .products-visible .product-card {
-      opacity: 1;
-      transform: translateY(0) rotateX(0);
-    }
-
-    .products-visible .product-card:nth-child(1) { transition-delay: 0.1s; }
-    .products-visible .product-card:nth-child(2) { transition-delay: 0.15s; }
-    .products-visible .product-card:nth-child(3) { transition-delay: 0.2s; }
-    .products-visible .product-card:nth-child(4) { transition-delay: 0.25s; }
-    .products-visible .product-card:nth-child(5) { transition-delay: 0.3s; }
-    .products-visible .product-card:nth-child(6) { transition-delay: 0.35s; }
-    .products-visible .product-card:nth-child(7) { transition-delay: 0.4s; }
-    .products-visible .product-card:nth-child(8) { transition-delay: 0.45s; }
-
-    /* Shine effect */
-    .product-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        90deg,
-        transparent 0%,
-        rgba(255, 255, 255, 0.1) 50%,
-        transparent 100%
-      );
-      transition: left 0.8s ease;
-      pointer-events: none;
-      border-radius: 18px;
-      z-index: 5;
-    }
-
-    .product-card:hover::before {
-      left: 100%;
-    }
-
-    /* Glow effect on hover */
-    .product-card::after {
-      content: '';
-      position: absolute;
-      inset: -2px;
-      background: linear-gradient(135deg, var(--color-primary), transparent, var(--color-primary));
-      border-radius: 20px;
-      z-index: -1;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-      filter: blur(15px);
-    }
-
-    .product-card:hover {
-      transform: translateY(-10px) scale(1.02);
-      border-color: var(--color-primary-light);
-      box-shadow: 
-        0 20px 40px rgba(104, 187, 89, 0.18),
-        0 0 30px rgba(104, 187, 89, 0.08);
-    }
-
-    .product-card:hover::after {
-      opacity: 0.4;
+      cursor: pointer;
     }
 
     .product-card.filtered-out {
       display: none !important;
     }
 
-    /* Compact Badge */
     .product-badge {
       position: absolute;
       top: 0.6rem;
@@ -1096,18 +1027,11 @@
       text-transform: uppercase;
       letter-spacing: 0.05em;
       box-shadow: 0 3px 10px rgba(104, 187, 89, 0.4);
-      animation: badgePulse 2s ease-in-out infinite;
-    }
-
-    @keyframes badgePulse {
-      0%, 100% { box-shadow: 0 3px 10px rgba(104, 187, 89, 0.4); }
-      50% { box-shadow: 0 3px 18px rgba(104, 187, 89, 0.6); }
     }
 
     .product-image {
       height: 120px;
       min-height: 120px;
-      background: linear-gradient(180deg, rgba(104, 187, 89, 0.12) 0%, rgba(104, 187, 89, 0.04) 100%);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1116,33 +1040,14 @@
       border-radius: 18px 18px 0 0;
     }
 
-    /* Floating particles in image */
-    .product-image::before {
-      content: '';
-      position: absolute;
-      width: 150%;
-      height: 150%;
-      background: radial-gradient(circle at center, rgba(104, 187, 89, 0.15) 0%, transparent 50%);
-      animation: imageGlow 4s ease-in-out infinite;
-      pointer-events: none;
-    }
-
-    @keyframes imageGlow {
-      0%, 100% { transform: scale(0.8); opacity: 0.5; }
-      50% { transform: scale(1.2); opacity: 1; }
-    }
-
     .product-image img {
-      max-width: 65%;
-      max-height: 80%;
+      max-width: 85%;
+      max-height: 120%;
       object-fit: contain;
-      transition: all 0.5s var(--ease-out-expo);
-      filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
       position: relative;
       z-index: 2;
     }
 
-    /* Fallback for missing images */
     .product-image .placeholder-icon {
       position: absolute;
       width: 50px;
@@ -1150,11 +1055,6 @@
       color: var(--color-primary);
       opacity: 0.6;
       z-index: 1;
-    }
-
-    .product-card:hover .product-image img {
-      transform: scale(1.12) translateY(-5px);
-      filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.25));
     }
 
     .product-info {
@@ -1183,12 +1083,6 @@
       height: 5px;
       background: var(--color-primary);
       border-radius: 50%;
-      animation: dotPulse 1.5s ease-in-out infinite;
-    }
-
-    @keyframes dotPulse {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.3); opacity: 0.7; }
     }
 
     .product-info h3 {
@@ -1196,12 +1090,7 @@
       font-size: 0.95rem;
       color: var(--color-charcoal);
       margin-bottom: 0.25rem;
-      transition: color 0.3s ease;
       line-height: 1.2;
-    }
-
-    .product-card:hover .product-info h3 {
-      color: var(--color-primary-dark);
     }
 
     .product-info p {
@@ -1238,11 +1127,6 @@
       font-size: 0.7rem;
       color: var(--color-gray);
       text-decoration: line-through;
-    }
-
-    /* Make product cards clickable */
-    .product-card {
-      cursor: pointer;
     }
 
     /* ============================================
@@ -5432,7 +5316,7 @@
       display: block;
       max-width: 120px;
       height: auto;
-      margin: 0 0 2rem 0;
+      margin: 0 auto 2rem;
       background: #fff;
       padding: 1rem;
       border-radius: 8px;
@@ -6308,7 +6192,7 @@
       display: block;
       max-width: 120px;
       height: auto;
-      margin: 0 0 2rem 0;
+      margin: 0 auto 2rem;
       background: #fff;
       padding: 1rem;
       border-radius: 8px;
@@ -8337,8 +8221,6 @@
           <!-- Category Filters in header -->
           <div class="category-filters">
             <button class="filter-btn active" data-filter="all">Todos</button>
-            <button class="filter-btn" data-filter="perros">🐕 Perros</button>
-            <button class="filter-btn" data-filter="gatos">🐱 Gatos</button>
             <button class="filter-btn" data-filter="cardiologia">❤️ Cardiología</button>
             <button class="filter-btn" data-filter="antiparasitarios">🛡️ Antiparasitarios</button>
             <button class="filter-btn" data-filter="oftalmologia">👁️ Oftalmología</button>
