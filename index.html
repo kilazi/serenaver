@@ -4623,6 +4623,529 @@
     }
 
     /* ============================================
+       FLURBIPROFENO CANVAS MODAL (Right Side)
+    ============================================ */
+    .flurbiprofeno-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 10000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .flurbiprofeno-modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .flurbiprofeno-modal {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 42.5%;
+      max-width: 680px;
+      height: 100vh;
+      z-index: 10001;
+      overflow-y: auto;
+      overflow-x: hidden;
+      background: #fff;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(100%);
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: -10px 0 40px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .flurbiprofeno-modal.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(0);
+    }
+
+    .flurbiprofeno-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.95);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10002;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .flurbiprofeno-close:hover {
+      transform: rotate(90deg) scale(1.1);
+      background: #fff;
+    }
+
+    .flurbiprofeno-close svg {
+      width: 24px;
+      height: 24px;
+      color: #1c1c1c;
+    }
+
+    .flurbiprofeno-brand-logo {
+      position: absolute;
+      top: 1.5rem;
+      left: 1.5rem;
+      max-width: 100px;
+      height: auto;
+      z-index: 10002;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 0.5rem;
+      border-radius: 8px;
+    }
+
+    /* Hero Section */
+    .flurbiprofeno-hero {
+      min-height: 50vh;
+      background: #ffffff;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 3rem 2rem;
+      flex-shrink: 0;
+    }
+
+    .flurbiprofeno-hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: left;
+      padding: 2rem;
+      max-width: 100%;
+    }
+
+    .flurbiprofeno-logo {
+      margin-bottom: 2rem;
+      animation: fadeInDown 1s ease-out;
+    }
+
+    .flurbiprofeno-logo-text {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 800;
+      color: #1c1c1c;
+      text-shadow: none;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .flurbiprofeno-logo-subtitle {
+      font-size: 0.9rem;
+      color: #0066CC;
+      text-transform: none;
+      letter-spacing: 0;
+      margin-top: 0.5rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .flurbiprofeno-logo-description {
+      font-size: 0.9rem;
+      color: #0066CC;
+      margin-top: 0.5rem;
+      font-weight: 400;
+    }
+
+    .flurbiprofeno-benefits-list {
+      margin: 2rem 0;
+    }
+
+    .flurbiprofeno-benefit-item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .flurbiprofeno-checkmark {
+      width: 24px;
+      height: 24px;
+      color: #0066CC;
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+    }
+
+    .flurbiprofeno-benefit-item p {
+      font-size: 0.95rem;
+      color: var(--color-charcoal);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .flurbiprofeno-hero-indication {
+      background: #E6F2FF;
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 1.5rem 2rem;
+      font-size: 0.9rem;
+      color: var(--color-charcoal);
+      line-height: 1.7;
+      animation: fadeInUp 1s ease-out 0.5s both;
+      border: 1px solid rgba(0, 102, 204, 0.3);
+      text-align: left;
+      margin-top: 1.5rem;
+    }
+
+    .flurbiprofeno-hero-indication strong {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      color: #0066CC;
+    }
+
+    /* Products Section */
+    .flurbiprofeno-products {
+      background: #fff;
+      padding: 3rem 2rem;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .flurbiprofeno-presentation-box {
+      background: #E6F2FF;
+      border: 1px solid rgba(0, 102, 204, 0.3);
+      border-radius: 12px;
+      padding: 1rem 1.5rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+      color: #0066CC;
+      font-weight: 600;
+    }
+
+    .flurbiprofeno-presentations-container {
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    .flurbiprofeno-presentation-card {
+      background: linear-gradient(145deg, #fff 0%, #f8f8f8 100%);
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+
+    .flurbiprofeno-presentation-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #0066CC, #0052a3);
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .flurbiprofeno-presentation-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(0, 102, 204, 0.15);
+    }
+
+    .flurbiprofeno-presentation-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .flurbiprofeno-presentation-image {
+      max-width: 200px;
+      height: auto;
+      margin: 1rem auto;
+      display: block;
+    }
+
+    .flurbiprofeno-block-quantity {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(0, 102, 204, 0.2);
+    }
+
+    .flurbiprofeno-block-quantity-label {
+      font-weight: 600;
+      color: #1c1c1c;
+    }
+
+    .flurbiprofeno-block-qty-btn {
+      width: 36px;
+      height: 36px;
+      border: none;
+      background: #0066CC;
+      color: #fff;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .flurbiprofeno-block-qty-btn:hover {
+      background: #0052a3;
+      transform: scale(1.1);
+    }
+
+    .flurbiprofeno-block-qty-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .flurbiprofeno-block-qty-value {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #0066CC;
+      min-width: 40px;
+      text-align: center;
+    }
+
+    .flurbiprofeno-formula-box {
+      background: #E6F2FF;
+      border: 1px solid rgba(0, 102, 204, 0.3);
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      font-size: 0.9rem;
+      color: var(--color-charcoal);
+      line-height: 1.7;
+      margin-top: 2rem;
+    }
+
+    .flurbiprofeno-formula-box strong {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      color: #0066CC;
+    }
+
+    /* Selection Summary - At Bottom */
+    .flurbiprofeno-selection-summary {
+      position: relative;
+      margin-top: auto;
+    }
+
+    .flurbiprofeno-selection-summary.active {
+      display: block;
+    }
+
+    .flurbiprofeno-selection-box {
+      position: sticky;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+      border-top: 2px solid #0066CC;
+      padding: 1.5rem 2rem;
+      box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.1);
+      max-width: 100%;
+    }
+
+    .flurbiprofeno-selection-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .flurbiprofeno-selection-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #0066CC;
+    }
+
+    .flurbiprofeno-selection-title svg {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+    .flurbiprofeno-selection-items {
+      max-height: 200px;
+      overflow-y: auto;
+      margin-bottom: 1rem;
+    }
+
+    .flurbiprofeno-selection-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem;
+      background: #f8f9fa;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+
+    .flurbiprofeno-selection-item-info {
+      flex: 1;
+    }
+
+    .flurbiprofeno-selection-item-name {
+      font-weight: 600;
+      color: #1c1c1c;
+      font-size: 0.9rem;
+    }
+
+    .flurbiprofeno-selection-item-price {
+      color: #666;
+      font-size: 0.85rem;
+    }
+
+    .flurbiprofeno-selection-empty {
+      text-align: center;
+      padding: 2rem;
+      color: #999;
+    }
+
+    .flurbiprofeno-selection-empty svg {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 1rem;
+      opacity: 0.3;
+    }
+
+    .flurbiprofeno-selection-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      border-top: 1px solid rgba(0, 102, 204, 0.2);
+      margin-bottom: 1rem;
+    }
+
+    .flurbiprofeno-selection-total-label {
+      font-weight: 700;
+      color: #1c1c1c;
+      font-size: 1.1rem;
+    }
+
+    .flurbiprofeno-selection-total-value {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #0066CC;
+    }
+
+    .flurbiprofeno-selection-actions {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .flurbiprofeno-add-cart-btn,
+    .flurbiprofeno-consult-btn {
+      flex: 1;
+      padding: 1rem 1.5rem;
+      border: none;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .flurbiprofeno-add-cart-btn {
+      background: #0066CC;
+      color: #fff;
+    }
+
+    .flurbiprofeno-add-cart-btn:hover {
+      background: #0052a3;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 102, 204, 0.3);
+    }
+
+    .flurbiprofeno-consult-btn {
+      background: #fff;
+      color: #0066CC;
+      border: 2px solid #0066CC;
+    }
+
+    .flurbiprofeno-consult-btn:hover {
+      background: #0066CC;
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 102, 204, 0.3);
+    }
+
+    .flurbiprofeno-add-cart-btn svg,
+    .flurbiprofeno-consult-btn svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .flurbiprofeno-modal {
+        width: 60%;
+        max-width: 700px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .flurbiprofeno-modal {
+        width: 80%;
+        max-width: 600px;
+      }
+      
+      .flurbiprofeno-logo-text {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .flurbiprofeno-modal {
+        width: 100%;
+        max-width: 100%;
+      }
+      
+      .flurbiprofeno-logo-text {
+        font-size: 2rem;
+      }
+      
+      .flurbiprofeno-hero-description {
+        font-size: 0.9rem;
+      }
+      
+      .flurbiprofeno-benefit-item {
+        flex-direction: column;
+      }
+      
+      .flurbiprofeno-checkmark {
+        margin: 0 auto 0.5rem;
+      }
+    }
+
+    /* ============================================
        CARDIAL FULL-SCREEN MODAL
     ============================================ */
     .cardial-modal-overlay {
@@ -8322,7 +8845,7 @@
           </div>
 
           <!-- FLURBIPROFENO OFTALDAY -->
-          <div class="product-card" data-category="perros gatos oftalmologia">
+          <div class="product-card flurbiprofeno-card" data-category="perros gatos oftalmologia">
             <div class="product-image">
               <img src="images/flurbiprofeno.jpg" alt="Flurbiprofeno Oftalday">
             </div>
@@ -9840,6 +10363,129 @@
             Añadir al carrito
           </button>
           <button class="enzimax-consult-btn" id="enzimaxRequestDeliveryBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+            Solicitar entrega
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLURBIPROFENO CANVAS MODAL -->
+  <div class="flurbiprofeno-modal-overlay" id="flurbiprofenoOverlay"></div>
+  <div class="flurbiprofeno-modal" id="flurbiprofenoModal">
+    <img src="images/holliday-logo.png" alt="Holliday" class="flurbiprofeno-brand-logo">
+    <button class="flurbiprofeno-close" id="flurbiprofenoClose">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <!-- Hero Section -->
+    <section class="flurbiprofeno-hero">
+      <div class="flurbiprofeno-hero-content">
+        <div class="flurbiprofeno-logo">
+          <div class="flurbiprofeno-logo-text">FLURBIPROFENO</div>
+          <div class="flurbiprofeno-logo-subtitle">/ Antiinflamatorio no esteroide de última generación.</div>
+          <div class="flurbiprofeno-logo-description">Colirio estéril a base de Flurbiprofeno.</div>
+        </div>
+
+        <div class="flurbiprofeno-benefits-list">
+          <div class="flurbiprofeno-benefit-item">
+            <svg class="flurbiprofeno-checkmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <p>El flurbiprofeno es un antiinflamatorio no esteroideo (AINE) que inhibe las enzimas COX-1 y COX-2, responsables de la síntesis de prostaglandinas.</p>
+          </div>
+          <div class="flurbiprofeno-benefit-item">
+            <svg class="flurbiprofeno-checkmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <p>Es eficaz en la reducción de la inflamación y el dolor, proporcionando un alivio asociado con diversas condiciones oculares.</p>
+          </div>
+          <div class="flurbiprofeno-benefit-item">
+            <svg class="flurbiprofeno-checkmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <p>El inicio de acción es rápido, otorgando alivio en un corto período de tiempo, lo cual es importante para el manejo de condiciones agudas y mejorar el confort del animal.</p>
+          </div>
+        </div>
+
+        <div class="flurbiprofeno-hero-indication">
+          <strong>Indicado en tratamiento de procesos inflamatorios:</strong>
+          Conjuntivitis, uveitis leves y moderadas. En cirugías intraoculares (inhibición de la miosis intraoperatoria). También en post reparación de úlceras corneales con gran vascularización, procesos dolorosos oculares y en reemplazo de glucocorticoides tópicos cuando están contraindicados y en asociación con estos, en procesos inflamatorios muy severos.
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="flurbiprofeno-products" id="flurbiprofenoProductsSection">
+      <div class="flurbiprofeno-presentation-box">
+        <strong>PRESENTACIÓN FRASCO OFTÁLMICO POR 5 ml.</strong>
+      </div>
+      
+      <div class="flurbiprofeno-presentations-container">
+        <div class="flurbiprofeno-presentation-card">
+          <img class="flurbiprofeno-presentation-image" src="images/flurbiprofeno.jpg" alt="Flurbiprofeno">
+          
+          <div class="flurbiprofeno-block-quantity" id="flurbiprofenoQuantity">
+            <span class="flurbiprofeno-block-quantity-label">Cantidad:</span>
+            <button class="flurbiprofeno-block-qty-btn" data-action="decrease">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <span class="flurbiprofeno-block-qty-value">1</span>
+            <button class="flurbiprofeno-block-qty-btn" data-action="increase">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flurbiprofeno-formula-box">
+        <strong>FÓRMULA</strong><br>
+        Cada 100 ml contiene:<br>
+        Flurbiprofeno...............0,1 g<br>
+        Excipientes c.s.
+      </div>
+    </section>
+
+    <!-- Selection Summary - At Bottom -->
+    <div class="flurbiprofeno-selection-summary active" id="flurbiprofenoSelectionSummary">
+      <div class="flurbiprofeno-selection-box">
+        <div class="flurbiprofeno-selection-header">
+          <div class="flurbiprofeno-selection-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+            </svg>
+            Tu Selección
+          </div>
+        </div>
+        <div class="flurbiprofeno-selection-items" id="flurbiprofenoSelectionItems">
+          <div class="flurbiprofeno-selection-empty">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+            </svg>
+            <p>No hay productos seleccionados</p>
+          </div>
+        </div>
+        <div class="flurbiprofeno-selection-total" id="flurbiprofenoSelectionTotal">
+          <span class="flurbiprofeno-selection-total-label">Total</span>
+          <span class="flurbiprofeno-selection-total-value">$0</span>
+        </div>
+        <div class="flurbiprofeno-selection-actions">
+          <button class="flurbiprofeno-add-cart-btn" id="flurbiprofenoAddToCartBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+            </svg>
+            Añadir al carrito
+          </button>
+          <button class="flurbiprofeno-consult-btn" id="flurbiprofenoRequestDeliveryBtn">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
             </svg>
@@ -11960,6 +12606,148 @@
       updateEnzimaxSelection();
     }
 
+    // ============================================
+    // FLURBIPROFENO CANVAS MODAL (Right Side)
+    // ============================================
+    const flurbiprofenoOverlay = document.getElementById('flurbiprofenoOverlay');
+    const flurbiprofenoModal = document.getElementById('flurbiprofenoModal');
+    const flurbiprofenoClose = document.getElementById('flurbiprofenoClose');
+
+    function openFlurbiprofenoModal() {
+      flurbiprofenoOverlay.classList.add('active');
+      flurbiprofenoModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      
+      // Store current product for ordering
+      currentProduct = {
+        name: 'Flurbiprofeno Oftalday',
+        category: 'Oftalmología • Antiinflamatorio',
+        price: 'Consultar',
+        image: 'images/flurbiprofeno.jpg',
+        unitPrice: 0,
+        selectedVariant: null
+      };
+      
+      // Initialize selection summary
+      setTimeout(() => {
+        updateFlurbiprofenoSelection();
+      }, 100);
+    }
+
+    function closeFlurbiprofenoModal() {
+      flurbiprofenoOverlay.classList.remove('active');
+      flurbiprofenoModal.classList.remove('active');
+      document.body.style.overflow = '';
+      // Scroll modal back to top for next opening
+      flurbiprofenoModal.scrollTop = 0;
+    }
+
+    // Flurbiprofeno modal event listeners
+    if (flurbiprofenoClose) {
+      flurbiprofenoClose.addEventListener('click', closeFlurbiprofenoModal);
+    }
+    if (flurbiprofenoOverlay) {
+      flurbiprofenoOverlay.addEventListener('click', closeFlurbiprofenoModal);
+    }
+
+    // Order buttons - open delivery modal
+    const flurbiprofenoAddToCartBtn = document.getElementById('flurbiprofenoAddToCartBtn');
+    const flurbiprofenoRequestDeliveryBtn = document.getElementById('flurbiprofenoRequestDeliveryBtn');
+
+    if (flurbiprofenoAddToCartBtn) {
+      flurbiprofenoAddToCartBtn.addEventListener('click', () => {
+        closeFlurbiprofenoModal();
+        setTimeout(() => {
+          openDeliveryModal();
+        }, 300);
+      });
+    }
+
+    if (flurbiprofenoRequestDeliveryBtn) {
+      flurbiprofenoRequestDeliveryBtn.addEventListener('click', () => {
+        closeFlurbiprofenoModal();
+        setTimeout(() => {
+          openDeliveryModal();
+        }, 300);
+      });
+    }
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && flurbiprofenoModal && flurbiprofenoModal.classList.contains('active')) {
+        closeFlurbiprofenoModal();
+      }
+    });
+
+    // Quantity controls for Flurbiprofeno
+    const flurbiprofenoQuantity = document.getElementById('flurbiprofenoQuantity');
+    if (flurbiprofenoQuantity) {
+      const qtyValue = flurbiprofenoQuantity.querySelector('.flurbiprofeno-block-qty-value');
+      const qtyButtons = flurbiprofenoQuantity.querySelectorAll('.flurbiprofeno-block-qty-btn');
+
+      qtyButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const action = btn.dataset.action;
+          let currentQty = parseInt(qtyValue.textContent) || 1;
+
+          if (action === 'increase') {
+            currentQty++;
+          } else if (action === 'decrease' && currentQty > 1) {
+            currentQty--;
+          }
+
+          qtyValue.textContent = currentQty;
+          updateFlurbiprofenoSelection();
+        });
+      });
+    }
+
+    // Update selection summary
+    function updateFlurbiprofenoSelection() {
+      const flurbiprofenoSelectionItems = document.getElementById('flurbiprofenoSelectionItems');
+      const flurbiprofenoSelectionTotal = document.getElementById('flurbiprofenoSelectionTotal');
+      
+      if (!flurbiprofenoSelectionItems || !flurbiprofenoQuantity) return;
+
+      const quantity = parseInt(flurbiprofenoQuantity.querySelector('.flurbiprofeno-block-qty-value').textContent) || 0;
+
+      // Clear existing items
+      flurbiprofenoSelectionItems.innerHTML = '';
+
+      if (quantity > 0) {
+        const item = document.createElement('div');
+        item.className = 'flurbiprofeno-selection-item';
+        item.innerHTML = `
+          <div class="flurbiprofeno-selection-item-info">
+            <div class="flurbiprofeno-selection-item-name">Flurbiprofeno Oftalday</div>
+            <div class="flurbiprofeno-selection-item-price">Cantidad: ${quantity}</div>
+          </div>
+        `;
+        flurbiprofenoSelectionItems.appendChild(item);
+      } else {
+        flurbiprofenoSelectionItems.innerHTML = `
+          <div class="flurbiprofeno-selection-empty">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+            </svg>
+            <p>No hay productos seleccionados</p>
+          </div>
+        `;
+      }
+
+      // Update total
+      const totalValue = flurbiprofenoSelectionTotal.querySelector('.flurbiprofeno-selection-total-value');
+      if (totalValue) {
+        totalValue.textContent = quantity > 0 ? 'Consultar Precio' : '$0';
+      }
+    }
+
+    // Initialize selection on load
+    if (flurbiprofenoQuantity) {
+      updateFlurbiprofenoSelection();
+    }
+
     // CARDIAL FULL-SCREEN MODAL
     // ============================================
     const cardialOverlay = document.getElementById('cardialOverlay');
@@ -12668,6 +13456,12 @@
       // Check if this is Enzimax - open canvas modal instead
       if (card.classList.contains('enzimax-card') || name === 'Enzimax') {
         openEnzimaxModal();
+        return;
+      }
+
+      // Check if this is Flurbiprofeno - open canvas modal instead
+      if (card.classList.contains('flurbiprofeno-card') || name.includes('Flurbiprofeno')) {
+        openFlurbiprofenoModal();
         return;
       }
 
