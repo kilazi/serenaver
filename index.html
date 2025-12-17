@@ -3471,16 +3471,15 @@
     }
 
     .ciclosporina-brand-logo {
-      display: block;
-      margin: 0 auto 1.5rem;
-      max-width: 120px;
+      position: absolute;
+      top: 1.5rem;
+      left: 1.5rem;
+      max-width: 100px;
       height: auto;
-      background: transparent;
-      animation: fadeInDown 1s ease-out 0.2s both;
-      opacity: 1;
-      visibility: visible;
-      z-index: 2;
-      position: relative;
+      z-index: 10002;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 0.5rem;
+      border-radius: 8px;
     }
 
     .ciclosporina-logo-text {
@@ -9530,6 +9529,7 @@
   <!-- CICLOSPORINA CANVAS MODAL (Right Side) -->
   <div class="ciclosporina-modal-overlay" id="ciclosporinaOverlay"></div>
   <div class="ciclosporina-modal" id="ciclosporinaModal">
+    <img src="images/holliday-logo.png" alt="Holliday" class="ciclosporina-brand-logo">
     <button class="ciclosporina-close" id="ciclosporinaClose">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
         <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -9540,7 +9540,6 @@
     <!-- Hero Section -->
     <section class="ciclosporina-hero">
       <div class="ciclosporina-hero-content">
-        <img src="images/holliday.webp" alt="Holliday" class="ciclosporina-brand-logo">
         <div class="ciclosporina-logo">
           <div class="ciclosporina-logo-text">CICLOSPORINA 1%</div>
           <div class="ciclosporina-logo-subtitle">/ Inmunomodulador. Lacrimomimético. Antiinflamatorio.</div>
@@ -9691,7 +9690,7 @@
   <!-- ENZIMAX CANVAS MODAL -->
   <div class="enzimax-modal-overlay" id="enzimaxOverlay"></div>
   <div class="enzimax-modal" id="enzimaxModal">
-    <img src="images/holliday.webp" alt="Holliday" class="enzimax-brand-logo">
+    <img src="images/holliday-logo.png" alt="Holliday" class="enzimax-brand-logo">
     <button class="enzimax-close" id="enzimaxClose">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
         <line x1="18" y1="6" x2="6" y2="18"></line>
