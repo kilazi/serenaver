@@ -5975,15 +5975,6 @@
       margin-bottom: 1rem;
     }
 
-    .cardialb-section-subtitle {
-      font-size: 1.1rem;
-      color: #666;
-      text-align: center;
-      margin-bottom: 3rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
 
     /* Cardial B Presentations Container */
     .cardialb-presentations-container {
@@ -10362,7 +10353,6 @@
       <div class="cardialb-formula-container">
         <img src="images/holliday-logo.png" alt="Holliday" class="cardialb-brand-logo">
         <h2 class="cardialb-section-title">Presentaciones Disponibles</h2>
-        <p class="cardialb-section-subtitle">Cada comprimido contiene la combinación perfecta de principios activos</p>
         
         <div class="cardialb-formula-grid">
           <div class="cardialb-formula-card">
@@ -10373,6 +10363,10 @@
               <strong>Espironolactona:</strong> 10 mg
             </div>
             <span class="cardialb-formula-weight">Para perros de ~5 kg</span>
+            <div class="cardialb-block-price-display">
+              <div class="cardialb-block-price-label">Precio</div>
+              <div class="cardialb-block-price-value">Consultar</div>
+            </div>
           </div>
           
           <div class="cardialb-formula-card">
@@ -10383,6 +10377,10 @@
               <strong>Espironolactona:</strong> 20 mg
             </div>
             <span class="cardialb-formula-weight">Para perros de ~10 kg</span>
+            <div class="cardialb-block-price-display">
+              <div class="cardialb-block-price-label">Precio</div>
+              <div class="cardialb-block-price-value">Consultar</div>
+            </div>
           </div>
           
           <div class="cardialb-formula-card">
@@ -10393,6 +10391,10 @@
               <strong>Espironolactona:</strong> 40 mg
             </div>
             <span class="cardialb-formula-weight">Para perros de ~20 kg</span>
+            <div class="cardialb-block-price-display">
+              <div class="cardialb-block-price-label">Precio</div>
+              <div class="cardialb-block-price-value">Consultar</div>
+            </div>
           </div>
         </div>
         
@@ -10506,7 +10508,6 @@
     <!-- Benefits Section -->
     <section class="cardialb-benefits">
       <h2 class="cardialb-section-title">Beneficios del Tratamiento</h2>
-      <p class="cardialb-section-subtitle">Cardial B ofrece múltiples ventajas para el tratamiento de la insuficiencia cardíaca</p>
       
       <div class="cardialb-benefits-grid">
         <div class="cardialb-benefit-card">
@@ -12481,7 +12482,7 @@
       cardialbObserver.observe(el);
     });
 
-    document.querySelectorAll('.cardialb-products .cardialb-section-title, .cardialb-products .cardialb-section-subtitle').forEach((el, index) => {
+    document.querySelectorAll('.cardialb-products .cardialb-section-title').forEach((el, index) => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(30px)';
       el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
