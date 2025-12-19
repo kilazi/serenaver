@@ -1782,7 +1782,7 @@
       display: block;
       max-width: 120px;
       height: auto;
-      margin: 0 auto 2rem;
+      margin: 0 0 2rem 0;
       background: #fff;
       padding: 1rem;
       border-radius: 8px;
@@ -2001,7 +2001,7 @@
     }
 
     .pimocard-presentations-block.hospitalario-block {
-      background: white;
+      background: linear-gradient(145deg, #1c1c1c 0%, #2d2d2d 100%);
       border: none;
     }
 
@@ -2047,7 +2047,7 @@
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-block-subtitle {
-      color: #666;
+      color: rgba(255, 255, 255, 0.6);
     }
 
     /* General product image placeholder for each block */
@@ -2102,14 +2102,14 @@
 
     .pimocard-block-price-label {
       font-size: 0.75rem;
-      color: #666;
+      color: #999;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       margin-bottom: 0.25rem;
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-block-price-label {
-      color: #666;
+      color: rgba(255, 255, 255, 0.5);
     }
 
     .pimocard-block-price-value {
@@ -2130,7 +2130,6 @@
       gap: 0.5rem;
       justify-content: center;
       margin-bottom: 1.5rem;
-      color: #666;
     }
 
     .pimocard-option-bullet {
@@ -2150,9 +2149,9 @@
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-option-bullet {
-      background: #f0f0f0;
-      border-color: #ddd;
-      color: #666;
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.7);
     }
 
     .pimocard-option-bullet:hover {
@@ -2162,8 +2161,8 @@
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-option-bullet:hover {
-      background: #e8e8e8;
-      border-color: #ccc;
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
     }
 
     .pimocard-option-bullet.selected {
@@ -2204,7 +2203,7 @@
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-block-quantity {
-      border-top-color: rgba(0, 0, 0, 0.1);
+      border-top-color: rgba(255, 255, 255, 0.1);
     }
 
     .pimocard-block-quantity.active {
@@ -2218,7 +2217,7 @@
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-block-quantity-label {
-      color: #666;
+      color: rgba(255, 255, 255, 0.7);
     }
 
     .pimocard-block-qty-btn {
@@ -2236,8 +2235,7 @@
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-block-qty-btn {
-      background: #fff;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      background: rgba(255, 255, 255, 0.1);
     }
 
     .pimocard-block-qty-btn:hover {
@@ -2265,7 +2263,7 @@
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-block-qty-value {
-      color: #1c1c1c;
+      color: #fff;
     }
 
     /* Price styling */
@@ -9241,7 +9239,7 @@
                data-extended="Pimocard">
             <span class="product-badge">Cardiología</span>
             <div class="product-image">
-              <img src="images/pimo-1.25.png" alt="Pimocard">
+              <img src="images/pimocard-1.25.jpg" alt="Pimocard">
             </div>
             <div class="product-info">
               <span class="product-category">Cardiología • Inotrópico Positivo</span>
@@ -9733,11 +9731,11 @@
               Presentación Estándar
             </span>
           </div>
-          <p class="pimocard-block-subtitle">20 comprimidos</p>
+          <p class="pimocard-block-subtitle">(20 comprimidos por estuche)</p>
           
           <!-- General Image Placeholder -->
           <div class="pimocard-block-image-container">
-            <img class="pimocard-block-image" id="standardBlockImage" src="images/pimo-1.25.png" alt="Pimocard">
+            <img class="pimocard-block-image" id="standardBlockImage" src="images/pimocard-1.25.jpg" alt="Pimocard">
           </div>
           
           <!-- Price Display -->
@@ -9748,19 +9746,19 @@
           
           <!-- Bullet Button Options -->
           <div class="pimocard-options-container" id="standardOptions">
-            <button class="pimocard-option-bullet" data-dose="1.25 mg" data-type="standard" data-price="45000" data-image="images/pimo-1.25.png">
+            <button class="pimocard-option-bullet" data-dose="1.25 mg" data-type="standard" data-price="45000" data-image="images/pimocard-1.25.jpg">
               <span class="bullet-indicator"></span>
               <span>1.25 mg</span>
             </button>
-            <button class="pimocard-option-bullet" data-dose="2.5 mg" data-type="standard" data-price="55000" data-image="images/pimo-2.5.png">
+            <button class="pimocard-option-bullet" data-dose="2.5 mg" data-type="standard" data-price="55000" data-image="images/pimocard-2.5.jpg">
               <span class="bullet-indicator"></span>
               <span>2.5 mg</span>
             </button>
-            <button class="pimocard-option-bullet" data-dose="5 mg" data-type="standard" data-price="75000" data-image="images/pimo-5.png">
+            <button class="pimocard-option-bullet" data-dose="5 mg" data-type="standard" data-price="75000" data-image="images/pimocard-5.jpg">
               <span class="bullet-indicator"></span>
               <span>5 mg</span>
             </button>
-            <button class="pimocard-option-bullet" data-dose="10 mg" data-type="standard" data-price="95000" data-image="images/pimo-10.png">
+            <button class="pimocard-option-bullet" data-dose="10 mg" data-type="standard" data-price="95000" data-image="images/pimocard-10.jpg">
               <span class="bullet-indicator"></span>
               <span>10 mg</span>
             </button>
@@ -9790,30 +9788,34 @@
               Línea Hospitalaria
             </span>
           </div>
-          <p class="pimocard-block-subtitle">100 comprimidos</p>
+          <p class="pimocard-block-subtitle">10 blisters × 10 comprimidos<br>(100 comprimidos por estuche)</p>
           
           <!-- General Image Placeholder -->
           <div class="pimocard-block-image-container">
-            <img class="pimocard-block-image" id="hospitalarioBlockImage" src="images/pimo-2.5.png" alt="Pimocard Hospitalario">
+            <img class="pimocard-block-image" id="hospitalarioBlockImage" src="images/pimocard-1.25-hosp.jpg" alt="Pimocard Hospitalario">
           </div>
           
           <!-- Price Display -->
           <div class="pimocard-block-price-display">
             <div class="pimocard-block-price-label">Precio</div>
-            <div class="pimocard-block-price-value" id="hospitalarioBlockPrice">$220.000</div>
+            <div class="pimocard-block-price-value" id="hospitalarioBlockPrice">$180.000</div>
           </div>
           
           <!-- Bullet Button Options -->
           <div class="pimocard-options-container" id="hospitalarioOptions">
-            <button class="pimocard-option-bullet" data-dose="2.5 mg Hospitalario" data-type="hospitalario" data-price="220000" data-image="images/pimo-2.5.png">
+            <button class="pimocard-option-bullet" data-dose="1.25 mg Hospitalario" data-type="hospitalario" data-price="180000" data-image="images/pimocard-1.25-hosp.jpg">
+              <span class="bullet-indicator"></span>
+              <span>1.25 mg</span>
+            </button>
+            <button class="pimocard-option-bullet" data-dose="2.5 mg Hospitalario" data-type="hospitalario" data-price="220000" data-image="images/pimocard-2.5-hosp.jpg">
               <span class="bullet-indicator"></span>
               <span>2.5 mg</span>
             </button>
-            <button class="pimocard-option-bullet" data-dose="5 mg Hospitalario" data-type="hospitalario" data-price="320000" data-image="images/pimo-5-hosp.png">
+            <button class="pimocard-option-bullet" data-dose="5 mg Hospitalario" data-type="hospitalario" data-price="320000" data-image="images/pimocard-5-hosp.jpg">
               <span class="bullet-indicator"></span>
               <span>5 mg</span>
             </button>
-            <button class="pimocard-option-bullet" data-dose="10 mg Hospitalario" data-type="hospitalario" data-price="420000" data-image="images/pimo-10-hosp.png">
+            <button class="pimocard-option-bullet" data-dose="10 mg Hospitalario" data-type="hospitalario" data-price="420000" data-image="images/pimocard-10-hosp.jpg">
               <span class="bullet-indicator"></span>
               <span>10 mg</span>
             </button>
@@ -11227,9 +11229,9 @@
           { name: '10 mg', desc: '2 blisters x 10 comprimidos' }
         ],
         hospitalario: [
-          { name: '2.5 mg Hospitalario', desc: '100 comprimidos' },
-          { name: '5 mg Hospitalario', desc: '100 comprimidos' },
-          { name: '10 mg Hospitalario', desc: '100 comprimidos' }
+          { name: '2.5 mg Hospitalario', desc: '10 blisters x 10 comprimidos' },
+          { name: '5 mg Hospitalario', desc: '10 blisters x 10 comprimidos' },
+          { name: '10 mg Hospitalario', desc: '10 blisters x 10 comprimidos' }
         ],
         themeColor: '#e31837',
         gradientStart: '#e31837',
@@ -11451,7 +11453,6 @@
       .pimocard-animate-in {
         opacity: 1 !important;
         transform: translateY(0) scale(1) !important;
-        background: white !important;
       }
       .pimocard-presentation-card:nth-child(1) { transition-delay: 0s !important; }
       .pimocard-presentation-card:nth-child(2) { transition-delay: 0.1s !important; }
@@ -11845,13 +11846,13 @@
       
       // Reset standard block
       standardOptions.querySelectorAll('.pimocard-option-bullet').forEach(btn => btn.classList.remove('selected'));
-      standardBlockImage.src = 'images/pimo-1.25.png';
+      standardBlockImage.src = 'images/pimocard-1.25.jpg';
       standardBlockPrice.textContent = '$45.000';
       
       // Reset hospitalario block
       hospitalarioOptions.querySelectorAll('.pimocard-option-bullet').forEach(btn => btn.classList.remove('selected'));
-      hospitalarioBlockImage.src = 'images/pimo-2.5.png';
-      hospitalarioBlockPrice.textContent = '$220.000';
+      hospitalarioBlockImage.src = 'images/pimocard-1.25-hosp.jpg';
+      hospitalarioBlockPrice.textContent = '$180.000';
       
       updatePimocardSelectionSummary();
     }
