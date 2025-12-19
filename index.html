@@ -1774,17 +1774,17 @@
     /* Products Section */
     .pimocard-products {
       background: #fff;
-      padding: 5rem 2rem;
+      padding: 3rem 2rem;
       position: relative;
     }
 
     .pimocard-brand-logo {
       display: block;
-      max-width: 120px;
+      max-width: 144px;
       height: auto;
-      margin: 0 auto 2rem auto;
+      margin: -5px auto 2rem auto;
       background: #fff;
-      padding: 1rem;
+      padding: 0;
       border-radius: 8px;
     }
 
@@ -1794,6 +1794,10 @@
       color: #1c1c1c;
       text-align: center;
       margin-bottom: 1rem;
+    }
+
+    .pimocard-section-title.pimocard-animate-in {
+      margin-bottom: 2rem;
     }
 
     .pimocard-section-subtitle {
@@ -2039,15 +2043,24 @@
     }
 
     .pimocard-block-subtitle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1.25rem;
+      border-radius: 50px;
       font-size: 0.85rem;
-      color: #666;
-      text-align: center;
-      margin-bottom: 1.5rem;
+      font-weight: 600;
+      background: #ffffff;
+      color: #1c1c1c;
+      border: 1px solid #ddd;
+      margin: 0;
       line-height: 1.5;
     }
 
     .pimocard-presentations-block.hospitalario-block .pimocard-block-subtitle {
-      color: #666;
+      background: #ffffff;
+      color: #1c1c1c;
+      border: 1px solid #ddd;
     }
 
     /* General product image placeholder for each block */
@@ -9717,7 +9730,6 @@
     <section class="pimocard-products" id="pimocardProductsSection">
       <img src="images/holliday-logo.png" alt="Holliday" class="pimocard-brand-logo">
       <h2 class="pimocard-section-title">Presentaciones Disponibles</h2>
-      <p class="pimocard-section-subtitle">Selecciona las presentaciones que deseas agregar a tu pedido</p>
       
       <div class="pimocard-presentations-container">
         <!-- Standard Presentations Block (LEFT) -->
@@ -9731,8 +9743,8 @@
               </svg>
               Presentación Estándar
             </span>
+            <p class="pimocard-block-subtitle">20 comprimidos</p>
           </div>
-          <p class="pimocard-block-subtitle">20 comprimidos</p>
           
           <!-- General Image Placeholder -->
           <div class="pimocard-block-image-container">
@@ -9788,8 +9800,8 @@
               </svg>
               Línea Hospitalaria
             </span>
+            <p class="pimocard-block-subtitle">100 comprimidos</p>
           </div>
-          <p class="pimocard-block-subtitle">100 comprimidos</p>
           
           <!-- General Image Placeholder -->
           <div class="pimocard-block-image-container">
