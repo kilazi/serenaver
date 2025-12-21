@@ -6863,22 +6863,22 @@
       object-fit: contain;
     }
 
-    /* Cardial B Selection Summary */
+    /* Cardial B Selection Summary - positioned like Pimocard (top-right) */
     .cardialb-selection-summary {
       position: absolute;
-      bottom: 20px;
+      top: 20px;
       right: 20px;
       z-index: 100;
       opacity: 0;
       visibility: hidden;
-      transform: translateY(30px);
+      transform: translateX(30px);
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .cardialb-selection-summary.active {
       opacity: 1;
       visibility: visible;
-      transform: translateY(0);
+      transform: translateX(0);
     }
 
     .cardialb-selection-box {
@@ -7158,16 +7158,16 @@
       font-size: 0.85rem;
     }
 
-    /* Responsive for floating canvas */
+    /* Responsive for floating canvas - matching Pimocard behavior */
     @media (max-width: 900px) {
       .cardialb-selection-summary {
         right: 10px;
-        bottom: 10px;
-        transform: translateY(30px);
+        top: 20px;
+        transform: translateX(30px);
       }
       
       .cardialb-selection-summary.active {
-        transform: translateY(0);
+        transform: translateX(0);
       }
       
       .cardialb-selection-box {
@@ -7179,12 +7179,13 @@
       .cardialb-selection-summary {
         right: 5px;
         left: 5px;
+        top: auto;
         bottom: 10px;
-        transform: translateY(30px);
+        transform: translateX(30px);
       }
       
       .cardialb-selection-summary.active {
-        transform: translateY(0);
+        transform: translateX(0);
       }
       
       .cardialb-selection-box {
@@ -11862,17 +11863,18 @@
               <span class="cardialb-selection-total-value">$0</span>
             </div>
             <div class="cardialb-selection-actions">
-              <button class="cardialb-add-cart-btn" id="cardialbRequestDeliveryBtn">
+              <button class="cardialb-add-cart-btn" id="cardialbAddToCartBtn">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
+                  <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
                 </svg>
-                Solicitar Entrega
+                Añadir al carrito
               </button>
-              <button class="cardialb-consult-btn" id="cardialbConsultBtn">
+              <button class="cardialb-consult-btn" id="cardialbRequestDeliveryBtn">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
                 </svg>
-                Consultar Precio
+                Solicitar entrega
               </button>
             </div>
           </div>
@@ -13488,7 +13490,64 @@
     }
     
     // Initialize products after a short delay to ensure all functions are defined
-    setTimeout(initializeProducts, 100);
+    // DISABLED: This was replacing the 79 HTML product cards with only 21 from productsList
+    // setTimeout(initializeProducts, 100);
+    
+    // Instead, set up click listeners for the existing HTML product cards
+    function initializeExistingProductCards() {
+      const existingCards = document.querySelectorAll('.product-card');
+      existingCards.forEach(card => {
+        card.addEventListener('click', function() {
+          const name = this.querySelector('.product-info h3')?.textContent || this.querySelector('h3')?.textContent || '';
+          const category = this.querySelector('.product-category')?.textContent || '';
+          const priceText = this.querySelector('.product-price')?.textContent?.trim() || 'Consultar';
+          const image = this.querySelector('.product-image img')?.src || '';
+
+          // Check if this is Pimocard - open fullscreen modal instead
+          if (this.classList.contains('pimocard-card') || name === 'Pimocard') {
+            if (typeof openPimocardModal === 'function') openPimocardModal();
+            return;
+          }
+
+          // Check if this is Cardial B - open fullscreen modal instead
+          if (this.classList.contains('cardialb-card') || name === 'Cardial B') {
+            if (typeof openCardialbModal === 'function') openCardialbModal();
+            return;
+          }
+
+          // Check if this is Cardial - open fullscreen modal instead
+          if (this.classList.contains('cardial-card') || name === 'Cardial') {
+            if (typeof openCardialModal === 'function') openCardialModal();
+            return;
+          }
+
+          // All other products open the general product modal
+          if (typeof openProductModal === 'function') {
+            // Try to find product in database first
+            let productKey = null;
+            if (typeof productDatabase !== 'undefined' && productDatabase[name]) {
+              productKey = name;
+            }
+            
+            if (productKey) {
+              openProductModal(productKey);
+            } else {
+              // Use fallback data from the card itself
+              openProductModal(name, {
+                name: name,
+                category: category,
+                price: priceText,
+                image: image,
+                description: this.querySelector('.product-info p')?.textContent || ''
+              });
+            }
+          }
+        });
+      });
+    }
+    
+    // Initialize after a short delay
+    setTimeout(initializeExistingProductCards, 100);
 
     // Extended product info for special products
     const productExtendedInfo = {
@@ -14890,8 +14949,8 @@
     const cardialbSelectionSummary = document.getElementById('cardialbSelectionSummary');
     const cardialbSelectionItems = document.getElementById('cardialbSelectionItems');
     const cardialbSelectionClose = document.getElementById('cardialbSelectionClose');
+    const cardialbAddToCartBtn = document.getElementById('cardialbAddToCartBtn');
     const cardialbRequestDeliveryBtn = document.getElementById('cardialbRequestDeliveryBtn');
-    const cardialbConsultBtn = document.getElementById('cardialbConsultBtn');
 
     // Track selected Cardial B presentations
     let cardialbSelectedPresentations = {};
@@ -14922,7 +14981,7 @@
         if (cardialbSelected) {
           cardialbSelected.qty = qty;
           // Update price if applicable
-          if (cardialbSelected.price > 0) {
+          if (cardialbSelected.price > 0 && cardialbBlockPrice) {
             cardialbBlockPrice.textContent = formatCardialbPrice(cardialbSelected.price * qty);
           }
           
@@ -14985,67 +15044,17 @@
         };
         
         // Activate quantity and price display
-        cardialbQuantity.classList.add('active');
-        cardialbBlockPrice.textContent = formatCardialbPrice(data.price);
+        if (cardialbQuantity) cardialbQuantity.classList.add('active');
+        if (cardialbBlockPrice) cardialbBlockPrice.textContent = formatCardialbPrice(data.price);
         
         // Reset quantity to 1
-        cardialbQuantity.querySelector('.cardialb-block-qty-value').textContent = '1';
-        
-        // Update selection summary
-        updateCardialbSelectionSummary();
-        
-        // Get price
-        const price = data.price;
-        
-        // Open canvas with product details
-        const canvasImage = document.getElementById('canvasImage');
-        const canvasTitle = document.getElementById('canvasTitle');
-        const canvasPrice = document.getElementById('canvasPrice');
-        const canvasDescription = document.getElementById('canvasDescription');
-        const canvasOverlay = document.getElementById('canvasOverlay');
-        const productCanvas = document.getElementById('productCanvas');
-        const canvasVariantSection = document.getElementById('canvasVariantSection');
-        
-        if (canvasImage && canvasTitle && canvasPrice && canvasDescription && canvasOverlay && productCanvas) {
-          // Populate canvas
-          canvasImage.src = image;
-          canvasTitle.textContent = dose;
-          
-          // Get components text
-          const componentsElement = card.querySelector('.cardialb-formula-components');
-          const componentsText = componentsElement ? componentsElement.textContent.trim() : '';
-          const description = `Cardial B ${doseValue} - ${componentsText}. ${weight}`;
-          canvasDescription.textContent = description;
-          
-          // Set price (use the price we already extracted)
-          canvasPrice.textContent = price > 0 ? formatCardialbPrice(price) : 'Consultar';
-          
-          // Hide variant section (we're showing specific product)
-          if (canvasVariantSection) {
-            canvasVariantSection.classList.remove('active');
-          }
-          
-          // Reset quantity in canvas
-          const qtyValue = document.getElementById('qtyValue');
-          if (qtyValue) {
-            qtyValue.textContent = '1';
-          }
-          
-          // Store current product
-          currentProduct = {
-            name: dose,
-            category: 'Cardiología • Vasodilatador',
-            price: price > 0 ? formatCardialbPrice(price) : 'Consultar',
-            image: image,
-            unitPrice: price,
-            selectedVariant: null
-          };
-          
-          // Show canvas
-          canvasOverlay.classList.add('active');
-          productCanvas.classList.add('active');
-          document.body.style.overflow = 'hidden';
+        if (cardialbQuantity) {
+          const qtyValue = cardialbQuantity.querySelector('.cardialb-block-qty-value');
+          if (qtyValue) qtyValue.textContent = '1';
         }
+        
+        // Update selection summary (like Pimocard - no canvas opening)
+        updateCardialbSelectionSummary();
       });
     });
 
@@ -15177,8 +15186,8 @@
           
           // If no items left, reset quantity display
           if (Object.keys(cardialbSelectedPresentations).length === 0) {
-            cardialbQuantity.classList.remove('active');
-            cardialbBlockPrice.textContent = 'Consultar';
+            if (cardialbQuantity) cardialbQuantity.classList.remove('active');
+            if (cardialbBlockPrice) cardialbBlockPrice.textContent = 'Consultar';
           }
         });
       });
@@ -15249,11 +15258,25 @@
       });
     }
 
-    // Consult button action
-    if (cardialbConsultBtn) {
-      cardialbConsultBtn.addEventListener('click', () => {
-        // You can add custom action here, like opening a contact form
-        console.log('Consultar precio clicked');
+    // Add to cart button action - adds to cart only (like Pimocard)
+    if (cardialbAddToCartBtn) {
+      cardialbAddToCartBtn.addEventListener('click', () => {
+        if (Object.keys(cardialbSelectedPresentations).length === 0) return;
+        
+        // Add each selected presentation to cart
+        if (typeof addToCart === 'function') {
+          Object.entries(cardialbSelectedPresentations).forEach(([dose, data]) => {
+            addToCart('cardial-b', data.qty, dose);
+          });
+        }
+        
+        // Show success feedback and close modal
+        closeCardialbModal();
+        setTimeout(() => {
+          if (typeof openCartModal === 'function') {
+            openCartModal();
+          }
+        }, 300);
       });
     }
 
@@ -15264,9 +15287,12 @@
       
       // Reset block
       document.querySelectorAll('.cardialb-formula-card').forEach(card => card.classList.remove('selected'));
-      cardialbBlockPrice.textContent = 'Consultar';
-      cardialbQuantity.classList.remove('active');
-      cardialbQuantity.querySelector('.cardialb-block-qty-value').textContent = '1';
+      if (cardialbBlockPrice) cardialbBlockPrice.textContent = 'Consultar';
+      if (cardialbQuantity) {
+        cardialbQuantity.classList.remove('active');
+        const qtyValue = cardialbQuantity.querySelector('.cardialb-block-qty-value');
+        if (qtyValue) qtyValue.textContent = '1';
+      }
       
       // Update selection summary
       updateCardialbSelectionSummary();
