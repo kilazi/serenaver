@@ -12655,7 +12655,22 @@
     function openDeliveryModalForCart() {
       // Update delivery form to work with cart
       const deliveryModalOverlay = document.getElementById('deliveryModalOverlay');
+      const deliveryProductSummary = document.getElementById('deliveryProductSummary');
+      
       if (deliveryModalOverlay) {
+        // Populate product summary from cart
+        if (deliveryProductSummary && cart.length > 0) {
+          const productLines = cart.map(item => {
+            const product = typeof PRODUCTS !== 'undefined' ? PRODUCTS[item.productId] : null;
+            const productName = product ? product.name : item.productId;
+            const variantText = item.variant ? ` (${item.variant})` : '';
+            return `<strong>${productName}${variantText}</strong> × ${item.quantity}`;
+          });
+          deliveryProductSummary.innerHTML = productLines.join('<br>');
+        } else if (deliveryProductSummary) {
+          deliveryProductSummary.innerHTML = '<em>Tu carrito está vacío</em>';
+        }
+        
         // Pre-fill form with saved customer info
         const info = getCustomerInfo();
         const nameInput = document.getElementById('deliveryName');
