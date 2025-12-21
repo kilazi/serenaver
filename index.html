@@ -14494,19 +14494,33 @@
         const qtyValue = productQuantity ? productQuantity.querySelector('.product-block-qty-value') : null;
         const quantity = qtyValue ? parseInt(qtyValue.textContent) || 1 : 1;
         
-        // Add to shopping cart
-        shoppingCart.push({
-          name: currentProduct.name,
-          category: currentProduct.category,
-          price: currentProduct.price,
-          image: currentProduct.image,
-          quantity: quantity
-        });
+        // Get product ID
+        let productId = null;
+        if (typeof PRODUCTS !== 'undefined' && currentProduct) {
+          for (const [id, product] of Object.entries(PRODUCTS)) {
+            if (product.name === currentProduct.name) {
+              productId = id;
+              break;
+            }
+          }
+        }
+        if (!productId && currentProduct) {
+          productId = currentProduct.name.toLowerCase()
+            .replace(/[^a-z0-9\s]/g, '')
+            .replace(/\s+/g, '-')
+            .substring(0, 50);
+        }
         
-        closeProductModal();
-        setTimeout(() => {
-          openDeliveryModal();
-        }, 300);
+        // Add to cart using the unified cart system
+        if (productId && typeof addToCart === 'function') {
+          addToCart(productId, quantity);
+          closeProductModal();
+          setTimeout(() => {
+            if (typeof openCartModal === 'function') {
+              openCartModal();
+            }
+          }, 300);
+        }
       });
     }
     
@@ -14516,19 +14530,31 @@
         const qtyValue = productQuantity ? productQuantity.querySelector('.product-block-qty-value') : null;
         const quantity = qtyValue ? parseInt(qtyValue.textContent) || 1 : 1;
         
-        // Add to shopping cart
-        shoppingCart.push({
-          name: currentProduct.name,
-          category: currentProduct.category,
-          price: currentProduct.price,
-          image: currentProduct.image,
-          quantity: quantity
-        });
+        // Get product ID
+        let productId = null;
+        if (typeof PRODUCTS !== 'undefined' && currentProduct) {
+          for (const [id, product] of Object.entries(PRODUCTS)) {
+            if (product.name === currentProduct.name) {
+              productId = id;
+              break;
+            }
+          }
+        }
+        if (!productId && currentProduct) {
+          productId = currentProduct.name.toLowerCase()
+            .replace(/[^a-z0-9\s]/g, '')
+            .replace(/\s+/g, '-')
+            .substring(0, 50);
+        }
         
-        closeProductModal();
-        setTimeout(() => {
-          openDeliveryModal();
-        }, 300);
+        // Add to cart and open delivery modal
+        if (productId && typeof addToCart === 'function') {
+          addToCart(productId, quantity);
+          closeProductModal();
+          setTimeout(() => {
+            openDeliveryModalForCart();
+          }, 300);
+        }
       });
     }
     
