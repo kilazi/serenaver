@@ -12045,11 +12045,149 @@
       'Bioclin Enjuague Bucal': 'Enjuague bucal antiséptico para la higiene dental de tu mascota. Previene la formación de placa y el mal aliento.',
       'Bioclin Gel Antiplaca': 'Gel dental para el control de placa bacteriana. Aplicación fácil para mantener una boca sana y libre de sarro.',
       'Ciclosporina 1% Oftalday': 'Solución oftálmica para el tratamiento de enfermedades oculares crónicas. Ayuda a controlar la inflamación y sequedad ocular.',
-      'Ciclosporina 2%': 'Formulación de mayor concentración para casos que requieren tratamiento intensivo. Para uso oftálmico y dermatológico.',
+      'Ciclosporina 2%': 'Colirio estéril a base de ciclosporina A (calidad U.S.P). Inmunomodulador, lagrimogénico y antiinflamatorio ocular de superficie. Indicado para queratoconjuntivitis seca (QCS) y queratitis superficial crónica (pannus).',
       'Dermoxil': 'Tratamiento dermatológico para problemas de piel. Ayuda a aliviar la irritación, picazón y promueve la regeneración cutánea.',
       'Clorhexidina': 'Antiséptico de amplio espectro para la limpieza y desinfección de heridas. Esencial para el cuidado de la piel.',
       'Pimocard': 'Pimocard contiene Pimobendan, un novedoso inotrópico positivo que favorece de forma directa la vasodilatación, relajación y fuerza de la contractibilidad cardíaca, acorde a las necesidades del paciente. Está indicado para el tratamiento de animales con insuficiencia cardíaca congestiva tipo B2 y aquellos que sufren cardiomiopatías dilatadas.',
     };
+
+    // Products array with full information
+    const productsList = [
+      { name: 'Pimocard', category: 'cardiologia', image: 'images/pimo-1.25.png', price: 'Consultar', description: productDescriptions['Pimocard'], special: 'pimocard-card' },
+      { name: 'Cardial B', category: 'cardiologia', image: 'images/cardialb-2.5.webp', price: 'Consultar', description: productDescriptions['Cardial B'], special: 'cardialb-card' },
+      { name: 'Cardial', category: 'cardiologia', image: 'images/cardial.webp', price: 'Consultar', description: productDescriptions['Cardial'], special: 'cardial-card' },
+      { name: 'Ciclosporina 1%', category: 'oftalmologia', image: 'images/ciclosporina.jpg', price: 'Consultar', description: productDescriptions['Ciclosporina 1% Oftalday'] },
+      { name: 'Ciclosporina 2%', category: 'oftalmologia', image: 'images/ciclosporina-2.jpg', price: 'Consultar', description: productDescriptions['Ciclosporina 2%'] },
+      { name: 'Flurbiprofeno', category: 'oftalmologia', image: 'images/flurbiprofeno.jpg', price: 'Consultar', description: 'Antiinflamatorio no esteroide de última generación para uso oftálmico.' },
+      { name: 'Enzimax', category: 'gastrointestinal', image: 'images/enzimax.webp', price: 'Consultar', description: 'Único suplemento dietario formulado con enzimas proteolíticas para mejorar la digestión.' },
+      { name: 'Acedan Gotas', category: 'antiparasitarios', image: 'images/acedan-gotas.jpg', price: 'Consultar', description: productDescriptions['Acedan Gotas'] },
+      { name: 'Acedan', category: 'antiparasitarios', image: 'images/acedan.jpg', price: 'Consultar', description: productDescriptions['Acedan Inyectable'] },
+      { name: 'Anavimin Coat', category: 'suplementos', image: 'images/anavimin.jpeg', price: 'Consultar', description: productDescriptions['Anavimin Coat'] },
+      { name: 'Anti Ulceras', category: 'gastrointestinal', image: 'images/placeholder.png', price: 'Consultar', description: productDescriptions['Anti Ulceras'] },
+      { name: 'Apetil', category: 'suplementos', image: 'images/apetil.jpg', price: 'Consultar', description: productDescriptions['Apetil'] },
+      { name: 'Atriben', category: 'gastrointestinal', image: 'images/placeholder.png', price: 'Consultar', description: productDescriptions['Atriben'] },
+      { name: 'Bioclin Enjuague Bucal', category: 'higiene', image: 'images/placeholder.png', price: 'Consultar', description: productDescriptions['Bioclin Enjuague Bucal'] },
+      { name: 'Bioclin Gel Antiplaca', category: 'higiene', image: 'images/placeholder.png', price: 'Consultar', description: productDescriptions['Bioclin Gel Antiplaca'] },
+      { name: 'Dermoxil', category: 'dermatologia', image: 'images/placeholder.png', price: 'Consultar', description: productDescriptions['Dermoxil'] },
+      { name: 'Clorhexidina', category: 'dermatologia', image: 'images/placeholder.png', price: 'Consultar', description: productDescriptions['Clorhexidina'] },
+      { name: 'Olfrans Flex', category: 'suplementos', image: 'images/oltrans-flex.webp', price: 'Consultar', description: 'Suplemento para la salud articular de tu mascota.' },
+      { name: 'Total Full Perros', category: 'dietas', image: 'images/total-full-perros.webp', price: 'Consultar', description: 'Alimento completo y balanceado para perros.' },
+      { name: 'Total Full Gatos', category: 'dietas', image: 'images/total-full-gatos.webp', price: 'Consultar', description: 'Alimento completo y balanceado para gatos.' },
+      { name: 'MV Sensibilidad Dietaria', category: 'dietas', image: 'images/mv-sensibilidad-dietaria.jpg', price: 'Consultar', description: 'Dieta especial para mascotas con sensibilidad alimentaria.' },
+    ];
+
+    // Function to generate product cards
+    function generateProductCards() {
+      const productsTrack = document.getElementById('productsTrack');
+      if (!productsTrack) return;
+
+      productsTrack.innerHTML = productsList.map(product => {
+        const categoryClass = product.category || 'all';
+        const specialClass = product.special || '';
+        return `
+          <div class="product-card ${specialClass}" data-category="${categoryClass}">
+            <div class="product-image">
+              <img src="${product.image}" alt="${product.name}" loading="lazy">
+            </div>
+            <div class="product-info">
+              <div class="product-category">${getCategoryLabel(categoryClass)}</div>
+              <h3>${product.name}</h3>
+              <p>${product.description}</p>
+              <div class="product-footer">
+                <div class="product-price">${product.price}</div>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      // Re-initialize product cards for event listeners
+      productCards = document.querySelectorAll('.product-card');
+      productCards.forEach(card => {
+        card.addEventListener('click', function() {
+          // Use the openCanvas function (defined later in script)
+          const name = this.querySelector('.product-info h3').textContent;
+          const category = this.querySelector('.product-category').textContent;
+          const priceText = this.querySelector('.product-price').textContent.trim();
+          const image = this.querySelector('.product-image img').src;
+
+          // Check if this is Pimocard - open fullscreen modal instead
+          if (this.classList.contains('pimocard-card') || name === 'Pimocard') {
+            if (typeof openPimocardModal === 'function') openPimocardModal();
+            return;
+          }
+
+          // Check if this is Cardial B - open fullscreen modal instead
+          if (this.classList.contains('cardialb-card') || name === 'Cardial B') {
+            if (typeof openCardialbModal === 'function') openCardialbModal();
+            return;
+          }
+
+          // Check if this is Cardial - open fullscreen modal instead
+          if (this.classList.contains('cardial-card') || name === 'Cardial') {
+            if (typeof openCardialModal === 'function') openCardialModal();
+            return;
+          }
+
+          // All other products open the general product modal
+          let productKey = null;
+          if (productDatabase && productDatabase[name]) {
+            productKey = name;
+          } else if (name.includes('Ciclosporina 2%')) {
+            productKey = 'Ciclosporina 2%';
+          } else if (name.includes('Ciclosporina')) {
+            productKey = 'Ciclosporina 1%';
+          } else if (name === 'Enzimax') {
+            productKey = 'Enzimax';
+          } else if (name.includes('Flurbiprofeno')) {
+            productKey = 'Flurbiprofeno';
+          }
+          
+          // Open modal with product data
+          if (productKey && typeof openProductModal === 'function') {
+            openProductModal(productKey);
+          } else if (typeof openProductModal === 'function') {
+            // Use fallback data for products not in database
+            openProductModal(name, {
+              name: name,
+              category: category,
+              price: priceText,
+              image: image,
+              description: this.querySelector('.product-info p')?.textContent || ''
+            });
+          }
+        });
+      });
+    }
+
+    // Helper function to get category label
+    function getCategoryLabel(category) {
+      const labels = {
+        'cardiologia': '❤️ Cardiología',
+        'antiparasitarios': '🛡️ Antiparasitarios',
+        'oftalmologia': '👁️ Oftalmología',
+        'dermatologia': '✨ Dermatología',
+        'gastrointestinal': '🍃 Gastrointestinal',
+        'suplementos': '💊 Suplementos',
+        'dietas': '🥗 Dietas MV',
+        'higiene': '🦷 Higiene Bucal',
+        'antibioticos': '💉 Antibióticos'
+      };
+      return labels[category] || category;
+    }
+
+    // Generate products on page load (after DOM and all functions are ready)
+    function initializeProducts() {
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', generateProductCards);
+      } else {
+        // DOM already loaded, generate immediately
+        generateProductCards();
+      }
+    }
+    
+    // Initialize products after a short delay to ensure all functions are defined
+    setTimeout(initializeProducts, 100);
 
     // Extended product info for special products
     const productExtendedInfo = {
@@ -12751,6 +12889,26 @@
           { title: 'Lacrimomimético', description: 'Ayuda a restaurar la producción de lágrimas y mejora la lubricación ocular en casos de queratoconjuntivitis seca.' },
           { title: 'Antiinflamatorio', description: 'Reduce la inflamación ocular asociada a enfermedades inmunomediadas, mejorando el confort y la salud del ojo.' },
           { title: 'Solución Efectiva', description: 'Ofrece una solución efectiva para manejar afecciones oculares relacionadas con la falta de producción de lágrimas y otras enfermedades inmunomediadas en perros.' }
+        ]
+      },
+      'Ciclosporina 2%': {
+        name: 'Ciclosporina 2%',
+        category: 'Oftalmología • Inmunomodulador',
+        price: 'Consultar',
+        image: 'images/ciclosporina-2.jpg',
+        logoText: 'CICLOSPORINA 2%',
+        logoSubtitle: '/ Inmunomodulador / Lacrimomimético / Antiinflamatorio',
+        description: 'Colirio estéril a base de <strong>ciclosporina A</strong> (calidad U.S.P)',
+        indication: '<strong>Indicado para el tratamiento de:</strong> Queratoconjuntivitis seca (QCS) y la queratitis superficial crónica (pannus) Inmunomodulador, lagrimogénico y antiinflamatorio ocular de superficie.',
+        presentationTitle: 'PRESENTACIÓN FRASCO OFTÁLMICO POR 5 ml.',
+        presentationSubtitle: 'NUEVO',
+        formula: '<strong>FÓRMULA</strong><br>Cada 100 ml contiene:<br>Ciclosporina A...............2 g<br>Excipientes c.s.',
+        benefitsTitle: 'Beneficios del Producto',
+        benefitsSubtitle: 'Ciclosporina 2% ofrece múltiples beneficios para el tratamiento de afecciones oculares',
+        benefits: [
+          { title: 'Inmunomodulador', description: 'Con afinidad por la córnea y la esclerótica. Su formulación de calidad U.S.P garantiza la pureza y la eficacia del principio activo.' },
+          { title: 'Lacrimomimético y Antiinflamatorio', description: 'Reduce la respuesta inmunitaria promoviendo la producción de lágrimas. Además, ayuda a disminuir la inflamación en el ojo, lo que puede reducir enrojecimiento y dolor asociado con diversas patologías oculares.' },
+          { title: 'Mejora la Calidad Ocular', description: 'Al aumentar la producción de lágrimas y reducir la inflamación, puede mejorar significativamente la calidad ocular de perros y gatos afectados.' }
         ]
       },
       'Enzimax': {
@@ -13801,6 +13959,8 @@
       let productKey = null;
       if (productDatabase[name]) {
         productKey = name;
+      } else if (name.includes('Ciclosporina 2%')) {
+        productKey = 'Ciclosporina 2%';
       } else if (name.includes('Ciclosporina')) {
         productKey = 'Ciclosporina 1%';
       } else if (name === 'Enzimax') {
