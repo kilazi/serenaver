@@ -293,6 +293,573 @@
       margin-bottom: 0.5rem;
     }
 
+    /* ============================================
+       CART ICON - Next to Search Bar
+    ============================================ */
+    .cart-icon {
+      position: relative;
+      width: 44px;
+      height: 44px;
+      border: none;
+      background: var(--color-light-gray);
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s var(--ease-out-expo);
+      flex-shrink: 0;
+      margin-left: 0.75rem;
+    }
+
+    .cart-icon:hover {
+      background: var(--color-primary-light);
+      transform: scale(1.05);
+    }
+
+    .cart-icon svg {
+      width: 22px;
+      height: 22px;
+      color: var(--color-charcoal);
+      transition: color 0.3s ease;
+    }
+
+    .cart-icon:hover svg {
+      color: var(--color-primary-dark);
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      min-width: 20px;
+      height: 20px;
+      background: var(--color-primary);
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 5px;
+      box-shadow: 0 2px 8px rgba(104, 187, 89, 0.4);
+      animation: badgePop 0.3s ease-out;
+    }
+
+    @keyframes badgePop {
+      0% { transform: scale(0); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    /* ============================================
+       CART MODAL
+    ============================================ */
+    .cart-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 10000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .cart-modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .cart-modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.9);
+      width: 90%;
+      max-width: 500px;
+      max-height: 85vh;
+      background: var(--color-white);
+      border-radius: 24px;
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.25);
+      z-index: 10001;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s var(--ease-out-expo);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .cart-modal.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .cart-modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 1.5rem 1rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .cart-modal-title {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--color-charcoal);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .cart-modal-title svg {
+      width: 24px;
+      height: 24px;
+      color: var(--color-primary);
+    }
+
+    .cart-modal-close {
+      width: 36px;
+      height: 36px;
+      border: none;
+      background: var(--color-light-gray);
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .cart-modal-close:hover {
+      background: var(--color-border);
+      transform: rotate(90deg);
+    }
+
+    .cart-modal-close svg {
+      width: 18px;
+      height: 18px;
+      color: var(--color-gray);
+    }
+
+    .cart-modal-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1rem 1.5rem;
+    }
+
+    /* Empty Cart State */
+    .cart-empty {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    .cart-empty-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1rem;
+      color: var(--color-border);
+    }
+
+    .cart-empty-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--color-charcoal);
+      margin-bottom: 0.5rem;
+    }
+
+    .cart-empty-text {
+      font-size: 0.9rem;
+      color: var(--color-gray);
+      margin-bottom: 1.5rem;
+    }
+
+    /* Last Order Section (when cart is empty) */
+    .cart-last-order {
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px dashed var(--color-border);
+    }
+
+    .cart-last-order-title {
+      font-size: 0.85rem;
+      color: var(--color-gray);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+
+    .cart-last-order-items {
+      background: var(--color-light-gray);
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .cart-last-order-item {
+      font-size: 0.9rem;
+      color: var(--color-charcoal);
+      padding: 0.3rem 0;
+    }
+
+    /* Cart Items */
+    .cart-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: var(--color-light-gray);
+      border-radius: 16px;
+      margin-bottom: 0.75rem;
+      transition: all 0.2s ease;
+    }
+
+    .cart-item:hover {
+      background: #eee;
+    }
+
+    .cart-item-image {
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+
+    .cart-item-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .cart-item-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--color-charcoal);
+      margin-bottom: 0.2rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .cart-item-variant {
+      font-size: 0.8rem;
+      color: var(--color-primary);
+      margin-bottom: 0.2rem;
+    }
+
+    .cart-item-price {
+      font-size: 0.85rem;
+      color: var(--color-gray);
+    }
+
+    .cart-item-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .cart-qty-btn {
+      width: 28px;
+      height: 28px;
+      border: none;
+      background: white;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .cart-qty-btn:hover {
+      background: var(--color-primary-light);
+    }
+
+    .cart-qty-btn svg {
+      width: 14px;
+      height: 14px;
+      color: var(--color-charcoal);
+    }
+
+    .cart-qty-value {
+      font-weight: 600;
+      font-size: 0.95rem;
+      min-width: 24px;
+      text-align: center;
+    }
+
+    .cart-item-delete {
+      width: 32px;
+      height: 32px;
+      border: none;
+      background: transparent;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      margin-left: 0.5rem;
+    }
+
+    .cart-item-delete:hover {
+      background: #fee;
+    }
+
+    .cart-item-delete svg {
+      width: 18px;
+      height: 18px;
+      color: #c44;
+    }
+
+    /* Cart Footer */
+    .cart-modal-footer {
+      padding: 1rem 1.5rem 1.5rem;
+      border-top: 1px solid var(--color-border);
+      background: var(--color-light-gray);
+    }
+
+    .cart-total {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .cart-total-label {
+      font-size: 0.95rem;
+      color: var(--color-gray);
+    }
+
+    .cart-total-value {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--color-charcoal);
+    }
+
+    .cart-actions {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .cart-btn-continue {
+      flex: 1;
+      padding: 0.9rem 1rem;
+      border: 2px solid var(--color-border);
+      background: white;
+      color: var(--color-charcoal);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .cart-btn-continue:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+
+    .cart-btn-checkout {
+      flex: 1.5;
+      padding: 0.9rem 1rem;
+      border: none;
+      background: linear-gradient(135deg, var(--color-whatsapp) 0%, #20BA5C 100%);
+      color: white;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .cart-btn-checkout:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+    }
+
+    .cart-btn-checkout svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .cart-btn-repeat {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      border: none;
+      background: var(--color-primary);
+      color: white;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .cart-btn-repeat:hover {
+      background: var(--color-primary-dark);
+    }
+
+    /* ============================================
+       REPEAT ORDER MODAL
+    ============================================ */
+    .repeat-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+      z-index: 10002;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .repeat-modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .repeat-modal {
+      width: 90%;
+      max-width: 400px;
+      background: var(--color-white);
+      border-radius: 24px;
+      padding: 2rem;
+      text-align: center;
+      transform: scale(0.9);
+      transition: all 0.3s var(--ease-out-expo);
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+    }
+
+    .repeat-modal-overlay.active .repeat-modal {
+      transform: scale(1);
+    }
+
+    .repeat-modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 32px;
+      height: 32px;
+      border: none;
+      background: var(--color-light-gray);
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .repeat-modal-icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 1rem;
+      background: var(--color-primary-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .repeat-modal-icon svg {
+      width: 30px;
+      height: 30px;
+      color: var(--color-primary);
+    }
+
+    .repeat-modal-title {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--color-charcoal);
+      margin-bottom: 0.5rem;
+    }
+
+    .repeat-modal-subtitle {
+      font-size: 0.9rem;
+      color: var(--color-gray);
+      margin-bottom: 1.5rem;
+    }
+
+    .repeat-modal-items {
+      background: var(--color-light-gray);
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    .repeat-modal-item {
+      font-size: 0.9rem;
+      color: var(--color-charcoal);
+      padding: 0.4rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .repeat-modal-item::before {
+      content: '•';
+      color: var(--color-primary);
+      font-weight: bold;
+    }
+
+    .repeat-modal-actions {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .repeat-modal-btn {
+      flex: 1;
+      padding: 0.9rem 1rem;
+      border-radius: 12px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .repeat-modal-btn.secondary {
+      border: 2px solid var(--color-border);
+      background: white;
+      color: var(--color-gray);
+    }
+
+    .repeat-modal-btn.primary {
+      border: none;
+      background: var(--color-primary);
+      color: white;
+    }
+
+    .repeat-modal-btn.primary:hover {
+      background: var(--color-primary-dark);
+    }
+
     /* Selected Product Highlight */
     .product-card.highlighted {
       animation: highlightPulse 1.5s ease-out;
@@ -8109,6 +8676,16 @@
       </div>
       <div class="search-results" id="searchResults"></div>
     </div>
+    
+    <!-- Cart Icon -->
+    <button class="cart-icon" id="cartIcon" aria-label="Carrito de compras">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="9" cy="21" r="1"></circle>
+        <circle cx="20" cy="21" r="1"></circle>
+        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+      </svg>
+      <span class="cart-badge" id="cartBadge" style="display: none;">0</span>
+    </button>
   </nav>
 
   <!-- Main Slide Container -->
@@ -11538,22 +12115,27 @@
           <!-- Personal Info Fields -->
           <div class="delivery-form-group">
             <label class="delivery-form-label" for="deliveryName">Nombre completo</label>
-            <input type="text" class="delivery-form-input" id="deliveryName" placeholder="Tu nombre..." required>
+            <input type="text" class="delivery-form-input" id="deliveryName" placeholder="Tu nombre...">
+          </div>
+
+          <div class="delivery-form-group">
+            <label class="delivery-form-label" for="deliveryPetName">Nombre de tu mascota <span style="color: var(--color-gray); font-weight: 400;">(opcional)</span></label>
+            <input type="text" class="delivery-form-input" id="deliveryPetName" placeholder="¿Cómo se llama tu peludo? 🐾">
           </div>
 
           <div class="delivery-form-group">
             <label class="delivery-form-label" for="deliveryAddress">Dirección de entrega</label>
-            <input type="text" class="delivery-form-input" id="deliveryAddress" placeholder="Dirección completa..." required>
+            <input type="text" class="delivery-form-input" id="deliveryAddress" placeholder="Dirección completa...">
           </div>
 
           <div class="delivery-form-group">
             <label class="delivery-form-label" for="deliveryPhone">Teléfono</label>
-            <input type="tel" class="delivery-form-input" id="deliveryPhone" placeholder="Tu número de teléfono..." required>
+            <input type="tel" class="delivery-form-input" id="deliveryPhone" placeholder="Tu número de teléfono...">
           </div>
 
           <div class="delivery-form-group">
             <label class="delivery-form-label" for="deliveryId">Cédula / Documento de identidad</label>
-            <input type="text" class="delivery-form-input" id="deliveryId" placeholder="Número de documento..." required>
+            <input type="text" class="delivery-form-input" id="deliveryId" placeholder="Número de documento...">
           </div>
 
           <button type="submit" class="delivery-submit-btn" id="deliverySubmitBtn">
@@ -11567,12 +12149,715 @@
     </div>
   </div>
 
+  <!-- CART MODAL -->
+  <div class="cart-modal-overlay" id="cartModalOverlay"></div>
+  <div class="cart-modal" id="cartModal">
+    <div class="cart-modal-header">
+      <h3 class="cart-modal-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+        Mi Carrito
+      </h3>
+      <button class="cart-modal-close" id="cartModalClose" aria-label="Cerrar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6L6 18M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    
+    <div class="cart-modal-body" id="cartModalBody">
+      <!-- Cart items will be rendered here by JavaScript -->
+    </div>
+    
+    <div class="cart-modal-footer" id="cartModalFooter" style="display: none;">
+      <div class="cart-total">
+        <span class="cart-total-label">Total estimado:</span>
+        <span class="cart-total-value" id="cartTotalValue">Consultar</span>
+      </div>
+      <div class="cart-actions">
+        <button class="cart-btn-continue" id="cartBtnContinue">Seguir Comprando</button>
+        <button class="cart-btn-checkout" id="cartBtnCheckout">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+          </svg>
+          Enviar Pedido
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- REPEAT ORDER MODAL -->
+  <div class="repeat-modal-overlay" id="repeatModalOverlay">
+    <div class="repeat-modal">
+      <div class="repeat-modal-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M17 1l4 4-4 4"/>
+          <path d="M3 11V9a4 4 0 0 1 4-4h14"/>
+          <path d="M7 23l-4-4 4-4"/>
+          <path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+        </svg>
+      </div>
+      <h3 class="repeat-modal-title">¡Bienvenido de nuevo!</h3>
+      <p class="repeat-modal-subtitle">Tu pedido anterior está listo para repetir</p>
+      
+      <div class="repeat-modal-items" id="repeatModalItems">
+        <!-- Last order items will be rendered here -->
+      </div>
+      
+      <div class="repeat-modal-actions">
+        <button class="repeat-modal-btn secondary" id="repeatModalNo">No, gracias</button>
+        <button class="repeat-modal-btn primary" id="repeatModalYes">Repetir Pedido</button>
+      </div>
+    </div>
+  </div>
+
   <!-- WHATSAPP FLOATING BUTTON -->
   <a href="https://wa.me/573001234567?text=Hola!%20Me%20interesa%20conocer%20más%20sobre%20los%20suplementos%20de%20Serena%20Vet" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
   </a>
 
+  <!-- Products Database -->
+  <script src="products.js"></script>
+  
   <script>
+    // ============================================
+    // UNIFIED CART SYSTEM
+    // ============================================
+    
+    // Cart state
+    let cart = [];
+    
+    // localStorage keys
+    const CART_KEY = 'serenavet-cart';
+    const LAST_PEDIDO_KEY = 'serenavet-lastPedido';
+    const CUSTOMER_INFO_KEY = 'serenavet-customerInfo';
+    
+    // Load cart from localStorage on page load
+    function loadCart() {
+      try {
+        const saved = localStorage.getItem(CART_KEY);
+        cart = saved ? JSON.parse(saved) : [];
+      } catch (e) {
+        cart = [];
+      }
+      updateCartBadge();
+    }
+    
+    // Save cart to localStorage
+    function saveCart() {
+      try {
+        localStorage.setItem(CART_KEY, JSON.stringify(cart));
+      } catch (e) {
+        console.error('Error saving cart:', e);
+      }
+    }
+    
+    // Add item to cart
+    function addToCart(productId, quantity = 1, variant = null) {
+      // Check if item already exists
+      const existingIndex = cart.findIndex(item => 
+        item.productId === productId && item.variant === variant
+      );
+      
+      if (existingIndex > -1) {
+        cart[existingIndex].quantity += quantity;
+      } else {
+        cart.push({ productId, quantity, variant });
+      }
+      
+      saveCart();
+      updateCartBadge();
+      showCartNotification();
+    }
+    
+    // Remove item from cart
+    function removeFromCart(productId, variant = null) {
+      cart = cart.filter(item => 
+        !(item.productId === productId && item.variant === variant)
+      );
+      saveCart();
+      updateCartBadge();
+      renderCartModal();
+    }
+    
+    // Update item quantity
+    function updateCartItemQuantity(productId, variant, delta) {
+      const item = cart.find(i => i.productId === productId && i.variant === variant);
+      if (item) {
+        item.quantity += delta;
+        if (item.quantity <= 0) {
+          removeFromCart(productId, variant);
+        } else {
+          saveCart();
+          renderCartModal();
+        }
+      }
+    }
+    
+    // Clear cart
+    function clearCart() {
+      cart = [];
+      saveCart();
+      updateCartBadge();
+    }
+    
+    // Get cart total
+    function getCartTotal() {
+      let total = 0;
+      let hasConsultar = false;
+      
+      cart.forEach(item => {
+        const product = typeof PRODUCTS !== 'undefined' ? PRODUCTS[item.productId] : null;
+        if (product && product.price !== null) {
+          total += product.price * item.quantity;
+        } else {
+          hasConsultar = true;
+        }
+      });
+      
+      return { total, hasConsultar };
+    }
+    
+    // Get total items count
+    function getCartItemCount() {
+      return cart.reduce((sum, item) => sum + item.quantity, 0);
+    }
+    
+    // Update cart badge
+    function updateCartBadge() {
+      const badge = document.getElementById('cartBadge');
+      const count = getCartItemCount();
+      
+      if (badge) {
+        if (count > 0) {
+          badge.textContent = count > 99 ? '99+' : count;
+          badge.style.display = 'flex';
+        } else {
+          badge.style.display = 'none';
+        }
+      }
+    }
+    
+    // Show cart notification
+    function showCartNotification() {
+      const cartIcon = document.getElementById('cartIcon');
+      if (cartIcon) {
+        cartIcon.style.transform = 'scale(1.2)';
+        setTimeout(() => {
+          cartIcon.style.transform = '';
+        }, 200);
+      }
+    }
+    
+    // ============================================
+    // CART MODAL
+    // ============================================
+    
+    const cartModalOverlay = document.getElementById('cartModalOverlay');
+    const cartModal = document.getElementById('cartModal');
+    const cartModalBody = document.getElementById('cartModalBody');
+    const cartModalFooter = document.getElementById('cartModalFooter');
+    const cartIcon = document.getElementById('cartIcon');
+    const cartModalClose = document.getElementById('cartModalClose');
+    const cartBtnContinue = document.getElementById('cartBtnContinue');
+    const cartBtnCheckout = document.getElementById('cartBtnCheckout');
+    
+    function openCartModal() {
+      renderCartModal();
+      cartModalOverlay.classList.add('active');
+      cartModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeCartModal() {
+      cartModalOverlay.classList.remove('active');
+      cartModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    
+    function renderCartModal() {
+      if (!cartModalBody) return;
+      
+      if (cart.length === 0) {
+        // Empty cart state
+        const lastPedido = getLastPedido();
+        let lastOrderHtml = '';
+        
+        if (lastPedido && lastPedido.items && lastPedido.items.length > 0) {
+          const itemsHtml = lastPedido.items.map(item => {
+            const product = typeof PRODUCTS !== 'undefined' ? PRODUCTS[item.productId] : null;
+            const name = product ? product.name : item.productId;
+            const variant = item.variant ? ` (${item.variant})` : '';
+            return `<div class="cart-last-order-item">${name}${variant} x${item.quantity}</div>`;
+          }).join('');
+          
+          lastOrderHtml = `
+            <div class="cart-last-order">
+              <div class="cart-last-order-title">Tu último pedido:</div>
+              <div class="cart-last-order-items">${itemsHtml}</div>
+              <button class="cart-btn-repeat" onclick="repeatLastOrder()">Repetir Pedido</button>
+            </div>
+          `;
+        }
+        
+        cartModalBody.innerHTML = `
+          <div class="cart-empty">
+            <svg class="cart-empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+            <div class="cart-empty-title">Tu carrito está vacío</div>
+            <div class="cart-empty-text">Agrega productos para comenzar tu pedido</div>
+            ${lastOrderHtml}
+          </div>
+        `;
+        cartModalFooter.style.display = 'none';
+      } else {
+        // Render cart items
+        const itemsHtml = cart.map(item => {
+          const product = typeof PRODUCTS !== 'undefined' ? PRODUCTS[item.productId] : null;
+          const name = product ? product.name : item.productId;
+          const image = product ? product.image : 'images/placeholder.png';
+          const price = product && product.price !== null ? 
+            '$' + (product.price * item.quantity).toLocaleString('es-CO') : 
+            'Consultar';
+          
+          return `
+            <div class="cart-item">
+              <img class="cart-item-image" src="${image}" alt="${name}">
+              <div class="cart-item-info">
+                <div class="cart-item-name">${name}</div>
+                ${item.variant ? `<div class="cart-item-variant">${item.variant}</div>` : ''}
+                <div class="cart-item-price">${price}</div>
+              </div>
+              <div class="cart-item-controls">
+                <button class="cart-qty-btn" onclick="updateCartItemQuantity('${item.productId}', ${item.variant ? `'${item.variant}'` : 'null'}, -1)">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </button>
+                <span class="cart-qty-value">${item.quantity}</span>
+                <button class="cart-qty-btn" onclick="updateCartItemQuantity('${item.productId}', ${item.variant ? `'${item.variant}'` : 'null'}, 1)">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </button>
+              </div>
+              <button class="cart-item-delete" onclick="removeFromCart('${item.productId}', ${item.variant ? `'${item.variant}'` : 'null'})">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                </svg>
+              </button>
+            </div>
+          `;
+        }).join('');
+        
+        cartModalBody.innerHTML = itemsHtml;
+        
+        // Update total
+        const { total, hasConsultar } = getCartTotal();
+        const cartTotalValue = document.getElementById('cartTotalValue');
+        if (cartTotalValue) {
+          cartTotalValue.textContent = hasConsultar ? 'Consultar' : '$' + total.toLocaleString('es-CO');
+        }
+        
+        cartModalFooter.style.display = 'block';
+      }
+    }
+    
+    // ============================================
+    // LAST PEDIDO / REPEAT ORDER
+    // ============================================
+    
+    function getLastPedido() {
+      try {
+        const saved = localStorage.getItem(LAST_PEDIDO_KEY);
+        return saved ? JSON.parse(saved) : null;
+      } catch (e) {
+        return null;
+      }
+    }
+    
+    function saveLastPedido(items) {
+      try {
+        const lastPedido = {
+          items: items,
+          timestamp: Date.now(),
+          modalShown: false
+        };
+        localStorage.setItem(LAST_PEDIDO_KEY, JSON.stringify(lastPedido));
+      } catch (e) {
+        console.error('Error saving last pedido:', e);
+      }
+    }
+    
+    function markRepeatModalShown() {
+      try {
+        const lastPedido = getLastPedido();
+        if (lastPedido) {
+          lastPedido.modalShown = true;
+          localStorage.setItem(LAST_PEDIDO_KEY, JSON.stringify(lastPedido));
+        }
+      } catch (e) {
+        console.error('Error marking modal shown:', e);
+      }
+    }
+    
+    function repeatLastOrder() {
+      const lastPedido = getLastPedido();
+      if (lastPedido && lastPedido.items) {
+        lastPedido.items.forEach(item => {
+          addToCart(item.productId, item.quantity, item.variant);
+        });
+        closeRepeatModal();
+        openDeliveryModalForCart();
+      }
+    }
+    
+    function shouldShowRepeatModal() {
+      const lastPedido = getLastPedido();
+      if (!lastPedido || !lastPedido.items || lastPedido.items.length === 0) {
+        return false;
+      }
+      
+      // Check if already shown
+      if (lastPedido.modalShown === true) {
+        return false;
+      }
+      
+      // Check if at least 7 days have passed
+      const sevenDaysMs = 7 * 24 * 60 * 60 * 1000;
+      const timeSinceOrder = Date.now() - lastPedido.timestamp;
+      
+      return timeSinceOrder >= sevenDaysMs;
+    }
+    
+    // Repeat modal
+    const repeatModalOverlay = document.getElementById('repeatModalOverlay');
+    const repeatModalItems = document.getElementById('repeatModalItems');
+    const repeatModalNo = document.getElementById('repeatModalNo');
+    const repeatModalYes = document.getElementById('repeatModalYes');
+    
+    function openRepeatModal() {
+      const lastPedido = getLastPedido();
+      if (!lastPedido || !repeatModalItems) return;
+      
+      const itemsHtml = lastPedido.items.map(item => {
+        const product = typeof PRODUCTS !== 'undefined' ? PRODUCTS[item.productId] : null;
+        const name = product ? product.name : item.productId;
+        const variant = item.variant ? ` (${item.variant})` : '';
+        return `<div class="repeat-modal-item">${name}${variant} x${item.quantity}</div>`;
+      }).join('');
+      
+      repeatModalItems.innerHTML = itemsHtml;
+      repeatModalOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeRepeatModal() {
+      repeatModalOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+      markRepeatModalShown();
+    }
+    
+    // ============================================
+    // CUSTOMER INFO
+    // ============================================
+    
+    function getCustomerInfo() {
+      try {
+        const saved = localStorage.getItem(CUSTOMER_INFO_KEY);
+        return saved ? JSON.parse(saved) : {};
+      } catch (e) {
+        return {};
+      }
+    }
+    
+    function saveCustomerInfo(info) {
+      try {
+        const existing = getCustomerInfo();
+        const merged = { ...existing, ...info };
+        localStorage.setItem(CUSTOMER_INFO_KEY, JSON.stringify(merged));
+      } catch (e) {
+        console.error('Error saving customer info:', e);
+      }
+    }
+    
+    // ============================================
+    // WHATSAPP MESSAGE BUILDER (Human-Readable)
+    // ============================================
+    
+    function buildWhatsAppMessage() {
+      const customerInfo = getCustomerInfo();
+      
+      // Build product list
+      const productList = cart.map(item => {
+        const product = typeof PRODUCTS !== 'undefined' ? PRODUCTS[item.productId] : null;
+        const name = product ? product.name : item.productId;
+        const variant = item.variant ? ` ${item.variant}` : '';
+        return `${name}${variant} x${item.quantity}`;
+      }).join(', ');
+      
+      // Build human-readable message
+      let msg = `Hola, soy ${customerInfo.name || '[nombre]'}`;
+      
+      if (customerInfo.petName) {
+        msg += ` y tengo una mascota llamada ${customerInfo.petName}`;
+      }
+      
+      msg += `.\\n\\nMe interesa pedir: ${productList}.`;
+      
+      if (customerInfo.address || customerInfo.city) {
+        msg += `\\n\\nLa entrega es para ${customerInfo.address || ''}${customerInfo.city ? ', ' + customerInfo.city : ''}.`;
+      }
+      
+      if (customerInfo.phone) {
+        msg += `\\nNúmero de contacto: ${customerInfo.phone}.`;
+      }
+      
+      if (customerInfo.cedula) {
+        msg += `\\nMi documento es ${customerInfo.cedula}.`;
+      }
+      
+      msg += `\\n\\n¡Gracias!`;
+      
+      return msg;
+    }
+    
+    function openWhatsAppWithCart() {
+      if (cart.length === 0) {
+        alert('Tu carrito está vacío');
+        return;
+      }
+      
+      // Save current cart as last pedido
+      saveLastPedido([...cart]);
+      
+      const message = buildWhatsAppMessage();
+      const whatsappUrl = `https://wa.me/573001234567?text=${encodeURIComponent(message.replace(/\\n/g, '\\n'))}`;
+      
+      // Clear cart
+      clearCart();
+      
+      // Close modals
+      closeCartModal();
+      
+      // Open WhatsApp
+      window.open(whatsappUrl, '_blank');
+    }
+    
+    // Quick purchase - add to cart and open delivery form
+    function quickPurchase(productId, quantity = 1, variant = null) {
+      addToCart(productId, quantity, variant);
+      openDeliveryModalForCart();
+    }
+    
+    function openDeliveryModalForCart() {
+      // Update delivery form to work with cart
+      const deliveryModalOverlay = document.getElementById('deliveryModalOverlay');
+      if (deliveryModalOverlay) {
+        // Pre-fill form with saved customer info
+        const info = getCustomerInfo();
+        const nameInput = document.getElementById('deliveryName');
+        const phoneInput = document.getElementById('deliveryPhone');
+        const addressInput = document.getElementById('deliveryAddress');
+        const idInput = document.getElementById('deliveryId');
+        const petNameInput = document.getElementById('deliveryPetName');
+        
+        if (nameInput && info.name) nameInput.value = info.name;
+        if (phoneInput && info.phone) phoneInput.value = info.phone;
+        if (addressInput && info.address) addressInput.value = info.address;
+        if (idInput && info.cedula) idInput.value = info.cedula;
+        if (petNameInput && info.petName) petNameInput.value = info.petName;
+        
+        deliveryModalOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+    
+    // ============================================
+    // EVENT LISTENERS
+    // ============================================
+    
+    // Initialize cart on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      loadCart();
+      
+      // Cart icon click
+      if (cartIcon) {
+        cartIcon.addEventListener('click', openCartModal);
+      }
+      
+      // Cart modal close
+      if (cartModalClose) {
+        cartModalClose.addEventListener('click', closeCartModal);
+      }
+      if (cartModalOverlay) {
+        cartModalOverlay.addEventListener('click', closeCartModal);
+      }
+      
+      // Continue shopping
+      if (cartBtnContinue) {
+        cartBtnContinue.addEventListener('click', closeCartModal);
+      }
+      
+      // Checkout
+      if (cartBtnCheckout) {
+        cartBtnCheckout.addEventListener('click', () => {
+          closeCartModal();
+          openDeliveryModalForCart();
+        });
+      }
+      
+      // Repeat modal
+      if (repeatModalNo) {
+        repeatModalNo.addEventListener('click', closeRepeatModal);
+      }
+      if (repeatModalYes) {
+        repeatModalYes.addEventListener('click', repeatLastOrder);
+      }
+      
+      // Check if should show repeat modal (after a short delay)
+      setTimeout(() => {
+        if (shouldShowRepeatModal()) {
+          openRepeatModal();
+        }
+      }, 1500);
+      
+      // Close modals on escape
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          if (cartModal && cartModal.classList.contains('active')) {
+            closeCartModal();
+          }
+          if (repeatModalOverlay && repeatModalOverlay.classList.contains('active')) {
+            closeRepeatModal();
+          }
+        }
+      });
+    });
+    
+    // ============================================
+    // PRODUCT CARD QUANTITY & ADD TO CART
+    // ============================================
+    
+    // Handle quantity buttons on product cards
+    function setupProductCardQuantityButtons() {
+      document.querySelectorAll('.product-card').forEach(card => {
+        const qtyContainer = card.querySelector('.cardialb-block-quantity');
+        if (!qtyContainer) return;
+        
+        const qtyValue = qtyContainer.querySelector('.cardialb-block-qty-value');
+        const qtyButtons = qtyContainer.querySelectorAll('.cardialb-block-qty-btn');
+        
+        qtyButtons.forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent card click
+            const action = btn.dataset.action;
+            let currentQty = parseInt(qtyValue.textContent) || 1;
+            
+            if (action === 'increase' && currentQty < 99) {
+              currentQty++;
+            } else if (action === 'decrease' && currentQty > 1) {
+              currentQty--;
+            }
+            
+            qtyValue.textContent = currentQty;
+          });
+        });
+      });
+    }
+    
+    // Get product ID from card (using product name for now)
+    function getProductIdFromCard(card) {
+      const productName = card.querySelector('.product-info h3')?.textContent || '';
+      // Find product by name in PRODUCTS
+      if (typeof PRODUCTS !== 'undefined') {
+        for (const [id, product] of Object.entries(PRODUCTS)) {
+          if (product.name === productName) {
+            return id;
+          }
+        }
+      }
+      // Fallback: generate ID from name
+      return productName.toLowerCase()
+        .replace(/[^a-z0-9\s]/g, '')
+        .replace(/\s+/g, '-')
+        .substring(0, 50);
+    }
+    
+    // Add to cart from product card
+    function addToCartFromCard(card) {
+      const productId = getProductIdFromCard(card);
+      const qtyValue = card.querySelector('.cardialb-block-qty-value');
+      const quantity = qtyValue ? parseInt(qtyValue.textContent) || 1 : 1;
+      
+      // Check if card has variants - if so, need to open modal
+      const hasVariants = card.hasAttribute('data-variants');
+      const hasSpecialModal = card.classList.contains('pimocard-card') || 
+                              card.classList.contains('cardial-card') || 
+                              card.classList.contains('cardialb-card');
+      
+      if (hasVariants || hasSpecialModal) {
+        // Need to select variant first - trigger card click to open modal
+        card.click();
+        return;
+      }
+      
+      // Add directly to cart
+      if (typeof addToCart === 'function') {
+        addToCart(productId, quantity, null);
+        // Reset quantity display
+        if (qtyValue) qtyValue.textContent = '1';
+        // Show feedback
+        showAddedToCartFeedback(card);
+      }
+    }
+    
+    // Quick purchase from product card
+    function quickPurchaseFromCard(card) {
+      const productId = getProductIdFromCard(card);
+      const qtyValue = card.querySelector('.cardialb-block-qty-value');
+      const quantity = qtyValue ? parseInt(qtyValue.textContent) || 1 : 1;
+      
+      // Check if card has variants or special modal
+      const hasVariants = card.hasAttribute('data-variants');
+      const hasSpecialModal = card.classList.contains('pimocard-card') || 
+                              card.classList.contains('cardial-card') || 
+                              card.classList.contains('cardialb-card');
+      
+      if (hasVariants || hasSpecialModal) {
+        // Need to select variant first
+        card.click();
+        return;
+      }
+      
+      // Add to cart and open delivery form
+      if (typeof addToCart === 'function') {
+        addToCart(productId, quantity, null);
+        if (qtyValue) qtyValue.textContent = '1';
+      }
+      
+      if (typeof openDeliveryModalForCart === 'function') {
+        openDeliveryModalForCart();
+      }
+    }
+    
+    // Show feedback when item added to cart
+    function showAddedToCartFeedback(card) {
+      card.style.boxShadow = '0 0 0 3px rgba(104, 187, 89, 0.5)';
+      card.style.transform = 'scale(1.02)';
+      setTimeout(() => {
+        card.style.boxShadow = '';
+        card.style.transform = '';
+      }, 300);
+    }
+    
+    // Initialize product card controls
+    document.addEventListener('DOMContentLoaded', () => {
+      setupProductCardQuantityButtons();
+    });
+
     // Premium Page Load Animation
     // Trigger the animation sequence after everything is ready
     document.addEventListener('DOMContentLoaded', () => {
@@ -12560,11 +13845,18 @@
       unblockScrolling();
     });
 
-    // Request delivery button action - opens delivery modal
+    // Request delivery button action - adds to cart and opens delivery modal
     pimocardRequestDeliveryBtn.addEventListener('click', () => {
       if (Object.keys(selectedPresentations).length === 0) return;
       
-      // Build product info for delivery with prices
+      // Add each selected presentation to cart
+      if (typeof addToCart === 'function') {
+        Object.entries(selectedPresentations).forEach(([dose, data]) => {
+          addToCart('pimocard', data.qty, dose);
+        });
+      }
+      
+      // Build product info for delivery with prices (for backward compatibility)
       let totalPrice = 0;
       let variantInfo = Object.entries(selectedPresentations)
         .map(([dose, data]) => {
@@ -12585,7 +13877,11 @@
       // Close Pimocard modal and open delivery modal
       closePimocardModal();
       setTimeout(() => {
-        openDeliveryModal();
+        if (typeof openDeliveryModalForCart === 'function') {
+          openDeliveryModalForCart();
+        } else {
+          openDeliveryModal();
+        }
       }, 300);
     });
 
@@ -12806,15 +14102,14 @@
     pimocardAddToCartBtn.addEventListener('click', () => {
       if (Object.keys(selectedPresentations).length === 0) return;
       
-      // Calculate total
-      let totalPrice = 0;
-      let itemCount = 0;
-      Object.entries(selectedPresentations).forEach(([dose, data]) => {
-        totalPrice += data.price * data.qty;
-        itemCount += data.qty;
-      });
+      // Add each selected presentation to cart
+      if (typeof addToCart === 'function') {
+        Object.entries(selectedPresentations).forEach(([dose, data]) => {
+          addToCart('pimocard', data.qty, dose);
+        });
+      }
       
-      // Show success feedback (you can customize this)
+      // Show success feedback
       const btn = pimocardAddToCartBtn;
       const originalText = btn.innerHTML;
       btn.innerHTML = `
@@ -12828,10 +14123,12 @@
       setTimeout(() => {
         btn.innerHTML = originalText;
         btn.style.background = '';
-      }, 2000);
-      
-      // Here you could add to a global cart if you have one
-      // For now, items remain in the selection canvas
+        // Close modal and show cart
+        closePimocardModal();
+        if (typeof openCartModal === 'function') {
+          openCartModal();
+        }
+      }, 800);
     });
 
     // Reset selections when modal closes
@@ -13873,6 +15170,13 @@
       cardialbRequestDeliveryBtn.addEventListener('click', () => {
         if (Object.keys(cardialbSelectedPresentations).length === 0) return;
         
+        // Add each selected presentation to cart
+        if (typeof addToCart === 'function') {
+          Object.entries(cardialbSelectedPresentations).forEach(([dose, data]) => {
+            addToCart('cardial-b', data.qty, dose);
+          });
+        }
+        
         // Build product info for delivery with prices
         let totalPrice = 0;
         let variantInfo = Object.entries(cardialbSelectedPresentations)
@@ -13894,7 +15198,11 @@
         // Close Cardial B modal and open delivery modal
         closeCardialbModal();
         setTimeout(() => {
-          openDeliveryModal();
+          if (typeof openDeliveryModalForCart === 'function') {
+            openDeliveryModalForCart();
+          } else {
+            openDeliveryModal();
+          }
         }, 300);
       });
     }
@@ -14081,11 +15389,41 @@
     // Add to cart action
     btnAddCart.addEventListener('click', () => {
       if (currentProduct) {
-        const priceInfo = buildPriceMessage();
-        const variantInfo = currentProduct.selectedVariant ? `\nPresentación: ${currentProduct.selectedVariant}` : '';
-        const message = `Hola! Me gustaría agregar al carrito:\n\n*${currentProduct.name}*${variantInfo}\nCantidad: ${currentQuantity}\n${priceInfo}`;
-        const whatsappUrl = `https://wa.me/573001234567?text=${encodeURIComponent(message)}`;
-        window.open(whatsappUrl, '_blank');
+        // Get product ID from name
+        let productId = null;
+        if (typeof PRODUCTS !== 'undefined') {
+          for (const [id, product] of Object.entries(PRODUCTS)) {
+            if (product.name === currentProduct.name) {
+              productId = id;
+              break;
+            }
+          }
+        }
+        
+        if (!productId) {
+          // Fallback: generate ID from name
+          productId = currentProduct.name.toLowerCase()
+            .replace(/[^a-z0-9\s]/g, '')
+            .replace(/\s+/g, '-')
+            .substring(0, 50);
+        }
+        
+        const variant = currentProduct.selectedVariant || null;
+        
+        // Add to cart
+        if (typeof addToCart === 'function') {
+          addToCart(productId, currentQuantity, variant);
+          
+          // Close canvas and show cart
+          closeCanvas();
+          
+          // Brief delay then show feedback
+          setTimeout(() => {
+            if (typeof openCartModal === 'function') {
+              openCartModal();
+            }
+          }, 300);
+        }
       }
     });
 
@@ -14160,7 +15498,42 @@
 
     // Request delivery action - open modal
     btnDelivery.addEventListener('click', () => {
-      openDeliveryModal();
+      // Add current product to cart first (quick purchase flow)
+      if (currentProduct) {
+        let productId = null;
+        if (typeof PRODUCTS !== 'undefined') {
+          for (const [id, product] of Object.entries(PRODUCTS)) {
+            if (product.name === currentProduct.name) {
+              productId = id;
+              break;
+            }
+          }
+        }
+        
+        if (!productId) {
+          productId = currentProduct.name.toLowerCase()
+            .replace(/[^a-z0-9\s]/g, '')
+            .replace(/\s+/g, '-')
+            .substring(0, 50);
+        }
+        
+        const variant = currentProduct.selectedVariant || null;
+        
+        // Add to cart
+        if (typeof addToCart === 'function') {
+          addToCart(productId, currentQuantity, variant);
+        }
+        
+        // Close canvas
+        closeCanvas();
+      }
+      
+      // Open delivery modal with cart
+      if (typeof openDeliveryModalForCart === 'function') {
+        openDeliveryModalForCart();
+      } else {
+        openDeliveryModal();
+      }
     });
 
     // Close modal events
@@ -14209,67 +15582,87 @@
       deliveryAfterTomorrow.querySelector('input').checked = true;
     });
 
-    // Form submission
+    // Form submission - Updated to work with cart
     deliveryForm.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      if (!currentProduct) return;
+      // Check if we have items in cart or a current product
+      const hasCartItems = typeof cart !== 'undefined' && cart.length > 0;
+      const hasCurrentProduct = typeof currentProduct !== 'undefined' && currentProduct;
+      
+      if (!hasCartItems && !hasCurrentProduct) {
+        alert('No hay productos seleccionados');
+        return;
+      }
 
       const name = document.getElementById('deliveryName').value.trim();
+      const petName = document.getElementById('deliveryPetName')?.value.trim() || '';
       const address = document.getElementById('deliveryAddress').value.trim();
       const phone = document.getElementById('deliveryPhone').value.trim();
       const idNumber = document.getElementById('deliveryId').value.trim();
       const isBogota = cityBogotaYes.checked;
       const otherCity = otherCityName.value.trim();
-      const deliveryDate = document.querySelector('input[name="deliveryDate"]:checked');
+      const city = isBogota ? 'Bogotá' : (otherCity || '');
 
-      // Validation
-      if (!cityBogotaYes.checked && !cityBogotaNo.checked) {
-        alert('Por favor selecciona si estás en Bogotá');
-        return;
+      // Save customer info to localStorage for future use
+      if (typeof saveCustomerInfo === 'function') {
+        saveCustomerInfo({
+          name: name,
+          petName: petName,
+          address: address,
+          phone: phone,
+          cedula: idNumber,
+          city: city
+        });
       }
 
-      if (cityBogotaNo.checked && !otherCity) {
-        alert('Por favor escribe tu ciudad');
-        otherCityName.focus();
-        return;
+      // Build product list for message
+      let productList = '';
+      
+      if (hasCartItems) {
+        // Use cart items
+        productList = cart.map(item => {
+          const product = typeof PRODUCTS !== 'undefined' ? PRODUCTS[item.productId] : null;
+          const productName = product ? product.name : item.productId;
+          const variant = item.variant ? ` ${item.variant}` : '';
+          return `${productName}${variant} x${item.quantity}`;
+        }).join(', ');
+      } else if (hasCurrentProduct) {
+        // Use current product (single item flow)
+        const variant = currentProduct.selectedVariant ? ` ${currentProduct.selectedVariant}` : '';
+        productList = `${currentProduct.name}${variant} x${currentQuantity}`;
       }
 
-      if (isBogota && !deliveryDate) {
-        alert('Por favor selecciona una fecha de entrega');
-        return;
+      // Build human-readable message
+      let message = `Hola, soy ${name || '[nombre]'}`;
+      
+      if (petName) {
+        message += ` y tengo una mascota llamada ${petName}`;
       }
-
-      if (!name || !address || !phone || !idNumber) {
-        alert('Por favor completa todos los campos');
-        return;
+      
+      message += `.\n\nMe interesa pedir: ${productList}.`;
+      
+      if (address || city) {
+        message += `\n\nLa entrega es para ${address}${city ? ', ' + city : ''}.`;
       }
-      // Build message
-      const priceInfo = buildPriceMessage();
-      const variantInfo = currentProduct.selectedVariant ? `\nPresentación: ${currentProduct.selectedVariant}` : '';
-      const city = isBogota ? 'Bogotá' : otherCity;
-
-      let deliveryInfo = '';
-      if (isBogota) {
-        const selectedDate = deliveryDate.value === 'tomorrow' ? tomorrowDateEl.textContent : afterTomorrowDateEl.textContent;
-        deliveryInfo = `\n📅 *Entrega solicitada:* ${deliveryDate.value === 'tomorrow' ? 'Mañana' : 'Pasado mañana'} (${selectedDate})`;
-        deliveryInfo += '\n💳 *Pago:* Contraentrega disponible';
-      } else {
-        deliveryInfo = '\n📅 *Entrega:* Siguiente día hábil (si compra antes de 3PM) o en 48 horas';
+      
+      if (phone) {
+        message += `\nNúmero de contacto: ${phone}.`;
       }
+      
+      if (idNumber) {
+        message += `\nMi documento es ${idNumber}.`;
+      }
+      
+      message += `\n\n¡Gracias!`;
 
-      const message = `🚚 *SOLICITUD DE ENTREGA*\n\n` +
-        `📦 *Producto:* ${currentProduct.name}${variantInfo}\n` +
-        `📊 *Cantidad:* ${currentQuantity}\n` +
-        `${priceInfo}\n` +
-        `\n👤 *DATOS DEL CLIENTE*\n` +
-        `Nombre: ${name}\n` +
-        `Cédula: ${idNumber}\n` +
-        `Teléfono: ${phone}\n` +
-        `\n📍 *DIRECCIÓN DE ENTREGA*\n` +
-        `Ciudad: ${city}\n` +
-        `Dirección: ${address}` +
-        `${deliveryInfo}`;
+      // Save last pedido and clear cart
+      if (hasCartItems && typeof saveLastPedido === 'function') {
+        saveLastPedido([...cart]);
+        if (typeof clearCart === 'function') {
+          clearCart();
+        }
+      }
 
       const whatsappUrl = `https://wa.me/573001234567?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank');
