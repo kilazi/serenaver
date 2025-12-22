@@ -156,10 +156,33 @@ const PRODUCTS = {
     categories: ["perros", "gatos", "cardiologia"],
     price: null,
     image: "images/DIURENE-100-COMP.webp",
-    description: "Diurético para tratamiento de edemas e insuficiencia cardíaca.",
+    description: "El complemento ideal en el tratamiento de las cardiopatías caninas.",
     badge: null,
-    variants: null,
-    specialModal: null
+    variants: [
+      { name: "x30", price: null, image: "images/DIURENE-100-COMP.webp" },
+      { name: "x100 Hospitalario", price: null, image: "images/DIURENE-100-COMP.webp" }
+    ],
+    specialModal: null,
+    // Extended modal info
+    logoText: "DIURENE 40°",
+    logoSubtitle: "FUROSEMIDA 40 mg",
+    fullDescription: "<strong>Diurene 40® (Furosemida)</strong> es un diurético de asa potente indicado para el tratamiento de la insuficiencia cardíaca congestiva. La furosemida reduce la precarga como terapia deplecionante asociada a la restricción de sal en la dieta.",
+    indication: "<strong>Indicado para:</strong><ul><li>Tratamiento de edemas (congestión pulmonar, ascitis) asociados a insuficiencia cardíaca</li><li>Edema agudo de tejidos no inflamatorios</li><li>Hipertensión</li><li>Desequilibrios electrolíticos (hiperpotasemia e hipercalcemia)</li></ul>",
+    presentationTitle: "PRESENTACIONES",
+    presentationSubtitle: "",
+    formula: "<strong>FÓRMULA</strong><br>Cada comprimido contiene:<br>Furosemida 40 mg<br>Excipientes c.s.",
+    dosage: "<strong>DOSIS</strong><br><strong>Vía oral / Perros:</strong><br>2 a 4 mg/kg cada 8 a 12 horas<br>Equivalente a 1 comprimido cada 20 kg. o 10 kg. respectivamente.<br><br><strong>Nota:</strong> La dosis debe ser ajustada según la respuesta individual. Se sugiere fomentar la ingesta de alimento y agua.",
+    benefitsTitle: "Mecanismo de Acción",
+    benefitsSubtitle: "Características que hacen de Diurene 40® el complemento ideal",
+    benefits: [
+      { title: "Diurético de Asa Potente", description: "Diurene 40® contiene Furosemida, un diurético de asa potente para el tratamiento de la insuficiencia cardíaca congestiva." },
+      { title: "Reducción de Precarga", description: "La furosemida reduce la precarga como terapia deplecionante asociada a la restricción de sal en la dieta." },
+      { title: "Administración Oral", description: "Actúa dentro de los 30 minutos debido a su rápida absorción gastrointestinal y baja liposolubilidad." },
+      { title: "Actividad Diurética", description: "Efectiva tanto en acidosis como en alcalosis." },
+      { title: "Mecanismo de Acción", description: "Actúa directamente sobre el riñón, inhibiendo la reabsorción de sodio, cloro y potasio en los túbulos proximales y distales, y en la rama ascendente del asa de Henle, aumentando la excreción de agua." },
+      { title: "Ingeniería de Formulación", description: "Permite que la acción comience antes de los treinta minutos, a diferencia de otros productos." },
+      { title: "Complemento Ideal", description: "Diurene 40® es el complemento ideal en el tratamiento de las cardiopatías caninas junto a Cardial B, Pimocard y una dieta acorde a las necesidades del paciente." }
+    ]
   },
   "toracard": {
     id: "toracard",
@@ -208,10 +231,30 @@ const PRODUCTS = {
     categories: ["gatos", "antiparasitarios"],
     price: null,
     image: "images/ecthol-collar.png",
-    description: "Collar antiparasitario de larga duración para gatos.",
+    description: "La alternativa más efectiva para el control de pulgas y garrapatas en gatos.",
     badge: "Gatos",
-    variants: null,
-    specialModal: null
+    variants: [
+      { name: "40 CM", price: null, image: "images/ecthol-collar.png" }
+    ],
+    specialModal: null,
+    // Extended modal info
+    logoText: "ECTHOL",
+    logoSubtitle: "Collar / Antipulgas y garrapatas",
+    fullDescription: "El nuevo <strong>Collar Ecthol</strong> es la alternativa más efectiva para el control de pulgas y garrapatas en perros y gatos. Es ideal para aquellas mascotas que permanecen tiempos prolongados fuera del hogar y en contacto con otros animales disfrutando de la vida al aire libre.",
+    indication: "<strong>Indicado para:</strong><ul><li>Control de pulgas (Ctenocephalides canis, Ctenocephalides felis)</li><li>Control de garrapatas (Amblyoma, Dermacentor, Ripicephalus, Ixodes)</li><li>Prevención de re-infestación en espacios abiertos</li><li>Protección en épocas y zonas de temperaturas elevadas y humedad</li><li>Prevención del ataque de formas inmaduras de pulgas y garrapatas presentes en el ambiente</li></ul>",
+    presentationTitle: "ECTHOL COLLAR GATOS",
+    presentationSubtitle: "40 CM",
+    formula: "<strong>FÓRMULA</strong><br>Collar con liberación controlada de Clorpirifós",
+    dosage: "<strong>MODO DE ACCIÓN:</strong><br>El Collar Ecthol fue diseñado para liberar de forma constante y progresiva su principio activo, logrando una alta efectividad en la eliminación de pulgas y garrapatas. Su composición es inocua para el animal que lo porta.<br><br><strong>Mecanismo:</strong><br>1. El avanzado polímero del collar contiene en su interior Clorpirifós a la espera de su activación.<br>2. La temperatura corporal genera su liberación en forma constante, efectiva y segura.<br>3. Sobre el manto despliega su máximo poder contra pulgas y garrapatas, protegiendo por mucho más tiempo.",
+    benefitsTitle: "Características del Producto",
+    benefitsSubtitle: "Ventajas que hacen de Ecthol Collar la mejor opción",
+    benefits: [
+      { title: "Acción Controlada", description: "Innovadora inclusión de Clorpirifós en el polímero, permitiendo una liberación gradual por hasta 10 meses, manteniendo su efectividad incluso en climas extremos. También ayuda en la recuperación de mantos dañados y mejora la calidad del pelo causado por lesiones de pulgas y garrapatas en animales no tratados." },
+      { title: "Máxima Seguridad", description: "Mecanismo de cierre 'Safe Life' diseñado para proteger a la mascota en caso de enganches accidentales." },
+      { title: "Diseño Innovador", description: "El Collar Ecthol pasa desapercibido en el cuello del animal, integrándose con su pelaje, y añade un toque de color elegante gracias a su exclusivo diseño de cierre 'Easy Fit'." },
+      { title: "Fácil Colocación", description: "1. Sacar el collar de la bolsa inviolable que está dentro del estuche. 2. Ajustarlo a la medida del cuello de la mascota sin apretar y dejando que pasen dos dedos. 3. De ser necesario, el excedente puede cortarse." },
+      { title: "Protección Prolongada", description: "Nada brinda tanta protección por tanto tiempo como el nuevo Collar Ecthol." }
+    ]
   },
   "ecthol-collar-perros": {
     id: "ecthol-collar-perros",
@@ -220,13 +263,31 @@ const PRODUCTS = {
     categories: ["perros", "antiparasitarios"],
     price: null,
     image: "images/ecthol-collar.png",
-    description: "Collar antiparasitario de larga duración para perros.",
+    description: "La alternativa más efectiva para el control de pulgas y garrapatas en perros.",
     badge: "Perros",
     variants: [
-      { name: "Perro chico", price: null, image: "images/ecthol-collar.png" },
-      { name: "Perro grande", price: null, image: "images/ecthol-collar.png" }
+      { name: "40 CM", price: null, image: "images/ecthol-collar.png" },
+      { name: "63 CM", price: null, image: "images/ecthol-collar.png" }
     ],
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "ECTHOL",
+    logoSubtitle: "Collar / Antipulgas y garrapatas",
+    fullDescription: "El nuevo <strong>Collar Ecthol</strong> es la alternativa más efectiva para el control de pulgas y garrapatas en perros y gatos. Es ideal para aquellas mascotas que permanecen tiempos prolongados fuera del hogar y en contacto con otros animales disfrutando de la vida al aire libre.",
+    indication: "<strong>Indicado para:</strong><ul><li>Control de pulgas (Ctenocephalides canis, Ctenocephalides felis)</li><li>Control de garrapatas (Amblyoma, Dermacentor, Ripicephalus, Ixodes)</li><li>Prevención de re-infestación en espacios abiertos</li><li>Protección en épocas y zonas de temperaturas elevadas y humedad</li><li>Prevención del ataque de formas inmaduras de pulgas y garrapatas presentes en el ambiente</li><li>Transmisión de agentes como Dipylidium caninum, Bartonella spp., Rickettsia felis, Babesia, Borrelia, Ehrlichia, o Hepatozoon canis</li></ul>",
+    presentationTitle: "ECTHOL COLLAR PERROS",
+    presentationSubtitle: "40 CM / 63 CM",
+    formula: "<strong>FÓRMULA</strong><br>Collar con liberación controlada de Clorpirifós",
+    dosage: "<strong>MODO DE ACCIÓN:</strong><br>El Collar Ecthol fue diseñado para liberar de forma constante y progresiva su principio activo, logrando una alta efectividad en la eliminación de pulgas y garrapatas. Su composición es inocua para el animal que lo porta.<br><br><strong>Mecanismo:</strong><br>1. El avanzado polímero del collar contiene en su interior Clorpirifós a la espera de su activación.<br>2. La temperatura corporal genera su liberación en forma constante, efectiva y segura.<br>3. Sobre el manto despliega su máximo poder contra pulgas y garrapatas, protegiendo por mucho más tiempo.",
+    benefitsTitle: "Características del Producto",
+    benefitsSubtitle: "Ventajas que hacen de Ecthol Collar la mejor opción",
+    benefits: [
+      { title: "Acción Controlada", description: "Innovadora inclusión de Clorpirifós en el polímero, permitiendo una liberación gradual por hasta 10 meses, manteniendo su efectividad incluso en climas extremos. También ayuda en la recuperación de mantos dañados y mejora la calidad del pelo causado por lesiones de pulgas y garrapatas en animales no tratados." },
+      { title: "Máxima Seguridad", description: "Mecanismo de cierre 'Safe Life' diseñado para proteger a la mascota en caso de enganches accidentales." },
+      { title: "Diseño Innovador", description: "El Collar Ecthol pasa desapercibido en el cuello del animal, integrándose con su pelaje, y añade un toque de color elegante gracias a su exclusivo diseño de cierre 'Easy Fit'." },
+      { title: "Fácil Colocación", description: "1. Sacar el collar de la bolsa inviolable que está dentro del estuche. 2. Ajustarlo a la medida del cuello de la mascota sin apretar y dejando que pasen dos dedos. 3. De ser necesario, el excedente puede cortarse." },
+      { title: "Protección Prolongada", description: "Nada brinda tanta protección por tanto tiempo como el nuevo Collar Ecthol." }
+    ]
   },
   "ecthol-gmp-gatos": {
     id: "ecthol-gmp-gatos",
@@ -511,24 +572,24 @@ const PRODUCTS = {
     categories: ["perros", "gatos", "oftalmologia"],
     price: null,
     image: "images/flurbiprofeno.jpg",
-    description: "Antiinflamatorio ocular no esteroideo.",
+    description: "Antiinflamatorio no esteroide de última generación para uso oftálmico.",
     badge: null,
     variants: null,
     specialModal: null,
     // Extended modal info
     logoText: "FLURBIPROFENO",
     logoSubtitle: "/ Antiinflamatorio no esteroide de última generación.",
-    fullDescription: "Colirio estéril a base de Flurbiprofeno.",
-    indication: "<strong>Indicado en tratamiento de procesos inflamatorios:</strong> Conjuntivitis, uveitis leves y moderadas. En cirugías intraoculares (inhibición de la miosis intraoperatoria). También en post reparación de úlceras corneales con gran vascularización, procesos dolorosos oculares y en reemplazo de glucocorticoides tópicos cuando están contraindicados y en asociación con estos, en procesos inflamatorios muy severos.",
+    fullDescription: "Colirio estéril a base de <strong>Flurbiprofeno</strong>.",
+    indication: "<strong>Indicado en tratamiento de procesos inflamatorios:</strong><ul><li>Conjuntivitis</li><li>Uveitis leves y moderadas</li><li>Cirugías intraoculares (inhibición de la miosis intraoperatoria)</li><li>Post reparación de úlceras corneales con gran vascularización</li><li>Procesos dolorosos oculares</li><li>Reemplazo de glucocorticoides tópicos cuando están contraindicados</li><li>En asociación con glucocorticoides tópicos en procesos inflamatorios muy severos</li></ul>",
     presentationTitle: "PRESENTACIÓN FRASCO OFTÁLMICO POR 5 ml.",
     presentationSubtitle: "",
     formula: "<strong>FÓRMULA</strong><br>Cada 100 ml contiene:<br>Flurbiprofeno...............0,1 g<br>Excipientes c.s.",
-    benefitsTitle: "",
-    benefitsSubtitle: "",
+    benefitsTitle: "Mecanismo de Acción",
+    benefitsSubtitle: "Características del Flurbiprofeno",
     benefits: [
-      { title: "", description: "El flurbiprofeno es un antiinflamatorio no esteroideo (AINE) que inhibe las enzimas COX-1 y COX-2, responsables de la síntesis de prostaglandinas." },
-      { title: "", description: "Es eficaz en la reducción de la inflamación y el dolor, proporcionando un alivio asociado con diversas condiciones oculares." },
-      { title: "", description: "El inicio de acción es rápido, otorgando alivio en un corto período de tiempo, lo cual es importante para el manejo de condiciones agudas y mejorar el confort del animal." }
+      { title: "Antiinflamatorio No Esteroideo", description: "El flurbiprofeno es un antiinflamatorio no esteroideo (AINE) que inhibe las enzimas COX-1 y COX-2, responsables de la síntesis de prostaglandinas." },
+      { title: "Eficacia", description: "Es eficaz en la reducción de la inflamación y el dolor, proporcionando un alivio rápido asociado con diversas condiciones oculares." },
+      { title: "Inicio de Acción Rápido", description: "El inicio de acción es rápido, otorgando alivio en un corto período de tiempo, lo cual es importante para el manejo de condiciones agudas y mejorar el confort del animal." }
     ]
   },
   "ofloxacina": {
@@ -538,10 +599,27 @@ const PRODUCTS = {
     categories: ["perros", "gatos", "oftalmologia", "antibioticos"],
     price: null,
     image: "images/ofloxacina.jpg",
-    description: "Antibiótico oftálmico de amplio espectro.",
+    description: "Colirio estéril a base de Ofloxacina, fluoroquinolona de última generación.",
     badge: null,
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "OFLOXACINA",
+    logoSubtitle: "/ Antibiótico",
+    fullDescription: "Colirio estéril a base de <strong>Ofloxacina</strong>, fluoroquinolona de última generación.",
+    indication: "<strong>Indicado para el tratamiento de:</strong><ul><li>Conjuntivitis infecciosas bacterianas</li><li>Úlceras corneales</li><li>Infección secundaria en queratoconjuntivitis seca</li><li>Intervenciones oftálmicas pre y post quirúrgicas en perros y gatos</li></ul>",
+    presentationTitle: "PRESENTACIÓN FRASCO OFTÁLMICO POR 5 ml.",
+    presentationSubtitle: "",
+    formula: "<strong>FÓRMULA</strong><br>Cada 100 ml de solución contiene:<br>Ofloxacina: 0,3 g<br>Excipientes c.s.",
+    dosage: "",
+    benefitsTitle: "Mecanismo de Acción",
+    benefitsSubtitle: "Características que hacen de Ofloxacina un antibiótico de elección",
+    benefits: [
+      { title: "Ofloxacina", description: "Antibiótico bactericida de amplio espectro efectivo contra bacterias Gram positivas y Gram negativas, incluyendo cepas resistentes. Muestra excelente penetración en tejidos oculares (córnea y cámara anterior) debido a su liposolubilidad." },
+      { title: "Solubilidad Óptima", description: "Su solubilidad óptima a pH neutro minimiza la precipitación del principio activo y asegura mayor concentración en las lágrimas." },
+      { title: "Eficacia", description: "Efectivo contra algunos patógenos resistentes a otros antibióticos, lo cual es importante para infecciones recurrentes o de difícil tratamiento." },
+      { title: "HPMC (Hidroxipropil Metilcelulosa)", description: "Mejora la composición de la película lagrimal dañada y promueve mayor permanencia del principio activo en el ojo." }
+    ]
   },
 
   // ============================================
@@ -592,14 +670,31 @@ const PRODUCTS = {
   "uv-day": {
     id: "uv-day",
     name: "UV Day",
-    category: "Dermatología • Protector Solar",
-    categories: ["perros", "gatos", "dermatologia"],
+    category: "Oftalmología • Antiinflamatorio. Antibiótico.",
+    categories: ["perros", "gatos", "oftalmologia"],
     price: null,
     image: "images/uv-day.jpg",
-    description: "Protector solar para zonas sensibles de mascotas.",
-    badge: null,
+    description: "Colirio estéril a base de Prednisolona fosfato, Moxifloxacina y Fenilefrina.",
+    badge: "Nuevo",
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "UV DAY",
+    logoSubtitle: "/ Antiinflamatorio. Antibiótico.",
+    fullDescription: "Colirio estéril a base de <strong>Prednisolona fosfato</strong>, <strong>Moxifloxacina</strong> y <strong>Fenilefrina</strong>.",
+    indication: "<strong>Indicado para procesos inflamatorios no ulcerativos:</strong><ul><li>Uveitis</li><li>Conjuntivitis</li><li>Queratitis no ulcerativa (Pannus en Pastores Alemanes, Queratitis eosinofílica en gatos, Queratitis pigmentaria)</li><li>Dacriocistitis (inflamación del saco lagrimal)</li></ul>",
+    presentationTitle: "PRESENTACIÓN FRASCO OFTÁLMICO POR 5 ml.",
+    presentationSubtitle: "NUEVO",
+    formula: "<strong>FÓRMULA</strong><br>Cada ml de solución contiene:<br>Prednisolona fosfato: 10 mg<br>Moxifloxacina HCL: 3 mg<br>Fenilefrina HCL: 1,2 mg<br>Excipientes c.s.",
+    dosage: "",
+    benefitsTitle: "Componentes Activos",
+    benefitsSubtitle: "Características que hacen de UV Day un tratamiento de elección",
+    benefits: [
+      { title: "Moxifloxacina", description: "Antibiótico bactericida de amplio espectro con buena penetración ocular, efectivo contra bacterias intracelulares y cepas resistentes, útil para infecciones recurrentes o de difícil tratamiento. Bajo perfil de resistencia cruzada." },
+      { title: "Fenilefrina", description: "Induce la dilatación pupilar y actúa como vasoconstrictor, reduciendo la hiperemia conjuntival." },
+      { title: "Prednisolona", description: "Altamente efectiva en la reducción de la inflamación ocular, disminuyendo el dolor y la incomodidad mediante la modulación de la inflamación y la respuesta inmune." },
+      { title: "HEC (Hidroxietil Celulosa)", description: "Componente clave diseñado para mejorar la lubricación y prolongar el tiempo de permanencia de las gotas en la superficie ocular." }
+    ]
   },
 
   // ============================================
@@ -608,14 +703,30 @@ const PRODUCTS = {
   "anti-ulceras": {
     id: "anti-ulceras",
     name: "Anti Ulceras",
-    category: "Gastrointestinal • Protector",
-    categories: ["perros", "gatos", "gastrointestinal"],
+    category: "Oftalmología • Antibiótico",
+    categories: ["perros", "gatos", "oftalmologia", "antibioticos"],
     price: null,
     image: "images/antiulceras.jpg",
-    description: "Protector gástrico para tratamiento de úlceras.",
-    badge: null,
+    description: "Colirio estéril a base de Moxifloxacina y D-Pantenol.",
+    badge: "Nuevo",
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "ANTI ÚLCERAS",
+    logoSubtitle: "/ Antibiótico",
+    fullDescription: "Colirio estéril a base de <strong>Moxifloxacina</strong> y <strong>D-Pantenol</strong>.",
+    indication: "<strong>Indicado para:</strong> Manejo microbiano de la superficie ocular, úlceras simples o profundas con o sin contaminante.",
+    presentationTitle: "PRESENTACIÓN FRASCO OFTÁLMICO POR 5 ml.",
+    presentationSubtitle: "NUEVO",
+    formula: "<strong>FÓRMULA</strong><br>Cada 100 ml de solución contiene:<br>D-Pantenol: (cantidad especificada) g<br>Moxifloxacina clorhidrato: 0,5 g<br>Excipientes c.s.",
+    dosage: "",
+    benefitsTitle: "Componentes Activos",
+    benefitsSubtitle: "Características que hacen de Anti Úlceras un tratamiento de elección",
+    benefits: [
+      { title: "Moxifloxacina", description: "Antibiótico bactericida de amplio espectro con buena penetración ocular, efectivo contra bacterias intracelulares y cepas resistentes, útil para infecciones recurrentes o de difícil tratamiento." },
+      { title: "D-Pantenol", description: "Promotor de la cicatrización corneal con propiedades regenerativas, humectante que alivia la sequedad ocular, proporciona un efecto calmante sobre el tejido irritado y es bien tolerado por las mascotas." },
+      { title: "HEC (Hidroxietil Celulosa)", description: "Componente clave diseñado para mejorar la lubricación y prolongar el tiempo de permanencia de las gotas en la superficie ocular." }
+    ]
   },
   "atriben": {
     id: "atriben",
@@ -972,7 +1083,7 @@ const PRODUCTS = {
     name: "Clorhexidina",
     category: "Higiene • Antiséptico",
     categories: ["perros", "gatos", "higiene", "dermatologia"],
-    price: null,
+    price: 33000,
     image: "images/clorhexidina.jpeg",
     description: "Antiséptico y desinfectante de uso tópico.",
     badge: null,
