@@ -13962,6 +13962,10 @@
       `;
       
       // Populate products section
+      // Check if product should show posologia/dosage (only Cardial, Cardial B, and Pimocard)
+      const allowedProducts = ['Cardial', 'Cardial B', 'Pimocard'];
+      const shouldShowPosologia = allowedProducts.includes(productData.name);
+      
       productsSection.innerHTML = `
         <h2 class="product-section-title">${productData.presentationTitle}</h2>
         ${productData.presentationSubtitle ? `<p class="product-section-subtitle">${productData.presentationSubtitle}</p>` : ''}
@@ -13969,7 +13973,7 @@
           <div class="product-presentation-card">
             <img class="product-presentation-image" src="${productData.image}" alt="${productData.name}">
             <div class="product-presentation-info">${productData.formula}</div>
-            ${productData.dosage ? `<div class="product-presentation-info" style="margin-top: 1rem;">${productData.dosage}</div>` : ''}
+            ${shouldShowPosologia && productData.dosage ? `<div class="product-presentation-info" style="margin-top: 1rem;">${productData.dosage}</div>` : ''}
             <div class="product-block-quantity" id="productQuantity">
               <span class="product-block-quantity-label">Cantidad:</span>
               <button class="product-block-qty-btn" data-action="decrease">
