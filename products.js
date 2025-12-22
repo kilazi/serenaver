@@ -1418,7 +1418,25 @@ const PRODUCTS = {
     description: "Suplemento natural para reducir estrés y ansiedad.",
     badge: null,
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "OHM",
+    logoSubtitle: "/ Productos 100% naturales para modular la ansiedad y el estrés",
+    fullDescription: "<strong>OHM</strong> es la línea más completa de productos 100% naturales, diseñados para modular la ansiedad y el estrés en perros y gatos. Los productos OHM utilizan feromonas sintéticas que mimetizan a las naturales, actuando como mensajeros que modifican el comportamiento del animal que las percibe.",
+    indication: "<strong>OHM es ideal para:</strong><ul><li>Viajes</li><li>Post operatorios</li><li>Mudanzas</li><li>Cambios de estilo de vida</li><li>Mejorar el paseo</li><li>Visita al veterinario</li></ul><br><strong>Además, ayuda a controlar:</strong><ul><li>Estrés por ansiedad</li><li>Falta de aseo</li><li>Frotación exagerada</li><li>Mayor excitabilidad</li><li>Excesivo lamido</li><li>Defecación en sitios no habituales</li><li>Ladrido y maullido excesivo</li><li>Agresión y ansiedad por separación</li><li>Miedo a los ruidos fuertes</li><li>Comportamiento destructivo</li></ul>",
+    presentationTitle: "OHM COMPRIMIDOS",
+    presentationSubtitle: "Para perros y gatos",
+    formula: "<strong>FÓRMULA</strong><br>Producto 100% natural a base de feromonas sintéticas diseñado para modular la ansiedad y el estrés.",
+    dosage: "<strong>Administración:</strong><br>Comprimidos de administración oral. Consultar con su veterinario para la dosificación adecuada según el peso y necesidades de su mascota.",
+    benefitsTitle: "Características de OHM",
+    benefitsSubtitle: "Ventajas que hacen de OHM la mejor opción para el cuidado y modulación de la ansiedad",
+    benefits: [
+      { title: "100% Natural", description: "La línea OHM está diseñada con principios activos totalmente naturales, sin efectos adversos, incluso con uso prolongado." },
+      { title: "Seguro con Otras Medicaciones", description: "Los principios activos de OHM no presentan interacciones medicamentosas, por lo que es seguro usarlo junto con otros tratamientos." },
+      { title: "Uso Prolongado", description: "Se puede administrar por períodos prolongados ya que no tiene un impacto negativo a las concentraciones indicadas." },
+      { title: "Sin Efectos Adversos", description: "Al utilizar principios activos totalmente naturales, no generan efectos adversos, aun tomándolos de forma prolongada." },
+      { title: "Modulación del Comportamiento", description: "Las feromonas actúan como mensajeros que modifican el comportamiento del animal, ayudando a modular la ansiedad y el estrés de forma natural." }
+    ]
   },
   "ohm-gatos": {
     id: "ohm-gatos",
@@ -1430,7 +1448,26 @@ const PRODUCTS = {
     description: "Fórmula especial para reducir el estrés en gatos.",
     badge: "Gatos",
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "OHM",
+    logoSubtitle: "/ Línea Gatos - Productos 100% naturales",
+    fullDescription: "<strong>OHM Gatos</strong> es parte de la línea más completa de productos 100% naturales, diseñados específicamente para modular la ansiedad y el estrés en gatos. Los productos OHM utilizan feromonas sintéticas que mimetizan a las naturales, actuando como mensajeros que modifican el comportamiento del animal que las percibe.",
+    indication: "<strong>OHM Gatos es ideal para:</strong><ul><li>Viajes</li><li>Post operatorios</li><li>Mudanzas</li><li>Cambios de estilo de vida</li><li>Visita al veterinario</li></ul><br><strong>Además, ayuda a controlar:</strong><ul><li>Estrés por ansiedad</li><li>Falta de aseo</li><li>Frotación exagerada</li><li>Mayor excitabilidad</li><li>Excesivo lamido</li><li>Defecación en sitios no habituales</li><li>Maullido excesivo</li><li>Agresión y ansiedad por separación</li><li>Miedo a los ruidos fuertes</li><li>Comportamiento destructivo</li></ul>",
+    presentationTitle: "OHM GATOS",
+    presentationSubtitle: "Comprimidos y Pasta palatable exclusiva para gatos",
+    formula: "<strong>FÓRMULA</strong><br>Producto 100% natural a base de feromonas sintéticas diseñado específicamente para modular la ansiedad y el estrés en gatos.",
+    dosage: "<strong>Administración:</strong><br>Comprimidos o pasta palatable de administración oral. Consultar con su veterinario para la dosificación adecuada según el peso y necesidades de su gato.",
+    benefitsTitle: "Características de OHM Gatos",
+    benefitsSubtitle: "Ventajas que hacen de OHM Gatos la mejor opción para el cuidado felino",
+    benefits: [
+      { title: "100% Natural", description: "La línea OHM está diseñada con principios activos totalmente naturales, sin efectos adversos, incluso con uso prolongado." },
+      { title: "Formulaciones Específicas para Gatos", description: "OHM Gatos incluye comprimidos y pasta palatable especialmente formulados para la administración en felinos." },
+      { title: "Seguro con Otras Medicaciones", description: "Los principios activos de OHM no presentan interacciones medicamentosas, por lo que es seguro usarlo junto con otros tratamientos." },
+      { title: "Uso Prolongado", description: "Se puede administrar por períodos prolongados ya que no tiene un impacto negativo a las concentraciones indicadas." },
+      { title: "Sin Efectos Adversos", description: "Al utilizar principios activos totalmente naturales, no generan efectos adversos, aun tomándolos de forma prolongada." },
+      { title: "Modulación del Comportamiento", description: "Las feromonas actúan como mensajeros que modifican el comportamiento del gato, ayudando a modular la ansiedad y el estrés de forma natural." }
+    ]
   },
   "ohm-home-gatos": {
     id: "ohm-home-gatos",
@@ -1442,7 +1479,26 @@ const PRODUCTS = {
     description: "Difusor ambiental calmante para gatos.",
     badge: "Gatos",
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "OHM",
+    logoSubtitle: "/ Difusor Hogar - Feromonas Felinas",
+    fullDescription: "<strong>OHM Home Gatos</strong> es un difusor ambiental que libera feromonas sintéticas felinas de forma continua, creando un ambiente calmante y seguro para su gato. Las feromonas actúan como mensajeros que modifican el comportamiento del animal, ayudando a modular la ansiedad y el estrés de forma natural.",
+    indication: "<strong>OHM Home Gatos es ideal para:</strong><ul><li>Crear un ambiente calmante en el hogar</li><li>Reducir el estrés en situaciones de cambio</li><li>Mudanzas</li><li>Llegada de nuevos miembros a la familia</li><li>Cambios en el entorno</li><li>Múltiples gatos en el mismo hogar</li></ul><br><strong>Además, ayuda a controlar:</strong><ul><li>Estrés por ansiedad</li><li>Comportamiento destructivo</li><li>Agresión entre gatos</li><li>Marcaje excesivo</li><li>Falta de aseo</li><li>Maullido excesivo</li></ul>",
+    presentationTitle: "OHM HOME GATOS",
+    presentationSubtitle: "Difusor hogar con feromonas felinas",
+    formula: "<strong>FÓRMULA</strong><br>Difusor ambiental con feromonas sintéticas felinas que mimetizan a las naturales, diseñado para crear un ambiente calmante y seguro.",
+    dosage: "<strong>Uso:</strong><br>El difusor se conecta a un enchufe eléctrico y libera las feromonas de forma continua. Cubre un área de aproximadamente 50-70 m². Reemplazar el difusor cada 30 días para mantener la efectividad.",
+    benefitsTitle: "Características del Difusor OHM Home Gatos",
+    benefitsSubtitle: "Ventajas que hacen de OHM Home Gatos la mejor opción para el ambiente felino",
+    benefits: [
+      { title: "100% Natural", description: "Utiliza feromonas sintéticas 100% naturales que mimetizan a las feromonas naturales de los gatos." },
+      { title: "Efecto Continuo", description: "El difusor libera las feromonas de forma continua, creando un ambiente calmante las 24 horas del día." },
+      { title: "Cobertura Amplia", description: "Cubre un área de aproximadamente 50-70 m², ideal para espacios medianos y grandes." },
+      { title: "Fácil de Usar", description: "Simplemente conéctelo a un enchufe eléctrico y comience a funcionar inmediatamente." },
+      { title: "Sin Efectos Adversos", description: "Al utilizar principios activos totalmente naturales, no genera efectos adversos." },
+      { title: "Ideal para Múltiples Gatos", description: "Especialmente útil en hogares con múltiples gatos, ayudando a reducir tensiones y conflictos." }
+    ]
   },
   "ohm-home-perros": {
     id: "ohm-home-perros",
@@ -1454,7 +1510,26 @@ const PRODUCTS = {
     description: "Difusor ambiental calmante para perros.",
     badge: "Perros",
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "OHM",
+    logoSubtitle: "/ Difusor Hogar - Feromonas Caninas",
+    fullDescription: "<strong>OHM Home Perros</strong> es un difusor ambiental que libera feromonas sintéticas caninas de forma continua, creando un ambiente calmante y seguro para su perro. Las feromonas actúan como mensajeros que modifican el comportamiento del animal, ayudando a modular la ansiedad y el estrés de forma natural.",
+    indication: "<strong>OHM Home Perros es ideal para:</strong><ul><li>Crear un ambiente calmante en el hogar</li><li>Reducir el estrés en situaciones de cambio</li><li>Mudanzas</li><li>Llegada de nuevos miembros a la familia</li><li>Cambios en el entorno</li><li>Múltiples perros en el mismo hogar</li><li>Ansiedad por separación</li></ul><br><strong>Además, ayuda a controlar:</strong><ul><li>Estrés por ansiedad</li><li>Comportamiento destructivo</li><li>Ladrido excesivo</li><li>Agresión</li><li>Miedo a los ruidos fuertes</li><li>Ansiedad por separación</li></ul>",
+    presentationTitle: "OHM HOME PERROS",
+    presentationSubtitle: "Difusor hogar con feromonas caninas",
+    formula: "<strong>FÓRMULA</strong><br>Difusor ambiental con feromonas sintéticas caninas que mimetizan a las naturales, diseñado para crear un ambiente calmante y seguro.",
+    dosage: "<strong>Uso:</strong><br>El difusor se conecta a un enchufe eléctrico y libera las feromonas de forma continua. Cubre un área de aproximadamente 50-70 m². Reemplazar el difusor cada 30 días para mantener la efectividad.",
+    benefitsTitle: "Características del Difusor OHM Home Perros",
+    benefitsSubtitle: "Ventajas que hacen de OHM Home Perros la mejor opción para el ambiente canino",
+    benefits: [
+      { title: "100% Natural", description: "Utiliza feromonas sintéticas 100% naturales que mimetizan a las feromonas naturales de los perros." },
+      { title: "Efecto Continuo", description: "El difusor libera las feromonas de forma continua, creando un ambiente calmante las 24 horas del día." },
+      { title: "Cobertura Amplia", description: "Cubre un área de aproximadamente 50-70 m², ideal para espacios medianos y grandes." },
+      { title: "Fácil de Usar", description: "Simplemente conéctelo a un enchufe eléctrico y comience a funcionar inmediatamente." },
+      { title: "Sin Efectos Adversos", description: "Al utilizar principios activos totalmente naturales, no genera efectos adversos." },
+      { title: "Ideal para Ansiedad por Separación", description: "Especialmente útil para perros que sufren de ansiedad por separación, ayudando a crear un ambiente más seguro y calmante." }
+    ]
   },
 
   // ============================================
