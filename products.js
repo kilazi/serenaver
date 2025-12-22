@@ -31,8 +31,7 @@ const PRODUCTS = {
       { title: "", description: "Ayuda a proteger el corazón durante situaciones de estrés" },
       { title: "", description: "Reduce el movimiento excesivo, previniendo accidentes" },
       { title: "", description: "Puede usarse de forma segura con otros medicamentos" },
-      { title: "", description: "Seguro y bien tolerado" },
-      { title: "", description: "Ayuda a una recuperación tranquila después de cirugías" }
+      { title: "", description: "Seguro y bien tolerado" }
     ],
     dosage: "Perros y Gatos: 1-3 gotas/kg. Iniciar con la dosis más baja y esperar 30 minutos. Reducir a la mitad en razas braquicefálicas, gigantes, galgos, animales geriátricos, debilitados o con enfermedad cardíaca o hepática.\n\nVía de administración: Oral\nTiempo de inicio: 30-45 minutos\nDuración: 8-12 horas",
     badge: null,
@@ -60,8 +59,7 @@ const PRODUCTS = {
       { title: "", description: "Ayuda a proteger el corazón durante situaciones de estrés" },
       { title: "", description: "Reduce el movimiento excesivo, previniendo accidentes" },
       { title: "", description: "Puede usarse de forma segura con otros medicamentos" },
-      { title: "", description: "Seguro y bien tolerado" },
-      { title: "", description: "Ayuda a una recuperación tranquila después de cirugías" }
+      { title: "", description: "Seguro y bien tolerado" }
     ],
     dosage: "Perros y Gatos: 0,1 mg/Kg vía SC, IM o EV (lenta). No exceder 3 mg total vía IM o EV en perros y 1 mg total en felinos. Reducir a la mitad en razas braquicefálicas, gigantes, galgos, animales geriátricos, debilitados o con enfermedad cardíaca o hepática.\n\nEquinos: 1,5 ml cada 400 Kg vía EV, IM o SC\n\nVías de administración: SC, IM o EV\nTiempo de inicio: 10-15 minutos\nDuración: 8-12 horas\nMetabolismo: Hepático\nExcreción: Renal",
     badge: null,
@@ -870,10 +868,7 @@ const PRODUCTS = {
       { title: "", description: "Ayuda a controlar la producción excesiva de grasa en la piel" },
       { title: "", description: "Mejora la salud de los folículos pilosos y elimina células muertas" },
       { title: "", description: "Limpia profundamente los folículos, útil para tratar acné y problemas de queratinización" },
-      { title: "", description: "Elimina bacterias mediante la liberación de sustancias que son tóxicas para los microorganismos" },
-      { title: "", description: "Ayuda a reducir la grasa superficial de la piel durante el tratamiento" },
-      { title: "", description: "Base cosmética que ayuda a reducir la picazón sin usar esteroides" },
-      { title: "", description: "Hipoalergénico, humectante y suave para la piel" }
+      { title: "", description: "Elimina bacterias mediante la liberación de sustancias que son tóxicas para los microorganismos" }
     ],
     badge: null,
     variants: null,
@@ -1145,11 +1140,7 @@ const PRODUCTS = {
       { title: "Vitamina C", description: "En conjunto con la Vitamina E, actúa como potente antioxidante contra los radicales libres, comunes en dermatosis inflamatorias. Esencial para la síntesis y regeneración del colágeno, ideal para la reparación de heridas." },
       { title: "Vitamina E", description: "Principalmente antioxidante. Utilizada en terapias para lupus, dermatomiositis, pénfigo, paniculitis, acantosis nigricans y vasculitis del margen auricular. Su presencia potencia la absorción de la Vitamina A." },
       { title: "Zinc", description: "Esencial para el desarrollo del pelo. Estimula la producción de glándulas sebáceas (sinergizado por Vitamina A). Involucrado en la división celular (como cofactor de las ADN polimerasas) y crucial para los procesos de cicatrización y reparación de la piel." },
-      { title: "Cistina", description: "El principal aminoácido azufrado componente de la alfa-queratina. Proporciona los sustratos necesarios para una queratinización adecuada." },
-      { title: "Biotina", description: "Una coenzima involucrada en procesos de carboxilación enzimática que promueven el crecimiento del pelo." },
-      { title: "Riboflavina (Vit. B2)", description: "Componente de nucleótidos transportadores de protones, vitaminas y minerales para una piel y pelo más saludables. Crucial para la desaturación de ácidos grasos que forman lípidos de membrana como el ceramida." },
-      { title: "Ácido Pantoténico (Vit. B5)", description: "Directamente relacionado con la síntesis de ácidos grasos, incluyendo el ácido linoleico. Como parte del ceramida cutáneo, ayuda a mantener una barrera dérmica saludable, reduciendo la entrada percutánea de alérgenos y ayudando en el cuidado de la piel de pacientes con dermatitis atópica." },
-      { title: "Prolina", description: "El principal componente del colágeno, vital para la estructura dérmica correcta. Trabaja sinérgicamente con la Vitamina C y es muy importante para la cicatrización de heridas y la recuperación de dermopatías profundas. Junto con el ácido pantoténico, promueve la producción de ceramida, asegurando la integridad de la barrera cutánea." }
+      { title: "Cistina", description: "El principal aminoácido azufrado componente de la alfa-queratina. Proporciona los sustratos necesarios para una queratinización adecuada." }
     ],
     badge: null,
     variants: null,
@@ -1209,9 +1200,7 @@ const PRODUCTS = {
       { title: "Ácido Alfa Lipoico", description: "Antioxidante que otorga protección neuronal, ante la potencial toxicidad Beta amiloide y de peróxido de hidrogeno. Disminuye los niveles de lipofucsina." },
       { title: "L-Glutamina", description: "Antioxidante endógeno que protege las neuronas." },
       { title: "Nicotinamida", description: "Regula fluidez de membranas neuronales, protege las neuronas colinérgicas y células piramidales, aumenta síntesis y liberación del factor neurotrófico." },
-      { title: "Ácido Ascórbico", description: "Antioxidante, regula la síntesis de vitamina E." },
-      { title: "ATP", description: "Reduce inflamación neuronal, disminuye muerte neuronal, mejora la transmisión colinérgica y mejora la función cognitiva." },
-      { title: "Propiedades Adicionales", description: "Antioxidante. Regenerador celular. Disminuye el stress por ansiedad." }
+      { title: "Ácido Ascórbico", description: "Antioxidante, regula la síntesis de vitamina E." }
     ]
   },
   "neovita": {
@@ -1241,11 +1230,7 @@ const PRODUCTS = {
       { title: "Extracto seco de ajo", description: "Ayuda a estabilizar la presión arterial. Además, colabora en el mantenimiento de la salud del paciente debido a sus compuestos de sulfuro que poseen propiedades anti cancerígenas." },
       { title: "Cúrcuma", description: "Colabora en el proceso desinflamatorio. Sus propiedades antiinflamatorias las ejerce a través de la interacción con varios mediadores inmunes como por ejemplo, la inhibición de factores de transcripción proinflamatorios como el factor nuclear kappa B (NFKB). También inhibe las citocinas proinflamatorias, quimiocinas, prostaglandinas e incluso las especies reactivas de oxígeno (ROS). Es un potente antioxidante y analgésico." },
       { title: "Espirulina", description: "Contiene antioxidantes, vitaminas, aminoácidos esenciales, ácidos grasos poliinsaturados. Además de su propiedad antioxidante, es beneficiosa sobre el sistema inmunológico ya que colabora en la inhibición de la proliferación celular y aumenta la actividad de enzimas presentes en células del sistema inmune. Mejora y aumenta los índices eritrocitarios. La espirulina contiene ficocianina, una proteína que posee una excelente capacidad antitumoral." },
-      { title: "Glutamina", description: "El aporte de Glutamina es muy importante en el paciente oncológico. Esto se debe a que la célula cancerosa restringe la disponibilidad de nutrientes a las células sanas, entre los que se encuentra la glutamina. Esta disminución podría afectar la efectividad de la citorreducción tumoral. Además, la glutamina colabora en mejorar la salud sobre todo a nivel intestinal." },
-      { title: "Vitamina C", description: "Es un excelente y potente antioxidante que además mejora la calidad de vida y disminuye los efectos secundarios. La dosis de esta vitamina debe ser baja, ya que una dosis elevada está contraindicada en estos casos." },
-      { title: "Gluconato de Zinc", description: "Es un cofactor enzimático del sistema antioxidante. Además es un componente de al menos 200 enzimas, involucradas en el metabolismo energético y de los hidratos de carbono, en reacciones de biosíntesis y degradación de proteínas y en procesos biosintéticos de ácidos nucleicos. El zinc es el microelemento más comprometido con la inmunidad, sobre todo a nivel celular." },
-      { title: "Vitamina A", description: "Vitamina liposoluble con acción antioxidante. Dentro de sus funciones antioxidantes se encuentran: regulación de la diferenciación celular epitelial, inhibición de la proliferación celular, incremento de la capacidad inmunológica, inhibición de mutagénesis inducida por los agentes físicos cancerígenos, reducción del daño nuclear ocasionado por cancerígenos químicos y biológicos." },
-      { title: "Vitamina E", description: "Es el principal antioxidante encontrado dentro de las membranas lipídicas del organismo, preserva los ácidos grasos poliinsaturados de las membranas celulares de su oxidación mediante el bloqueo de radicales libres." }
+      { title: "Glutamina", description: "El aporte de Glutamina es muy importante en el paciente oncológico. Esto se debe a que la célula cancerosa restringe la disponibilidad de nutrientes a las células sanas, entre los que se encuentra la glutamina. Esta disminución podría afectar la efectividad de la citorreducción tumoral. Además, la glutamina colabora en mejorar la salud sobre todo a nivel intestinal." }
     ]
   },
   "ol-trans-flex": {
@@ -1521,8 +1506,7 @@ const PRODUCTS = {
       { title: "", description: "Efecto residual de hasta 48 horas, permanece activo en la piel" },
       { title: "", description: "Amplio espectro: efectivo contra bacterias, virus, hongos y esporas" },
       { title: "", description: "Actúa rápidamente al entrar en contacto" },
-      { title: "", description: "Elimina microorganismos dañando sus membranas y enzimas" },
-      { title: "", description: "El propilenglicol ayuda a disolver el cerumen y permite que el antiséptico actúe más rápido" }
+      { title: "", description: "Elimina microorganismos dañando sus membranas y enzimas" }
     ],
     badge: null,
     variants: null,
