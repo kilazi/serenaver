@@ -387,14 +387,31 @@ const PRODUCTS = {
   "nomat": {
     id: "nomat",
     name: "Nomat",
-    category: "Antiparasitarios • Externo",
-    categories: ["perros", "gatos", "antiparasitarios"],
+    category: "Suplementos • Biomodulador Detoxificante",
+    categories: ["perros", "gatos", "suplementos"],
     price: null,
     image: "images/nomat.jpeg",
-    description: "Repelente e insecticida para control de ectoparásitos.",
+    description: "Biomodulador detoxificante y antioxidante a base de clorofila, con acción desodorizante corporal y bucal.",
     badge: null,
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "NOMAT",
+    logoSubtitle: "/ Biomodulador detoxificante y antioxidante",
+    fullDescription: "Biomodulador detoxificante y antioxidante a base de <strong>clorofila</strong>, con acción desodorizante corporal y bucal en comprimidos de administración oral.",
+    indication: "<strong>Indicado para:</strong><ul><li>Disminuye la halitosis</li><li>Disminuye el olor corporal</li><li>Elimina el mal olor bucal y corporal</li><li>En hembras elimina el olor estrual y desodoriza la orina. Se evita de esta forma la atracción de los machos y las molestias que esto ocasiona</li><li>Su actividad desodorizante se ve potenciada por su capacidad germicida y antiinflamatoria. Estas acciones contribuyen a la mejora de la inflamación de la cavidad oral, responsable de la aparición de halitosis</li></ul>",
+    presentationTitle: "PRESENTACIÓN",
+    presentationSubtitle: "Envase conteniendo 2 blisters con 10 comprimidos cada uno",
+    formula: "<strong>FÓRMULA</strong><br>Biomodulador a base de clorofila",
+    dosage: "",
+    benefitsTitle: "Mecanismo de Acción",
+    benefitsSubtitle: "Características que hacen de Nomat un biomodulador de elección",
+    benefits: [
+      { title: "Desintoxicante y Antioxidante", description: "Oxigena los tejidos corporales, creando un medio desfavorable para bacterias anaeróbicas." },
+      { title: "Acción Catalizadora", description: "Su acción catalizadora, neutraliza sustancias en distintos medios: neutros, ácidos o básicos." },
+      { title: "Procesos Metabólicos", description: "Colabora con procesos metabólicos, ejerciendo su acción detoxificante, que se manifiesta entre otras cosas disminuyendo el olor corporal y bucal." },
+      { title: "Antioxidante Poderoso", description: "Es un poderoso antioxidante, que mejora la salud gastrointestinal e inmunológica." }
+    ]
   },
   "sistema-endectocida": {
     id: "sistema-endectocida",
@@ -560,10 +577,26 @@ const PRODUCTS = {
     categories: ["perros", "gatos", "oftalmologia"],
     price: null,
     image: "images/epitelizante.jpg",
-    description: "Tratamiento para regeneración del epitelio corneal.",
+    description: "Estimulante de actividad regenerativa de la córnea. Humectante. Antioxidante.",
     badge: "-25%",
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "EPITELIZANTE OCULAR",
+    logoSubtitle: "/ Estimulante de actividad regenerativa de la córnea. Humectante. Antioxidante.",
+    fullDescription: "Ungüento estéril a base de <strong>Vitaminas A y E</strong> e <strong>Hidrolizado de caseína</strong>.",
+    indication: "<strong>Indicado para:</strong> Tratamiento tópico de las queratoconjuntivitis ulcerativas en perros y gatos. También puede utilizarse como humectante en animales con síndrome de ojo seco.",
+    presentationTitle: "PRESENTACIÓN",
+    presentationSubtitle: "Pomo con 3,5 g. con aplicador oftálmico",
+    formula: "<strong>FÓRMULA</strong><br>Cada 100 g de ungüento contiene:<br>Caseína hidrolizada...................2,5 g<br>Vitamina A palmitato..................1 g<br>Vitamina E acetato....................0,1 g<br>Excipientes c.s.",
+    dosage: "",
+    benefitsTitle: "Componentes Activos",
+    benefitsSubtitle: "Características que hacen de Epitelizante Ocular un tratamiento de elección",
+    benefits: [
+      { title: "Vitamina A", description: "Es crucial para la integridad y la función del epitelio corneal. Favorece la síntesis de glicoproteínas que humectan el epitelio de la córnea." },
+      { title: "Vitamina E", description: "Es un potente antioxidante que protege las células epiteliales del ojo de daños oxidativos, contribuyendo a la salud general de la córnea y la conjuntiva. Ayuda a mantener la integridad de las membranas celulares del epitelio ocular al prevenir la peroxidación lipídica." },
+      { title: "Caseína Hidrolizada", description: "Proporciona aminoácidos esenciales para la reparación y mantenimiento del epitelio ocular, apoyando la regeneración, colaborando en la cicatrización de úlceras y optimizando la salud de los tejidos oculares." }
+    ]
   },
   "flurbiprofeno": {
     id: "flurbiprofeno",
@@ -662,10 +695,29 @@ const PRODUCTS = {
     categories: ["perros", "gatos", "dermatologia"],
     price: null,
     image: "images/griseofulvina.jpg",
-    description: "Antifúngico oral para dermatofitosis.",
+    description: "Fungistático a base de Griseofulvina micronizada de administración oral para caninos y felinos.",
     badge: null,
-    variants: null,
-    specialModal: null
+    variants: [
+      { name: "250 mg", price: null, image: "images/griseofulvina.jpg" },
+      { name: "500 mg", price: null, image: "images/griseofulvina.jpg" }
+    ],
+    specialModal: null,
+    // Extended modal info
+    logoText: "GRISEOFULVINA",
+    logoSubtitle: "/ Fungistático",
+    fullDescription: "Fungistático a base de <strong>Griseofulvina micronizada</strong> de administración oral para caninos y felinos.",
+    indication: "<strong>Indicado para:</strong><ul><li>Tiña</li><li>Dermatomicosis causadas por Microsporum canis, Microsporum gypseum y Tricophyton mentagrophytes</li></ul>",
+    presentationTitle: "PRESENTACIÓN",
+    presentationSubtitle: "Envase con 2 blisters de 10 comprimidos cada uno",
+    formula: "<strong>FÓRMULA</strong><br>Cada comprimido contiene:<br>Griseofulvina micronizada: 250 mg / 500 mg<br>Excipientes c.s. según presentación",
+    dosage: "",
+    benefitsTitle: "Mecanismo de Acción",
+    benefitsSubtitle: "Características de la Griseofulvina",
+    benefits: [
+      { title: "Fungistático", description: "Interfiere en la síntesis de las proteínas y los ácidos nucleicos de la pared celular de hongos en crecimiento activo." },
+      { title: "Absorción y Distribución", description: "Después de su administración por vía oral se absorbe a nivel gastrointestinal, depositándose selectivamente en la queratina neoformada del pelo, uñas y piel, pasando luego de estas capas profundas a la queratina superficial." },
+      { title: "Actividad Micostática", description: "La concentración de Griseofulvina en las nuevas células de la epidermis, le proporciona actividad micostática contra los dermatofitos." }
+    ]
   },
   "uv-day": {
     id: "uv-day",
@@ -946,22 +998,64 @@ const PRODUCTS = {
     categories: ["perros", "gatos", "suplementos"],
     price: null,
     image: "images/iq-180.jpg",
-    description: "Suplemento para la salud cognitiva y cerebral.",
+    description: "Biomodulador activador de la función neuronal en comprimidos palatables.",
     badge: null,
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "IQ 180",
+    logoSubtitle: "/ Biomodulador activador de la función neuronal",
+    fullDescription: "Biomodulador activador de la función neuronal en comprimidos palatables.",
+    indication: "<strong>Indicado para:</strong> Ayuda a prevenir la degeneración de los procesos cognitivos.",
+    presentationTitle: "PRESENTACIÓN",
+    presentationSubtitle: "Caja con 3 blisters de 7 comprimidos cada uno",
+    formula: "<strong>FÓRMULA</strong><br>Cada comprimido contiene:<br>Ácido Ascórbico: 150 mg<br>L-Glutamina: 100 mg<br>Nicotinamida: 30 mg<br>Ácido alfa lipoico: 10 mg<br>ATP: 5 mg<br>Excipientes c.s.",
+    dosage: "",
+    benefitsTitle: "Mecanismo de Acción",
+    benefitsSubtitle: "Características que hacen de IQ 180 un biomodulador de elección",
+    benefits: [
+      { title: "Mejora Cognitiva", description: "Mejora la conducta social, la memoria y la atención." },
+      { title: "Ácido Alfa Lipoico", description: "Antioxidante que otorga protección neuronal, ante la potencial toxicidad Beta amiloide y de peróxido de hidrogeno. Disminuye los niveles de lipofucsina." },
+      { title: "L-Glutamina", description: "Antioxidante endógeno que protege las neuronas." },
+      { title: "Nicotinamida", description: "Regula fluidez de membranas neuronales, protege las neuronas colinérgicas y células piramidales, aumenta síntesis y liberación del factor neurotrófico." },
+      { title: "Ácido Ascórbico", description: "Antioxidante, regula la síntesis de vitamina E." },
+      { title: "ATP", description: "Reduce inflamación neuronal, disminuye muerte neuronal, mejora la transmisión colinérgica y mejora la función cognitiva." },
+      { title: "Propiedades Adicionales", description: "Antioxidante. Regenerador celular. Disminuye el stress por ansiedad." }
+    ]
   },
   "neovita": {
     id: "neovita",
     name: "Neovita",
-    category: "Suplementos • Vitamínico",
+    category: "Suplementos • Biomodulador Oncológico",
     categories: ["perros", "gatos", "suplementos"],
     price: null,
     image: "images/neovita.png",
-    description: "Complemento vitamínico y mineral completo.",
-    badge: "Oferta",
+    description: "Neovita acompaña naturalmente al paciente oncológico sosteniendo sus funciones vitales.",
+    badge: "Nuevo",
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "NEOVITA",
+    logoSubtitle: "/ Biomodulador para pacientes oncológicos",
+    fullDescription: "Neovita es el nuevo integrante de la familia de Biomoduladores desarrollado por Holliday Scott para el tratamiento integral de pacientes oncológicos. Este producto aporta los nutrientes requeridos una vez finalizado el tratamiento, ya sea quirúrgico, quimioterapia o radioterapia. Por otra parte, también es ideal para utilizar en perros y gatos que se encuentran en la etapa de cuidados paliativos.",
+    indication: "<strong>Está indicado en las siguientes situaciones:</strong><ul><li>Al finalizar el esquema terapéutico con el fin de mitigar el estrés oxidativo producido por las quimioterapias o radiación.</li><li>Acompañando el tratamiento paliativo con el objetivo de aportar nutrientes esenciales que mejoren la calidad de vida del paciente.</li><li>En períodos de convalecencia prolongados.</li></ul>",
+    presentationTitle: "PRESENTACIÓN",
+    presentationSubtitle: "Estuche con tres blisters de siete comprimidos palatables cada uno",
+    formula: "<strong>FÓRMULA</strong><br>Complemento dietario con Arginina, Extracto seco de ajo, Cúrcuma, Espirulina, Glutamina, Vitamina C, Gluconato de Zinc, Vitamina A y Vitamina E",
+    dosage: "<strong>POSOLOGÍA Y DOSIFICACIÓN:</strong><br><br><strong>Gatos:</strong> 1/4 a 1/2 comprimido por día<br><strong>Perros hasta 10 kilos:</strong> 1/2 a 1 comprimido por día<br><strong>Perros de más de 10 kilos:</strong> 1 a 2 comprimidos por día<br><br>La dosis puede darse en una toma diaria o dividirse en dos.<br>Se recomienda la administración del producto hasta que el animal logre un equilibrio metabólico.",
+    benefitsTitle: "Componentes Activos",
+    benefitsSubtitle: "Ingredientes que hacen de Neovita un complemento esencial para pacientes oncológicos",
+    benefits: [
+      { title: "Arginina", description: "Es un aminoácido esencial que aumenta la actividad inmunitaria frente a neoplasias. Mejora el metabolismo de los linfocitos T, lo que permite que sobrevivan por más tiempo y sean más eficaces en la lucha contra tumores." },
+      { title: "Extracto seco de ajo", description: "Ayuda a estabilizar la presión arterial. Además, colabora en el mantenimiento de la salud del paciente debido a sus compuestos de sulfuro que poseen propiedades anti cancerígenas." },
+      { title: "Cúrcuma", description: "Colabora en el proceso desinflamatorio. Sus propiedades antiinflamatorias las ejerce a través de la interacción con varios mediadores inmunes como por ejemplo, la inhibición de factores de transcripción proinflamatorios como el factor nuclear kappa B (NFKB). También inhibe las citocinas proinflamatorias, quimiocinas, prostaglandinas e incluso las especies reactivas de oxígeno (ROS). Es un potente antioxidante y analgésico." },
+      { title: "Espirulina", description: "Contiene antioxidantes, vitaminas, aminoácidos esenciales, ácidos grasos poliinsaturados. Además de su propiedad antioxidante, es beneficiosa sobre el sistema inmunológico ya que colabora en la inhibición de la proliferación celular y aumenta la actividad de enzimas presentes en células del sistema inmune. Mejora y aumenta los índices eritrocitarios. La espirulina contiene ficocianina, una proteína que posee una excelente capacidad antitumoral." },
+      { title: "Glutamina", description: "El aporte de Glutamina es muy importante en el paciente oncológico. Esto se debe a que la célula cancerosa restringe la disponibilidad de nutrientes a las células sanas, entre los que se encuentra la glutamina. Esta disminución podría afectar la efectividad de la citorreducción tumoral. Además, la glutamina colabora en mejorar la salud sobre todo a nivel intestinal." },
+      { title: "Vitamina C", description: "Es un excelente y potente antioxidante que además mejora la calidad de vida y disminuye los efectos secundarios. La dosis de esta vitamina debe ser baja, ya que una dosis elevada está contraindicada en estos casos." },
+      { title: "Gluconato de Zinc", description: "Es un cofactor enzimático del sistema antioxidante. Además es un componente de al menos 200 enzimas, involucradas en el metabolismo energético y de los hidratos de carbono, en reacciones de biosíntesis y degradación de proteínas y en procesos biosintéticos de ácidos nucleicos. El zinc es el microelemento más comprometido con la inmunidad, sobre todo a nivel celular." },
+      { title: "Vitamina A", description: "Vitamina liposoluble con acción antioxidante. Dentro de sus funciones antioxidantes se encuentran: regulación de la diferenciación celular epitelial, inhibición de la proliferación celular, incremento de la capacidad inmunológica, inhibición de mutagénesis inducida por los agentes físicos cancerígenos, reducción del daño nuclear ocasionado por cancerígenos químicos y biológicos." },
+      { title: "Vitamina E", description: "Es el principal antioxidante encontrado dentro de las membranas lipídicas del organismo, preserva los ácidos grasos poliinsaturados de las membranas celulares de su oxidación mediante el bloqueo de radicales libres." }
+    ]
   },
   "ol-trans": {
     id: "ol-trans",
@@ -1381,14 +1475,29 @@ const PRODUCTS = {
   "gabaday": {
     id: "gabaday",
     name: "Gabaday",
-    category: "Neurología • Anticonvulsivo",
+    category: "Neurología • Ansiolítico, Analgésico y Anticonvulsivo",
     categories: ["perros", "gatos"],
     price: null,
     image: "images/GABADAY.jpg",
-    description: "Anticonvulsivo para control de epilepsia.",
+    description: "Ansiolítico, analgésico y anticonvulsivo a base de Gabapentina en solución oral para perros y gatos.",
     badge: null,
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "GABADAY",
+    logoSubtitle: "/ Ansiolítico, Analgésico y Anticonvulsivo",
+    fullDescription: "Solución oral a base de <strong>Gabapentina</strong> para perros y gatos.",
+    indication: "<strong>Indicado para:</strong><ul><li>Tratamiento del dolor crónico. Agente antinociceptivo.</li><li>Terapia complementaria para crisis de epilepsia refractaria o compleja.</li><li>Tratamiento para la ansiedad aguda en gatos y perros, en situaciones que generan estrés como visitas veterinarias y transporte del animal.</li></ul>",
+    presentationTitle: "PRESENTACIÓN",
+    presentationSubtitle: "Frasco gotero por 20 ml",
+    formula: "<strong>FÓRMULA</strong><br>Cada ml de solución contiene:<br>Gabapentina: 100 mg<br>Excipientes c.s.",
+    dosage: "",
+    benefitsTitle: "Mecanismo de Acción",
+    benefitsSubtitle: "Características de la Gabapentina",
+    benefits: [
+      { title: "Acción sobre Canales de Calcio", description: "La acción de la gabapentina es a través de la unión específica de la subunidad de los canales de Ca++ dependientes de voltaje presente en el cerebro de mamíferos, provocando una disminución en la liberación de neurotransmisores (como el neurotransmisor excitador glutamato) y transmisión sináptica de neurotransmisores excitatorios específicos." },
+      { title: "Análogo del GABA", description: "La gabapentina se desarrolló como un análogo químico del ácido aminobutírico (GABA), pero no afecta los sistemas neuronales GABAérgicos. Es probable que cualquier efecto sobre el GABA sea secundario a los efectos de los canales de calcio, el tipo neuronal y las respuestas regionales." }
+    ]
   },
   "ketamid": {
     id: "ketamid",
