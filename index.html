@@ -12957,6 +12957,12 @@
       return popularityOrder.length + 1;
     }
 
+    // Function to check if product is priority product (Pimocard, Cardial B, Cardial)
+    function isPriorityProduct(card) {
+      const name = getProductName(card);
+      return name.includes('pimocard') || name.includes('cardial b') || name === 'cardial';
+    }
+
     // Function to get product price status
     function hasPrice(card) {
       const priceElement = card.querySelector('.product-price');
@@ -12964,6 +12970,13 @@
       const priceText = priceElement.textContent.trim();
       // Check if price is not "Consultar" (has actual price)
       return priceText !== 'Consultar' && priceText.startsWith('$');
+    }
+
+    // Function to get priority tier for sorting
+    function getPriorityTier(card) {
+      if (isPriorityProduct(card)) return 0; // Tier 0: Pimocard, Cardial B, Cardial
+      if (hasPrice(card)) return 1; // Tier 1: Products with prices
+      return 2; // Tier 2: Products with "Consultar"
     }
 
     // Function to sort products by popularity
@@ -12982,16 +12995,17 @@
         card.classList.contains('filtered-out') || card.style.display === 'none'
       );
 
-      // Sort visible cards: first by price status (products with prices first), then by popularity
+      // Sort visible cards: first by priority tier, then by popularity within each tier
       visibleCards.sort((a, b) => {
-        const hasPriceA = hasPrice(a);
-        const hasPriceB = hasPrice(b);
+        const tierA = getPriorityTier(a);
+        const tierB = getPriorityTier(b);
 
-        // If one has price and the other doesn't, prioritize the one with price
-        if (hasPriceA && !hasPriceB) return -1;
-        if (!hasPriceA && hasPriceB) return 1;
+        // If different tiers, sort by tier (lower tier number = higher priority)
+        if (tierA !== tierB) {
+          return tierA - tierB;
+        }
 
-        // If both have the same price status, sort by popularity
+        // If same tier, sort by popularity
         const nameA = getProductName(a);
         const nameB = getProductName(b);
         const indexA = getPopularityIndex(nameA);
