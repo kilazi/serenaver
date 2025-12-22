@@ -19,24 +19,22 @@ const PRODUCTS = {
     image: "images/acedan-gotas.jpg",
     description: "Sedación práctica, simple y segura. Tranquilidad natural sin sueño.",
     logoSubtitle: "MALEATO DE ACEPROMACINA",
-    fullDescription: "<strong>ACEDAN®</strong> es un tranquilizante y sedante formulado con <strong>Maleato de Acepromacina</strong>. Produce un estado de pasividad y calma, disminuyendo la excitabilidad nerviosa sin provocar embotamiento de la conciencia. Genera indiferencia al medio, con disminución de la actividad motora.",
-    indication: "<strong>Indicado para:</strong><ul><li>Tranquilizar al animal ante estímulos excitantes del entorno</li><li>Facilitar el manejo del animal en maniobras clínico-quirúrgicas y diagnósticas</li><li>Evitar nauseas y vómitos en viajes (efecto anticinetósico)</li><li>Aliviar el prurito causado por irritación cutánea</li><li>Pre medicación anestésica</li><li>Reducir la tensión arterial</li></ul>",
+    fullDescription: "ACEDAN® es un tranquilizante que ayuda a calmar a su mascota sin causar sueño profundo.",
+    indication: "Calmar a la mascota en situaciones estresantes\nFacilitar el manejo durante visitas veterinarias\nPrevenir náuseas y vómitos en viajes\nAliviar picazón en la piel\nPreparación para procedimientos médicos\nAyudar a reducir la presión arterial",
     presentationTitle: "ACEDAN GOTAS",
     presentationSubtitle: "Frasco gotero por 10 ml",
-    formula: "<strong>Formulación:</strong><br>Acepromacina Maleato 10 mg; Vehículo c.s.p. 1 ml",
-    benefitsTitle: "ACEDAN® es el tranquilizante de elección",
-    benefitsSubtitle: "Ventajas que hacen de ACEDAN® la mejor opción para la sedación",
+    formula: "Acepromacina Maleato 10 mg; Vehículo c.s.p. 1 ml",
+    benefitsTitle: "Ventajas de ACEDAN®",
+    benefitsSubtitle: "",
     benefits: [
-      { title: "", description: "Buena y rápida absorción oral que facilita la administración por el dueño de la mascota" },
-      { title: "", description: "Ante situaciones de stress, posee efectos beneficiosos debido a sus acciones sobre el sistema cardiovascular: acción antiarrítmica, desensibilización del miocardio a la acción de catecolaminas, acción vasodilatadora que previene edema pulmonar agudo. No afecta la contractilidad cardíaca" },
-      { title: "", description: "Evita accidentes o fugas ante estímulos mayores, ya que disminuye la actividad motora espontánea y modula la respuesta corporal" },
-      { title: "", description: "Se puede asociar a otras drogas para lograr una pre medicación anestésica potenciando la sedación y aportando analgesia, con amplio margen de seguridad (Butorfanol: Butormin®)" },
-      { title: "", description: "Potencia la actividad del clorhidrato de procaína (anestesia local), incrementando su efecto bloqueador" },
-      { title: "", description: "La baja toxicidad de la acepromacina permite que, en caso de sobredosificación, se pueda manejar al paciente con tratamiento sintomático" },
-      { title: "", description: "Favorece la recuperación suave durante el post operatorio" },
-      { title: "", description: "Disminuye la cantidad de drogas durante la inducción y mantenimiento anestésico" }
+      { title: "", description: "Fácil administración por vía oral" },
+      { title: "", description: "Ayuda a proteger el corazón durante situaciones de estrés" },
+      { title: "", description: "Reduce el movimiento excesivo, previniendo accidentes" },
+      { title: "", description: "Puede usarse de forma segura con otros medicamentos" },
+      { title: "", description: "Seguro y bien tolerado" },
+      { title: "", description: "Ayuda a una recuperación tranquila después de cirugías" }
     ],
-    dosage: "<strong>Dosificación:</strong><br><strong>Perros y Gatos:</strong> 1-3 gotas/kg. Iniciar con la dosis más baja y esperar 30 minutos. Reducir la dosis a la mitad en razas braquicefálicas, gigantes, galgos, animales geriátricos, debilitados o con enfermedad cardíaca o hepática.<br><br><strong>Vía de administración:</strong> Oral<br><strong>Tiempo de inicio de acción:</strong> 30-45 minutos<br><strong>Duración del efecto:</strong> 8-12 horas",
+    dosage: "Perros y Gatos: 1-3 gotas/kg. Iniciar con la dosis más baja y esperar 30 minutos. Reducir a la mitad en razas braquicefálicas, gigantes, galgos, animales geriátricos, debilitados o con enfermedad cardíaca o hepática.\n\nVía de administración: Oral\nTiempo de inicio: 30-45 minutos\nDuración: 8-12 horas",
     badge: null,
     variants: null,
     specialModal: null
@@ -50,24 +48,22 @@ const PRODUCTS = {
     image: "images/acedan.jpg",
     description: "Sedación práctica, simple y segura. Tranquilidad natural sin sueño.",
     logoSubtitle: "MALEATO DE ACEPROMACINA",
-    fullDescription: "<strong>ACEDAN®</strong> es un tranquilizante y sedante formulado con <strong>Maleato de Acepromacina</strong>. Produce un estado de pasividad y calma, disminuyendo la excitabilidad nerviosa sin provocar embotamiento de la conciencia. Genera indiferencia al medio, con disminución de la actividad motora.",
-    indication: "<strong>Indicado para:</strong><ul><li>Tranquilizar al animal ante estímulos excitantes del entorno</li><li>Facilitar el manejo del animal en maniobras clínico-quirúrgicas y diagnósticas</li><li>Evitar nauseas y vómitos en viajes (efecto anticinetósico)</li><li>Aliviar el prurito causado por irritación cutánea</li><li>Pre medicación anestésica</li><li>Reducir la tensión arterial</li></ul>",
+    fullDescription: "ACEDAN® es un tranquilizante que ayuda a calmar a su mascota sin causar sueño profundo.",
+    indication: "Calmar a la mascota en situaciones estresantes\nFacilitar el manejo durante visitas veterinarias\nPrevenir náuseas y vómitos en viajes\nAliviar picazón en la piel\nPreparación para procedimientos médicos\nAyudar a reducir la presión arterial",
     presentationTitle: "ACEDAN INYECTABLE",
     presentationSubtitle: "Frasco ampolla por 50 ml",
-    formula: "<strong>Formulación:</strong><br>Acepromacina Maleato 10 mg; Vehículo c.s.p. 1 ml",
-    benefitsTitle: "ACEDAN® es el tranquilizante de elección",
-    benefitsSubtitle: "Ventajas que hacen de ACEDAN® la mejor opción para la sedación",
+    formula: "Acepromacina Maleato 10 mg; Vehículo c.s.p. 1 ml",
+    benefitsTitle: "Ventajas de ACEDAN®",
+    benefitsSubtitle: "",
     benefits: [
-      { title: "", description: "Buena y rápida absorción que facilita la administración profesional" },
-      { title: "", description: "Ante situaciones de stress, posee efectos beneficiosos debido a sus acciones sobre el sistema cardiovascular: acción antiarrítmica, desensibilización del miocardio a la acción de catecolaminas, acción vasodilatadora que previene edema pulmonar agudo. No afecta la contractilidad cardíaca" },
-      { title: "", description: "Evita accidentes o fugas ante estímulos mayores, ya que disminuye la actividad motora espontánea y modula la respuesta corporal" },
-      { title: "", description: "Se puede asociar a otras drogas para lograr una pre medicación anestésica potenciando la sedación y aportando analgesia, con amplio margen de seguridad (Butorfanol: Butormin®)" },
-      { title: "", description: "Potencia la actividad del clorhidrato de procaína (anestesia local), incrementando su efecto bloqueador" },
-      { title: "", description: "La baja toxicidad de la acepromacina permite que, en caso de sobredosificación, se pueda manejar al paciente con tratamiento sintomático" },
-      { title: "", description: "Favorece la recuperación suave durante el post operatorio" },
-      { title: "", description: "Disminuye la cantidad de drogas durante la inducción y mantenimiento anestésico" }
+      { title: "", description: "Administración rápida por el veterinario" },
+      { title: "", description: "Ayuda a proteger el corazón durante situaciones de estrés" },
+      { title: "", description: "Reduce el movimiento excesivo, previniendo accidentes" },
+      { title: "", description: "Puede usarse de forma segura con otros medicamentos" },
+      { title: "", description: "Seguro y bien tolerado" },
+      { title: "", description: "Ayuda a una recuperación tranquila después de cirugías" }
     ],
-    dosage: "<strong>Dosificación:</strong><br><strong>Perros y Gatos:</strong> 0,1 mg/Kg vía SC, IM o EV (lenta). No exceder 3 mg total vía IM o EV en perros y 1 mg total en felinos. Reducir la dosis a la mitad en razas braquicefálicas, gigantes, galgos, animales geriátricos, debilitados o con enfermedad cardíaca o hepática.<br><br><strong>Equinos:</strong> 1,5 ml cada 400 Kg vía EV, IM o SC<br><br><strong>Vías de administración:</strong> SC, IM o EV<br><strong>Tiempo de inicio de acción:</strong> 10-15 minutos<br><strong>Duración del efecto:</strong> 8-12 horas<br><strong>Metabolismo:</strong> Hepático<br><strong>Excreción:</strong> Renal",
+    dosage: "Perros y Gatos: 0,1 mg/Kg vía SC, IM o EV (lenta). No exceder 3 mg total vía IM o EV en perros y 1 mg total en felinos. Reducir a la mitad en razas braquicefálicas, gigantes, galgos, animales geriátricos, debilitados o con enfermedad cardíaca o hepática.\n\nEquinos: 1,5 ml cada 400 Kg vía EV, IM o SC\n\nVías de administración: SC, IM o EV\nTiempo de inicio: 10-15 minutos\nDuración: 8-12 horas\nMetabolismo: Hepático\nExcreción: Renal",
     badge: null,
     variants: null,
     specialModal: null
@@ -98,19 +94,19 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "PREDNISOLONA 20 MG",
     logoSubtitle: "Glucocorticoide Sintético",
-    fullDescription: "<strong>Prednisolona 20 MG</strong> es un glucocorticoide sintético en comprimidos. Corticosteroide antiinflamatorio e inmunosupresor para el tratamiento de procesos inflamatorios y alérgicos en perros y gatos.",
-    indication: "<strong>Indicado para:</strong><ul><li>Tratamiento de procesos inflamatorios</li><li>Tratamiento de procesos alérgicos</li><li>Enfermedades autoinmunes</li><li>Shock y estados de colapso</li></ul>",
+    fullDescription: "Prednisolona 20 MG es un medicamento antiinflamatorio en comprimidos para tratar inflamación y alergias en perros y gatos.",
+    indication: "Reducir inflamación\nTratar alergias\nAyudar en enfermedades del sistema inmunológico\nTratamiento de emergencia en casos graves",
     presentationTitle: "PRESENTACIÓN",
     presentationSubtitle: "Envases con 10 comprimidos",
-    formula: "<strong>FÓRMULA</strong><br>Cada comprimido contiene:<br>Prednisolona: 20 mg<br>Excipientes c.s.",
-    dosage: "<strong>POSOLOGÍA Y ADMINISTRACIÓN</strong><br><strong>Perros y Gatos:</strong> 0,5 a 1 mg por kg de peso corporal, cada 12 a 24 horas, según indicación veterinaria.<br><br><strong>Vía de administración:</strong> Oral<br><strong>Contraindicaciones:</strong> No administrar en infecciones sistémicas sin tratamiento adecuado, úlceras gastrointestinales, diabetes mellitus, insuficiencia renal o cardíaca severa.<br><strong>Efectos colaterales:</strong> Poliuria, polidipsia, polifagia, supresión del eje hipotalámico-hipofisario-adrenal.<br><strong>Restricciones:</strong> No utilizar en hembras gestantes o lactantes sin supervisión veterinaria.",
-    benefitsTitle: "Beneficios del Producto",
-    benefitsSubtitle: "Características que hacen de Prednisolona 20 MG la mejor opción",
+    formula: "Cada comprimido contiene: Prednisolona 20 mg; Excipientes c.s.",
+    dosage: "Perros y Gatos: 0,5 a 1 mg por kg de peso corporal, cada 12 a 24 horas, según indicación veterinaria.\n\nVía de administración: Oral\nContraindicaciones: No administrar en infecciones sistémicas sin tratamiento adecuado, úlceras gastrointestinales, diabetes mellitus, insuficiencia renal o cardíaca severa.\nEfectos colaterales: Poliuria, polidipsia, polifagia, supresión del eje hipotalámico-hipofisario-adrenal.\nRestricciones: No utilizar en hembras gestantes o lactantes sin supervisión veterinaria.",
+    benefitsTitle: "Beneficios",
+    benefitsSubtitle: "",
     benefits: [
-      { title: "Antiinflamatorio Potente", description: "Efecto antiinflamatorio potente para el tratamiento de procesos inflamatorios agudos y crónicos." },
-      { title: "Inmunosupresor", description: "Acción inmunosupresora útil en el tratamiento de enfermedades autoinmunes." },
-      { title: "Alta Biodisponibilidad", description: "Excelente absorción oral y biodisponibilidad." },
-      { title: "Dosificación Flexible", description: "Presentación en comprimidos que permite ajustar la dosis según las necesidades del paciente." }
+      { title: "", description: "Reduce eficazmente la inflamación aguda y crónica" },
+      { title: "", description: "Ayuda a controlar enfermedades del sistema inmunológico" },
+      { title: "", description: "Se absorbe bien cuando se administra por vía oral" },
+      { title: "", description: "Dosis ajustable según las necesidades de su mascota" }
     ]
   },
 
@@ -183,22 +179,20 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "DIURENE 40°",
     logoSubtitle: "FUROSEMIDA 40 mg",
-    fullDescription: "<strong>Diurene 40® (Furosemida)</strong> es un diurético de asa potente indicado para el tratamiento de la insuficiencia cardíaca congestiva. La furosemida reduce la precarga como terapia deplecionante asociada a la restricción de sal en la dieta.",
-    indication: "<strong>Indicado para:</strong><ul><li>Tratamiento de edemas (congestión pulmonar, ascitis) asociados a insuficiencia cardíaca</li><li>Edema agudo de tejidos no inflamatorios</li><li>Hipertensión</li><li>Desequilibrios electrolíticos (hiperpotasemia e hipercalcemia)</li></ul>",
+    fullDescription: "Diurene 40® ayuda a eliminar el exceso de líquido del cuerpo, especialmente útil en mascotas con problemas cardíacos.",
+    indication: "Reducir acumulación de líquido por problemas cardíacos\nTratar hinchazón en los tejidos\nAyudar a controlar la presión arterial alta\nCorregir desequilibrios de minerales",
     presentationTitle: "PRESENTACIONES",
     presentationSubtitle: "",
-    formula: "<strong>FÓRMULA</strong><br>Cada comprimido contiene:<br>Furosemida 40 mg<br>Excipientes c.s.",
-    dosage: "<strong>DOSIS</strong><br><strong>Vía oral / Perros:</strong><br>2 a 4 mg/kg cada 8 a 12 horas<br>Equivalente a 1 comprimido cada 20 kg. o 10 kg. respectivamente.<br><br><strong>Nota:</strong> La dosis debe ser ajustada según la respuesta individual. Se sugiere fomentar la ingesta de alimento y agua.",
-    benefitsTitle: "Mecanismo de Acción",
-    benefitsSubtitle: "Características que hacen de Diurene 40® el complemento ideal",
+    formula: "Cada comprimido contiene: Furosemida 40 mg; Excipientes c.s.",
+    dosage: "Vía oral / Perros: 2 a 4 mg/kg cada 8 a 12 horas. Equivalente a 1 comprimido cada 20 kg o 10 kg respectivamente.\n\nNota: La dosis debe ser ajustada según la respuesta individual. Se sugiere fomentar la ingesta de alimento y agua.",
+    benefitsTitle: "Características",
+    benefitsSubtitle: "",
     benefits: [
-      { title: "Diurético de Asa Potente", description: "Diurene 40® contiene Furosemida, un diurético de asa potente para el tratamiento de la insuficiencia cardíaca congestiva." },
-      { title: "Reducción de Precarga", description: "La furosemida reduce la precarga como terapia deplecionante asociada a la restricción de sal en la dieta." },
-      { title: "Administración Oral", description: "Actúa dentro de los 30 minutos debido a su rápida absorción gastrointestinal y baja liposolubilidad." },
-      { title: "Actividad Diurética", description: "Efectiva tanto en acidosis como en alcalosis." },
-      { title: "Mecanismo de Acción", description: "Actúa directamente sobre el riñón, inhibiendo la reabsorción de sodio, cloro y potasio en los túbulos proximales y distales, y en la rama ascendente del asa de Henle, aumentando la excreción de agua." },
-      { title: "Ingeniería de Formulación", description: "Permite que la acción comience antes de los treinta minutos, a diferencia de otros productos." },
-      { title: "Complemento Ideal", description: "Diurene 40® es el complemento ideal en el tratamiento de las cardiopatías caninas junto a Cardial B, Pimocard y una dieta acorde a las necesidades del paciente." }
+      { title: "", description: "Elimina eficazmente el exceso de líquido en problemas cardíacos" },
+      { title: "", description: "Reduce la carga de trabajo del corazón" },
+      { title: "", description: "Comienza a actuar rápidamente, en aproximadamente 30 minutos" },
+      { title: "", description: "Funciona en diferentes condiciones del organismo" },
+      { title: "", description: "Complemento útil en el tratamiento de enfermedades cardíacas" }
     ]
   },
   "toracard": {
@@ -215,19 +209,19 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "TORACARD",
     logoSubtitle: "Cardiotónico",
-    fullDescription: "<strong>Toracard</strong> es un cardiotónico en comprimidos. Indicado para el tratamiento de insuficiencia cardíaca congestiva en perros.",
-    indication: "<strong>Indicado para:</strong><ul><li>Tratamiento de insuficiencia cardíaca congestiva en perros</li><li>Mejora de la contractilidad cardíaca</li><li>Vasodilatación arterial y venosa</li></ul>",
+    fullDescription: "Toracard ayuda a fortalecer el corazón y mejorar su funcionamiento en perros con problemas cardíacos.",
+    indication: "Tratamiento de insuficiencia cardíaca en perros\nMejorar la fuerza de contracción del corazón\nDilatar los vasos sanguíneos para facilitar la circulación",
     presentationTitle: "PRESENTACIÓN",
     presentationSubtitle: "Envases con 30 comprimidos",
-    formula: "<strong>FÓRMULA</strong><br>Cada comprimido contiene:<br>Pimobendan: 5 mg<br>Excipientes c.s.",
-    dosage: "<strong>POSOLOGÍA Y ADMINISTRACIÓN</strong><br><strong>Perros:</strong> 0,25 mg por kg de peso corporal, cada 12 horas.<br><br><strong>Vía de administración:</strong> Oral<br><strong>Contraindicaciones:</strong> No administrar en casos de cardiomiopatía hipertrófica o estenosis aórtica.<br><strong>Efectos colaterales:</strong> Pueden presentarse vómitos, diarrea, anorexia, letargia.<br><strong>Restricciones:</strong> Usar con precaución en animales con insuficiencia renal o hepática. No utilizar en hembras gestantes o lactantes sin supervisión veterinaria.",
-    benefitsTitle: "Beneficios del Producto",
-    benefitsSubtitle: "Características que hacen de Toracard la mejor opción",
+    formula: "Cada comprimido contiene: Pimobendan 5 mg; Excipientes c.s.",
+    dosage: "Perros: 0,25 mg por kg de peso corporal, cada 12 horas.\n\nVía de administración: Oral\nContraindicaciones: No administrar en casos de cardiomiopatía hipertrófica o estenosis aórtica.\nEfectos colaterales: Pueden presentarse vómitos, diarrea, anorexia, letargia.\nRestricciones: Usar con precaución en animales con insuficiencia renal o hepática. No utilizar en hembras gestantes o lactantes sin supervisión veterinaria.",
+    benefitsTitle: "Beneficios",
+    benefitsSubtitle: "",
     benefits: [
-      { title: "Inotrópico Positivo", description: "Mejora la contractilidad del miocardio aumentando el gasto cardíaco." },
-      { title: "Vasodilatador", description: "Produce vasodilatación arterial y venosa, reduciendo la precarga y poscarga." },
-      { title: "Doble Mecanismo", description: "Combina efectos inotrópicos positivos y vasodilatadores para un tratamiento eficaz de la insuficiencia cardíaca." },
-      { title: "Bien Tolerado", description: "Generalmente bien tolerado con efectos secundarios mínimos cuando se usa según indicación veterinaria." }
+      { title: "", description: "Fortalece el corazón y mejora su capacidad de bombeo" },
+      { title: "", description: "Dilata los vasos sanguíneos, facilitando la circulación y reduciendo el esfuerzo del corazón" },
+      { title: "", description: "Combina dos acciones beneficiosas: fortalece el corazón y mejora la circulación" },
+      { title: "", description: "Generalmente bien tolerado con pocos efectos secundarios" }
     ]
   },
 
@@ -250,20 +244,20 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "ECTHOL",
     logoSubtitle: "Collar / Antipulgas y garrapatas",
-    fullDescription: "El nuevo <strong>Collar Ecthol</strong> es la alternativa más efectiva para el control de pulgas y garrapatas en perros y gatos. Es ideal para aquellas mascotas que permanecen tiempos prolongados fuera del hogar y en contacto con otros animales disfrutando de la vida al aire libre.",
-    indication: "<strong>Indicado para:</strong><ul><li>Control de pulgas (Ctenocephalides canis, Ctenocephalides felis)</li><li>Control de garrapatas (Amblyoma, Dermacentor, Ripicephalus, Ixodes)</li><li>Prevención de re-infestación en espacios abiertos</li><li>Protección en épocas y zonas de temperaturas elevadas y humedad</li><li>Prevención del ataque de formas inmaduras de pulgas y garrapatas presentes en el ambiente</li></ul>",
+    fullDescription: "El Collar Ecthol protege a su gato contra pulgas y garrapatas durante varios meses, ideal para gatos que salen al exterior.",
+    indication: "Eliminar y prevenir pulgas\nEliminar y prevenir garrapatas\nProtección continua en exteriores\nEfectivo en climas cálidos y húmedos\nPreviene el desarrollo de pulgas y garrapatas jóvenes",
     presentationTitle: "ECTHOL COLLAR GATOS",
     presentationSubtitle: "40 CM",
-    formula: "<strong>FÓRMULA</strong><br>Collar con liberación controlada de Clorpirifós",
-    dosage: "<strong>MODO DE ACCIÓN:</strong><br>El Collar Ecthol fue diseñado para liberar de forma constante y progresiva su principio activo, logrando una alta efectividad en la eliminación de pulgas y garrapatas. Su composición es inocua para el animal que lo porta.<br><br><strong>Mecanismo:</strong><br>1. El avanzado polímero del collar contiene en su interior Clorpirifós a la espera de su activación.<br>2. La temperatura corporal genera su liberación en forma constante, efectiva y segura.<br>3. Sobre el manto despliega su máximo poder contra pulgas y garrapatas, protegiendo por mucho más tiempo.",
-    benefitsTitle: "Características del Producto",
-    benefitsSubtitle: "Ventajas que hacen de Ecthol Collar la mejor opción",
+    formula: "Collar con liberación controlada de Clorpirifós",
+    dosage: "El collar libera de forma constante su principio activo, logrando alta efectividad en la eliminación de pulgas y garrapatas. La temperatura corporal activa la liberación gradual del principio activo sobre el manto, protegiendo por tiempo prolongado.",
+    benefitsTitle: "Características",
+    benefitsSubtitle: "",
     benefits: [
-      { title: "Acción Controlada", description: "Innovadora inclusión de Clorpirifós en el polímero, permitiendo una liberación gradual por hasta 10 meses, manteniendo su efectividad incluso en climas extremos. También ayuda en la recuperación de mantos dañados y mejora la calidad del pelo causado por lesiones de pulgas y garrapatas en animales no tratados." },
-      { title: "Máxima Seguridad", description: "Mecanismo de cierre 'Safe Life' diseñado para proteger a la mascota en caso de enganches accidentales." },
-      { title: "Diseño Innovador", description: "El Collar Ecthol pasa desapercibido en el cuello del animal, integrándose con su pelaje, y añade un toque de color elegante gracias a su exclusivo diseño de cierre 'Easy Fit'." },
-      { title: "Fácil Colocación", description: "1. Sacar el collar de la bolsa inviolable que está dentro del estuche. 2. Ajustarlo a la medida del cuello de la mascota sin apretar y dejando que pasen dos dedos. 3. De ser necesario, el excedente puede cortarse." },
-      { title: "Protección Prolongada", description: "Nada brinda tanta protección por tanto tiempo como el nuevo Collar Ecthol." }
+      { title: "Acción Controlada", description: "Libera el principio activo gradualmente durante hasta 10 meses, manteniendo su efectividad incluso en climas extremos. También ayuda a mejorar el pelaje dañado por pulgas y garrapatas." },
+      { title: "Máxima Seguridad", description: "Mecanismo de cierre seguro que protege a su gato en caso de enganches accidentales." },
+      { title: "Diseño Innovador", description: "Collar discreto que se integra con el pelaje de su gato y es fácil de ajustar." },
+      { title: "Fácil Colocación", description: "Ajuste el collar al cuello de su gato sin apretar, dejando espacio para dos dedos. Puede cortar el excedente si es necesario." },
+      { title: "Protección Prolongada", description: "Protección continua durante varios meses." }
     ]
   },
   "ecthol-collar-perros": {
@@ -283,20 +277,20 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "ECTHOL",
     logoSubtitle: "Collar / Antipulgas y garrapatas",
-    fullDescription: "El nuevo <strong>Collar Ecthol</strong> es la alternativa más efectiva para el control de pulgas y garrapatas en perros y gatos. Es ideal para aquellas mascotas que permanecen tiempos prolongados fuera del hogar y en contacto con otros animales disfrutando de la vida al aire libre.",
-    indication: "<strong>Indicado para:</strong><ul><li>Control de pulgas (Ctenocephalides canis, Ctenocephalides felis)</li><li>Control de garrapatas (Amblyoma, Dermacentor, Ripicephalus, Ixodes)</li><li>Prevención de re-infestación en espacios abiertos</li><li>Protección en épocas y zonas de temperaturas elevadas y humedad</li><li>Prevención del ataque de formas inmaduras de pulgas y garrapatas presentes en el ambiente</li><li>Transmisión de agentes como Dipylidium caninum, Bartonella spp., Rickettsia felis, Babesia, Borrelia, Ehrlichia, o Hepatozoon canis</li></ul>",
+    fullDescription: "El Collar Ecthol protege a su perro contra pulgas y garrapatas durante varios meses, ideal para perros que pasan tiempo al aire libre.",
+    indication: "Eliminar y prevenir pulgas\nEliminar y prevenir garrapatas\nProtección continua en exteriores\nEfectivo en climas cálidos y húmedos\nPreviene el desarrollo de pulgas y garrapatas jóvenes\nAyuda a prevenir enfermedades transmitidas por estos parásitos",
     presentationTitle: "ECTHOL COLLAR PERROS",
     presentationSubtitle: "40 CM / 63 CM",
-    formula: "<strong>FÓRMULA</strong><br>Collar con liberación controlada de Clorpirifós",
-    dosage: "<strong>MODO DE ACCIÓN:</strong><br>El Collar Ecthol fue diseñado para liberar de forma constante y progresiva su principio activo, logrando una alta efectividad en la eliminación de pulgas y garrapatas. Su composición es inocua para el animal que lo porta.<br><br><strong>Mecanismo:</strong><br>1. El avanzado polímero del collar contiene en su interior Clorpirifós a la espera de su activación.<br>2. La temperatura corporal genera su liberación en forma constante, efectiva y segura.<br>3. Sobre el manto despliega su máximo poder contra pulgas y garrapatas, protegiendo por mucho más tiempo.",
-    benefitsTitle: "Características del Producto",
-    benefitsSubtitle: "Ventajas que hacen de Ecthol Collar la mejor opción",
+    formula: "Collar con liberación controlada de Clorpirifós",
+    dosage: "El collar libera de forma constante su principio activo, logrando alta efectividad en la eliminación de pulgas y garrapatas. La temperatura corporal activa la liberación gradual del principio activo sobre el manto, protegiendo por tiempo prolongado.",
+    benefitsTitle: "Características",
+    benefitsSubtitle: "",
     benefits: [
-      { title: "Acción Controlada", description: "Innovadora inclusión de Clorpirifós en el polímero, permitiendo una liberación gradual por hasta 10 meses, manteniendo su efectividad incluso en climas extremos. También ayuda en la recuperación de mantos dañados y mejora la calidad del pelo causado por lesiones de pulgas y garrapatas en animales no tratados." },
-      { title: "Máxima Seguridad", description: "Mecanismo de cierre 'Safe Life' diseñado para proteger a la mascota en caso de enganches accidentales." },
-      { title: "Diseño Innovador", description: "El Collar Ecthol pasa desapercibido en el cuello del animal, integrándose con su pelaje, y añade un toque de color elegante gracias a su exclusivo diseño de cierre 'Easy Fit'." },
-      { title: "Fácil Colocación", description: "1. Sacar el collar de la bolsa inviolable que está dentro del estuche. 2. Ajustarlo a la medida del cuello de la mascota sin apretar y dejando que pasen dos dedos. 3. De ser necesario, el excedente puede cortarse." },
-      { title: "Protección Prolongada", description: "Nada brinda tanta protección por tanto tiempo como el nuevo Collar Ecthol." }
+      { title: "", description: "Libera el principio activo gradualmente durante hasta 10 meses, incluso en climas extremos" },
+      { title: "", description: "Mecanismo de cierre seguro que protege a su perro en caso de enganches accidentales" },
+      { title: "", description: "Diseño discreto que se integra con el pelaje de su perro" },
+      { title: "", description: "Fácil de colocar: ajuste al cuello sin apretar, dejando espacio para dos dedos" },
+      { title: "", description: "Protección continua contra pulgas y garrapatas durante varios meses" }
     ]
   },
   "ecthol-gmp-gatos": {
@@ -316,19 +310,19 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "ECTHOL GMP GATOS",
     logoSubtitle: "Pipeta Antiparasitaria Externa",
-    fullDescription: "<strong>Ecthol GMP Gatos</strong> es una pipeta antiparasitaria externa para el control de pulgas y garrapatas en gatos. Formulación con Fipronil y (S)-Metopreno para máxima eficacia.",
-    indication: "<strong>Indicado para:</strong><ul><li>Control de pulgas (Ctenocephalides felis)</li><li>Control de garrapatas</li><li>Prevención de re-infestación</li><li>Tratamiento de infestaciones existentes</li></ul>",
+    fullDescription: "Ecthol GMP Gatos es una pipeta que protege a su gato contra pulgas y garrapatas durante un mes.",
+    indication: "Eliminar y prevenir pulgas\nEliminar y prevenir garrapatas\nPrevenir nuevas infestaciones\nTratar infestaciones existentes",
     presentationTitle: "PRESENTACIONES",
     presentationSubtitle: "Pipetas según peso del gato",
-    formula: "<strong>FÓRMULA</strong><br>Cada pipeta contiene:<br>Fipronil: 10%<br>(S)-Metopreno: 12%<br>Vehículo c.s.",
-    dosage: "<strong>POSOLOGÍA Y ADMINISTRACIÓN</strong><br><strong>Gatos:</strong> Aplicar una pipeta completa sobre la piel, separando el pelo en la línea dorsal entre los omóplatos. Asegurar contacto directo con la piel.<br><br><strong>Vía de administración:</strong> Tópica (spot-on)<br><strong>Frecuencia:</strong> Aplicar mensualmente<br><strong>Contraindicaciones:</strong> No administrar en gatitos menores de 8 semanas de edad ni en gatos con hipersensibilidad a los componentes.<br><strong>Precauciones:</strong> No bañar al animal 48 horas antes ni después de la aplicación.",
-    benefitsTitle: "Beneficios del Producto",
-    benefitsSubtitle: "Características que hacen de Ecthol GMP Gatos la mejor opción",
+    formula: "Cada pipeta contiene: Fipronil 10%; (S)-Metopreno 12%; Vehículo c.s.",
+    dosage: "Gatos: Aplicar una pipeta completa sobre la piel, separando el pelo en la línea dorsal entre los omóplatos. Asegurar contacto directo con la piel.\n\nVía de administración: Tópica (spot-on)\nFrecuencia: Aplicar mensualmente\nContraindicaciones: No administrar en gatitos menores de 8 semanas de edad ni en gatos con hipersensibilidad a los componentes.\nPrecauciones: No bañar al animal 48 horas antes ni después de la aplicación.",
+    benefitsTitle: "Beneficios",
+    benefitsSubtitle: "",
     benefits: [
-      { title: "Doble Acción", description: "Combinación de Fipronil y (S)-Metopreno para eliminar pulgas adultas y prevenir el desarrollo de formas inmaduras." },
-      { title: "Protección Prolongada", description: "Protección de hasta 4 semanas contra pulgas y garrapatas." },
-      { title: "Fácil Aplicación", description: "Aplicación tópica simple y rápida en la línea dorsal." },
-      { title: "Seguro para Gatos", description: "Formulación segura específicamente desarrollada para gatos." }
+      { title: "", description: "Elimina pulgas adultas y previene el desarrollo de pulgas jóvenes" },
+      { title: "", description: "Protección durante 4 semanas contra pulgas y garrapatas" },
+      { title: "", description: "Aplicación simple y rápida en la parte superior del cuello" },
+      { title: "", description: "Formulación segura específicamente para gatos" }
     ]
   },
   "ecthol-gmp-perros": {
@@ -350,19 +344,19 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "ECTHOL GMP PERROS",
     logoSubtitle: "Pipeta Antiparasitaria Externa",
-    fullDescription: "<strong>Ecthol GMP Perros</strong> es una pipeta antiparasitaria externa para el control de pulgas y garrapatas en perros. Formulación con Fipronil y (S)-Metopreno para máxima eficacia.",
-    indication: "<strong>Indicado para:</strong><ul><li>Control de pulgas (Ctenocephalides canis, Ctenocephalides felis)</li><li>Control de garrapatas (Amblyoma, Dermacentor, Rhipicephalus, Ixodes)</li><li>Prevención de re-infestación</li><li>Tratamiento de infestaciones existentes</li></ul>",
+    fullDescription: "Ecthol GMP Perros es una pipeta que protege a su perro contra pulgas y garrapatas durante un mes.",
+    indication: "Eliminar y prevenir pulgas\nEliminar y prevenir garrapatas\nPrevenir nuevas infestaciones\nTratar infestaciones existentes",
     presentationTitle: "PRESENTACIONES",
     presentationSubtitle: "Pipetas según peso del perro (5 kg, 6-10 kg, 11-20 kg, 21-40 kg)",
-    formula: "<strong>FÓRMULA</strong><br>Cada pipeta contiene:<br>Fipronil: 10%<br>(S)-Metopreno: 9%<br>Vehículo c.s.",
-    dosage: "<strong>POSOLOGÍA Y ADMINISTRACIÓN</strong><br><strong>Perros:</strong> Aplicar una pipeta completa sobre la piel, separando el pelo en la línea dorsal entre los omóplatos. Asegurar contacto directo con la piel. Seleccionar la pipeta según el peso del perro.<br><br><strong>Vía de administración:</strong> Tópica (spot-on)<br><strong>Frecuencia:</strong> Aplicar mensualmente<br><strong>Contraindicaciones:</strong> No administrar en cachorros menores de 8 semanas de edad ni en perros con hipersensibilidad a los componentes.<br><strong>Precauciones:</strong> No bañar al animal 48 horas antes ni después de la aplicación.",
-    benefitsTitle: "Beneficios del Producto",
-    benefitsSubtitle: "Características que hacen de Ecthol GMP Perros la mejor opción",
+    formula: "Cada pipeta contiene: Fipronil 10%; (S)-Metopreno 9%; Vehículo c.s.",
+    dosage: "Perros: Aplicar una pipeta completa sobre la piel, separando el pelo en la línea dorsal entre los omóplatos. Asegurar contacto directo con la piel. Seleccionar la pipeta según el peso del perro.\n\nVía de administración: Tópica (spot-on)\nFrecuencia: Aplicar mensualmente\nContraindicaciones: No administrar en cachorros menores de 8 semanas de edad ni en perros con hipersensibilidad a los componentes.\nPrecauciones: No bañar al animal 48 horas antes ni después de la aplicación.",
+    benefitsTitle: "Beneficios",
+    benefitsSubtitle: "",
     benefits: [
-      { title: "Doble Acción", description: "Combinación de Fipronil y (S)-Metopreno para eliminar pulgas adultas y prevenir el desarrollo de formas inmaduras." },
-      { title: "Protección Prolongada", description: "Protección de hasta 4 semanas contra pulgas y garrapatas." },
-      { title: "Múltiples Tamaños", description: "Presentaciones adaptadas según el peso del perro para dosificación precisa." },
-      { title: "Fácil Aplicación", description: "Aplicación tópica simple y rápida en la línea dorsal." }
+      { title: "Doble Acción", description: "Elimina pulgas adultas y previene el desarrollo de pulgas jóvenes." },
+      { title: "Protección Prolongada", description: "Protección durante 4 semanas contra pulgas y garrapatas." },
+      { title: "Múltiples Tamaños", description: "Diferentes presentaciones según el peso de su perro para una dosificación precisa." },
+      { title: "Fácil Aplicación", description: "Aplicación simple y rápida en la parte superior del cuello." }
     ]
   },
   "ecthol-halo-collar-perros": {
@@ -382,8 +376,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "ECTHOL HALO COLLAR",
     logoSubtitle: "Collar Antiparasitario Premium",
-    fullDescription: "<strong>Ecthol Halo Collar Perros</strong> es un collar antiparasitario premium de larga duración. Controla pulgas, garrapatas y repele flebótomos, moscas y mosquitos. Protección de hasta 8 meses.",
-    indication: "<strong>Indicado para:</strong><ul><li>Control de pulgas (Ctenocephalides canis, Ctenocephalides felis)</li><li>Control de garrapatas (Amblyoma, Dermacentor, Rhipicephalus, Ixodes)</li><li>Repelente de flebótomos, moscas y mosquitos</li><li>Prevención de enfermedades transmitidas por vectores</li><li>Protección prolongada</li></ul>",
+    fullDescription: "Ecthol Halo Collar Perros es un collar que protege a su perro contra pulgas, garrapatas y repele moscas y mosquitos durante hasta 8 meses.",
+    indication: "Eliminar y prevenir pulgas\nEliminar y prevenir garrapatas\nRepeler moscas y mosquitos\nAyudar a prevenir enfermedades transmitidas por estos insectos\nProtección prolongada",
     presentationTitle: "PRESENTACIONES",
     presentationSubtitle: "Collar según peso del perro (Menos de 10 kg / Más de 10 kg)",
     formula: "<strong>FÓRMULA</strong><br>Collar con liberación controlada de:<br>Deltametrina: 4%<br>Polímero de liberación prolongada",
@@ -391,9 +385,9 @@ const PRODUCTS = {
     benefitsTitle: "Beneficios del Producto",
     benefitsSubtitle: "Características que hacen de Ecthol Halo Collar la mejor opción",
     benefits: [
-      { title: "Protección Prolongada", description: "Hasta 8 meses de protección continua contra pulgas y garrapatas." },
-      { title: "Repelente", description: "No solo elimina parásitos, sino que también repele flebótomos, moscas y mosquitos." },
-      { title: "Liberación Controlada", description: "Tecnología de liberación controlada que mantiene niveles efectivos durante todo el período de protección." },
+      { title: "Protección Prolongada", description: "Protección continua durante hasta 8 meses contra pulgas y garrapatas." },
+      { title: "Repelente", description: "No solo elimina parásitos, sino que también repele moscas y mosquitos." },
+      { title: "Liberación Controlada", description: "Libera el principio activo gradualmente, manteniendo la protección durante todo el período." },
       { title: "Fácil Uso", description: "Collar cómodo y fácil de colocar, con mecanismo de seguridad." }
     ]
   },
@@ -411,8 +405,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "ECTHOLANER",
     logoSubtitle: "Antiparasitario Oral de Acción Sistémica",
-    fullDescription: "<strong>Ectholaner Comprimidos Perros</strong> es un antiparasitario oral en comprimidos masticables de acción sistémica. Indicado para el control de pulgas y garrapatas en perros mediante administración oral.",
-    indication: "<strong>Indicado para:</strong><ul><li>Control de pulgas (Ctenocephalides canis, Ctenocephalides felis)</li><li>Control de garrapatas (Amblyoma, Dermacentor, Rhipicephalus, Ixodes)</li><li>Tratamiento de infestaciones existentes</li><li>Prevención de re-infestación</li></ul>",
+    fullDescription: "Ectholaner Comprimidos Perros es un antiparasitario en comprimidos masticables que protege a su perro contra pulgas y garrapatas desde el interior del organismo.",
+    indication: "Eliminar y prevenir pulgas\nEliminar y prevenir garrapatas\nTratar infestaciones existentes\nPrevenir nuevas infestaciones",
     presentationTitle: "PRESENTACIONES",
     presentationSubtitle: "Comprimidos masticables según peso del perro",
     formula: "<strong>FÓRMULA</strong><br>Cada comprimido contiene:<br>Afoxolaner: según presentación (11.3 mg, 28.3 mg, 68 mg, 136 mg)<br>Excipientes c.s.",
@@ -420,10 +414,10 @@ const PRODUCTS = {
     benefitsTitle: "Beneficios del Producto",
     benefitsSubtitle: "Características que hacen de Ectholaner la mejor opción",
     benefits: [
-      { title: "Acción Sistémica", description: "Acción sistémica que protege a todo el cuerpo del perro, no solo el área de aplicación." },
-      { title: "Comprimidos Masticables", description: "Comprimidos masticables con sabor agradable que facilitan la administración." },
-      { title: "Rápida Eficacia", description: "Inicio de acción rápido, eliminando pulgas en 8 horas y garrapatas en 12 horas." },
-      { title: "Protección Mensual", description: "Una dosis mensual proporciona protección continua durante todo el mes." }
+      { title: "Acción Sistémica", description: "Protege a todo el cuerpo de su perro, no solo un área específica." },
+      { title: "Comprimidos Masticables", description: "Comprimidos con sabor agradable que facilitan la administración." },
+      { title: "Rápida Eficacia", description: "Comienza a actuar rápidamente, eliminando pulgas en 8 horas y garrapatas en 12 horas." },
+      { title: "Protección Mensual", description: "Una dosis mensual proporciona protección durante todo el mes." }
     ]
   },
   "ecthonil-gatos": {
@@ -440,8 +434,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "ECTHONIL GATOS",
     logoSubtitle: "Antiparasitario Spot-on",
-    fullDescription: "<strong>Ecthonil Gatos</strong> es un antiparasitario externo en pipeta (spot-on) para el control de pulgas y garrapatas en gatos. Formulación con Fipronil para máxima eficacia.",
-    indication: "<strong>Indicado para:</strong><ul><li>Control de pulgas (Ctenocephalides felis)</li><li>Control de garrapatas</li><li>Tratamiento de infestaciones existentes</li><li>Prevención de re-infestación</li></ul>",
+    fullDescription: "Ecthonil Gatos es una pipeta que protege a su gato contra pulgas y garrapatas durante un mes.",
+    indication: "Eliminar y prevenir pulgas\nEliminar y prevenir garrapatas\nTratar infestaciones existentes\nPrevenir nuevas infestaciones",
     presentationTitle: "PRESENTACIÓN",
     presentationSubtitle: "Pipetas spot-on",
     formula: "<strong>FÓRMULA</strong><br>Cada pipeta contiene:<br>Fipronil: 10%<br>Vehículo c.s.",
@@ -449,10 +443,10 @@ const PRODUCTS = {
     benefitsTitle: "Beneficios del Producto",
     benefitsSubtitle: "Características que hacen de Ecthonil Gatos la mejor opción",
     benefits: [
-      { title: "Fipronil", description: "Principio activo de amplio espectro efectivo contra pulgas y garrapatas." },
-      { title: "Protección Prolongada", description: "Protección de hasta 4 semanas contra pulgas y garrapatas." },
-      { title: "Fácil Aplicación", description: "Aplicación tópica simple y rápida en la línea dorsal." },
-      { title: "Seguro para Gatos", description: "Formulación segura específicamente desarrollada para gatos." }
+      { title: "Fipronil", description: "Principio activo efectivo contra pulgas y garrapatas." },
+      { title: "Protección Prolongada", description: "Protección durante 4 semanas contra pulgas y garrapatas." },
+      { title: "Fácil Aplicación", description: "Aplicación simple y rápida en la parte superior del cuello." },
+      { title: "Seguro para Gatos", description: "Formulación segura específicamente para gatos." }
     ]
   },
   "ecthonil-perros": {
@@ -469,8 +463,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "ECTHONIL PERROS",
     logoSubtitle: "Antiparasitario Spot-on",
-    fullDescription: "<strong>Ecthonil Perros</strong> es un antiparasitario externo en pipeta (spot-on) para el control de pulgas y garrapatas en perros. Formulación con Fipronil para máxima eficacia.",
-    indication: "<strong>Indicado para:</strong><ul><li>Control de pulgas (Ctenocephalides canis, Ctenocephalides felis)</li><li>Control de garrapatas (Amblyoma, Dermacentor, Rhipicephalus, Ixodes)</li><li>Tratamiento de infestaciones existentes</li><li>Prevención de re-infestación</li></ul>",
+    fullDescription: "Ecthonil Perros es una pipeta que protege a su perro contra pulgas y garrapatas durante un mes.",
+    indication: "Eliminar y prevenir pulgas\nEliminar y prevenir garrapatas\nTratar infestaciones existentes\nPrevenir nuevas infestaciones",
     presentationTitle: "PRESENTACIONES",
     presentationSubtitle: "Pipetas spot-on según peso del perro",
     formula: "<strong>FÓRMULA</strong><br>Cada pipeta contiene:<br>Fipronil: 10%<br>Vehículo c.s.",
@@ -478,10 +472,10 @@ const PRODUCTS = {
     benefitsTitle: "Beneficios del Producto",
     benefitsSubtitle: "Características que hacen de Ecthonil Perros la mejor opción",
     benefits: [
-      { title: "Fipronil", description: "Principio activo de amplio espectro efectivo contra pulgas y garrapatas." },
-      { title: "Protección Prolongada", description: "Protección de hasta 4 semanas contra pulgas y garrapatas." },
-      { title: "Múltiples Tamaños", description: "Presentaciones adaptadas según el peso del perro para dosificación precisa." },
-      { title: "Fácil Aplicación", description: "Aplicación tópica simple y rápida en la línea dorsal." }
+      { title: "Fipronil", description: "Principio activo efectivo contra pulgas y garrapatas." },
+      { title: "Protección Prolongada", description: "Protección durante 4 semanas contra pulgas y garrapatas." },
+      { title: "Múltiples Tamaños", description: "Diferentes presentaciones según el peso de su perro para una dosificación precisa." },
+      { title: "Fácil Aplicación", description: "Aplicación simple y rápida en la parte superior del cuello." }
     ]
   },
   "ivermectina-250": {
@@ -510,8 +504,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "NOMAT",
     logoSubtitle: "/ Biomodulador detoxificante y antioxidante",
-    fullDescription: "Biomodulador detoxificante y antioxidante a base de <strong>clorofila</strong>, con acción desodorizante corporal y bucal en comprimidos de administración oral.",
-    indication: "<strong>Indicado para:</strong><ul><li>Disminuye la halitosis</li><li>Disminuye el olor corporal</li><li>Elimina el mal olor bucal y corporal</li><li>En hembras elimina el olor estrual y desodoriza la orina. Se evita de esta forma la atracción de los machos y las molestias que esto ocasiona</li><li>Su actividad desodorizante se ve potenciada por su capacidad germicida y antiinflamatoria. Estas acciones contribuyen a la mejora de la inflamación de la cavidad oral, responsable de la aparición de halitosis</li></ul>",
+    fullDescription: "Nomat es un suplemento natural a base de clorofila que ayuda a reducir el mal olor bucal y corporal de su mascota.",
+    indication: "Reducir el mal aliento\nReducir el olor corporal\nEliminar olores desagradables\nEn hembras, reducir el olor durante el celo y desodorizar la orina\nMejorar la salud bucal",
     presentationTitle: "PRESENTACIÓN",
     presentationSubtitle: "Envase conteniendo 2 blisters con 10 comprimidos cada uno",
     formula: "<strong>FÓRMULA</strong><br>Biomodulador a base de clorofila",
@@ -519,10 +513,10 @@ const PRODUCTS = {
     benefitsTitle: "Mecanismo de Acción",
     benefitsSubtitle: "Características que hacen de Nomat un biomodulador de elección",
     benefits: [
-      { title: "Desintoxicante y Antioxidante", description: "Oxigena los tejidos corporales, creando un medio desfavorable para bacterias anaeróbicas." },
-      { title: "Acción Catalizadora", description: "Su acción catalizadora, neutraliza sustancias en distintos medios: neutros, ácidos o básicos." },
-      { title: "Procesos Metabólicos", description: "Colabora con procesos metabólicos, ejerciendo su acción detoxificante, que se manifiesta entre otras cosas disminuyendo el olor corporal y bucal." },
-      { title: "Antioxidante Poderoso", description: "Es un poderoso antioxidante, que mejora la salud gastrointestinal e inmunológica." }
+      { title: "Desintoxicante y Antioxidante", description: "Ayuda a oxigenar los tejidos y crear un ambiente desfavorable para bacterias que causan mal olor." },
+      { title: "Acción Catalizadora", description: "Neutraliza sustancias que causan olores desagradables." },
+      { title: "Procesos Metabólicos", description: "Ayuda a los procesos naturales del organismo que reducen el olor corporal y bucal." },
+      { title: "Antioxidante Poderoso", description: "Mejora la salud digestiva e inmunológica de su mascota." }
     ]
   },
   "sistema-endectocida": {
@@ -551,8 +545,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "TOTAL FULL CG",
     logoSubtitle: "Antiparasitario Interno de Amplio Espectro",
-    fullDescription: "<strong>Total Full CG Perros y Gatos</strong> es un antiparasitario interno de amplio espectro en comprimidos palatables. Indicado para la prevención y tratamiento de infestaciones por cestodes y nematodes en cachorros y gatitos.",
-    indication: "<strong>Indicado para:</strong><ul><li>Prevención y tratamiento de cestodes</li><li>Prevención y tratamiento de nematodes</li><li>Desparasitación en cachorros y gatitos</li><li>Tratamiento de infestaciones parasitarias</li></ul>",
+    fullDescription: "Total Full CG Perros y Gatos es un antiparasitario interno en comprimidos para eliminar parásitos intestinales en cachorros y gatitos.",
+    indication: "Eliminar y prevenir gusanos planos\nEliminar y prevenir gusanos redondos\nDesparasitar cachorros y gatitos\nTratar infestaciones parasitarias",
     presentationTitle: "PRESENTACIÓN",
     presentationSubtitle: "Envases con 2 comprimidos",
     formula: "<strong>FÓRMULA</strong><br>Antiparasitario de amplio espectro con acción contra cestodes y nematodes.",
@@ -560,7 +554,7 @@ const PRODUCTS = {
     benefitsTitle: "Beneficios del Producto",
     benefitsSubtitle: "Características que hacen de Total Full CG la mejor opción",
     benefits: [
-      { title: "Amplio Espectro", description: "Efectivo contra una amplia gama de parásitos internos (cestodes y nematodes)." },
+      { title: "Amplio Espectro", description: "Efectivo contra una amplia variedad de parásitos intestinales." },
       { title: "Para Cachorros y Gatitos", description: "Formulación segura y adecuada para animales jóvenes." },
       { title: "Comprimidos Palatables", description: "Fácil administración gracias a su sabor agradable." },
       { title: "Tratamiento Completo", description: "Solución completa para la desparasitación de cachorros y gatitos." }
@@ -580,8 +574,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "TOTAL FULL LC PERROS",
     logoSubtitle: "Antiparasitario Interno de Liberación Prolongada",
-    fullDescription: "<strong>Total Full LC Perros</strong> es un antiparasitario interno de liberación prolongada en comprimidos palatables ranurados. Indicado para la prevención y tratamiento de cestodes y nematodes en perros.",
-    indication: "<strong>Indicado para:</strong><ul><li>Prevención y tratamiento de cestodes</li><li>Prevención y tratamiento de nematodes</li><li>Desparasitación en perros</li><li>Tratamiento de infestaciones parasitarias</li></ul>",
+    fullDescription: "Total Full LC Perros es un antiparasitario interno en comprimidos que elimina parásitos intestinales en perros con acción prolongada.",
+    indication: "Eliminar y prevenir gusanos planos\nEliminar y prevenir gusanos redondos\nDesparasitar perros\nTratar infestaciones parasitarias",
     presentationTitle: "PRESENTACIÓN",
     presentationSubtitle: "Envase con 1 blister de 2 comprimidos",
     formula: "<strong>FÓRMULA</strong><br>Cada comprimido contiene:<br>Fenbendazol: 200 mg<br>Pamoato de Pirantel: 80 mg<br>Praziquantel: 20 mg<br>Excipientes c.s.",
@@ -589,9 +583,9 @@ const PRODUCTS = {
     benefitsTitle: "Beneficios del Producto",
     benefitsSubtitle: "Características que hacen de Total Full LC Perros la mejor opción",
     benefits: [
-      { title: "Liberación Prolongada", description: "Tecnología de liberación prolongada que asegura una acción sostenida contra los parásitos." },
-      { title: "Amplio Espectro", description: "Efectivo contra cestodes y nematodes gracias a su combinación de principios activos." },
-      { title: "Comprimidos Ranurados", description: "Comprimidos ranurados que facilitan la división para ajustar la dosis según el peso del animal." },
+      { title: "Liberación Prolongada", description: "Libera el principio activo gradualmente para una acción sostenida contra los parásitos." },
+      { title: "Amplio Espectro", description: "Efectivo contra diferentes tipos de parásitos intestinales gracias a su combinación de principios activos." },
+      { title: "Comprimidos Ranurados", description: "Comprimidos que se pueden dividir fácilmente para ajustar la dosis según el peso de su perro." },
       { title: "Palatable", description: "Sabor agradable que facilita la administración." }
     ]
   },
@@ -609,8 +603,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "TOTAL FULL LC GATOS",
     logoSubtitle: "Antiparasitario Interno de Liberación Prolongada",
-    fullDescription: "<strong>Total Full LC Gatos</strong> es un antiparasitario interno de liberación prolongada en comprimidos palatables ranurados. Indicado para la prevención y tratamiento de cestodes y nematodes en gatos.",
-    indication: "<strong>Indicado para:</strong><ul><li>Prevención y tratamiento de cestodes</li><li>Prevención y tratamiento de nematodes</li><li>Desparasitación en gatos</li><li>Tratamiento de infestaciones parasitarias</li></ul>",
+    fullDescription: "Total Full LC Gatos es un antiparasitario interno en comprimidos que elimina parásitos intestinales en gatos con acción prolongada.",
+    indication: "Eliminar y prevenir gusanos planos\nEliminar y prevenir gusanos redondos\nDesparasitar gatos\nTratar infestaciones parasitarias",
     presentationTitle: "PRESENTACIÓN",
     presentationSubtitle: "Envase con 1 blister de 2 comprimidos",
     formula: "<strong>FÓRMULA</strong><br>Cada comprimido contiene:<br>Fenbendazol: 200 mg<br>Pamoato de Pirantel: 80 mg<br>Praziquantel: 20 mg<br>Excipientes c.s.",
@@ -618,9 +612,9 @@ const PRODUCTS = {
     benefitsTitle: "Beneficios del Producto",
     benefitsSubtitle: "Características que hacen de Total Full LC Gatos la mejor opción",
     benefits: [
-      { title: "Liberación Prolongada", description: "Tecnología de liberación prolongada que asegura una acción sostenida contra los parásitos." },
-      { title: "Amplio Espectro", description: "Efectivo contra cestodes y nematodes gracias a su combinación de principios activos." },
-      { title: "Comprimidos Ranurados", description: "Comprimidos ranurados que facilitan la división para ajustar la dosis según el peso del animal." },
+      { title: "Liberación Prolongada", description: "Libera el principio activo gradualmente para una acción sostenida contra los parásitos." },
+      { title: "Amplio Espectro", description: "Efectivo contra diferentes tipos de parásitos intestinales gracias a su combinación de principios activos." },
+      { title: "Comprimidos Ranurados", description: "Comprimidos que se pueden dividir fácilmente para ajustar la dosis según el peso de su gato." },
       { title: "Palatable", description: "Sabor agradable que facilita la administración en gatos." }
     ]
   },
@@ -638,8 +632,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "TOTAL FULL SUSPENSIÓN GATOS",
     logoSubtitle: "Antiparasitario Interno en Suspensión Oral",
-    fullDescription: "<strong>Total Full Suspensión Gatos</strong> es un antiparasitario interno en suspensión oral. Indicado para el tratamiento de infestaciones por cestodes y nematodes en gatos.",
-    indication: "<strong>Indicado para:</strong><ul><li>Tratamiento de infestaciones por cestodes</li><li>Tratamiento de infestaciones por nematodes</li><li>Desparasitación en gatos</li><li>Tratamiento de infestaciones parasitarias</li></ul>",
+    fullDescription: "Total Full Suspensión Gatos es un antiparasitario interno en suspensión líquida para eliminar parásitos intestinales en gatos.",
+    indication: "Eliminar gusanos planos\nEliminar gusanos redondos\nDesparasitar gatos\nTratar infestaciones parasitarias",
     presentationTitle: "PRESENTACIÓN",
     presentationSubtitle: "Frasco de 15 ml con jeringa dosificadora",
     formula: "<strong>FÓRMULA</strong><br>Cada 100 ml de suspensión contiene:<br>Fenbendazol: 5 g<br>Pamoato de Pirantel: 2 g<br>Praziquantel: 0,5 g<br>Excipientes c.s.",
@@ -647,9 +641,9 @@ const PRODUCTS = {
     benefitsTitle: "Beneficios del Producto",
     benefitsSubtitle: "Características que hacen de Total Full Suspensión Gatos la mejor opción",
     benefits: [
-      { title: "Suspensión Oral", description: "Formulación en suspensión que facilita la administración en gatos." },
-      { title: "Amplio Espectro", description: "Efectivo contra cestodes y nematodes gracias a su combinación de principios activos." },
-      { title: "Jeringa Dosificadora", description: "Incluye jeringa dosificadora para facilitar la administración precisa según el peso del animal." },
+      { title: "Suspensión Oral", description: "Formulación líquida que facilita la administración en gatos." },
+      { title: "Amplio Espectro", description: "Efectivo contra diferentes tipos de parásitos intestinales gracias a su combinación de principios activos." },
+      { title: "Jeringa Dosificadora", description: "Incluye jeringa dosificadora para facilitar la administración precisa según el peso de su gato." },
       { title: "Fácil Administración", description: "Formulación líquida que facilita la administración en gatos de todas las edades." }
     ]
   },
@@ -667,8 +661,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "TOTAL FULL SUSPENSIÓN PERROS",
     logoSubtitle: "Antiparasitario Interno en Suspensión Oral",
-    fullDescription: "<strong>Total Full Suspensión Perros</strong> es un antiparasitario interno en suspensión oral. Indicado para el tratamiento de infestaciones por nematodes y protozoarios en perros.",
-    indication: "<strong>Indicado para:</strong><ul><li>Tratamiento de infestaciones por nematodes</li><li>Tratamiento de infestaciones por protozoarios (Giardia spp.)</li><li>Desparasitación en perros</li><li>Tratamiento de infestaciones parasitarias</li></ul>",
+    fullDescription: "Total Full Suspensión Perros es un antiparasitario interno en suspensión líquida para eliminar parásitos intestinales y protozoarios en perros.",
+    indication: "Eliminar gusanos redondos\nEliminar protozoarios como Giardia\nDesparasitar perros\nTratar infestaciones parasitarias",
     presentationTitle: "PRESENTACIÓN",
     presentationSubtitle: "Frasco de 15 ml con jeringa dosificadora",
     formula: "<strong>FÓRMULA</strong><br>Cada 100 ml de suspensión contiene:<br>Fenbendazol: 5 g<br>Pamoato de Pirantel: 0,5 g<br>Excipientes c.s.",
@@ -676,10 +670,10 @@ const PRODUCTS = {
     benefitsTitle: "Beneficios del Producto",
     benefitsSubtitle: "Características que hacen de Total Full Suspensión Perros la mejor opción",
     benefits: [
-      { title: "Suspensión Oral", description: "Formulación en suspensión que facilita la administración en perros." },
-      { title: "Amplio Espectro", description: "Efectivo contra nematodes y protozoarios, incluyendo Giardia spp." },
-      { title: "Jeringa Dosificadora", description: "Incluye jeringa dosificadora para facilitar la administración precisa según el peso del animal." },
-      { title: "Tratamiento de Giardia", description: "Especialmente efectivo en el tratamiento de Giardia spp. con esquema de 3 días." }
+      { title: "Suspensión Oral", description: "Formulación líquida que facilita la administración en perros." },
+      { title: "Amplio Espectro", description: "Efectivo contra gusanos redondos y protozoarios, incluyendo Giardia." },
+      { title: "Jeringa Dosificadora", description: "Incluye jeringa dosificadora para facilitar la administración precisa según el peso de su perro." },
+      { title: "Tratamiento de Giardia", description: "Especialmente efectivo en el tratamiento de Giardia con un esquema de 3 días." }
     ]
   },
 
@@ -700,18 +694,18 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "CICLOSPORINA 1%",
     logoSubtitle: "/ Inmunomodulador. Lacrimomimético. Antiinflamatorio.",
-    fullDescription: "Ungüento estéril a base de <strong>Ciclosporina A</strong> (calidad U.S.P)",
-    indication: "<strong>Indicado para:</strong> el tratamiento de la queratoconjuntivitis seca (QCS) y la queratitis superficial crónica (pannus), conjuntivitis plasmocítica, queratitis punteada superficial, blefaritis ulcerativa del canto nasal, escleritis y epiescleritis.",
+    fullDescription: "Ciclosporina 1% es un ungüento oftálmico que ayuda a tratar problemas oculares relacionados con la falta de lágrimas y la inflamación.",
+    indication: "Tratar ojo seco (queratoconjuntivitis seca)\nTratar inflamación crónica de la córnea (pannus)\nTratar conjuntivitis\nTratar otras inflamaciones oculares",
     presentationTitle: "Presentación Disponible",
     presentationSubtitle: "Pomo con 3,5 g. con aplicador oftálmico",
     formula: "<strong>FÓRMULA</strong><br>Cada 100 g de ungüento contiene:<br>Ciclosporina A (USP)...............1 g<br>Excipientes c.s.",
     benefitsTitle: "Beneficios del Producto",
     benefitsSubtitle: "Ciclosporina 1% ofrece múltiples beneficios para el tratamiento de afecciones oculares",
     benefits: [
-      { title: "Inmunomodulador", description: "Con afinidad por la córnea y la esclerótica. Su formulación de calidad U.S.P garantiza la pureza y la eficacia del principio activo." },
-      { title: "Lacrimomimético", description: "Ayuda a restaurar la producción de lágrimas y mejora la lubricación ocular en casos de queratoconjuntivitis seca." },
-      { title: "Antiinflamatorio", description: "Reduce la inflamación ocular asociada a enfermedades inmunomediadas, mejorando el confort y la salud del ojo." },
-      { title: "Solución Efectiva", description: "Ofrece una solución efectiva para manejar afecciones oculares relacionadas con la falta de producción de lágrimas y otras enfermedades inmunomediadas en perros." }
+      { title: "Inmunomodulador", description: "Ayuda a regular el sistema inmunológico del ojo. Formulación de alta calidad que garantiza la pureza y eficacia." },
+      { title: "Lacrimomimético", description: "Ayuda a restaurar la producción de lágrimas y mejora la lubricación del ojo en casos de ojo seco." },
+      { title: "Antiinflamatorio", description: "Reduce la inflamación ocular, mejorando el confort y la salud del ojo." },
+      { title: "Solución Efectiva", description: "Ofrece una solución efectiva para tratar problemas oculares relacionados con la falta de lágrimas y otras enfermedades inmunológicas." }
     ]
   },
   "ciclosporina-2": {
@@ -728,17 +722,17 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "CICLOSPORINA 2%",
     logoSubtitle: "/ Inmunomodulador / Lacrimomimético / Antiinflamatorio",
-    fullDescription: "Colirio estéril a base de <strong>ciclosporina A</strong> (calidad U.S.P)",
-    indication: "<strong>Indicado para el tratamiento de:</strong> Queratoconjuntivitis seca (QCS) y la queratitis superficial crónica (pannus) Inmunomodulador, lagrimogénico y antiinflamatorio ocular de superficie.",
+    fullDescription: "Ciclosporina 2% es un colirio que ayuda a tratar problemas oculares relacionados con la falta de lágrimas y la inflamación.",
+    indication: "Tratar ojo seco (queratoconjuntivitis seca)\nTratar inflamación crónica de la córnea (pannus)\nAyudar a producir más lágrimas\nReducir la inflamación ocular",
     presentationTitle: "PRESENTACIÓN FRASCO OFTÁLMICO POR 5 ml.",
     presentationSubtitle: "NUEVO",
     formula: "<strong>FÓRMULA</strong><br>Cada 100 ml contiene:<br>Ciclosporina A...............2 g<br>Excipientes c.s.",
     benefitsTitle: "Beneficios del Producto",
     benefitsSubtitle: "Ciclosporina 2% ofrece múltiples beneficios para el tratamiento de afecciones oculares",
     benefits: [
-      { title: "Inmunomodulador", description: "Con afinidad por la córnea y la esclerótica. Su formulación de calidad U.S.P garantiza la pureza y la eficacia del principio activo." },
-      { title: "Lacrimomimético y Antiinflamatorio", description: "Reduce la respuesta inmunitaria promoviendo la producción de lágrimas. Además, ayuda a disminuir la inflamación en el ojo, lo que puede reducir enrojecimiento y dolor asociado con diversas patologías oculares." },
-      { title: "Mejora la Calidad Ocular", description: "Al aumentar la producción de lágrimas y reducir la inflamación, puede mejorar significativamente la calidad ocular de perros y gatos afectados." }
+      { title: "Inmunomodulador", description: "Ayuda a regular el sistema inmunológico del ojo. Formulación de alta calidad que garantiza la pureza y eficacia." },
+      { title: "Lacrimomimético y Antiinflamatorio", description: "Ayuda a promover la producción de lágrimas y reduce la inflamación en el ojo, disminuyendo el enrojecimiento y el malestar." },
+      { title: "Mejora la Calidad Ocular", description: "Al aumentar la producción de lágrimas y reducir la inflamación, mejora significativamente la salud ocular de perros y gatos." }
     ]
   },
   "colirama-viral": {
@@ -750,8 +744,8 @@ const PRODUCTS = {
     image: "images/colirama-viral-10ml-colirama-viral-10ml.jpg",
     description: "Colirio estéril a base de idoxuridina, fenazona, nafazolina.",
     logoSubtitle: "Antiviral, Antiinflamatorio y Descongestivo",
-    fullDescription: "<strong>Colirama Viral</strong> es un colirio estéril a base de idoxuridina, fenazona y nafazolina. Combina acción antiviral, antiinflamatoria no esteroide y descongestiva para el tratamiento de oftalmodermias de etiología viral y bacteriana en procesos inflamatorios asociados.",
-    indication: "<strong>Indicado para:</strong><ul><li>Oftalmodermias de etiología viral (queratitis y conjuntivitis herpética en gatos)</li><li>Procesos bacterianos en procesos inflamatorios asociados</li><li>Queratitis y conjuntivitis de origen viral</li><li>Infecciones oculares con componente inflamatorio</li></ul>",
+    fullDescription: "Colirama Viral es un colirio que combina acción antiviral, antiinflamatoria y descongestiva para tratar infecciones oculares virales y bacterianas.",
+    indication: "Tratar infecciones oculares virales en gatos\nTratar infecciones oculares bacterianas\nTratar inflamación de la córnea y conjuntiva\nTratar infecciones oculares con inflamación",
     presentationTitle: "Colirama Viral",
     presentationSubtitle: "Frasco gotero de 10 ml, con aplicador atraumático",
     formula: "<strong>FÓRMULA</strong><br>Cada 100 ml de la suspensión contiene:<br>Idoxuridina: 100 mg<br>Fenazona: 400 mg<br>Clorhidrato de Nafazolina: 50 mg<br>Excipientes c.s.",
@@ -759,9 +753,9 @@ const PRODUCTS = {
     benefitsTitle: "Acción Terapéutica",
     benefitsSubtitle: "Triple acción: antiviral, antiinflamatoria y descongestiva",
     benefits: [
-      { title: "Antiviral", description: "La idoxuridina se incorpora al ADN vírico, en el lugar de la timidina, de modo que inhibe la replicación del virus" },
-      { title: "Antiinflamatorio no esteroide", description: "La fenazona disminuye la síntesis de prostaglandinas y posiblemente inhibe la síntesis o actividades de otros mediadores de la respuesta inflamatoria" },
-      { title: "Descongestivo", description: "La nafazolina es un simpaticomimético, de rápida acción vasoconstrictora" }
+      { title: "Antiviral", description: "Inhibe la replicación de virus que causan infecciones oculares." },
+      { title: "Antiinflamatorio no esteroide", description: "Reduce la inflamación ocular sin usar esteroides." },
+      { title: "Descongestivo", description: "Reduce el enrojecimiento y la congestión ocular rápidamente." }
     ],
     badge: null,
     variants: null,
@@ -781,8 +775,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "EPITELIZANTE OCULAR",
     logoSubtitle: "/ Estimulante de actividad regenerativa de la córnea. Humectante. Antioxidante.",
-    fullDescription: "Ungüento estéril a base de <strong>Vitaminas A y E</strong> e <strong>Hidrolizado de caseína</strong>.",
-    indication: "<strong>Indicado para:</strong> Tratamiento tópico de las queratoconjuntivitis ulcerativas en perros y gatos. También puede utilizarse como humectante en animales con síndrome de ojo seco.",
+    fullDescription: "Epitelizante Ocular es un ungüento a base de vitaminas A y E que ayuda a regenerar y proteger la córnea del ojo.",
+    indication: "Tratar úlceras en la córnea\nAyudar a regenerar el tejido ocular\nHumectar el ojo en casos de ojo seco\nProteger y nutrir la córnea",
     presentationTitle: "PRESENTACIÓN",
     presentationSubtitle: "Pomo con 3,5 g. con aplicador oftálmico",
     formula: "<strong>FÓRMULA</strong><br>Cada 100 g de ungüento contiene:<br>Caseína hidrolizada...................2,5 g<br>Vitamina A palmitato..................1 g<br>Vitamina E acetato....................0,1 g<br>Excipientes c.s.",
@@ -790,9 +784,9 @@ const PRODUCTS = {
     benefitsTitle: "Componentes Activos",
     benefitsSubtitle: "Características que hacen de Epitelizante Ocular un tratamiento de elección",
     benefits: [
-      { title: "Vitamina A", description: "Es crucial para la integridad y la función del epitelio corneal. Favorece la síntesis de glicoproteínas que humectan el epitelio de la córnea." },
-      { title: "Vitamina E", description: "Es un potente antioxidante que protege las células epiteliales del ojo de daños oxidativos, contribuyendo a la salud general de la córnea y la conjuntiva. Ayuda a mantener la integridad de las membranas celulares del epitelio ocular al prevenir la peroxidación lipídica." },
-      { title: "Caseína Hidrolizada", description: "Proporciona aminoácidos esenciales para la reparación y mantenimiento del epitelio ocular, apoyando la regeneración, colaborando en la cicatrización de úlceras y optimizando la salud de los tejidos oculares." }
+      { title: "Vitamina A", description: "Esencial para la salud del tejido ocular. Ayuda a mantener la humedad y la función normal de la córnea." },
+      { title: "Vitamina E", description: "Antioxidante que protege las células del ojo de daños, contribuyendo a la salud de la córnea y la conjuntiva." },
+      { title: "Caseína Hidrolizada", description: "Proporciona nutrientes esenciales para la reparación y regeneración del tejido ocular, ayudando en la cicatrización de úlceras." }
     ]
   },
   "flurbiprofeno": {
@@ -809,17 +803,17 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "FLURBIPROFENO",
     logoSubtitle: "/ Antiinflamatorio no esteroide de última generación.",
-    fullDescription: "Colirio estéril a base de <strong>Flurbiprofeno</strong>.",
-    indication: "<strong>Indicado en tratamiento de procesos inflamatorios:</strong><ul><li>Conjuntivitis</li><li>Uveitis leves y moderadas</li><li>Cirugías intraoculares (inhibición de la miosis intraoperatoria)</li><li>Post reparación de úlceras corneales con gran vascularización</li><li>Procesos dolorosos oculares</li><li>Reemplazo de glucocorticoides tópicos cuando están contraindicados</li><li>En asociación con glucocorticoides tópicos en procesos inflamatorios muy severos</li></ul>",
+    fullDescription: "Flurbiprofeno es un colirio antiinflamatorio que ayuda a reducir la inflamación y el dolor ocular.",
+    indication: "Tratar conjuntivitis\nTratar inflamación del interior del ojo (uveitis)\nUsar durante cirugías oculares\nTratar después de reparar úlceras corneales\nAliviar dolor ocular\nUsar cuando no se pueden usar esteroides\nUsar junto con esteroides en casos graves",
     presentationTitle: "PRESENTACIÓN FRASCO OFTÁLMICO POR 5 ml.",
     presentationSubtitle: "",
     formula: "<strong>FÓRMULA</strong><br>Cada 100 ml contiene:<br>Flurbiprofeno...............0,1 g<br>Excipientes c.s.",
     benefitsTitle: "Mecanismo de Acción",
     benefitsSubtitle: "Características del Flurbiprofeno",
     benefits: [
-      { title: "Antiinflamatorio No Esteroideo", description: "El flurbiprofeno es un antiinflamatorio no esteroideo (AINE) que inhibe las enzimas COX-1 y COX-2, responsables de la síntesis de prostaglandinas." },
-      { title: "Eficacia", description: "Es eficaz en la reducción de la inflamación y el dolor, proporcionando un alivio rápido asociado con diversas condiciones oculares." },
-      { title: "Inicio de Acción Rápido", description: "El inicio de acción es rápido, otorgando alivio en un corto período de tiempo, lo cual es importante para el manejo de condiciones agudas y mejorar el confort del animal." }
+      { title: "Antiinflamatorio No Esteroideo", description: "Reduce la inflamación sin usar esteroides, bloqueando sustancias que causan inflamación." },
+      { title: "Eficacia", description: "Efectivo para reducir la inflamación y el dolor, proporcionando alivio rápido en diversas condiciones oculares." },
+      { title: "Inicio de Acción Rápido", description: "Comienza a actuar rápidamente, proporcionando alivio en poco tiempo, importante para condiciones agudas y mejorar el confort de su mascota." }
     ]
   },
   "ofloxacina": {
@@ -836,8 +830,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "OFLOXACINA",
     logoSubtitle: "/ Antibiótico",
-    fullDescription: "Colirio estéril a base de <strong>Ofloxacina</strong>, fluoroquinolona de última generación.",
-    indication: "<strong>Indicado para el tratamiento de:</strong><ul><li>Conjuntivitis infecciosas bacterianas</li><li>Úlceras corneales</li><li>Infección secundaria en queratoconjuntivitis seca</li><li>Intervenciones oftálmicas pre y post quirúrgicas en perros y gatos</li></ul>",
+    fullDescription: "Ofloxacina es un colirio antibiótico de última generación para tratar infecciones oculares bacterianas.",
+    indication: "Tratar conjuntivitis bacteriana\nTratar úlceras en la córnea\nTratar infecciones secundarias en ojo seco\nUsar antes y después de cirugías oculares",
     presentationTitle: "PRESENTACIÓN FRASCO OFTÁLMICO POR 5 ml.",
     presentationSubtitle: "",
     formula: "<strong>FÓRMULA</strong><br>Cada 100 ml de solución contiene:<br>Ofloxacina: 0,3 g<br>Excipientes c.s.",
@@ -845,10 +839,10 @@ const PRODUCTS = {
     benefitsTitle: "Mecanismo de Acción",
     benefitsSubtitle: "Características que hacen de Ofloxacina un antibiótico de elección",
     benefits: [
-      { title: "Ofloxacina", description: "Antibiótico bactericida de amplio espectro efectivo contra bacterias Gram positivas y Gram negativas, incluyendo cepas resistentes. Muestra excelente penetración en tejidos oculares (córnea y cámara anterior) debido a su liposolubilidad." },
-      { title: "Solubilidad Óptima", description: "Su solubilidad óptima a pH neutro minimiza la precipitación del principio activo y asegura mayor concentración en las lágrimas." },
-      { title: "Eficacia", description: "Efectivo contra algunos patógenos resistentes a otros antibióticos, lo cual es importante para infecciones recurrentes o de difícil tratamiento." },
-      { title: "HPMC (Hidroxipropil Metilcelulosa)", description: "Mejora la composición de la película lagrimal dañada y promueve mayor permanencia del principio activo en el ojo." }
+      { title: "Ofloxacina", description: "Antibiótico de amplio espectro efectivo contra muchas bacterias, incluyendo algunas resistentes. Penetra bien en los tejidos oculares." },
+      { title: "Solubilidad Óptima", description: "Se mantiene bien en solución, asegurando una concentración adecuada en las lágrimas." },
+      { title: "Eficacia", description: "Efectivo contra bacterias resistentes a otros antibióticos, importante para infecciones recurrentes o difíciles de tratar." },
+      { title: "HPMC (Hidroxipropil Metilcelulosa)", description: "Mejora la película lagrimal y ayuda a que el medicamento permanezca más tiempo en el ojo." }
     ]
   },
 
@@ -863,8 +857,8 @@ const PRODUCTS = {
     price: null,
     image: "images/dermoxil.jpeg",
     description: "Shampoo de acción antiséptica y antiseborreico oleosa.",
-    fullDescription: "<strong>Dermoxil</strong> es un shampoo de acción antiséptica y antiseborreico oleosa. Antiséptico bactericida de amplio espectro que combate la seborrea oleosa por su acción sebostática sobre las glándulas de secreción sebácea. Presenta un efecto rubefaciente folicular y buena actividad queratolítica. El peróxido de benzoílo ejerce una acción de lavado folicular que es muy útil en el tratamiento de trastornos comedónicos y/o hiperqueratosis folicular. La base cosmética que vehiculiza al activo (POB) es única por sus excelentes cualidades. Entre estas su acción antipruriginosa no corticoide. Hipoalergénico. Humectante. Emoliente. Demulcente.",
-    indication: "<strong>Indicado para:</strong><ul><li>Piodermias</li><li>Procesos seborreicos oleosos</li><li>Foliculitis</li><li>Impétigo</li><li>Acné felino</li><li>Como coadyuvante en la demodicosis</li><li>Lavado y antisepsia del campo quirúrgico, la cual se complementa con la solución Clorhexidina spray</li></ul>",
+    fullDescription: "Dermoxil es un shampoo antiséptico que ayuda a tratar problemas de piel como seborrea, infecciones bacterianas y acné en perros y gatos.",
+    indication: "Tratar infecciones bacterianas de la piel\nTratar seborrea oleosa\nTratar foliculitis\nTratar impétigo\nTratar acné felino\nAyudar en el tratamiento de sarna\nLimpieza y antisepsia antes de cirugías",
     presentationTitle: "Dermoxil",
     presentationSubtitle: "Envase de 250 ml con cámara de aire para permitir su correcta agitación. Contiene una bolilla inerte para facilitar la homogeneización del producto",
     formula: "<strong>FÓRMULA</strong><br>Cada 100 ml de la solución contiene:<br>Peróxido de Benzoílo: 2,5 g<br>Excipientes c.s.",
@@ -872,14 +866,14 @@ const PRODUCTS = {
     benefitsTitle: "Mecanismo de Acción",
     benefitsSubtitle: "Características y beneficios del shampoo Dermoxil",
     benefits: [
-      { title: "", description: "Antiséptico bactericida de amplio espectro" },
-      { title: "", description: "Combate la seborrea oleosa por su acción sebostática sobre las glándulas de secreción sebácea" },
-      { title: "", description: "Efecto rubefaciente folicular y buena actividad queratolítica" },
-      { title: "", description: "El peróxido de benzoílo ejerce una acción de lavado folicular muy útil en el tratamiento de trastornos comedónicos y/o hiperqueratosis folicular" },
-      { title: "", description: "El mecanismo de acción antibacteriana se debería a la liberación de radicales libres tóxicos para los microorganismos" },
-      { title: "", description: "Generalmente existe una reducción de los lípidos superficiales y ácidos grasos libres de la piel durante el tratamiento" },
-      { title: "", description: "Base cosmética única con acción antipruriginosa no corticoide" },
-      { title: "", description: "Hipoalergénico, humectante, emoliente y demulcente" }
+      { title: "", description: "Antiséptico de amplio espectro que elimina bacterias" },
+      { title: "", description: "Ayuda a controlar la producción excesiva de grasa en la piel" },
+      { title: "", description: "Mejora la salud de los folículos pilosos y elimina células muertas" },
+      { title: "", description: "Limpia profundamente los folículos, útil para tratar acné y problemas de queratinización" },
+      { title: "", description: "Elimina bacterias mediante la liberación de sustancias que son tóxicas para los microorganismos" },
+      { title: "", description: "Ayuda a reducir la grasa superficial de la piel durante el tratamiento" },
+      { title: "", description: "Base cosmética que ayuda a reducir la picazón sin usar esteroides" },
+      { title: "", description: "Hipoalergénico, humectante y suave para la piel" }
     ],
     badge: null,
     variants: null,
@@ -902,8 +896,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "GRISEOFULVINA",
     logoSubtitle: "/ Fungistático",
-    fullDescription: "Fungistático a base de <strong>Griseofulvina micronizada</strong> de administración oral para caninos y felinos.",
-    indication: "<strong>Indicado para:</strong><ul><li>Tiña</li><li>Dermatomicosis causadas por Microsporum canis, Microsporum gypseum y Tricophyton mentagrophytes</li></ul>",
+    fullDescription: "Griseofulvina es un medicamento antifúngico en comprimidos para tratar infecciones por hongos en la piel de perros y gatos.",
+    indication: "Tratar tiña\nTratar infecciones por hongos en la piel\nTratar dermatomicosis",
     presentationTitle: "PRESENTACIÓN",
     presentationSubtitle: "Envase con 2 blisters de 10 comprimidos cada uno",
     formula: "<strong>FÓRMULA</strong><br>Cada comprimido contiene:<br>Griseofulvina micronizada: 250 mg / 500 mg<br>Excipientes c.s. según presentación",
@@ -911,9 +905,9 @@ const PRODUCTS = {
     benefitsTitle: "Mecanismo de Acción",
     benefitsSubtitle: "Características de la Griseofulvina",
     benefits: [
-      { title: "Fungistático", description: "Interfiere en la síntesis de las proteínas y los ácidos nucleicos de la pared celular de hongos en crecimiento activo." },
-      { title: "Absorción y Distribución", description: "Después de su administración por vía oral se absorbe a nivel gastrointestinal, depositándose selectivamente en la queratina neoformada del pelo, uñas y piel, pasando luego de estas capas profundas a la queratina superficial." },
-      { title: "Actividad Micostática", description: "La concentración de Griseofulvina en las nuevas células de la epidermis, le proporciona actividad micostática contra los dermatofitos." }
+      { title: "Fungistático", description: "Detiene el crecimiento de hongos interfiriendo con su desarrollo." },
+      { title: "Absorción y Distribución", description: "Se absorbe bien por vía oral y se concentra en el pelo, uñas y piel donde actúan los hongos." },
+      { title: "Actividad Micostática", description: "Se concentra en las nuevas células de la piel, proporcionando actividad contra los hongos que causan infecciones." }
     ]
   },
   "uv-day": {
@@ -930,8 +924,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "UV DAY",
     logoSubtitle: "/ Antiinflamatorio. Antibiótico.",
-    fullDescription: "Colirio estéril a base de <strong>Prednisolona fosfato</strong>, <strong>Moxifloxacina</strong> y <strong>Fenilefrina</strong>.",
-    indication: "<strong>Indicado para procesos inflamatorios no ulcerativos:</strong><ul><li>Uveitis</li><li>Conjuntivitis</li><li>Queratitis no ulcerativa (Pannus en Pastores Alemanes, Queratitis eosinofílica en gatos, Queratitis pigmentaria)</li><li>Dacriocistitis (inflamación del saco lagrimal)</li></ul>",
+    fullDescription: "UV Day es un colirio que combina antiinflamatorio, antibiótico y descongestivo para tratar inflamaciones oculares no ulcerativas.",
+    indication: "Tratar inflamación del interior del ojo (uveitis)\nTratar conjuntivitis\nTratar inflamación de la córnea sin úlceras\nTratar inflamación del saco lagrimal",
     presentationTitle: "PRESENTACIÓN FRASCO OFTÁLMICO POR 5 ml.",
     presentationSubtitle: "NUEVO",
     formula: "<strong>FÓRMULA</strong><br>Cada ml de solución contiene:<br>Prednisolona fosfato: 10 mg<br>Moxifloxacina HCL: 3 mg<br>Fenilefrina HCL: 1,2 mg<br>Excipientes c.s.",
@@ -939,10 +933,10 @@ const PRODUCTS = {
     benefitsTitle: "Componentes Activos",
     benefitsSubtitle: "Características que hacen de UV Day un tratamiento de elección",
     benefits: [
-      { title: "Moxifloxacina", description: "Antibiótico bactericida de amplio espectro con buena penetración ocular, efectivo contra bacterias intracelulares y cepas resistentes, útil para infecciones recurrentes o de difícil tratamiento. Bajo perfil de resistencia cruzada." },
-      { title: "Fenilefrina", description: "Induce la dilatación pupilar y actúa como vasoconstrictor, reduciendo la hiperemia conjuntival." },
-      { title: "Prednisolona", description: "Altamente efectiva en la reducción de la inflamación ocular, disminuyendo el dolor y la incomodidad mediante la modulación de la inflamación y la respuesta inmune." },
-      { title: "HEC (Hidroxietil Celulosa)", description: "Componente clave diseñado para mejorar la lubricación y prolongar el tiempo de permanencia de las gotas en la superficie ocular." }
+      { title: "Moxifloxacina", description: "Antibiótico de amplio espectro con buena penetración ocular, efectivo contra bacterias resistentes, útil para infecciones recurrentes o difíciles de tratar." },
+      { title: "Fenilefrina", description: "Dilata la pupila y reduce el enrojecimiento ocular." },
+      { title: "Prednisolona", description: "Altamente efectiva para reducir la inflamación ocular, disminuyendo el dolor y la incomodidad." },
+      { title: "HEC (Hidroxietil Celulosa)", description: "Mejora la lubricación y ayuda a que las gotas permanezcan más tiempo en el ojo." }
     ]
   },
 
@@ -963,8 +957,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "ANTI ÚLCERAS",
     logoSubtitle: "/ Antibiótico",
-    fullDescription: "Colirio estéril a base de <strong>Moxifloxacina</strong> y <strong>D-Pantenol</strong>.",
-    indication: "<strong>Indicado para:</strong> Manejo microbiano de la superficie ocular, úlceras simples o profundas con o sin contaminante.",
+    fullDescription: "Anti Úlceras es un colirio que combina antibiótico y regenerador para tratar úlceras corneales y prevenir infecciones.",
+    indication: "Tratar úlceras en la córnea\nPrevenir y tratar infecciones oculares\nAyudar a cicatrizar úlceras\nProteger la superficie ocular",
     presentationTitle: "PRESENTACIÓN FRASCO OFTÁLMICO POR 5 ml.",
     presentationSubtitle: "NUEVO",
     formula: "<strong>FÓRMULA</strong><br>Cada 100 ml de solución contiene:<br>D-Pantenol: (cantidad especificada) g<br>Moxifloxacina clorhidrato: 0,5 g<br>Excipientes c.s.",
@@ -972,9 +966,9 @@ const PRODUCTS = {
     benefitsTitle: "Componentes Activos",
     benefitsSubtitle: "Características que hacen de Anti Úlceras un tratamiento de elección",
     benefits: [
-      { title: "Moxifloxacina", description: "Antibiótico bactericida de amplio espectro con buena penetración ocular, efectivo contra bacterias intracelulares y cepas resistentes, útil para infecciones recurrentes o de difícil tratamiento." },
-      { title: "D-Pantenol", description: "Promotor de la cicatrización corneal con propiedades regenerativas, humectante que alivia la sequedad ocular, proporciona un efecto calmante sobre el tejido irritado y es bien tolerado por las mascotas." },
-      { title: "HEC (Hidroxietil Celulosa)", description: "Componente clave diseñado para mejorar la lubricación y prolongar el tiempo de permanencia de las gotas en la superficie ocular." }
+      { title: "Moxifloxacina", description: "Antibiótico de amplio espectro con buena penetración ocular, efectivo contra bacterias resistentes, útil para infecciones recurrentes o difíciles de tratar." },
+      { title: "D-Pantenol", description: "Ayuda a cicatrizar la córnea, humecta el ojo, alivia la irritación y es bien tolerado por las mascotas." },
+      { title: "HEC (Hidroxietil Celulosa)", description: "Mejora la lubricación y ayuda a que las gotas permanezcan más tiempo en el ojo." }
     ]
   },
   "atriben": {
@@ -1003,18 +997,18 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "ENZIMAX",
     logoSubtitle: "/ Único suplemento dietario formulado con enzimas proteolíticas",
-    fullDescription: "Las enzimas vegetales de <strong>Enzimax</strong> fragmentan las partículas de los alimentos favoreciendo una mayor absorción de sus nutrientes. Está indicado para mejorar la digestión y absorción de dietas caseras y comerciales.",
-    indication: "<strong>Complementario a tratamientos por:</strong> Flatulencias, Diarreas, Síndrome de mala digestión, Síndrome de mala absorción, Enfermedad intestinal inflamatoria crónica, Gastritis crónicas, Disbacteriosis, Gastroenteritis infecciosas, Parasitosis internas, Insuficiencias pancreáticas, Hepatopatías, Períodos de convalecencia, Tratamientos oncológicos.",
+    fullDescription: "Enzimax es un suplemento con enzimas vegetales que ayuda a mejorar la digestión y absorción de nutrientes en su mascota.",
+    indication: "Ayudar con flatulencias\nAyudar con diarreas\nMejorar la digestión\nMejorar la absorción de nutrientes\nAyudar en enfermedad intestinal inflamatoria crónica\nAyudar en gastritis crónicas\nAyudar en problemas digestivos\nAyudar en períodos de convalecencia\nAyudar durante tratamientos oncológicos",
     presentationTitle: "Presentación Disponible",
     presentationSubtitle: "Envase que contiene 2 blisters por 10 comprimidos de 200 mg cada uno",
     formula: "<strong>FÓRMULA</strong><br>Cada comprimido de 200 mg contiene:<br>Bromelina (32 mg*) equivalente a 8 unidades FIP<br>Papaína (1,6 mg**) equivalente a 48000 unidades USP<br>Betaina HCI (5 mg*)<br>Excipientes c.s.",
     benefitsTitle: "Componentes Activos",
     benefitsSubtitle: "Enzimax contiene enzimas proteolíticas vegetales con múltiples beneficios",
     benefits: [
-      { title: "Bromelina", description: "Enzima proteolítica extraída de la piña tropical. Acción antiinflamatoria, inmunomoduladora, anticoagulante, antiedematosa y mucolítica. Reduce los niveles de tromboxano y prostaglandinas que intervienen en el proceso inflamatorio." },
-      { title: "Betaina HCI", description: "Compuesto tri-metilado del aminoácido extraído de la remolacha azucarera. Coadyuvante en el metabolismo de las grasas, colabora en la digestión de lípidos y desdoblamiento de proteínas. Fortalece la salud hepática y colabora con la hidratación celular." },
-      { title: "Papaína", description: "Enzima proteolítica extraída del látex de la papaya. Favorece la digestión de los alimentos y funciona como regulador intestinal. Su contenido en pectina aumenta la masa fecal ayudando a la evacuación. Acción antihelmíntica colaborando en la eliminación de nematodos." },
-      { title: "Administración", description: "Una dosis diaria previa a las comidas (idealmente 20 minutos antes de la ingesta). Comprimidos de fácil administración. Práctico y simple de suministrar." }
+      { title: "Bromelina", description: "Enzima extraída de la piña que ayuda a reducir la inflamación y mejora la digestión de proteínas." },
+      { title: "Betaina HCI", description: "Ayuda en el metabolismo de las grasas, mejora la digestión de lípidos y proteínas, y fortalece la salud hepática." },
+      { title: "Papaína", description: "Enzima extraída de la papaya que favorece la digestión de alimentos, regula el intestino y ayuda a la evacuación." },
+      { title: "Administración", description: "Una dosis diaria antes de las comidas (idealmente 20 minutos antes). Comprimidos de fácil administración." }
     ]
   },
   "pileran-gotas": {
@@ -1026,8 +1020,8 @@ const PRODUCTS = {
     image: "images/placeholder.png",
     description: "Potente antiemético de acción central y periférica.",
     logoSubtitle: "Solución Oral para Perros y Gatos",
-    fullDescription: "<strong>PILERAN</strong> es un potente antiemético de acción central y periférica. El principio activo es la Metoclopramida, un potente antiemético central antagonista Dopa (D2) a nivel de la zona quimiorreceptora desencadenante. Periféricamente actúa como procinético gastrointestinal aumentando el tono y amplitud esofágica, y la contracción gástrica con relajación del esfínter pilórico, promoviendo el vaciamiento gástrico y aumentando la peristalsis duodenal.",
-    indication: "<strong>Indicado para:</strong><ul><li>Control de náuseas y vómitos en perros y gatos</li><li>Trastornos gastrointestinales que requieren procinética</li><li>Facilitar el vaciamiento gástrico</li><li>Mejorar la motilidad gastrointestinal</li></ul>",
+    fullDescription: "PILERAN es un medicamento que ayuda a controlar náuseas y vómitos, y mejora el movimiento del sistema digestivo en perros y gatos.",
+    indication: "Controlar náuseas y vómitos\nAyudar en trastornos digestivos\nFacilitar el vaciamiento del estómago\nMejorar el movimiento del sistema digestivo",
     presentationTitle: "PILERAN GOTAS",
     presentationSubtitle: "Frasco gotero por 20 ml",
     formula: "<strong>FÓRMULA</strong><br>Cada ml de solución oral contiene:<br>Metoclopramida Clorhidrato: 5 mg<br>Vehículo c.s.",
@@ -1035,10 +1029,10 @@ const PRODUCTS = {
     benefitsTitle: "Mecanismo de Acción",
     benefitsSubtitle: "Doble acción: central y periférica",
     benefits: [
-      { title: "", description: "Acción central: Antagonista Dopa (D2) a nivel de la zona quimiorreceptora desencadenante, bloqueando las señales de náusea y vómito" },
-      { title: "", description: "Acción periférica: Procinético gastrointestinal que aumenta el tono y amplitud esofágica" },
-      { title: "", description: "Promueve la contracción gástrica con relajación del esfínter pilórico" },
-      { title: "", description: "Facilita el vaciamiento gástrico y aumenta la peristalsis duodenal" }
+      { title: "", description: "Acción central: Bloquea las señales de náusea y vómito en el cerebro" },
+      { title: "", description: "Acción periférica: Mejora el movimiento del esófago y estómago" },
+      { title: "", description: "Promueve la contracción del estómago facilitando su vaciamiento" },
+      { title: "", description: "Facilita el vaciamiento gástrico y mejora el movimiento intestinal" }
     ],
     badge: null,
     variants: null,
@@ -1053,8 +1047,8 @@ const PRODUCTS = {
     image: "images/placeholder.png",
     description: "Potente antiemético de acción central y periférica.",
     logoSubtitle: "Solución Inyectable para Perros y Gatos",
-    fullDescription: "<strong>PILERAN</strong> es un potente antiemético de acción central y periférica. El principio activo es la Metoclopramida, un potente antiemético central antagonista Dopa (D2) a nivel de la zona quimiorreceptora desencadenante. Periféricamente actúa como procinético gastrointestinal aumentando el tono y amplitud esofágica, y la contracción gástrica con relajación del esfínter pilórico, promoviendo el vaciamiento gástrico y aumentando la peristalsis duodenal.",
-    indication: "<strong>Indicado para:</strong><ul><li>Control de náuseas y vómitos en perros y gatos</li><li>Trastornos gastrointestinales que requieren procinética</li><li>Facilitar el vaciamiento gástrico</li><li>Mejorar la motilidad gastrointestinal</li><li>Infusión continua IV para casos severos</li></ul>",
+    fullDescription: "PILERAN es un medicamento que ayuda a controlar náuseas y vómitos, y mejora el movimiento del sistema digestivo en perros y gatos.",
+    indication: "Controlar náuseas y vómitos\nAyudar en trastornos digestivos\nFacilitar el vaciamiento del estómago\nMejorar el movimiento del sistema digestivo\nUsar en infusión continua para casos severos",
     presentationTitle: "PILERAN INYECTABLE",
     presentationSubtitle: "Frasco ampolla por 50 ml",
     formula: "<strong>FÓRMULA</strong><br>Cada ml de solución inyectable contiene:<br>Metoclopramida Clorhidrato: 5 mg<br>Vehículo c.s.",
@@ -1062,11 +1056,11 @@ const PRODUCTS = {
     benefitsTitle: "Mecanismo de Acción",
     benefitsSubtitle: "Doble acción: central y periférica",
     benefits: [
-      { title: "", description: "Acción central: Antagonista Dopa (D2) a nivel de la zona quimiorreceptora desencadenante, bloqueando las señales de náusea y vómito" },
-      { title: "", description: "Acción periférica: Procinético gastrointestinal que aumenta el tono y amplitud esofágica" },
-      { title: "", description: "Promueve la contracción gástrica con relajación del esfínter pilórico" },
-      { title: "", description: "Facilita el vaciamiento gástrico y aumenta la peristalsis duodenal" },
-      { title: "", description: "Disponible para administración inyectable (SC, IM, IV) o infusión continua IV" }
+      { title: "", description: "Acción central: Bloquea las señales de náusea y vómito en el cerebro" },
+      { title: "", description: "Acción periférica: Mejora el movimiento del esófago y estómago" },
+      { title: "", description: "Promueve la contracción del estómago facilitando su vaciamiento" },
+      { title: "", description: "Facilita el vaciamiento gástrico y mejora el movimiento intestinal" },
+      { title: "", description: "Disponible para administración inyectable o infusión continua para casos severos" }
     ],
     badge: null,
     variants: null,
@@ -1081,8 +1075,8 @@ const PRODUCTS = {
     image: "images/placeholder.png",
     description: "Protege el hígado y mejora la secreción biliar.",
     logoSubtitle: "Solución Oral para Perros y Gatos",
-    fullDescription: "<strong>PROTELIV</strong> es un hepatoprotector colerético y colagogo. La combinación de Sales biliares y Extracto fluído de Alcachofa, asociados con Colina y Nicotinamida, proporciona las siguientes acciones terapéuticas: <strong>Colerética</strong> (aumenta el flujo biliar desde la vesícula), <strong>Colagoga</strong> (aumenta la producción biliar por el hígado), <strong>Colecistocinética</strong> (promueve la excreción biliar desde la vesícula), <strong>Citoprotectora</strong>, <strong>Desintoxicante</strong> y <strong>Lipótropa</strong> (previene la infiltración grasa).",
-    indication: "<strong>Indicado para:</strong><ul><li>Protección hepática en perros y gatos</li><li>Mejora de la secreción biliar</li><li>Trastornos hepáticos y biliares</li><li>Desintoxicación hepática</li><li>Prevención de infiltración grasa hepática</li></ul>",
+    fullDescription: "PROTELIV es un hepatoprotector que ayuda a proteger el hígado y mejorar la función biliar en perros y gatos.",
+    indication: "Proteger el hígado\nMejorar la secreción biliar\nAyudar en trastornos hepáticos y biliares\nAyudar a desintoxicar el hígado\nPrevenir acumulación de grasa en el hígado",
     presentationTitle: "PROTELIV",
     presentationSubtitle: "Frasco gotero por 15 ml",
     formula: "<strong>FÓRMULA</strong><br>Cada 100 ml contiene:<br>Nicotinamida: 2,5 g<br>Citrato de Colina: 5 g<br>Extracto fluído de Alcachofa: 5 g<br>Metilbromuro de Homatropina: 0,2 g<br>Dehidrocolato de Sodio: 0,25 g<br>Desoxicolato de Sodio: 0,25 g<br>Vehículo c.s.p.: 100 ml",
@@ -1090,12 +1084,12 @@ const PRODUCTS = {
     benefitsTitle: "Acciones Terapéuticas",
     benefitsSubtitle: "Múltiples beneficios para la salud hepática",
     benefits: [
-      { title: "Colerética", description: "Aumenta el flujo biliar desde la vesícula biliar" },
-      { title: "Colagoga", description: "Aumenta la producción biliar por el hígado" },
-      { title: "Colecistocinética", description: "Promueve la excreción biliar desde la vesícula" },
-      { title: "Citoprotectora", description: "Protege las células hepáticas del daño" },
+      { title: "Colerética", description: "Aumenta el flujo de bilis desde la vesícula biliar" },
+      { title: "Colagoga", description: "Aumenta la producción de bilis por el hígado" },
+      { title: "Colecistocinética", description: "Promueve la excreción de bilis desde la vesícula" },
+      { title: "Citoprotectora", description: "Protege las células del hígado del daño" },
       { title: "Desintoxicante", description: "Ayuda a eliminar toxinas del hígado" },
-      { title: "Lipótropa", description: "Previene la infiltración grasa hepática" }
+      { title: "Lipótropa", description: "Previene la acumulación de grasa en el hígado" }
     ],
     badge: null,
     variants: null,
@@ -1138,8 +1132,8 @@ const PRODUCTS = {
     image: "images/anavimin.jpeg",
     description: "Nutricosméticos para una piel sana y un pelo hermoso.",
     logoSubtitle: "Modulador Dermacosmético",
-    fullDescription: "<strong>Anavimin Coat</strong> es el biomodulador dérmico que se administra diariamente, para mantener la piel y el pelo saludable en animales de todas las edades. Las vitaminas, minerales y aminoácidos que lo componen, ayudan a restablecer la barrera dérmica y normalizan la producción de sebo. Es un excelente coadyuvante de las terapias específicas para las distintas dermopatías que padecen perros y gatos: dermatosis por deficiencias o desequilibrios nutricionales, alergias y atopías, estrés, lesiones dérmicas por piodermias tanto superficiales como profundas, por parasitosis externas como sarna sarcóptica o demodéctica, o por enfermedades autoinmunes.",
-    indication: "<strong>Anavimin Coat es el complemento dermoprotector aliado en el tratamiento de todas las patologías de piel.</strong><br><br>Favorece la recuperación de la estructura y el metabolismo cutáneo, otorgando brillo y suavidad al manto piloso de perros y gatos de todas las edades.",
+    fullDescription: "Anavimin Coat es un suplemento diario que ayuda a mantener la piel y el pelo saludable en perros y gatos de todas las edades.",
+    indication: "Ayudar en el tratamiento de problemas de piel\nMejorar la salud de la piel y el pelo\nRestablecer la barrera cutánea\nNormalizar la producción de grasa en la piel\nAyudar en alergias y problemas dermatológicos\nFavorecer la recuperación de la piel dañada\nOtorgar brillo y suavidad al pelaje",
     presentationTitle: "Anavimin Coat",
     presentationSubtitle: "Comprimidos",
     formula: "<strong>FÓRMULA</strong><br>Cada comprimido contiene:<br>Vitamina A: 5000 UI<br>Gluconato de Zinc: 30 mg<br>Vitamina B2 (Riboflavina): 2 mg<br>Ácido Ascórbico (Vitamina C): 150 mg<br>Vitamina E: 25 mg<br>Biotina: 1 mg<br>Pantotenato de Calcio (Vitamina B5): 15 mg<br>L-Cistina: 150 mg<br>Prolina: 75 mg<br>Excipientes c.s.",
@@ -1170,8 +1164,8 @@ const PRODUCTS = {
     image: "images/apetil.jpg",
     description: "Estimula el apetito, acorta la convalecencia.",
     logoSubtitle: "Suspensión Oral para Perros y Gatos",
-    fullDescription: "<strong>APETIL</strong> es un anabólico y orexígeno regulador del balance energético. El efecto orexigénico (estimulante del apetito) se debe a la Ciproheptadina, que mediante una acción antiserotoninérgica, inhibe la estimulación del centro de saciedad y permite que se estimule el centro del hambre. Esto se complementa con la acción anabólica del Estanozolol, que mejora el balance nitrogenado aumentando la biosíntesis proteica, y la DL-Carnitina, esencial para el transporte de ácidos grasos de cadena larga a través de la membrana mitocondrial para la producción de energía.",
-    indication: "<strong>Indicado para:</strong><ul><li>Estimulación del apetito en perros y gatos inapetentes</li><li>Acortar el período de convalecencia</li><li>Mejora del balance nitrogenado</li><li>Aumento de la biosíntesis proteica</li><li>Regulación del balance energético</li><li>Animales convalecientes o con pérdida de apetito</li></ul>",
+    fullDescription: "APETIL es un suplemento que estimula el apetito y ayuda a mejorar la recuperación en perros y gatos que no comen bien.",
+    indication: "Estimular el apetito en perros y gatos\nAcortar el período de recuperación\nMejorar el balance de nutrientes\nAumentar la síntesis de proteínas\nRegular el balance energético\nAyudar a animales convalecientes",
     presentationTitle: "APETIL",
     presentationSubtitle: "Frasco gotero por 10 ml",
     formula: "<strong>FÓRMULA</strong><br>Cada 100 ml contiene:<br>Estanozolol: 0,4 g<br>Ciproheptadina Clorhidrato: 0,2 g<br>DL-Carnitina Clorhidrato: 7 g<br>Vehículo c.s.p.: 100 ml",
@@ -1179,9 +1173,9 @@ const PRODUCTS = {
     benefitsTitle: "Mecanismo de Acción",
     benefitsSubtitle: "Triple acción: orexigénica, anabólica y energética",
     benefits: [
-      { title: "Efecto Orexigénico", description: "La Ciproheptadina, mediante acción antiserotoninérgica, inhibe la estimulación del centro de saciedad y permite que se estimule el centro del hambre, aumentando el apetito" },
-      { title: "Acción Anabólica", description: "El Estanozolol mejora el balance nitrogenado aumentando la biosíntesis proteica, favoreciendo la recuperación y el crecimiento muscular" },
-      { title: "Regulación Energética", description: "La DL-Carnitina es esencial para el transporte de ácidos grasos de cadena larga a través de la membrana mitocondrial para la producción de energía" },
+      { title: "Efecto Orexigénico", description: "Estimula el apetito bloqueando las señales de saciedad en el cerebro" },
+      { title: "Acción Anabólica", description: "Mejora el balance de nutrientes y aumenta la síntesis de proteínas, favoreciendo la recuperación y el crecimiento muscular" },
+      { title: "Regulación Energética", description: "Ayuda al transporte de grasas para la producción de energía" },
       { title: "", description: "Fórmula combinada que estimula el apetito mientras mejora la síntesis proteica y el metabolismo energético" }
     ],
     badge: null,
@@ -1202,8 +1196,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "IQ 180",
     logoSubtitle: "/ Biomodulador activador de la función neuronal",
-    fullDescription: "Biomodulador activador de la función neuronal en comprimidos palatables.",
-    indication: "<strong>Indicado para:</strong> Ayuda a prevenir la degeneración de los procesos cognitivos.",
+    fullDescription: "IQ 180 es un suplemento en comprimidos que ayuda a mantener y mejorar la función cerebral en perros y gatos.",
+    indication: "Ayudar a prevenir el deterioro cognitivo\nMejorar la función cerebral\nMejorar la memoria y atención\nAyudar en la conducta social",
     presentationTitle: "PRESENTACIÓN",
     presentationSubtitle: "Caja con 3 blisters de 7 comprimidos cada uno",
     formula: "<strong>FÓRMULA</strong><br>Cada comprimido contiene:<br>Ácido Ascórbico: 150 mg<br>L-Glutamina: 100 mg<br>Nicotinamida: 30 mg<br>Ácido alfa lipoico: 10 mg<br>ATP: 5 mg<br>Excipientes c.s.",
@@ -1234,8 +1228,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "NEOVITA",
     logoSubtitle: "/ Biomodulador para pacientes oncológicos",
-    fullDescription: "Neovita es el nuevo integrante de la familia de Biomoduladores desarrollado por Holliday Scott para el tratamiento integral de pacientes oncológicos. Este producto aporta los nutrientes requeridos una vez finalizado el tratamiento, ya sea quirúrgico, quimioterapia o radioterapia. Por otra parte, también es ideal para utilizar en perros y gatos que se encuentran en la etapa de cuidados paliativos.",
-    indication: "<strong>Está indicado en las siguientes situaciones:</strong><ul><li>Al finalizar el esquema terapéutico con el fin de mitigar el estrés oxidativo producido por las quimioterapias o radiación.</li><li>Acompañando el tratamiento paliativo con el objetivo de aportar nutrientes esenciales que mejoren la calidad de vida del paciente.</li><li>En períodos de convalecencia prolongados.</li></ul>",
+    fullDescription: "Neovita es un suplemento nutricional desarrollado para pacientes oncológicos, aportando nutrientes esenciales después de tratamientos contra el cáncer.",
+    indication: "Usar después de quimioterapia o radioterapia\nAyudar a reducir el estrés oxidativo\nAcompañar tratamientos paliativos\nMejorar la calidad de vida\nAyudar en períodos de convalecencia prolongados",
     presentationTitle: "PRESENTACIÓN",
     presentationSubtitle: "Estuche con tres blisters de siete comprimidos palatables cada uno",
     formula: "<strong>FÓRMULA</strong><br>Complemento dietario con Arginina, Extracto seco de ajo, Cúrcuma, Espirulina, Glutamina, Vitamina C, Gluconato de Zinc, Vitamina A y Vitamina E",
@@ -1271,8 +1265,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "OL TRANS FLEX",
     logoSubtitle: "Coadyuvante Osteoarticular",
-    fullDescription: "<strong>OL Trans Flex</strong> es un coadyuvante osteoarticular en comprimidos palatables. Suplemento nutricional para conservar la salud articular en perros.",
-    indication: "<strong>Indicado para:</strong><ul><li>Conservar la salud articular en perros</li><li>Suplemento nutricional para el mantenimiento de la movilidad</li><li>Apoyo en casos de desgaste articular</li></ul>",
+    fullDescription: "OL Trans Flex es un suplemento en comprimidos que ayuda a mantener la salud articular y la movilidad en perros.",
+    indication: "Conservar la salud articular\nMantener la movilidad\nAyudar en casos de desgaste articular\nApoyar la salud de las articulaciones",
     presentationTitle: "PRESENTACIONES",
     presentationSubtitle: "Envases con 3 y 10 blisters de 7 comprimidos cada uno",
     formula: "<strong>FÓRMULA</strong><br>Cada comprimido contiene:<br>Glucosamina Sulfato: 440 mg<br>Metilsulfonilmetano (MSM): 400 mg<br>Ácido Ascórbico: 66 mg<br>Manganeso Gluconato: 10 mg<br>Excipientes c.s.",
@@ -1300,8 +1294,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "POTEN PET",
     logoSubtitle: "Biomodulador Revitalizante y Energizante",
-    fullDescription: "<strong>Poten Pet</strong> es un biomodulador revitalizante y energizante en comprimidos palatables. Complemento dietario para perros adultos que necesitan suplementar su dieta.",
-    indication: "<strong>Indicado para:</strong><ul><li>Perros adultos que necesitan suplementar su dieta</li><li>Estados de convalecencia</li><li>Estrés o actividad física intensa</li><li>Recuperación energética</li></ul>",
+    fullDescription: "Poten Pet es un suplemento revitalizante y energizante en comprimidos para perros adultos que necesitan complementar su dieta.",
+    indication: "Suplementar la dieta de perros adultos\nAyudar en estados de convalecencia\nAyudar durante estrés o actividad física intensa\nMejorar la recuperación energética",
     presentationTitle: "PRESENTACIÓN",
     presentationSubtitle: "Envases con 30 comprimidos",
     formula: "<strong>FÓRMULA</strong><br>Cada comprimido contiene:<br>Metionina DL: 100 mg<br>Taurina: 40 mg<br>Nicotinamida: 20 mg<br>Vitamina B1: 5 mg<br>Vitamina B6: 5 mg<br>Vitamina B2: 2 mg<br>Vitamina B12: 1 mg<br>Excipientes c.s.",
@@ -1329,8 +1323,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "POTEN PET GATOS",
     logoSubtitle: "Biomodulador Revitalizante y Energizante",
-    fullDescription: "<strong>Poten Pet Gatos</strong> es un biomodulador revitalizante y energizante en pasta palatable. Complemento dietario para gatos adultos que necesitan suplementar su dieta.",
-    indication: "<strong>Indicado para:</strong><ul><li>Gatos adultos que necesitan suplementar su dieta</li><li>Estados de convalecencia</li><li>Estrés o actividad física intensa</li><li>Recuperación energética</li></ul>",
+    fullDescription: "Poten Pet Gatos es un suplemento revitalizante y energizante en pasta para gatos adultos que necesitan complementar su dieta.",
+    indication: "Suplementar la dieta de gatos adultos\nAyudar en estados de convalecencia\nAyudar durante estrés o actividad física intensa\nMejorar la recuperación energética",
     presentationTitle: "PRESENTACIÓN",
     presentationSubtitle: "Jeringa dosificadora con 7 g",
     formula: "<strong>FÓRMULA</strong><br>Cada 1 g de pasta contiene:<br>Metionina DL: 50 mg<br>Taurina: 20 mg<br>Nicotinamida: 10 mg<br>Vitamina B1: 2,5 mg<br>Vitamina B6: 2,5 mg<br>Vitamina B2: 1 mg<br>Vitamina B12: 0,5 mg<br>Excipientes c.s.",
@@ -1358,8 +1352,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "RELAY C",
     logoSubtitle: "Suplemento de Vitamina C",
-    fullDescription: "<strong>Relay C</strong> es un suplemento vitamínico en comprimidos palatables. Suplemento de vitamina C para perros y gatos que contribuye al fortalecimiento del sistema inmune.",
-    indication: "<strong>Indicado para:</strong><ul><li>Fortalecimiento del sistema inmune</li><li>Suplementación de vitamina C</li><li>Estados de convalecencia</li><li>Apoyo en procesos de recuperación</li></ul>",
+    fullDescription: "Relay C es un suplemento de vitamina C en comprimidos que ayuda a fortalecer el sistema inmunológico de perros y gatos.",
+    indication: "Fortalecer el sistema inmunológico\nSuplementar vitamina C\nAyudar en estados de convalecencia\nApoyar procesos de recuperación",
     presentationTitle: "PRESENTACIÓN",
     presentationSubtitle: "Envases con 30 comprimidos",
     formula: "<strong>FÓRMULA</strong><br>Cada comprimido contiene:<br>Ácido Ascórbico (Vitamina C): 500 mg<br>Excipientes c.s.",
@@ -1387,8 +1381,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "TONIPET",
     logoSubtitle: "Suplemento Vitamínico y Mineral",
-    fullDescription: "<strong>Tonipet</strong> es un suplemento vitamínico y mineral en comprimidos palatables. Suplemento nutricional para perros y gatos en crecimiento, gestación, lactancia o convalecencia.",
-    indication: "<strong>Indicado para:</strong><ul><li>Perros y gatos en crecimiento</li><li>Gestación y lactancia</li><li>Estados de convalecencia</li><li>Deficiencias nutricionales</li><li>Recuperación post-quirúrgica</li></ul>",
+    fullDescription: "Tonipet es un suplemento vitamínico y mineral en comprimidos para perros y gatos en crecimiento, gestación, lactancia o convalecencia.",
+    indication: "Suplementar perros y gatos en crecimiento\nAyudar durante gestación y lactancia\nAyudar en estados de convalecencia\nAyudar en deficiencias nutricionales\nAyudar en recuperación post-quirúrgica",
     presentationTitle: "PRESENTACIÓN",
     presentationSubtitle: "Envases con 30 comprimidos",
     formula: "<strong>FÓRMULA</strong><br>Cada comprimido contiene:<br>Vitaminas: A, D3, E, B1, B2, B6, B12, C<br>Nicotinamida, Ácido Pantoténico, Ácido Fólico, Biotina<br>Minerales: Hierro, Zinc, Manganeso, Cobre, Yodo, Selenio, Calcio, Fósforo<br>Excipientes c.s.",
@@ -1450,8 +1444,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "BIOCLIN ENJUAGUE BUCAL",
     logoSubtitle: "Enjuague Bucal Antiséptico",
-    fullDescription: "<strong>Bioclin Enjuague Bucal</strong> es un enjuague bucal antiséptico para la higiene dental de perros y gatos. Previene la formación de placa bacteriana y el mal aliento, manteniendo una boca sana y fresca.",
-    indication: "<strong>Indicado para:</strong><ul><li>Higiene bucal diaria</li><li>Prevención de placa bacteriana</li><li>Control del mal aliento (halitosis)</li><li>Mantenimiento de encías saludables</li><li>Prevención de sarro</li></ul>",
+    fullDescription: "Bioclin Enjuague Bucal es un enjuague antiséptico para la higiene dental de perros y gatos que previene la placa bacteriana y el mal aliento.",
+    indication: "Higiene bucal diaria\nPrevenir placa bacteriana\nControlar el mal aliento\nMantener encías saludables\nPrevenir sarro",
     presentationTitle: "PRESENTACIÓN",
     presentationSubtitle: "Frasco con solución",
     formula: "<strong>FÓRMULA</strong><br>Enjuague bucal antiséptico con acción bactericida y desodorizante.",
@@ -1479,8 +1473,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "BIOCLIN GEL ANTIPLACA",
     logoSubtitle: "Gel Dental Antiplaca",
-    fullDescription: "<strong>Bioclin Gel Antiplaca</strong> es un gel dental para el control de placa bacteriana. Aplicación fácil para mantener una boca sana y libre de sarro en perros y gatos.",
-    indication: "<strong>Indicado para:</strong><ul><li>Control de placa bacteriana</li><li>Prevención de sarro</li><li>Higiene bucal diaria</li><li>Mantenimiento de encías saludables</li><li>Prevención de enfermedades periodontales</li></ul>",
+    fullDescription: "Bioclin Gel Antiplaca es un gel dental para controlar la placa bacteriana y mantener una boca sana en perros y gatos.",
+    indication: "Controlar placa bacteriana\nPrevenir sarro\nHigiene bucal diaria\nMantener encías saludables\nPrevenir enfermedades periodontales",
     presentationTitle: "PRESENTACIÓN",
     presentationSubtitle: "Tubo con gel",
     formula: "<strong>FÓRMULA</strong><br>Gel dental con acción antiplaca y antiséptica.",
@@ -1516,19 +1510,19 @@ const PRODUCTS = {
     description: "Solución ótica antiséptica bactericida, fungicida y ceruminolítica.",
     presentationTitle: "Clorhexidina Gotas Óticas",
     presentationSubtitle: "Frasco gotero con 15 ml",
-    fullDescription: "<strong>Clorhexidina Gotas Óticas</strong> es una solución ótica antiséptica bactericida, fungicida y ceruminolítica. Antiséptico desinfectante bactericida-fungicida que se caracteriza por: No inactivarse en presencia de materia orgánica. Presentar un poder residual de hasta 48 hs (persiste más tiempo en el estrato córneo). Amplio espectro / Gram +, Gram-, virus con cubierta (herpes virus), hongos y esporas, mycobacteria (bacteriostático). Actúa por contacto en forma rápida.",
-    indication: "<strong>Indicado para:</strong><ul><li>Limpieza y antisepsia del conducto auditivo</li><li>Tratamiento de otitis externas</li><li>Prevención de infecciones óticas</li><li>Eliminación de cerumen</li></ul>",
+    fullDescription: "Clorhexidina Gotas Óticas es una solución antiséptica para limpiar y tratar infecciones del oído en perros y gatos.",
+    indication: "Limpiar y desinfectar el conducto auditivo\nTratar otitis externas\nPrevenir infecciones del oído\nEliminar cerumen",
     formula: "<strong>FÓRMULA</strong><br>Solución ótica con Clorhexidina y Propilenglicol",
     dosage: "",
     benefitsTitle: "Mecanismo de Acción",
     benefitsSubtitle: "Características que hacen de Clorhexidina un antiséptico de elección",
     benefits: [
-      { title: "", description: "No se inactiva en presencia de materia orgánica, manteniendo su eficacia" },
-      { title: "", description: "Poder residual de hasta 48 horas, persiste más tiempo en el estrato córneo" },
-      { title: "", description: "Amplio espectro: Gram +, Gram-, virus con cubierta (herpes virus), hongos y esporas, mycobacteria (bacteriostático)" },
-      { title: "", description: "Actúa por contacto en forma rápida" },
-      { title: "", description: "Mecanismo de acción: Provoca una ruptura de la membrana plasmática por alteración osmótica de la misma e inhibición de enzimas. En concentraciones elevadas precipita las proteínas y ácidos nucleicos microbianos" },
-      { title: "", description: "El propilenglicol, por su efecto ceruminolítico, permite una mayor difusión del antiséptico y por lo tanto un comienzo de acción más rápido" }
+      { title: "", description: "Mantiene su eficacia incluso en presencia de materia orgánica" },
+      { title: "", description: "Efecto residual de hasta 48 horas, permanece activo en la piel" },
+      { title: "", description: "Amplio espectro: efectivo contra bacterias, virus, hongos y esporas" },
+      { title: "", description: "Actúa rápidamente al entrar en contacto" },
+      { title: "", description: "Elimina microorganismos dañando sus membranas y enzimas" },
+      { title: "", description: "El propilenglicol ayuda a disolver el cerumen y permite que el antiséptico actúe más rápido" }
     ],
     badge: null,
     variants: null,
@@ -1552,8 +1546,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "CEFALEXINA 500",
     logoSubtitle: "Antibiótico de Amplio Espectro",
-    fullDescription: "<strong>Cefalexina 500</strong> es un antibiótico de amplio espectro de la familia de las cefalosporinas de primera generación. Indicado para el tratamiento de infecciones bacterianas en perros y gatos.",
-    indication: "<strong>Indicado para:</strong><ul><li>Infecciones del tracto respiratorio</li><li>Infecciones del tracto urinario</li><li>Infecciones de piel y tejidos blandos</li><li>Infecciones óseas</li><li>Infecciones causadas por bacterias Gram positivas y algunas Gram negativas</li></ul>",
+    fullDescription: "Cefalexina 500 es un antibiótico de amplio espectro para tratar infecciones bacterianas en perros y gatos.",
+    indication: "Tratar infecciones del tracto respiratorio\nTratar infecciones del tracto urinario\nTratar infecciones de piel y tejidos blandos\nTratar infecciones óseas\nTratar infecciones causadas por diversas bacterias",
     presentationTitle: "PRESENTACIÓN",
     presentationSubtitle: "Envases con comprimidos de 500 mg",
     formula: "<strong>FÓRMULA</strong><br>Cada comprimido contiene:<br>Cefalexina: 500 mg<br>Excipientes c.s.",
@@ -1581,8 +1575,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "CLORALEN",
     logoSubtitle: "Antibiótico de Amplio Espectro",
-    fullDescription: "<strong>Cloralen</strong> es un antibiótico de amplio espectro a base de cloranfenicol. Indicado para el tratamiento de infecciones bacterianas sensibles en perros y gatos.",
-    indication: "<strong>Indicado para:</strong><ul><li>Infecciones del tracto respiratorio</li><li>Infecciones del tracto digestivo</li><li>Infecciones de piel y tejidos blandos</li><li>Infecciones oculares</li><li>Infecciones causadas por bacterias Gram positivas y Gram negativas</li></ul>",
+    fullDescription: "Cloralen es un antibiótico de amplio espectro para tratar infecciones bacterianas en perros y gatos.",
+    indication: "Tratar infecciones del tracto respiratorio\nTratar infecciones del tracto digestivo\nTratar infecciones de piel y tejidos blandos\nTratar infecciones oculares\nTratar infecciones causadas por diversas bacterias",
     presentationTitle: "PRESENTACIÓN",
     presentationSubtitle: "Envases con comprimidos",
     formula: "<strong>FÓRMULA</strong><br>Cada comprimido contiene:<br>Cloranfenicol: según presentación<br>Excipientes c.s.",
@@ -1614,8 +1608,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "FLOXADAY COMPRIMIDOS",
     logoSubtitle: "Antibiótico de Amplio Espectro",
-    fullDescription: "<strong>Floxaday Comprimidos</strong> es un antibiótico de amplio espectro de la familia de las fluoroquinolonas. Indicado para el tratamiento de infecciones bacterianas en perros y gatos.",
-    indication: "<strong>Indicado para:</strong><ul><li>Infecciones del tracto urinario</li><li>Infecciones del tracto respiratorio</li><li>Infecciones de piel y tejidos blandos</li><li>Infecciones gastrointestinales</li><li>Infecciones causadas por bacterias Gram negativas y algunas Gram positivas</li></ul>",
+    fullDescription: "Floxaday Comprimidos es un antibiótico de amplio espectro para tratar infecciones bacterianas en perros y gatos.",
+    indication: "Tratar infecciones del tracto urinario\nTratar infecciones del tracto respiratorio\nTratar infecciones de piel y tejidos blandos\nTratar infecciones gastrointestinales\nTratar infecciones causadas por diversas bacterias",
     presentationTitle: "PRESENTACIONES",
     presentationSubtitle: "Comprimidos de 100 mg, 200 mg y 400 mg",
     formula: "<strong>FÓRMULA</strong><br>Cada comprimido contiene:<br>Enrofloxacina: 100 mg, 200 mg o 400 mg<br>Excipientes c.s.",
@@ -1659,8 +1653,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "MV GATOS GASTROINTESTINAL",
     logoSubtitle: "Dieta Prescripta para Trastornos Digestivos",
-    fullDescription: "<strong>MV Gatos Gastrointestinal</strong> es una dieta prescripta formulada específicamente para gatos con trastornos digestivos. Alimento completo y balanceado que ayuda a la recuperación y mantenimiento de la salud gastrointestinal.",
-    indication: "<strong>Indicado para:</strong><ul><li>Gatos con trastornos digestivos agudos y crónicos</li><li>Gastritis y enteritis</li><li>Diarrea aguda y crónica</li><li>Enfermedad inflamatoria intestinal</li><li>Recuperación post-quirúrgica del tracto digestivo</li></ul>",
+    fullDescription: "MV Gatos Gastrointestinal es una dieta terapéutica formulada para gatos con trastornos digestivos.",
+    indication: "Gatos con trastornos digestivos agudos y crónicos\nGastritis y enteritis\nDiarrea aguda y crónica\nEnfermedad inflamatoria intestinal\nRecuperación post-quirúrgica del tracto digestivo",
     presentationTitle: "PRESENTACIÓN",
     presentationSubtitle: "Alimento seco completo y balanceado",
     formula: "<strong>FÓRMULA</strong><br>Dieta prescripta con:<br>Proteínas de alta digestibilidad<br>Fibra soluble e insoluble balanceada<br>Ácidos grasos omega-3<br>Prebióticos<br>Niveles reducidos de grasa",
@@ -1688,8 +1682,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "MV GATOS OBESIDAD",
     logoSubtitle: "Dieta Prescripta para Control de Peso",
-    fullDescription: "<strong>MV Gatos Obesidad</strong> es una dieta prescripta baja en calorías formulada específicamente para gatos con sobrepeso u obesidad. Alimento completo y balanceado que ayuda a la pérdida de peso controlada y mantenimiento del peso ideal.",
-    indication: "<strong>Indicado para:</strong><ul><li>Gatos con sobrepeso u obesidad</li><li>Control de peso</li><li>Prevención de enfermedades asociadas al sobrepeso</li><li>Mantenimiento del peso ideal</li></ul>",
+    fullDescription: "MV Gatos Obesidad es una dieta baja en calorías formulada para gatos con sobrepeso u obesidad.",
+    indication: "Gatos con sobrepeso u obesidad\nControl de peso\nPrevenir enfermedades asociadas al sobrepeso\nMantener el peso ideal",
     presentationTitle: "PRESENTACIÓN",
     presentationSubtitle: "Alimento seco completo y balanceado",
     formula: "<strong>FÓRMULA</strong><br>Dieta prescripta con:<br>Bajo contenido calórico<br>Alto contenido de proteínas<br>Fibra para saciedad<br>L-Carnitina para metabolismo de grasas<br>Vitaminas y minerales balanceados",
@@ -1717,8 +1711,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "MV GATOS RENAL",
     logoSubtitle: "Dieta Prescripta para Enfermedad Renal",
-    fullDescription: "<strong>MV Gatos Renal</strong> es una dieta prescripta formulada específicamente para gatos con enfermedad renal crónica o aguda. Alimento completo y balanceado que ayuda a reducir la carga sobre los riñones y retrasar la progresión de la enfermedad.",
-    indication: "<strong>Indicado para:</strong><ul><li>Gatos con enfermedad renal crónica</li><li>Insuficiencia renal</li><li>Nefropatías</li><li>Prevención de cálculos renales</li><li>Apoyo nutricional en pacientes renales</li></ul>",
+    fullDescription: "MV Gatos Renal es una dieta terapéutica formulada para gatos con enfermedad renal que ayuda a reducir la carga sobre los riñones.",
+    indication: "Gatos con enfermedad renal crónica\nInsuficiencia renal\nNefropatías\nPrevenir cálculos renales\nApoyo nutricional en pacientes renales",
     presentationTitle: "PRESENTACIÓN",
     presentationSubtitle: "Alimento seco completo y balanceado",
     formula: "<strong>FÓRMULA</strong><br>Dieta prescripta con:<br>Proteínas de alta calidad en cantidad reducida<br>Fósforo reducido<br>Sodio reducido<br>Ácidos grasos omega-3<br>Antioxidantes",
@@ -1746,8 +1740,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "MV GATOS URINARIO",
     logoSubtitle: "Dieta Prescripta para Salud Urinaria",
-    fullDescription: "<strong>MV Gatos Urinario</strong> es una dieta prescripta formulada específicamente para gatos con problemas del tracto urinario inferior. Alimento completo y balanceado que ayuda a prevenir la formación de cálculos y mantener la salud urinaria.",
-    indication: "<strong>Indicado para:</strong><ul><li>Gatos con cistitis idiopática felina</li><li>Prevención de cálculos urinarios</li><li>Trastornos del tracto urinario inferior</li><li>Mantenimiento de la salud urinaria</li></ul>",
+    fullDescription: "MV Gatos Urinario es una dieta terapéutica formulada para gatos con problemas del tracto urinario que ayuda a prevenir cálculos.",
+    indication: "Gatos con cistitis idiopática felina\nPrevenir cálculos urinarios\nTrastornos del tracto urinario inferior\nMantener la salud urinaria",
     presentationTitle: "PRESENTACIÓN",
     presentationSubtitle: "Alimento seco completo y balanceado",
     formula: "<strong>FÓRMULA</strong><br>Dieta prescripta con:<br>pH urinario controlado<br>Magnesio reducido<br>Alto contenido de humedad (si es húmedo)<br>Ácidos grasos omega-3<br>Antioxidantes",
@@ -1775,8 +1769,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "MV PERROS ARTICULAR",
     logoSubtitle: "Dieta Prescripta para Salud Articular",
-    fullDescription: "<strong>MV Perros Articular</strong> es una dieta prescripta formulada específicamente para perros con problemas articulares. Alimento completo y balanceado que contiene condroprotectores y nutrientes que ayudan a mantener la salud articular.",
-    indication: "<strong>Indicado para:</strong><ul><li>Perros con artritis y artrosis</li><li>Problemas articulares</li><li>Desgaste articular</li><li>Recuperación post-quirúrgica articular</li><li>Mantenimiento de la salud articular en perros mayores</li></ul>",
+    fullDescription: "MV Perros Articular es una dieta terapéutica formulada para perros con problemas articulares que contiene condroprotectores.",
+    indication: "Perros con artritis y artrosis\nProblemas articulares\nDesgaste articular\nRecuperación post-quirúrgica articular\nMantener la salud articular en perros mayores",
     presentationTitle: "PRESENTACIÓN",
     presentationSubtitle: "Alimento seco completo y balanceado",
     formula: "<strong>FÓRMULA</strong><br>Dieta prescripta con:<br>Glucosamina y Condroitina<br>Ácidos grasos omega-3<br>Antioxidantes<br>Proteínas de alta calidad<br>Niveles controlados de calcio y fósforo",
@@ -1804,8 +1798,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "MV PERROS CARDIO",
     logoSubtitle: "Dieta Prescripta para Enfermedad Cardíaca",
-    fullDescription: "<strong>MV Perros Cardio</strong> es una dieta prescripta formulada específicamente para perros con enfermedad cardíaca. Alimento completo y balanceado que ayuda a reducir la carga sobre el corazón y mejorar la calidad de vida.",
-    indication: "<strong>Indicado para:</strong><ul><li>Perros con insuficiencia cardíaca</li><li>Enfermedad cardíaca congestiva</li><li>Cardiomiopatías</li><li>Hipertensión</li><li>Apoyo nutricional en pacientes cardíacos</li></ul>",
+    fullDescription: "MV Perros Cardio es una dieta terapéutica formulada para perros con enfermedad cardíaca que ayuda a reducir la carga sobre el corazón.",
+    indication: "Perros con insuficiencia cardíaca\nEnfermedad cardíaca congestiva\nCardiomiopatías\nHipertensión\nApoyo nutricional en pacientes cardíacos",
     presentationTitle: "PRESENTACIÓN",
     presentationSubtitle: "Alimento seco completo y balanceado",
     formula: "<strong>FÓRMULA</strong><br>Dieta prescripta con:<br>Sodio reducido<br>Taurina y L-Carnitina<br>Ácidos grasos omega-3<br>Antioxidantes<br>Proteínas de alta calidad",
@@ -1833,8 +1827,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "MV PERROS GASTROINTESTINAL",
     logoSubtitle: "Dieta Prescripta para Trastornos Digestivos",
-    fullDescription: "<strong>MV Perros Gastrointestinal</strong> es una dieta prescripta formulada específicamente para perros con trastornos digestivos. Alimento completo y balanceado que ayuda a la recuperación y mantenimiento de la salud gastrointestinal.",
-    indication: "<strong>Indicado para:</strong><ul><li>Perros con trastornos digestivos agudos y crónicos</li><li>Gastritis y enteritis</li><li>Diarrea aguda y crónica</li><li>Enfermedad inflamatoria intestinal</li><li>Recuperación post-quirúrgica del tracto digestivo</li></ul>",
+    fullDescription: "MV Perros Gastrointestinal es una dieta terapéutica formulada para perros con trastornos digestivos.",
+    indication: "Perros con trastornos digestivos agudos y crónicos\nGastritis y enteritis\nDiarrea aguda y crónica\nEnfermedad inflamatoria intestinal\nRecuperación post-quirúrgica del tracto digestivo",
     presentationTitle: "PRESENTACIÓN",
     presentationSubtitle: "Alimento seco completo y balanceado",
     formula: "<strong>FÓRMULA</strong><br>Dieta prescripta con:<br>Proteínas de alta digestibilidad<br>Fibra soluble e insoluble balanceada<br>Ácidos grasos omega-3<br>Prebióticos<br>Niveles reducidos de grasa",
@@ -1862,8 +1856,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "MV PERROS OBESIDAD",
     logoSubtitle: "Dieta Prescripta para Control de Peso",
-    fullDescription: "<strong>MV Perros Obesidad</strong> es una dieta prescripta baja en calorías formulada específicamente para perros con sobrepeso u obesidad. Alimento completo y balanceado que ayuda a la pérdida de peso controlada y mantenimiento del peso ideal.",
-    indication: "<strong>Indicado para:</strong><ul><li>Perros con sobrepeso u obesidad</li><li>Control de peso</li><li>Prevención de enfermedades asociadas al sobrepeso</li><li>Mantenimiento del peso ideal</li></ul>",
+    fullDescription: "MV Perros Obesidad es una dieta baja en calorías formulada para perros con sobrepeso u obesidad.",
+    indication: "Perros con sobrepeso u obesidad\nControl de peso\nPrevenir enfermedades asociadas al sobrepeso\nMantener el peso ideal",
     presentationTitle: "PRESENTACIÓN",
     presentationSubtitle: "Alimento seco completo y balanceado",
     formula: "<strong>FÓRMULA</strong><br>Dieta prescripta con:<br>Bajo contenido calórico<br>Alto contenido de proteínas<br>Fibra para saciedad<br>L-Carnitina para metabolismo de grasas<br>Vitaminas y minerales balanceados",
@@ -1891,8 +1885,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "MV PERROS RENAL",
     logoSubtitle: "Dieta Prescripta para Enfermedad Renal",
-    fullDescription: "<strong>MV Perros Renal</strong> es una dieta prescripta formulada específicamente para perros con enfermedad renal crónica o aguda. Alimento completo y balanceado que ayuda a reducir la carga sobre los riñones y retrasar la progresión de la enfermedad.",
-    indication: "<strong>Indicado para:</strong><ul><li>Perros con enfermedad renal crónica</li><li>Insuficiencia renal</li><li>Nefropatías</li><li>Prevención de cálculos renales</li><li>Apoyo nutricional en pacientes renales</li></ul>",
+    fullDescription: "MV Perros Renal es una dieta terapéutica formulada para perros con enfermedad renal que ayuda a reducir la carga sobre los riñones.",
+    indication: "Perros con enfermedad renal crónica\nInsuficiencia renal\nNefropatías\nPrevenir cálculos renales\nApoyo nutricional en pacientes renales",
     presentationTitle: "PRESENTACIÓN",
     presentationSubtitle: "Alimento seco completo y balanceado",
     formula: "<strong>FÓRMULA</strong><br>Dieta prescripta con:<br>Proteínas de alta calidad en cantidad reducida<br>Fósforo reducido<br>Sodio reducido<br>Ácidos grasos omega-3<br>Antioxidantes",
@@ -1920,8 +1914,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "MV PERROS SENSIBILIDAD DIETARIA",
     logoSubtitle: "Dieta Prescripta Hipoalergénica",
-    fullDescription: "<strong>MV Perros Sensibilidad Dietaria</strong> es una dieta prescripta hipoalergénica formulada específicamente para perros con sensibilidades o alergias alimentarias. Alimento completo y balanceado con proteínas e hidratos de carbono de fuentes novedosas o hidrolizadas.",
-    indication: "<strong>Indicado para:</strong><ul><li>Perros con alergias alimentarias</li><li>Sensibilidades dietarias</li><li>Dermatitis alérgica alimentaria</li><li>Trastornos digestivos por sensibilidad alimentaria</li><li>Dieta de eliminación</li></ul>",
+    fullDescription: "MV Perros Sensibilidad Dietaria es una dieta hipoalergénica formulada para perros con alergias o sensibilidades alimentarias.",
+    indication: "Perros con alergias alimentarias\nSensibilidades dietarias\nDermatitis alérgica alimentaria\nTrastornos digestivos por sensibilidad alimentaria\nDieta de eliminación",
     presentationTitle: "PRESENTACIÓN",
     presentationSubtitle: "Alimento seco completo y balanceado",
     formula: "<strong>FÓRMULA</strong><br>Dieta prescripta con:<br>Proteínas de fuente novedosa o hidrolizadas<br>Hidratos de carbono de fuente novedosa<br>Ácidos grasos omega-3<br>Prebióticos<br>Sin ingredientes comunes alergénicos",
@@ -1953,8 +1947,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "OHM",
     logoSubtitle: "/ Productos 100% naturales para modular la ansiedad y el estrés",
-    fullDescription: "<strong>OHM</strong> es la línea más completa de productos 100% naturales, diseñados para modular la ansiedad y el estrés en perros y gatos. Los productos OHM utilizan feromonas sintéticas que mimetizan a las naturales, actuando como mensajeros que modifican el comportamiento del animal que las percibe.",
-    indication: "<strong>OHM es ideal para:</strong><ul><li>Viajes</li><li>Post operatorios</li><li>Mudanzas</li><li>Cambios de estilo de vida</li><li>Mejorar el paseo</li><li>Visita al veterinario</li></ul><br><strong>Además, ayuda a controlar:</strong><ul><li>Estrés por ansiedad</li><li>Falta de aseo</li><li>Frotación exagerada</li><li>Mayor excitabilidad</li><li>Excesivo lamido</li><li>Defecación en sitios no habituales</li><li>Ladrido y maullido excesivo</li><li>Agresión y ansiedad por separación</li><li>Miedo a los ruidos fuertes</li><li>Comportamiento destructivo</li></ul>",
+    fullDescription: "OHM es una línea de productos naturales que ayudan a reducir la ansiedad y el estrés en perros y gatos usando feromonas sintéticas.",
+    indication: "Ayudar durante viajes\nAyudar después de cirugías\nAyudar durante mudanzas\nAyudar en cambios de estilo de vida\nMejorar el paseo\nAyudar durante visitas al veterinario\nControlar estrés y ansiedad\nAyudar con problemas de comportamiento\nAyudar con ansiedad por separación\nAyudar con miedo a ruidos fuertes",
     presentationTitle: "OHM COMPRIMIDOS",
     presentationSubtitle: "Para perros y gatos",
     formula: "<strong>FÓRMULA</strong><br>Producto 100% natural a base de feromonas sintéticas diseñado para modular la ansiedad y el estrés.",
@@ -1983,8 +1977,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "OHM",
     logoSubtitle: "/ Línea Gatos - Productos 100% naturales",
-    fullDescription: "<strong>OHM Gatos</strong> es parte de la línea más completa de productos 100% naturales, diseñados específicamente para modular la ansiedad y el estrés en gatos. Los productos OHM utilizan feromonas sintéticas que mimetizan a las naturales, actuando como mensajeros que modifican el comportamiento del animal que las percibe.",
-    indication: "<strong>OHM Gatos es ideal para:</strong><ul><li>Viajes</li><li>Post operatorios</li><li>Mudanzas</li><li>Cambios de estilo de vida</li><li>Visita al veterinario</li></ul><br><strong>Además, ayuda a controlar:</strong><ul><li>Estrés por ansiedad</li><li>Falta de aseo</li><li>Frotación exagerada</li><li>Mayor excitabilidad</li><li>Excesivo lamido</li><li>Defecación en sitios no habituales</li><li>Maullido excesivo</li><li>Agresión y ansiedad por separación</li><li>Miedo a los ruidos fuertes</li><li>Comportamiento destructivo</li></ul>",
+    fullDescription: "OHM Gatos es un producto natural que ayuda a reducir la ansiedad y el estrés en gatos usando feromonas sintéticas.",
+    indication: "Ayudar durante viajes\nAyudar después de cirugías\nAyudar durante mudanzas\nAyudar en cambios de estilo de vida\nAyudar durante visitas al veterinario\nControlar estrés y ansiedad\nAyudar con problemas de comportamiento\nAyudar con ansiedad por separación\nAyudar con miedo a ruidos fuertes",
     presentationTitle: "OHM GATOS",
     presentationSubtitle: "Comprimidos y Pasta palatable exclusiva para gatos",
     formula: "<strong>FÓRMULA</strong><br>Producto 100% natural a base de feromonas sintéticas diseñado específicamente para modular la ansiedad y el estrés en gatos.",
@@ -2014,8 +2008,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "OHM",
     logoSubtitle: "/ Difusor Hogar - Feromonas Felinas",
-    fullDescription: "<strong>OHM Home Gatos</strong> es un difusor ambiental que libera feromonas sintéticas felinas de forma continua, creando un ambiente calmante y seguro para su gato. Las feromonas actúan como mensajeros que modifican el comportamiento del animal, ayudando a modular la ansiedad y el estrés de forma natural.",
-    indication: "<strong>OHM Home Gatos es ideal para:</strong><ul><li>Crear un ambiente calmante en el hogar</li><li>Reducir el estrés en situaciones de cambio</li><li>Mudanzas</li><li>Llegada de nuevos miembros a la familia</li><li>Cambios en el entorno</li><li>Múltiples gatos en el mismo hogar</li></ul><br><strong>Además, ayuda a controlar:</strong><ul><li>Estrés por ansiedad</li><li>Comportamiento destructivo</li><li>Agresión entre gatos</li><li>Marcaje excesivo</li><li>Falta de aseo</li><li>Maullido excesivo</li></ul>",
+    fullDescription: "OHM Home Gatos es un difusor ambiental que libera feromonas sintéticas continuamente, creando un ambiente calmante para su gato.",
+    indication: "Crear un ambiente calmante en el hogar\nReducir el estrés en situaciones de cambio\nAyudar durante mudanzas\nAyudar con la llegada de nuevos miembros a la familia\nAyudar con cambios en el entorno\nAyudar en hogares con múltiples gatos\nControlar estrés y ansiedad\nAyudar con comportamiento destructivo\nAyudar con agresión entre gatos",
     presentationTitle: "OHM HOME GATOS",
     presentationSubtitle: "Difusor hogar con feromonas felinas",
     formula: "<strong>FÓRMULA</strong><br>Difusor ambiental con feromonas sintéticas felinas que mimetizan a las naturales, diseñado para crear un ambiente calmante y seguro.",
@@ -2045,8 +2039,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "OHM",
     logoSubtitle: "/ Difusor Hogar - Feromonas Caninas",
-    fullDescription: "<strong>OHM Home Perros</strong> es un difusor ambiental que libera feromonas sintéticas caninas de forma continua, creando un ambiente calmante y seguro para su perro. Las feromonas actúan como mensajeros que modifican el comportamiento del animal, ayudando a modular la ansiedad y el estrés de forma natural.",
-    indication: "<strong>OHM Home Perros es ideal para:</strong><ul><li>Crear un ambiente calmante en el hogar</li><li>Reducir el estrés en situaciones de cambio</li><li>Mudanzas</li><li>Llegada de nuevos miembros a la familia</li><li>Cambios en el entorno</li><li>Múltiples perros en el mismo hogar</li><li>Ansiedad por separación</li></ul><br><strong>Además, ayuda a controlar:</strong><ul><li>Estrés por ansiedad</li><li>Comportamiento destructivo</li><li>Ladrido excesivo</li><li>Agresión</li><li>Miedo a los ruidos fuertes</li><li>Ansiedad por separación</li></ul>",
+    fullDescription: "OHM Home Perros es un difusor ambiental que libera feromonas sintéticas continuamente, creando un ambiente calmante para su perro.",
+    indication: "Crear un ambiente calmante en el hogar\nReducir el estrés en situaciones de cambio\nAyudar durante mudanzas\nAyudar con la llegada de nuevos miembros a la familia\nAyudar con cambios en el entorno\nAyudar en hogares con múltiples perros\nAyudar con ansiedad por separación\nControlar estrés y ansiedad\nAyudar con comportamiento destructivo",
     presentationTitle: "OHM HOME PERROS",
     presentationSubtitle: "Difusor hogar con feromonas caninas",
     formula: "<strong>FÓRMULA</strong><br>Difusor ambiental con feromonas sintéticas caninas que mimetizan a las naturales, diseñado para crear un ambiente calmante y seguro.",
@@ -2080,8 +2074,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "GABADAY",
     logoSubtitle: "/ Ansiolítico, Analgésico y Anticonvulsivo",
-    fullDescription: "Solución oral a base de <strong>Gabapentina</strong> para perros y gatos.",
-    indication: "<strong>Indicado para:</strong><ul><li>Tratamiento del dolor crónico. Agente antinociceptivo.</li><li>Terapia complementaria para crisis de epilepsia refractaria o compleja.</li><li>Tratamiento para la ansiedad aguda en gatos y perros, en situaciones que generan estrés como visitas veterinarias y transporte del animal.</li></ul>",
+    fullDescription: "Gabaday es una solución oral a base de Gabapentina para tratar dolor crónico, convulsiones y ansiedad en perros y gatos.",
+    indication: "Tratar dolor crónico\nTerapia complementaria para convulsiones\nTratar ansiedad aguda\nAyudar durante visitas veterinarias\nAyudar durante transporte",
     presentationTitle: "PRESENTACIÓN",
     presentationSubtitle: "Frasco gotero por 20 ml",
     formula: "<strong>FÓRMULA</strong><br>Cada ml de solución contiene:<br>Gabapentina: 100 mg<br>Excipientes c.s.",
@@ -2131,8 +2125,8 @@ const PRODUCTS = {
     // Extended modal info
     logoText: "SOLUBRON 20",
     logoSubtitle: "Broncodilatador y Mucolítico",
-    fullDescription: "<strong>Solubron 20</strong> es un broncodilatador y mucolítico en solución oral. Indicado para el tratamiento de afecciones del sistema respiratorio en perros y gatos.",
-    indication: "<strong>Indicado para:</strong><ul><li>Tratamiento de afecciones respiratorias</li><li>Facilitar la expectoración</li><li>Broncodilatación</li><li>Liquefacción de secreciones bronquiales</li></ul>",
+    fullDescription: "Solubron 20 es un broncodilatador y mucolítico en solución oral para tratar afecciones respiratorias en perros y gatos.",
+    indication: "Tratar afecciones respiratorias\nFacilitar la expectoración\nDilatar las vías respiratorias\nLiquefacer secreciones bronquiales",
     presentationTitle: "PRESENTACIÓN",
     presentationSubtitle: "Frasco con 20 ml",
     formula: "<strong>FÓRMULA</strong><br>Cada ml contiene:<br>Bromhexina: 2 mg<br>Excipientes c.s.",
