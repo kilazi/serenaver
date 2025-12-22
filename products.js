@@ -200,41 +200,17 @@ const PRODUCTS = {
   // ============================================
   // ANTIPARASITARIOS
   // ============================================
-  "ecthol-5": {
-    id: "ecthol-5",
-    name: "Ecthol 5",
-    category: "Antiparasitarios • Externo",
-    categories: ["perros", "gatos", "antiparasitarios"],
-    price: null,
-    image: "images/ecthol-5.png",
-    description: "Antiparasitario externo de amplio espectro.",
-    badge: null,
-    variants: null,
-    specialModal: null
-  },
-  "ecthol-ap": {
-    id: "ecthol-ap",
-    name: "Ecthol AP",
-    category: "Antiparasitarios • Ambiental",
-    categories: ["perros", "gatos", "antiparasitarios"],
-    price: null,
-    image: "images/ecthol-ap.png",
-    description: "Antiparasitario ambiental para control de plagas.",
-    badge: null,
-    variants: null,
-    specialModal: null
-  },
   "ecthol-collar-gatos": {
     id: "ecthol-collar-gatos",
     name: "Ecthol Collar Gatos",
     category: "Antiparasitarios • Collar",
     categories: ["gatos", "antiparasitarios"],
     price: null,
-    image: "images/ecthol-collar.png",
+    image: "images/ecthol-collar-gatos.png",
     description: "La alternativa más efectiva para el control de pulgas y garrapatas en gatos.",
     badge: "Gatos",
     variants: [
-      { name: "40 CM", price: null, image: "images/ecthol-collar.png" }
+      { name: "40 CM", price: null, image: "images/ecthol-collar-gatos.png" }
     ],
     specialModal: null,
     // Extended modal info
@@ -1057,18 +1033,6 @@ const PRODUCTS = {
       { title: "Vitamina E", description: "Es el principal antioxidante encontrado dentro de las membranas lipídicas del organismo, preserva los ácidos grasos poliinsaturados de las membranas celulares de su oxidación mediante el bloqueo de radicales libres." }
     ]
   },
-  "ol-trans": {
-    id: "ol-trans",
-    name: "OL Trans",
-    category: "Suplementos • Articular",
-    categories: ["perros", "gatos", "suplementos"],
-    price: null,
-    image: "images/oltrans flex.png",
-    description: "Condroprotector para salud articular.",
-    badge: null,
-    variants: null,
-    specialModal: null
-  },
   "ol-trans-flex": {
     id: "ol-trans-flex",
     name: "OL Trans Flex",
@@ -1254,18 +1218,6 @@ const PRODUCTS = {
       { name: "200 mg", price: null, image: "images/floxaday.png" },
       { name: "400 mg", price: null, image: "images/floxaday.png" }
     ],
-    specialModal: null
-  },
-  "floxaday-inyectable": {
-    id: "floxaday-inyectable",
-    name: "Floxaday Inyectable",
-    category: "Antibióticos • Inyectable",
-    categories: ["perros", "gatos", "antibioticos"],
-    price: null,
-    image: "images/floxaday-inyectable.jpeg",
-    description: "Antibiótico de amplio espectro inyectable.",
-    badge: null,
-    variants: null,
     specialModal: null
   },
   "oxitetraciclina": {
@@ -1535,18 +1487,6 @@ const PRODUCTS = {
   // ============================================
   // OTROS (Anestésicos, Neurología, Respiratorio, Antiviral)
   // ============================================
-  "dozilam": {
-    id: "dozilam",
-    name: "Dozilam",
-    category: "Sedante • Benzodiacepina",
-    categories: ["perros", "gatos"],
-    price: null,
-    image: "images/dozilam.jpeg",
-    description: "Sedante y ansiolítico de acción corta.",
-    badge: null,
-    variants: null,
-    specialModal: null
-  },
   "gabaday": {
     id: "gabaday",
     name: "Gabaday",
@@ -1606,18 +1546,6 @@ const PRODUCTS = {
     price: null,
     image: "images/placeholder.png",
     description: "Broncodilatador y mucolítico para vías respiratorias.",
-    badge: null,
-    variants: null,
-    specialModal: null
-  },
-  "viviram-v": {
-    id: "viviram-v",
-    name: "Viviram-V",
-    category: "Antiviral • Inmunomodulador",
-    categories: ["perros", "gatos"],
-    price: null,
-    image: "images/viviram.jpg",
-    description: "Antiviral e inmunomodulador para infecciones virales.",
     badge: null,
     variants: null,
     specialModal: null
