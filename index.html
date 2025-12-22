@@ -12957,6 +12957,15 @@
       return popularityOrder.length + 1;
     }
 
+    // Function to get product price status
+    function hasPrice(card) {
+      const priceElement = card.querySelector('.product-price');
+      if (!priceElement) return false;
+      const priceText = priceElement.textContent.trim();
+      // Check if price is not "Consultar" (has actual price)
+      return priceText !== 'Consultar' && priceText.startsWith('$');
+    }
+
     // Function to sort products by popularity
     function sortProductsByPopularity() {
       const productsTrack = document.getElementById('productsTrack');
@@ -12973,8 +12982,16 @@
         card.classList.contains('filtered-out') || card.style.display === 'none'
       );
 
-      // Sort visible cards by popularity
+      // Sort visible cards: first by price status (products with prices first), then by popularity
       visibleCards.sort((a, b) => {
+        const hasPriceA = hasPrice(a);
+        const hasPriceB = hasPrice(b);
+
+        // If one has price and the other doesn't, prioritize the one with price
+        if (hasPriceA && !hasPriceB) return -1;
+        if (!hasPriceA && hasPriceB) return 1;
+
+        // If both have the same price status, sort by popularity
         const nameA = getProductName(a);
         const nameB = getProductName(b);
         const indexA = getPopularityIndex(nameA);
