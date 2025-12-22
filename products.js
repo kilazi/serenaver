@@ -1,5 +1,5 @@
 /**
- * Serena Vet - Product Database
+ * Serena Pets - Product Database
  * All product information in one place for easy maintenance
  * 
  * USAGE: Products are referenced by ID (key). Prices always come from this file,
@@ -376,26 +376,57 @@ const PRODUCTS = {
   "ciclosporina-1": {
     id: "ciclosporina-1",
     name: "Ciclosporina 1%",
-    category: "Oftalmología • Ungüento",
+    category: "Oftalmología • Inmunomodulador",
     categories: ["perros", "gatos", "oftalmologia"],
     price: null,
     image: "images/ciclosporina.jpg",
     description: "Ungüento oftálmico estéril. Inmunomodulador, lacrimomimético y antiinflamatorio.",
     badge: null,
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "CICLOSPORINA 1%",
+    logoSubtitle: "/ Inmunomodulador. Lacrimomimético. Antiinflamatorio.",
+    fullDescription: "Ungüento estéril a base de <strong>Ciclosporina A</strong> (calidad U.S.P)",
+    indication: "<strong>Indicado para:</strong> el tratamiento de la queratoconjuntivitis seca (QCS) y la queratitis superficial crónica (pannus), conjuntivitis plasmocítica, queratitis punteada superficial, blefaritis ulcerativa del canto nasal, escleritis y epiescleritis.",
+    presentationTitle: "Presentación Disponible",
+    presentationSubtitle: "Pomo con 3,5 g. con aplicador oftálmico",
+    formula: "<strong>FÓRMULA</strong><br>Cada 100 g de ungüento contiene:<br>Ciclosporina A (USP)...............1 g<br>Excipientes c.s.",
+    benefitsTitle: "Beneficios del Producto",
+    benefitsSubtitle: "Ciclosporina 1% ofrece múltiples beneficios para el tratamiento de afecciones oculares",
+    benefits: [
+      { title: "Inmunomodulador", description: "Con afinidad por la córnea y la esclerótica. Su formulación de calidad U.S.P garantiza la pureza y la eficacia del principio activo." },
+      { title: "Lacrimomimético", description: "Ayuda a restaurar la producción de lágrimas y mejora la lubricación ocular en casos de queratoconjuntivitis seca." },
+      { title: "Antiinflamatorio", description: "Reduce la inflamación ocular asociada a enfermedades inmunomediadas, mejorando el confort y la salud del ojo." },
+      { title: "Solución Efectiva", description: "Ofrece una solución efectiva para manejar afecciones oculares relacionadas con la falta de producción de lágrimas y otras enfermedades inmunomediadas en perros." }
+    ]
   },
   "ciclosporina-2": {
     id: "ciclosporina-2",
     name: "Ciclosporina 2%",
-    category: "Oftalmología • Dermatología",
+    category: "Oftalmología • Inmunomodulador",
     categories: ["perros", "gatos", "oftalmologia", "dermatologia"],
     price: null,
-    image: "images/ciclosporina.jpg",
+    image: "images/ciclosporina-2.jpg",
     description: "Inmunomodulador para afecciones oculares y dermatológicas.",
     badge: null,
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "CICLOSPORINA 2%",
+    logoSubtitle: "/ Inmunomodulador / Lacrimomimético / Antiinflamatorio",
+    fullDescription: "Colirio estéril a base de <strong>ciclosporina A</strong> (calidad U.S.P)",
+    indication: "<strong>Indicado para el tratamiento de:</strong> Queratoconjuntivitis seca (QCS) y la queratitis superficial crónica (pannus) Inmunomodulador, lagrimogénico y antiinflamatorio ocular de superficie.",
+    presentationTitle: "PRESENTACIÓN FRASCO OFTÁLMICO POR 5 ml.",
+    presentationSubtitle: "NUEVO",
+    formula: "<strong>FÓRMULA</strong><br>Cada 100 ml contiene:<br>Ciclosporina A...............2 g<br>Excipientes c.s.",
+    benefitsTitle: "Beneficios del Producto",
+    benefitsSubtitle: "Ciclosporina 2% ofrece múltiples beneficios para el tratamiento de afecciones oculares",
+    benefits: [
+      { title: "Inmunomodulador", description: "Con afinidad por la córnea y la esclerótica. Su formulación de calidad U.S.P garantiza la pureza y la eficacia del principio activo." },
+      { title: "Lacrimomimético y Antiinflamatorio", description: "Reduce la respuesta inmunitaria promoviendo la producción de lágrimas. Además, ayuda a disminuir la inflamación en el ojo, lo que puede reducir enrojecimiento y dolor asociado con diversas patologías oculares." },
+      { title: "Mejora la Calidad Ocular", description: "Al aumentar la producción de lágrimas y reducir la inflamación, puede mejorar significativamente la calidad ocular de perros y gatos afectados." }
+    ]
   },
   "colirama-viral": {
     id: "colirama-viral",
@@ -431,7 +462,22 @@ const PRODUCTS = {
     description: "Antiinflamatorio ocular no esteroideo.",
     badge: null,
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "FLURBIPROFENO",
+    logoSubtitle: "/ Antiinflamatorio no esteroide de última generación.",
+    fullDescription: "Colirio estéril a base de Flurbiprofeno.",
+    indication: "<strong>Indicado en tratamiento de procesos inflamatorios:</strong> Conjuntivitis, uveitis leves y moderadas. En cirugías intraoculares (inhibición de la miosis intraoperatoria). También en post reparación de úlceras corneales con gran vascularización, procesos dolorosos oculares y en reemplazo de glucocorticoides tópicos cuando están contraindicados y en asociación con estos, en procesos inflamatorios muy severos.",
+    presentationTitle: "PRESENTACIÓN FRASCO OFTÁLMICO POR 5 ml.",
+    presentationSubtitle: "",
+    formula: "<strong>FÓRMULA</strong><br>Cada 100 ml contiene:<br>Flurbiprofeno...............0,1 g<br>Excipientes c.s.",
+    benefitsTitle: "",
+    benefitsSubtitle: "",
+    benefits: [
+      { title: "", description: "El flurbiprofeno es un antiinflamatorio no esteroideo (AINE) que inhibe las enzimas COX-1 y COX-2, responsables de la síntesis de prostaglandinas." },
+      { title: "", description: "Es eficaz en la reducción de la inflamación y el dolor, proporcionando un alivio asociado con diversas condiciones oculares." },
+      { title: "", description: "El inicio de acción es rápido, otorgando alivio en un corto período de tiempo, lo cual es importante para el manejo de condiciones agudas y mejorar el confort del animal." }
+    ]
   },
   "ofloxacina": {
     id: "ofloxacina",
@@ -523,7 +569,23 @@ const PRODUCTS = {
     description: "Suplemento enzimático para mejorar la digestión.",
     badge: "Nuevo",
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "ENZIMAX",
+    logoSubtitle: "/ Único suplemento dietario formulado con enzimas proteolíticas",
+    fullDescription: "Las enzimas vegetales de <strong>Enzimax</strong> fragmentan las partículas de los alimentos favoreciendo una mayor absorción de sus nutrientes. Está indicado para mejorar la digestión y absorción de dietas caseras y comerciales.",
+    indication: "<strong>Complementario a tratamientos por:</strong> Flatulencias, Diarreas, Síndrome de mala digestión, Síndrome de mala absorción, Enfermedad intestinal inflamatoria crónica, Gastritis crónicas, Disbacteriosis, Gastroenteritis infecciosas, Parasitosis internas, Insuficiencias pancreáticas, Hepatopatías, Períodos de convalecencia, Tratamientos oncológicos.",
+    presentationTitle: "Presentación Disponible",
+    presentationSubtitle: "Envase que contiene 2 blisters por 10 comprimidos de 200 mg cada uno",
+    formula: "<strong>FÓRMULA</strong><br>Cada comprimido de 200 mg contiene:<br>Bromelina (32 mg*) equivalente a 8 unidades FIP<br>Papaína (1,6 mg**) equivalente a 48000 unidades USP<br>Betaina HCI (5 mg*)<br>Excipientes c.s.",
+    benefitsTitle: "Componentes Activos",
+    benefitsSubtitle: "Enzimax contiene enzimas proteolíticas vegetales con múltiples beneficios",
+    benefits: [
+      { title: "Bromelina", description: "Enzima proteolítica extraída de la piña tropical. Acción antiinflamatoria, inmunomoduladora, anticoagulante, antiedematosa y mucolítica. Reduce los niveles de tromboxano y prostaglandinas que intervienen en el proceso inflamatorio." },
+      { title: "Betaina HCI", description: "Compuesto tri-metilado del aminoácido extraído de la remolacha azucarera. Coadyuvante en el metabolismo de las grasas, colabora en la digestión de lípidos y desdoblamiento de proteínas. Fortalece la salud hepática y colabora con la hidratación celular." },
+      { title: "Papaína", description: "Enzima proteolítica extraída del látex de la papaya. Favorece la digestión de los alimentos y funciona como regulador intestinal. Su contenido en pectina aumenta la masa fecal ayudando a la evacuación. Acción antihelmíntica colaborando en la eliminación de nematodos." },
+      { title: "Administración", description: "Una dosis diaria previa a las comidas (idealmente 20 minutos antes de la ingesta). Comprimidos de fácil administración. Práctico y simple de suministrar." }
+    ]
   },
   "pileran-gotas": {
     id: "pileran-gotas",
