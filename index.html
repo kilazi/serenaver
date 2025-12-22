@@ -8812,14 +8812,14 @@
         <div class="products-track" id="productsTrack">
           
           <!-- ACEDAN GOTAS -->
-          <div class="product-card" data-category="perros gatos antiinflamatorios">
+          <div class="product-card" data-category="perros gatos equinos">
             <div class="product-image">
               <img src="images/acedan-gotas.jpg" alt="Acedan Gotas">
             </div>
             <div class="product-info">
-              <span class="product-category">Antiinflamatorio • Gotas</span>
+              <span class="product-category">Tranquilizante • Gotas</span>
               <h3>Acedan Gotas</h3>
-              <p>Antiinflamatorio y analgésico en presentación gotas.</p>
+              <p>Sedación práctica, simple y segura. Tranquilidad natural sin sueño.</p>
               <div class="product-footer">
                 <span class="product-price">$25.000</span>
               </div>
@@ -8837,14 +8837,14 @@
           </div>
 
           <!-- ACEDAN INYECTABLE -->
-          <div class="product-card" data-category="perros gatos antiinflamatorios">
+          <div class="product-card" data-category="perros gatos equinos">
             <div class="product-image">
               <img src="images/acedan.jpg" alt="Acedan Inyectable">
             </div>
             <div class="product-info">
-              <span class="product-category">Antiinflamatorio • Inyectable</span>
+              <span class="product-category">Tranquilizante • Inyectable</span>
               <h3>Acedan Inyectable</h3>
-              <p>Antiinflamatorio y analgésico de acción rápida.</p>
+              <p>Sedación práctica, simple y segura. Tranquilidad natural sin sueño.</p>
               <div class="product-footer">
                 <span class="product-price">Consultar</span>
               </div>
@@ -13316,8 +13316,8 @@
     // Product descriptions database
     const productDescriptions = {
       'default': 'Producto de alta calidad formulado especialmente para el bienestar de tu mascota. Consulta con tu veterinario para dosificación y modo de uso adecuado.',
-      'Acedan Gotas': 'Solución antiinflamatoria en gotas para administración oral. Ideal para el alivio del dolor y la inflamación en perros y gatos. Fácil dosificación para un tratamiento preciso.',
-      'Acedan Inyectable': 'Antiinflamatorio de acción rápida para uso veterinario. Administración profesional recomendada. Efectivo para el tratamiento del dolor agudo.',
+      'Acedan Gotas': 'Sedación práctica, simple y segura. Tranquilizante con Maleato de Acepromacina. Produce un estado de pasividad y calma, disminuyendo la excitabilidad nerviosa sin provocar embotamiento de la conciencia. Tranquilidad natural sin sueño.',
+      'Acedan Inyectable': 'Sedación práctica, simple y segura. Tranquilizante con Maleato de Acepromacina. Produce un estado de pasividad y calma, disminuyendo la excitabilidad nerviosa sin provocar embotamiento de la conciencia. Tranquilidad natural sin sueño.',
       'Cardial': 'Medicamento cardiovascular para el manejo de enfermedades cardíacas en mascotas. Formula especializada para mejorar la función cardíaca y la calidad de vida.',
       'Cardial B': 'Cardial B es un vasodilatador mixto y antagonista de la aldosterona, formulado con Benazepril y Espironolactona. Indicado para tratar la insuficiencia cardíaca en perros debido a patología valvular o cardiomiopatía dilatada. Doble protección en cada latido.',
       'Anavimin Coat': 'Suplemento nutricional para piel y pelaje. Contiene vitaminas y minerales esenciales para mantener un pelo brillante y saludable.',
@@ -14245,6 +14245,7 @@
         presentationTitle: product.presentationTitle || 'Información del Producto',
         presentationSubtitle: product.presentationSubtitle || '',
         formula: product.formula || 'Consultar información detallada',
+        dosage: product.dosage || '',
         benefitsTitle: product.benefitsTitle || '',
         benefitsSubtitle: product.benefitsSubtitle || '',
         benefits: product.benefits || []
@@ -14337,6 +14338,7 @@
           <div class="product-presentation-card">
             <img class="product-presentation-image" src="${productData.image}" alt="${productData.name}">
             <div class="product-presentation-info">${productData.formula}</div>
+            ${productData.dosage ? `<div class="product-presentation-info" style="margin-top: 1rem;">${productData.dosage}</div>` : ''}
             <div class="product-block-quantity" id="productQuantity">
               <span class="product-block-quantity-label">Cantidad:</span>
               <button class="product-block-qty-btn" data-action="decrease">
