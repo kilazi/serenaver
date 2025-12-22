@@ -90,11 +90,28 @@ const PRODUCTS = {
     category: "Antiinflamatorio • Corticoide",
     categories: ["perros", "gatos", "antiinflamatorios"],
     price: null,
-    image: "images/placeholder.png",
+    image: "images/prednisolona.png",
     description: "Corticosteroide antiinflamatorio e inmunosupresor.",
     badge: null,
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "PREDNISOLONA 20 MG",
+    logoSubtitle: "Glucocorticoide Sintético",
+    fullDescription: "<strong>Prednisolona 20 MG</strong> es un glucocorticoide sintético en comprimidos. Corticosteroide antiinflamatorio e inmunosupresor para el tratamiento de procesos inflamatorios y alérgicos en perros y gatos.",
+    indication: "<strong>Indicado para:</strong><ul><li>Tratamiento de procesos inflamatorios</li><li>Tratamiento de procesos alérgicos</li><li>Enfermedades autoinmunes</li><li>Shock y estados de colapso</li></ul>",
+    presentationTitle: "PRESENTACIÓN",
+    presentationSubtitle: "Envases con 10 comprimidos",
+    formula: "<strong>FÓRMULA</strong><br>Cada comprimido contiene:<br>Prednisolona: 20 mg<br>Excipientes c.s.",
+    dosage: "<strong>POSOLOGÍA Y ADMINISTRACIÓN</strong><br><strong>Perros y Gatos:</strong> 0,5 a 1 mg por kg de peso corporal, cada 12 a 24 horas, según indicación veterinaria.<br><br><strong>Vía de administración:</strong> Oral<br><strong>Contraindicaciones:</strong> No administrar en infecciones sistémicas sin tratamiento adecuado, úlceras gastrointestinales, diabetes mellitus, insuficiencia renal o cardíaca severa.<br><strong>Efectos colaterales:</strong> Poliuria, polidipsia, polifagia, supresión del eje hipotalámico-hipofisario-adrenal.<br><strong>Restricciones:</strong> No utilizar en hembras gestantes o lactantes sin supervisión veterinaria.",
+    benefitsTitle: "Beneficios del Producto",
+    benefitsSubtitle: "Características que hacen de Prednisolona 20 MG la mejor opción",
+    benefits: [
+      { title: "Antiinflamatorio Potente", description: "Efecto antiinflamatorio potente para el tratamiento de procesos inflamatorios agudos y crónicos." },
+      { title: "Inmunosupresor", description: "Acción inmunosupresora útil en el tratamiento de enfermedades autoinmunes." },
+      { title: "Alta Biodisponibilidad", description: "Excelente absorción oral y biodisponibilidad." },
+      { title: "Dosificación Flexible", description: "Presentación en comprimidos que permite ajustar la dosis según las necesidades del paciente." }
+    ]
   },
 
   // ============================================
@@ -187,14 +204,31 @@ const PRODUCTS = {
   "toracard": {
     id: "toracard",
     name: "Toracard",
-    category: "Cardiología • Diurético",
+    category: "Cardiología • Cardiotónico",
     categories: ["perros", "gatos", "cardiologia"],
     price: null,
     image: "images/toracard.jpg",
-    description: "Diurético de asa para insuficiencia cardíaca.",
+    description: "Cardiotónico para insuficiencia cardíaca congestiva.",
     badge: null,
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "TORACARD",
+    logoSubtitle: "Cardiotónico",
+    fullDescription: "<strong>Toracard</strong> es un cardiotónico en comprimidos. Indicado para el tratamiento de insuficiencia cardíaca congestiva en perros.",
+    indication: "<strong>Indicado para:</strong><ul><li>Tratamiento de insuficiencia cardíaca congestiva en perros</li><li>Mejora de la contractilidad cardíaca</li><li>Vasodilatación arterial y venosa</li></ul>",
+    presentationTitle: "PRESENTACIÓN",
+    presentationSubtitle: "Envases con 30 comprimidos",
+    formula: "<strong>FÓRMULA</strong><br>Cada comprimido contiene:<br>Pimobendan: 5 mg<br>Excipientes c.s.",
+    dosage: "<strong>POSOLOGÍA Y ADMINISTRACIÓN</strong><br><strong>Perros:</strong> 0,25 mg por kg de peso corporal, cada 12 horas.<br><br><strong>Vía de administración:</strong> Oral<br><strong>Contraindicaciones:</strong> No administrar en casos de cardiomiopatía hipertrófica o estenosis aórtica.<br><strong>Efectos colaterales:</strong> Pueden presentarse vómitos, diarrea, anorexia, letargia.<br><strong>Restricciones:</strong> Usar con precaución en animales con insuficiencia renal o hepática. No utilizar en hembras gestantes o lactantes sin supervisión veterinaria.",
+    benefitsTitle: "Beneficios del Producto",
+    benefitsSubtitle: "Características que hacen de Toracard la mejor opción",
+    benefits: [
+      { title: "Inotrópico Positivo", description: "Mejora la contractilidad del miocardio aumentando el gasto cardíaco." },
+      { title: "Vasodilatador", description: "Produce vasodilatación arterial y venosa, reduciendo la precarga y poscarga." },
+      { title: "Doble Mecanismo", description: "Combina efectos inotrópicos positivos y vasodilatadores para un tratamiento eficaz de la insuficiencia cardíaca." },
+      { title: "Bien Tolerado", description: "Generalmente bien tolerado con efectos secundarios mínimos cuando se usa según indicación veterinaria." }
+    ]
   },
 
   // ============================================
@@ -278,7 +312,24 @@ const PRODUCTS = {
       { name: "Menos de 5 kg", price: null, image: "images/ecthol-gmp-gatos.png" },
       { name: "Más de 5 kg", price: null, image: "images/ecthol-gmp-gatos.png" }
     ],
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "ECTHOL GMP GATOS",
+    logoSubtitle: "Pipeta Antiparasitaria Externa",
+    fullDescription: "<strong>Ecthol GMP Gatos</strong> es una pipeta antiparasitaria externa para el control de pulgas y garrapatas en gatos. Formulación con Fipronil y (S)-Metopreno para máxima eficacia.",
+    indication: "<strong>Indicado para:</strong><ul><li>Control de pulgas (Ctenocephalides felis)</li><li>Control de garrapatas</li><li>Prevención de re-infestación</li><li>Tratamiento de infestaciones existentes</li></ul>",
+    presentationTitle: "PRESENTACIONES",
+    presentationSubtitle: "Pipetas según peso del gato",
+    formula: "<strong>FÓRMULA</strong><br>Cada pipeta contiene:<br>Fipronil: 10%<br>(S)-Metopreno: 12%<br>Vehículo c.s.",
+    dosage: "<strong>POSOLOGÍA Y ADMINISTRACIÓN</strong><br><strong>Gatos:</strong> Aplicar una pipeta completa sobre la piel, separando el pelo en la línea dorsal entre los omóplatos. Asegurar contacto directo con la piel.<br><br><strong>Vía de administración:</strong> Tópica (spot-on)<br><strong>Frecuencia:</strong> Aplicar mensualmente<br><strong>Contraindicaciones:</strong> No administrar en gatitos menores de 8 semanas de edad ni en gatos con hipersensibilidad a los componentes.<br><strong>Precauciones:</strong> No bañar al animal 48 horas antes ni después de la aplicación.",
+    benefitsTitle: "Beneficios del Producto",
+    benefitsSubtitle: "Características que hacen de Ecthol GMP Gatos la mejor opción",
+    benefits: [
+      { title: "Doble Acción", description: "Combinación de Fipronil y (S)-Metopreno para eliminar pulgas adultas y prevenir el desarrollo de formas inmaduras." },
+      { title: "Protección Prolongada", description: "Protección de hasta 4 semanas contra pulgas y garrapatas." },
+      { title: "Fácil Aplicación", description: "Aplicación tópica simple y rápida en la línea dorsal." },
+      { title: "Seguro para Gatos", description: "Formulación segura específicamente desarrollada para gatos." }
+    ]
   },
   "ecthol-gmp-perros": {
     id: "ecthol-gmp-perros",
@@ -295,7 +346,24 @@ const PRODUCTS = {
       { name: "11-20 kg", price: null, image: "images/ecthol-gmp-perros.png" },
       { name: "21-40 kg", price: null, image: "images/ecthol-gmp-perros.png" }
     ],
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "ECTHOL GMP PERROS",
+    logoSubtitle: "Pipeta Antiparasitaria Externa",
+    fullDescription: "<strong>Ecthol GMP Perros</strong> es una pipeta antiparasitaria externa para el control de pulgas y garrapatas en perros. Formulación con Fipronil y (S)-Metopreno para máxima eficacia.",
+    indication: "<strong>Indicado para:</strong><ul><li>Control de pulgas (Ctenocephalides canis, Ctenocephalides felis)</li><li>Control de garrapatas (Amblyoma, Dermacentor, Rhipicephalus, Ixodes)</li><li>Prevención de re-infestación</li><li>Tratamiento de infestaciones existentes</li></ul>",
+    presentationTitle: "PRESENTACIONES",
+    presentationSubtitle: "Pipetas según peso del perro (5 kg, 6-10 kg, 11-20 kg, 21-40 kg)",
+    formula: "<strong>FÓRMULA</strong><br>Cada pipeta contiene:<br>Fipronil: 10%<br>(S)-Metopreno: 9%<br>Vehículo c.s.",
+    dosage: "<strong>POSOLOGÍA Y ADMINISTRACIÓN</strong><br><strong>Perros:</strong> Aplicar una pipeta completa sobre la piel, separando el pelo en la línea dorsal entre los omóplatos. Asegurar contacto directo con la piel. Seleccionar la pipeta según el peso del perro.<br><br><strong>Vía de administración:</strong> Tópica (spot-on)<br><strong>Frecuencia:</strong> Aplicar mensualmente<br><strong>Contraindicaciones:</strong> No administrar en cachorros menores de 8 semanas de edad ni en perros con hipersensibilidad a los componentes.<br><strong>Precauciones:</strong> No bañar al animal 48 horas antes ni después de la aplicación.",
+    benefitsTitle: "Beneficios del Producto",
+    benefitsSubtitle: "Características que hacen de Ecthol GMP Perros la mejor opción",
+    benefits: [
+      { title: "Doble Acción", description: "Combinación de Fipronil y (S)-Metopreno para eliminar pulgas adultas y prevenir el desarrollo de formas inmaduras." },
+      { title: "Protección Prolongada", description: "Protección de hasta 4 semanas contra pulgas y garrapatas." },
+      { title: "Múltiples Tamaños", description: "Presentaciones adaptadas según el peso del perro para dosificación precisa." },
+      { title: "Fácil Aplicación", description: "Aplicación tópica simple y rápida en la línea dorsal." }
+    ]
   },
   "ecthol-halo-collar-perros": {
     id: "ecthol-halo-collar-perros",
@@ -310,7 +378,24 @@ const PRODUCTS = {
       { name: "Menos de 10 kg", price: null, image: "images/ecthol-halo-perros.png" },
       { name: "Más de 10 kg", price: null, image: "images/ecthol-halo-perros.png" }
     ],
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "ECTHOL HALO COLLAR",
+    logoSubtitle: "Collar Antiparasitario Premium",
+    fullDescription: "<strong>Ecthol Halo Collar Perros</strong> es un collar antiparasitario premium de larga duración. Controla pulgas, garrapatas y repele flebótomos, moscas y mosquitos. Protección de hasta 8 meses.",
+    indication: "<strong>Indicado para:</strong><ul><li>Control de pulgas (Ctenocephalides canis, Ctenocephalides felis)</li><li>Control de garrapatas (Amblyoma, Dermacentor, Rhipicephalus, Ixodes)</li><li>Repelente de flebótomos, moscas y mosquitos</li><li>Prevención de enfermedades transmitidas por vectores</li><li>Protección prolongada</li></ul>",
+    presentationTitle: "PRESENTACIONES",
+    presentationSubtitle: "Collar según peso del perro (Menos de 10 kg / Más de 10 kg)",
+    formula: "<strong>FÓRMULA</strong><br>Collar con liberación controlada de:<br>Deltametrina: 4%<br>Polímero de liberación prolongada",
+    dosage: "<strong>POSOLOGÍA Y ADMINISTRACIÓN</strong><br><strong>Perros:</strong> Colocar el collar alrededor del cuello del perro, ajustándolo para que quede cómodo pero en contacto con la piel. Dejar espacio para dos dedos entre el collar y el cuello. El excedente puede cortarse.<br><br><strong>Vía de administración:</strong> Tópica (collar)<br><strong>Duración:</strong> Hasta 8 meses de protección<br><strong>Contraindicaciones:</strong> No utilizar en cachorros menores de 7 semanas de edad ni en perros con hipersensibilidad a la deltametrina.<br><strong>Precauciones:</strong> No mojar el collar durante las primeras 24 horas después de la colocación.",
+    benefitsTitle: "Beneficios del Producto",
+    benefitsSubtitle: "Características que hacen de Ecthol Halo Collar la mejor opción",
+    benefits: [
+      { title: "Protección Prolongada", description: "Hasta 8 meses de protección continua contra pulgas y garrapatas." },
+      { title: "Repelente", description: "No solo elimina parásitos, sino que también repele flebótomos, moscas y mosquitos." },
+      { title: "Liberación Controlada", description: "Tecnología de liberación controlada que mantiene niveles efectivos durante todo el período de protección." },
+      { title: "Fácil Uso", description: "Collar cómodo y fácil de colocar, con mecanismo de seguridad." }
+    ]
   },
   "ectholaner-comprimidos-perros": {
     id: "ectholaner-comprimidos-perros",
@@ -322,7 +407,24 @@ const PRODUCTS = {
     description: "Antiparasitario oral de acción sistémica para perros.",
     badge: "Popular",
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "ECTHOLANER",
+    logoSubtitle: "Antiparasitario Oral de Acción Sistémica",
+    fullDescription: "<strong>Ectholaner Comprimidos Perros</strong> es un antiparasitario oral en comprimidos masticables de acción sistémica. Indicado para el control de pulgas y garrapatas en perros mediante administración oral.",
+    indication: "<strong>Indicado para:</strong><ul><li>Control de pulgas (Ctenocephalides canis, Ctenocephalides felis)</li><li>Control de garrapatas (Amblyoma, Dermacentor, Rhipicephalus, Ixodes)</li><li>Tratamiento de infestaciones existentes</li><li>Prevención de re-infestación</li></ul>",
+    presentationTitle: "PRESENTACIONES",
+    presentationSubtitle: "Comprimidos masticables según peso del perro",
+    formula: "<strong>FÓRMULA</strong><br>Cada comprimido contiene:<br>Afoxolaner: según presentación (11.3 mg, 28.3 mg, 68 mg, 136 mg)<br>Excipientes c.s.",
+    dosage: "<strong>POSOLOGÍA Y ADMINISTRACIÓN</strong><br><strong>Perros:</strong> Administrar un comprimido masticable según el peso del perro. Puede administrarse con o sin alimento. Seleccionar la presentación adecuada según el peso corporal.<br><br><strong>Vía de administración:</strong> Oral<br><strong>Frecuencia:</strong> Administrar mensualmente<br><strong>Contraindicaciones:</strong> No administrar en cachorros menores de 8 semanas de edad ni en perros con hipersensibilidad al afoxolaner.<br><strong>Precauciones:</strong> No administrar en perros con epilepsia sin supervisión veterinaria.",
+    benefitsTitle: "Beneficios del Producto",
+    benefitsSubtitle: "Características que hacen de Ectholaner la mejor opción",
+    benefits: [
+      { title: "Acción Sistémica", description: "Acción sistémica que protege a todo el cuerpo del perro, no solo el área de aplicación." },
+      { title: "Comprimidos Masticables", description: "Comprimidos masticables con sabor agradable que facilitan la administración." },
+      { title: "Rápida Eficacia", description: "Inicio de acción rápido, eliminando pulgas en 8 horas y garrapatas en 12 horas." },
+      { title: "Protección Mensual", description: "Una dosis mensual proporciona protección continua durante todo el mes." }
+    ]
   },
   "ecthonil-gatos": {
     id: "ecthonil-gatos",
@@ -334,7 +436,24 @@ const PRODUCTS = {
     description: "Antiparasitario spot-on para gatos.",
     badge: "Gatos",
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "ECTHONIL GATOS",
+    logoSubtitle: "Antiparasitario Spot-on",
+    fullDescription: "<strong>Ecthonil Gatos</strong> es un antiparasitario externo en pipeta (spot-on) para el control de pulgas y garrapatas en gatos. Formulación con Fipronil para máxima eficacia.",
+    indication: "<strong>Indicado para:</strong><ul><li>Control de pulgas (Ctenocephalides felis)</li><li>Control de garrapatas</li><li>Tratamiento de infestaciones existentes</li><li>Prevención de re-infestación</li></ul>",
+    presentationTitle: "PRESENTACIÓN",
+    presentationSubtitle: "Pipetas spot-on",
+    formula: "<strong>FÓRMULA</strong><br>Cada pipeta contiene:<br>Fipronil: 10%<br>Vehículo c.s.",
+    dosage: "<strong>POSOLOGÍA Y ADMINISTRACIÓN</strong><br><strong>Gatos:</strong> Aplicar una pipeta completa sobre la piel, separando el pelo en la línea dorsal entre los omóplatos. Asegurar contacto directo con la piel.<br><br><strong>Vía de administración:</strong> Tópica (spot-on)<br><strong>Frecuencia:</strong> Aplicar mensualmente<br><strong>Contraindicaciones:</strong> No administrar en gatitos menores de 8 semanas de edad ni en gatos con hipersensibilidad al fipronil.<br><strong>Precauciones:</strong> No bañar al animal 48 horas antes ni después de la aplicación.",
+    benefitsTitle: "Beneficios del Producto",
+    benefitsSubtitle: "Características que hacen de Ecthonil Gatos la mejor opción",
+    benefits: [
+      { title: "Fipronil", description: "Principio activo de amplio espectro efectivo contra pulgas y garrapatas." },
+      { title: "Protección Prolongada", description: "Protección de hasta 4 semanas contra pulgas y garrapatas." },
+      { title: "Fácil Aplicación", description: "Aplicación tópica simple y rápida en la línea dorsal." },
+      { title: "Seguro para Gatos", description: "Formulación segura específicamente desarrollada para gatos." }
+    ]
   },
   "ecthonil-perros": {
     id: "ecthonil-perros",
@@ -346,7 +465,24 @@ const PRODUCTS = {
     description: "Antiparasitario spot-on para perros.",
     badge: "Perros",
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "ECTHONIL PERROS",
+    logoSubtitle: "Antiparasitario Spot-on",
+    fullDescription: "<strong>Ecthonil Perros</strong> es un antiparasitario externo en pipeta (spot-on) para el control de pulgas y garrapatas en perros. Formulación con Fipronil para máxima eficacia.",
+    indication: "<strong>Indicado para:</strong><ul><li>Control de pulgas (Ctenocephalides canis, Ctenocephalides felis)</li><li>Control de garrapatas (Amblyoma, Dermacentor, Rhipicephalus, Ixodes)</li><li>Tratamiento de infestaciones existentes</li><li>Prevención de re-infestación</li></ul>",
+    presentationTitle: "PRESENTACIONES",
+    presentationSubtitle: "Pipetas spot-on según peso del perro",
+    formula: "<strong>FÓRMULA</strong><br>Cada pipeta contiene:<br>Fipronil: 10%<br>Vehículo c.s.",
+    dosage: "<strong>POSOLOGÍA Y ADMINISTRACIÓN</strong><br><strong>Perros:</strong> Aplicar una pipeta completa sobre la piel, separando el pelo en la línea dorsal entre los omóplatos. Asegurar contacto directo con la piel. Seleccionar la pipeta según el peso del perro.<br><br><strong>Vía de administración:</strong> Tópica (spot-on)<br><strong>Frecuencia:</strong> Aplicar mensualmente<br><strong>Contraindicaciones:</strong> No administrar en cachorros menores de 8 semanas de edad ni en perros con hipersensibilidad al fipronil.<br><strong>Precauciones:</strong> No bañar al animal 48 horas antes ni después de la aplicación.",
+    benefitsTitle: "Beneficios del Producto",
+    benefitsSubtitle: "Características que hacen de Ecthonil Perros la mejor opción",
+    benefits: [
+      { title: "Fipronil", description: "Principio activo de amplio espectro efectivo contra pulgas y garrapatas." },
+      { title: "Protección Prolongada", description: "Protección de hasta 4 semanas contra pulgas y garrapatas." },
+      { title: "Múltiples Tamaños", description: "Presentaciones adaptadas según el peso del perro para dosificación precisa." },
+      { title: "Fácil Aplicación", description: "Aplicación tópica simple y rápida en la línea dorsal." }
+    ]
   },
   "ivermectina-250": {
     id: "ivermectina-250",
@@ -411,7 +547,24 @@ const PRODUCTS = {
     description: "Antiparasitario interno completo para cachorros y gatitos.",
     badge: "Popular",
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "TOTAL FULL CG",
+    logoSubtitle: "Antiparasitario Interno de Amplio Espectro",
+    fullDescription: "<strong>Total Full CG Perros y Gatos</strong> es un antiparasitario interno de amplio espectro en comprimidos palatables. Indicado para la prevención y tratamiento de infestaciones por cestodes y nematodes en cachorros y gatitos.",
+    indication: "<strong>Indicado para:</strong><ul><li>Prevención y tratamiento de cestodes</li><li>Prevención y tratamiento de nematodes</li><li>Desparasitación en cachorros y gatitos</li><li>Tratamiento de infestaciones parasitarias</li></ul>",
+    presentationTitle: "PRESENTACIÓN",
+    presentationSubtitle: "Envases con 2 comprimidos",
+    formula: "<strong>FÓRMULA</strong><br>Antiparasitario de amplio espectro con acción contra cestodes y nematodes.",
+    dosage: "<strong>POSOLOGÍA Y ADMINISTRACIÓN</strong><br><strong>Perros y Gatos:</strong> Según indicación veterinaria, según peso y edad del animal.<br><br><strong>Vía de administración:</strong> Oral<br><strong>Contraindicaciones:</strong> No administrar en animales con hipersensibilidad a los componentes.<br><strong>Restricciones:</strong> No administrar en cachorros o gatitos menores de la edad recomendada.",
+    benefitsTitle: "Beneficios del Producto",
+    benefitsSubtitle: "Características que hacen de Total Full CG la mejor opción",
+    benefits: [
+      { title: "Amplio Espectro", description: "Efectivo contra una amplia gama de parásitos internos (cestodes y nematodes)." },
+      { title: "Para Cachorros y Gatitos", description: "Formulación segura y adecuada para animales jóvenes." },
+      { title: "Comprimidos Palatables", description: "Fácil administración gracias a su sabor agradable." },
+      { title: "Tratamiento Completo", description: "Solución completa para la desparasitación de cachorros y gatitos." }
+    ]
   },
   "total-full-lc-perros": {
     id: "total-full-lc-perros",
@@ -423,7 +576,24 @@ const PRODUCTS = {
     description: "Antiparasitario interno en comprimidos para perros.",
     badge: "Perros",
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "TOTAL FULL LC PERROS",
+    logoSubtitle: "Antiparasitario Interno de Liberación Prolongada",
+    fullDescription: "<strong>Total Full LC Perros</strong> es un antiparasitario interno de liberación prolongada en comprimidos palatables ranurados. Indicado para la prevención y tratamiento de cestodes y nematodes en perros.",
+    indication: "<strong>Indicado para:</strong><ul><li>Prevención y tratamiento de cestodes</li><li>Prevención y tratamiento de nematodes</li><li>Desparasitación en perros</li><li>Tratamiento de infestaciones parasitarias</li></ul>",
+    presentationTitle: "PRESENTACIÓN",
+    presentationSubtitle: "Envase con 1 blister de 2 comprimidos",
+    formula: "<strong>FÓRMULA</strong><br>Cada comprimido contiene:<br>Fenbendazol: 200 mg<br>Pamoato de Pirantel: 80 mg<br>Praziquantel: 20 mg<br>Excipientes c.s.",
+    dosage: "<strong>POSOLOGÍA Y ADMINISTRACIÓN</strong><br><strong>Perros:</strong> 1 comprimido por cada 4 kg de peso corporal en una sola administración. En infestaciones severas, repetir la dosis después de 24 horas. Repetir la desparasitación a los 15-21 días.<br><br><strong>Vía de administración:</strong> Oral<br><strong>Contraindicaciones:</strong> No administrar en animales con hipersensibilidad a los componentes.<br><strong>Efectos colaterales:</strong> Ocasionalmente, puede presentarse hipersalivación, náuseas, vómitos o diarrea, que remiten espontáneamente.<br><strong>Restricciones:</strong> No administrar en cachorros menores de 20 días.",
+    benefitsTitle: "Beneficios del Producto",
+    benefitsSubtitle: "Características que hacen de Total Full LC Perros la mejor opción",
+    benefits: [
+      { title: "Liberación Prolongada", description: "Tecnología de liberación prolongada que asegura una acción sostenida contra los parásitos." },
+      { title: "Amplio Espectro", description: "Efectivo contra cestodes y nematodes gracias a su combinación de principios activos." },
+      { title: "Comprimidos Ranurados", description: "Comprimidos ranurados que facilitan la división para ajustar la dosis según el peso del animal." },
+      { title: "Palatable", description: "Sabor agradable que facilita la administración." }
+    ]
   },
   "total-full-lc-gatos": {
     id: "total-full-lc-gatos",
@@ -435,7 +605,24 @@ const PRODUCTS = {
     description: "Antiparasitario interno en comprimidos para gatos.",
     badge: "Gatos",
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "TOTAL FULL LC GATOS",
+    logoSubtitle: "Antiparasitario Interno de Liberación Prolongada",
+    fullDescription: "<strong>Total Full LC Gatos</strong> es un antiparasitario interno de liberación prolongada en comprimidos palatables ranurados. Indicado para la prevención y tratamiento de cestodes y nematodes en gatos.",
+    indication: "<strong>Indicado para:</strong><ul><li>Prevención y tratamiento de cestodes</li><li>Prevención y tratamiento de nematodes</li><li>Desparasitación en gatos</li><li>Tratamiento de infestaciones parasitarias</li></ul>",
+    presentationTitle: "PRESENTACIÓN",
+    presentationSubtitle: "Envase con 1 blister de 2 comprimidos",
+    formula: "<strong>FÓRMULA</strong><br>Cada comprimido contiene:<br>Fenbendazol: 200 mg<br>Pamoato de Pirantel: 80 mg<br>Praziquantel: 20 mg<br>Excipientes c.s.",
+    dosage: "<strong>POSOLOGÍA Y ADMINISTRACIÓN</strong><br><strong>Gatos:</strong> 1 comprimido por cada 4 kg de peso corporal en una sola administración. En infestaciones severas, repetir la dosis después de 24 horas. Repetir la desparasitación a los 15-21 días.<br><br><strong>Vía de administración:</strong> Oral<br><strong>Contraindicaciones:</strong> No administrar en animales con hipersensibilidad a los componentes.<br><strong>Efectos colaterales:</strong> Ocasionalmente, puede presentarse hipersalivación, náuseas, vómitos o diarrea, que remiten espontáneamente.<br><strong>Restricciones:</strong> No administrar en gatitos menores de 20 días ni en gatas preñadas hasta el día 41 de gestación.",
+    benefitsTitle: "Beneficios del Producto",
+    benefitsSubtitle: "Características que hacen de Total Full LC Gatos la mejor opción",
+    benefits: [
+      { title: "Liberación Prolongada", description: "Tecnología de liberación prolongada que asegura una acción sostenida contra los parásitos." },
+      { title: "Amplio Espectro", description: "Efectivo contra cestodes y nematodes gracias a su combinación de principios activos." },
+      { title: "Comprimidos Ranurados", description: "Comprimidos ranurados que facilitan la división para ajustar la dosis según el peso del animal." },
+      { title: "Palatable", description: "Sabor agradable que facilita la administración en gatos." }
+    ]
   },
   "total-full-suspension-gatos": {
     id: "total-full-suspension-gatos",
@@ -447,7 +634,24 @@ const PRODUCTS = {
     description: "Antiparasitario interno en suspensión para gatos.",
     badge: "Gatos",
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "TOTAL FULL SUSPENSIÓN GATOS",
+    logoSubtitle: "Antiparasitario Interno en Suspensión Oral",
+    fullDescription: "<strong>Total Full Suspensión Gatos</strong> es un antiparasitario interno en suspensión oral. Indicado para el tratamiento de infestaciones por cestodes y nematodes en gatos.",
+    indication: "<strong>Indicado para:</strong><ul><li>Tratamiento de infestaciones por cestodes</li><li>Tratamiento de infestaciones por nematodes</li><li>Desparasitación en gatos</li><li>Tratamiento de infestaciones parasitarias</li></ul>",
+    presentationTitle: "PRESENTACIÓN",
+    presentationSubtitle: "Frasco de 15 ml con jeringa dosificadora",
+    formula: "<strong>FÓRMULA</strong><br>Cada 100 ml de suspensión contiene:<br>Fenbendazol: 5 g<br>Pamoato de Pirantel: 2 g<br>Praziquantel: 0,5 g<br>Excipientes c.s.",
+    dosage: "<strong>POSOLOGÍA Y ADMINISTRACIÓN</strong><br><strong>Gatos:</strong> 1 ml por kg de peso corporal en una sola administración. En infestaciones severas, repetir la dosis después de 24 horas. Repetir la desparasitación a los 15-21 días.<br><br><strong>Vía de administración:</strong> Oral<br><strong>Contraindicaciones:</strong> No administrar en animales con hipersensibilidad a los componentes.<br><strong>Efectos colaterales:</strong> Ocasionalmente, puede presentarse hipersalivación, náuseas, vómitos o diarrea, que remiten espontáneamente.<br><strong>Restricciones:</strong> No administrar en gatitos menores de 20 días ni en gatas preñadas hasta el día 41 de gestación.",
+    benefitsTitle: "Beneficios del Producto",
+    benefitsSubtitle: "Características que hacen de Total Full Suspensión Gatos la mejor opción",
+    benefits: [
+      { title: "Suspensión Oral", description: "Formulación en suspensión que facilita la administración en gatos." },
+      { title: "Amplio Espectro", description: "Efectivo contra cestodes y nematodes gracias a su combinación de principios activos." },
+      { title: "Jeringa Dosificadora", description: "Incluye jeringa dosificadora para facilitar la administración precisa según el peso del animal." },
+      { title: "Fácil Administración", description: "Formulación líquida que facilita la administración en gatos de todas las edades." }
+    ]
   },
   "total-full-suspension-perros": {
     id: "total-full-suspension-perros",
@@ -459,7 +663,24 @@ const PRODUCTS = {
     description: "Antiparasitario interno en suspensión para perros.",
     badge: "Perros",
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "TOTAL FULL SUSPENSIÓN PERROS",
+    logoSubtitle: "Antiparasitario Interno en Suspensión Oral",
+    fullDescription: "<strong>Total Full Suspensión Perros</strong> es un antiparasitario interno en suspensión oral. Indicado para el tratamiento de infestaciones por nematodes y protozoarios en perros.",
+    indication: "<strong>Indicado para:</strong><ul><li>Tratamiento de infestaciones por nematodes</li><li>Tratamiento de infestaciones por protozoarios (Giardia spp.)</li><li>Desparasitación en perros</li><li>Tratamiento de infestaciones parasitarias</li></ul>",
+    presentationTitle: "PRESENTACIÓN",
+    presentationSubtitle: "Frasco de 15 ml con jeringa dosificadora",
+    formula: "<strong>FÓRMULA</strong><br>Cada 100 ml de suspensión contiene:<br>Fenbendazol: 5 g<br>Pamoato de Pirantel: 0,5 g<br>Excipientes c.s.",
+    dosage: "<strong>POSOLOGÍA Y ADMINISTRACIÓN</strong><br><strong>Perros:</strong> 1 ml por kg de peso corporal en una sola administración. En infestaciones severas, repetir la dosis después de 24 horas. Repetir la desparasitación a los 15-21 días. Para el tratamiento de Giardia spp., administrar 1 ml/kg/día durante 3 días.<br><br><strong>Vía de administración:</strong> Oral<br><strong>Contraindicaciones:</strong> No administrar en animales con hipersensibilidad a los componentes.<br><strong>Efectos colaterales:</strong> Ocasionalmente, puede presentarse hipersalivación, náuseas, vómitos o diarrea, que remiten espontáneamente.<br><strong>Restricciones:</strong> No administrar en cachorros menores de 20 días.",
+    benefitsTitle: "Beneficios del Producto",
+    benefitsSubtitle: "Características que hacen de Total Full Suspensión Perros la mejor opción",
+    benefits: [
+      { title: "Suspensión Oral", description: "Formulación en suspensión que facilita la administración en perros." },
+      { title: "Amplio Espectro", description: "Efectivo contra nematodes y protozoarios, incluyendo Giardia spp." },
+      { title: "Jeringa Dosificadora", description: "Incluye jeringa dosificadora para facilitar la administración precisa según el peso del animal." },
+      { title: "Tratamiento de Giardia", description: "Especialmente efectivo en el tratamiento de Giardia spp. con esquema de 3 días." }
+    ]
   },
 
   // ============================================
@@ -1046,7 +1267,24 @@ const PRODUCTS = {
       { name: "21 comprimidos", price: null, image: "images/oltrans-flex.webp" },
       { name: "70 comprimidos", price: null, image: "images/oltrans-flex.webp" }
     ],
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "OL TRANS FLEX",
+    logoSubtitle: "Coadyuvante Osteoarticular",
+    fullDescription: "<strong>OL Trans Flex</strong> es un coadyuvante osteoarticular en comprimidos palatables. Suplemento nutricional para conservar la salud articular en perros.",
+    indication: "<strong>Indicado para:</strong><ul><li>Conservar la salud articular en perros</li><li>Suplemento nutricional para el mantenimiento de la movilidad</li><li>Apoyo en casos de desgaste articular</li></ul>",
+    presentationTitle: "PRESENTACIONES",
+    presentationSubtitle: "Envases con 3 y 10 blisters de 7 comprimidos cada uno",
+    formula: "<strong>FÓRMULA</strong><br>Cada comprimido contiene:<br>Glucosamina Sulfato: 440 mg<br>Metilsulfonilmetano (MSM): 400 mg<br>Ácido Ascórbico: 66 mg<br>Manganeso Gluconato: 10 mg<br>Excipientes c.s.",
+    dosage: "<strong>POSOLOGÍA Y ADMINISTRACIÓN</strong><br><strong>Perros:</strong> 1 comprimido cada 20 kg de peso cada 24 horas, por un período no menor a 4-6 semanas.<br><br><strong>Vía de administración:</strong> Oral<br><strong>Contraindicaciones:</strong> No utilizar en animales con hipersensibilidad a los principios activos.",
+    benefitsTitle: "Beneficios del Producto",
+    benefitsSubtitle: "Características que hacen de OL Trans Flex la mejor opción",
+    benefits: [
+      { title: "Glucosamina y MSM", description: "Combinación de Glucosamina Sulfato y MSM para el mantenimiento de la salud articular y la flexibilidad." },
+      { title: "Ácido Ascórbico", description: "Vitamina C que contribuye a la síntesis de colágeno y al mantenimiento del tejido conectivo." },
+      { title: "Manganeso", description: "Mineral esencial que participa en la formación de cartílago y hueso." },
+      { title: "Comprimidos Palatables", description: "Fácil administración gracias a su sabor agradable que facilita la aceptación por parte de la mascota." }
+    ]
   },
   "poten-pet": {
     id: "poten-pet",
@@ -1058,7 +1296,24 @@ const PRODUCTS = {
     description: "Suplemento nutricional energético para perros.",
     badge: "Perros",
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "POTEN PET",
+    logoSubtitle: "Biomodulador Revitalizante y Energizante",
+    fullDescription: "<strong>Poten Pet</strong> es un biomodulador revitalizante y energizante en comprimidos palatables. Complemento dietario para perros adultos que necesitan suplementar su dieta.",
+    indication: "<strong>Indicado para:</strong><ul><li>Perros adultos que necesitan suplementar su dieta</li><li>Estados de convalecencia</li><li>Estrés o actividad física intensa</li><li>Recuperación energética</li></ul>",
+    presentationTitle: "PRESENTACIÓN",
+    presentationSubtitle: "Envases con 30 comprimidos",
+    formula: "<strong>FÓRMULA</strong><br>Cada comprimido contiene:<br>Metionina DL: 100 mg<br>Taurina: 40 mg<br>Nicotinamida: 20 mg<br>Vitamina B1: 5 mg<br>Vitamina B6: 5 mg<br>Vitamina B2: 2 mg<br>Vitamina B12: 1 mg<br>Excipientes c.s.",
+    dosage: "<strong>POSOLOGÍA Y ADMINISTRACIÓN</strong><br><strong>Perros:</strong> 1 comprimido cada 10 kg de peso corporal, una vez al día.<br><br><strong>Vía de administración:</strong> Oral<br><strong>Contraindicaciones:</strong> No administrar en animales con hipersensibilidad a los componentes.",
+    benefitsTitle: "Beneficios del Producto",
+    benefitsSubtitle: "Características que hacen de Poten Pet la mejor opción",
+    benefits: [
+      { title: "Metionina y Taurina", description: "Aminoácidos esenciales que contribuyen al metabolismo energético y al bienestar general." },
+      { title: "Complejo de Vitaminas B", description: "Vitaminas del grupo B que participan en el metabolismo energético y el funcionamiento del sistema nervioso." },
+      { title: "Revitalizante", description: "Ayuda a recuperar la energía y vitalidad en perros adultos." },
+      { title: "Comprimidos Palatables", description: "Fácil administración gracias a su sabor agradable." }
+    ]
   },
   "poten-pet-gatos": {
     id: "poten-pet-gatos",
@@ -1070,7 +1325,24 @@ const PRODUCTS = {
     description: "Suplemento nutricional energético para gatos.",
     badge: "Gatos",
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "POTEN PET GATOS",
+    logoSubtitle: "Biomodulador Revitalizante y Energizante",
+    fullDescription: "<strong>Poten Pet Gatos</strong> es un biomodulador revitalizante y energizante en pasta palatable. Complemento dietario para gatos adultos que necesitan suplementar su dieta.",
+    indication: "<strong>Indicado para:</strong><ul><li>Gatos adultos que necesitan suplementar su dieta</li><li>Estados de convalecencia</li><li>Estrés o actividad física intensa</li><li>Recuperación energética</li></ul>",
+    presentationTitle: "PRESENTACIÓN",
+    presentationSubtitle: "Jeringa dosificadora con 7 g",
+    formula: "<strong>FÓRMULA</strong><br>Cada 1 g de pasta contiene:<br>Metionina DL: 50 mg<br>Taurina: 20 mg<br>Nicotinamida: 10 mg<br>Vitamina B1: 2,5 mg<br>Vitamina B6: 2,5 mg<br>Vitamina B2: 1 mg<br>Vitamina B12: 0,5 mg<br>Excipientes c.s.",
+    dosage: "<strong>POSOLOGÍA Y ADMINISTRACIÓN</strong><br><strong>Gatos:</strong> 1 dosis diaria por animal.<br><br><strong>Vía de administración:</strong> Oral<br><strong>Contraindicaciones:</strong> No administrar en animales con hipersensibilidad a los componentes.",
+    benefitsTitle: "Beneficios del Producto",
+    benefitsSubtitle: "Características que hacen de Poten Pet Gatos la mejor opción",
+    benefits: [
+      { title: "Metionina y Taurina", description: "Aminoácidos esenciales especialmente importantes para gatos, que contribuyen al metabolismo energético y al bienestar general." },
+      { title: "Complejo de Vitaminas B", description: "Vitaminas del grupo B que participan en el metabolismo energético y el funcionamiento del sistema nervioso." },
+      { title: "Pasta Palatable", description: "Formulación en pasta que facilita la administración en gatos." },
+      { title: "Jeringa Dosificadora", description: "Incluye jeringa dosificadora para facilitar la administración precisa." }
+    ]
   },
   "relay-c": {
     id: "relay-c",
@@ -1082,7 +1354,24 @@ const PRODUCTS = {
     description: "Suplemento de vitamina C para sistema inmune.",
     badge: null,
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "RELAY C",
+    logoSubtitle: "Suplemento de Vitamina C",
+    fullDescription: "<strong>Relay C</strong> es un suplemento vitamínico en comprimidos palatables. Suplemento de vitamina C para perros y gatos que contribuye al fortalecimiento del sistema inmune.",
+    indication: "<strong>Indicado para:</strong><ul><li>Fortalecimiento del sistema inmune</li><li>Suplementación de vitamina C</li><li>Estados de convalecencia</li><li>Apoyo en procesos de recuperación</li></ul>",
+    presentationTitle: "PRESENTACIÓN",
+    presentationSubtitle: "Envases con 30 comprimidos",
+    formula: "<strong>FÓRMULA</strong><br>Cada comprimido contiene:<br>Ácido Ascórbico (Vitamina C): 500 mg<br>Excipientes c.s.",
+    dosage: "<strong>POSOLOGÍA Y ADMINISTRACIÓN</strong><br><strong>Perros y Gatos:</strong> 1 comprimido por cada 10 kg de peso corporal por día.<br><br><strong>Vía de administración:</strong> Oral<br><strong>Contraindicaciones:</strong> No administrar en animales con hipersensibilidad a la vitamina C.",
+    benefitsTitle: "Beneficios del Producto",
+    benefitsSubtitle: "Características que hacen de Relay C la mejor opción",
+    benefits: [
+      { title: "Vitamina C", description: "Ácido ascórbico que contribuye al funcionamiento normal del sistema inmune y actúa como antioxidante." },
+      { title: "Sistema Inmune", description: "Ayuda a fortalecer las defensas naturales del organismo." },
+      { title: "Antioxidante", description: "Protege las células contra el estrés oxidativo." },
+      { title: "Comprimidos Palatables", description: "Fácil administración gracias a su sabor agradable." }
+    ]
   },
   "tonipet": {
     id: "tonipet",
@@ -1094,7 +1383,24 @@ const PRODUCTS = {
     description: "Reconstituyente vitamínico para mascotas en recuperación.",
     badge: null,
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "TONIPET",
+    logoSubtitle: "Suplemento Vitamínico y Mineral",
+    fullDescription: "<strong>Tonipet</strong> es un suplemento vitamínico y mineral en comprimidos palatables. Suplemento nutricional para perros y gatos en crecimiento, gestación, lactancia o convalecencia.",
+    indication: "<strong>Indicado para:</strong><ul><li>Perros y gatos en crecimiento</li><li>Gestación y lactancia</li><li>Estados de convalecencia</li><li>Deficiencias nutricionales</li><li>Recuperación post-quirúrgica</li></ul>",
+    presentationTitle: "PRESENTACIÓN",
+    presentationSubtitle: "Envases con 30 comprimidos",
+    formula: "<strong>FÓRMULA</strong><br>Cada comprimido contiene:<br>Vitaminas: A, D3, E, B1, B2, B6, B12, C<br>Nicotinamida, Ácido Pantoténico, Ácido Fólico, Biotina<br>Minerales: Hierro, Zinc, Manganeso, Cobre, Yodo, Selenio, Calcio, Fósforo<br>Excipientes c.s.",
+    dosage: "<strong>POSOLOGÍA Y ADMINISTRACIÓN</strong><br><strong>Perros:</strong> 1 comprimido cada 10 kg de peso corporal, una vez al día.<br><strong>Gatos:</strong> 1 comprimido al día.<br><br><strong>Vía de administración:</strong> Oral<br><strong>Contraindicaciones:</strong> No administrar en animales con hipersensibilidad a los componentes.",
+    benefitsTitle: "Beneficios del Producto",
+    benefitsSubtitle: "Características que hacen de Tonipet la mejor opción",
+    benefits: [
+      { title: "Complejo Multivitamínico", description: "Complejo completo de vitaminas esenciales para el correcto funcionamiento del organismo." },
+      { title: "Minerales Esenciales", description: "Minerales importantes para el crecimiento, desarrollo y mantenimiento de la salud." },
+      { title: "Reconstituyente", description: "Ayuda a recuperar el estado nutricional en animales en convalecencia." },
+      { title: "Comprimidos Palatables", description: "Fácil administración gracias a su sabor agradable." }
+    ]
   },
   "vitaminico-aedk": {
     id: "vitaminico-aedk",
@@ -1106,7 +1412,25 @@ const PRODUCTS = {
     description: "Complejo vitamínico A, E, D y K para aves.",
     badge: null,
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "VITAMÍNICO AEDK AVES",
+    logoSubtitle: "Complejo Vitamínico para Aves",
+    fullDescription: "<strong>Vitamínico AEDK Aves</strong> es un complejo vitamínico liposoluble formulado específicamente para aves. Proporciona las vitaminas A, E, D y K esenciales para el correcto funcionamiento del organismo de las aves.",
+    indication: "<strong>Indicado para:</strong><ul><li>Suplementación vitamínica en aves</li><li>Deficiencias de vitaminas A, E, D y K</li><li>Estados de convalecencia</li><li>Apoyo nutricional en aves enfermas</li><li>Prevención de deficiencias vitamínicas</li></ul>",
+    presentationTitle: "PRESENTACIÓN",
+    presentationSubtitle: "Solución oral",
+    formula: "<strong>FÓRMULA</strong><br>Cada ml contiene:<br>Vitamina A: según presentación<br>Vitamina E: según presentación<br>Vitamina D3: según presentación<br>Vitamina K: según presentación<br>Vehículo c.s.",
+    dosage: "<strong>POSOLOGÍA Y ADMINISTRACIÓN</strong><br><strong>Aves:</strong> Administrar según indicación veterinaria, generalmente 1-2 gotas en el agua de bebida o directamente en el pico, según el tamaño del ave.<br><br><strong>Vía de administración:</strong> Oral (agua de bebida o directamente)<br><strong>Frecuencia:</strong> Según indicación veterinaria<br><strong>Contraindicaciones:</strong> No administrar en aves con hipersensibilidad a alguno de los componentes.<br><strong>Precauciones:</strong> No exceder la dosis recomendada para evitar hipervitaminosis.",
+    benefitsTitle: "Beneficios del Producto",
+    benefitsSubtitle: "Características que hacen de Vitamínico AEDK Aves la mejor opción",
+    benefits: [
+      { title: "Vitaminas Liposolubles", description: "Complejo de vitaminas A, E, D y K esenciales para el metabolismo y la salud de las aves." },
+      { title: "Vitamina A", description: "Esencial para la visión, el crecimiento y el mantenimiento de las mucosas." },
+      { title: "Vitamina E", description: "Antioxidante importante que protege las células del daño oxidativo." },
+      { title: "Vitamina D3", description: "Esencial para el metabolismo del calcio y fósforo, importante para la salud ósea." },
+      { title: "Vitamina K", description: "Necesaria para la coagulación sanguínea y el metabolismo óseo." }
+    ]
   },
 
   // ============================================
@@ -1122,7 +1446,24 @@ const PRODUCTS = {
     description: "Enjuague bucal para higiene oral de mascotas.",
     badge: null,
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "BIOCLIN ENJUAGUE BUCAL",
+    logoSubtitle: "Enjuague Bucal Antiséptico",
+    fullDescription: "<strong>Bioclin Enjuague Bucal</strong> es un enjuague bucal antiséptico para la higiene dental de perros y gatos. Previene la formación de placa bacteriana y el mal aliento, manteniendo una boca sana y fresca.",
+    indication: "<strong>Indicado para:</strong><ul><li>Higiene bucal diaria</li><li>Prevención de placa bacteriana</li><li>Control del mal aliento (halitosis)</li><li>Mantenimiento de encías saludables</li><li>Prevención de sarro</li></ul>",
+    presentationTitle: "PRESENTACIÓN",
+    presentationSubtitle: "Frasco con solución",
+    formula: "<strong>FÓRMULA</strong><br>Enjuague bucal antiséptico con acción bactericida y desodorizante.",
+    dosage: "<strong>POSOLOGÍA Y ADMINISTRACIÓN</strong><br><strong>Perros y Gatos:</strong> Aplicar directamente en la boca o mezclar con el agua de bebida según indicación veterinaria.<br><br><strong>Vía de administración:</strong> Oral<br><strong>Contraindicaciones:</strong> No administrar en animales con hipersensibilidad a los componentes.",
+    benefitsTitle: "Beneficios del Producto",
+    benefitsSubtitle: "Características que hacen de Bioclin Enjuague Bucal la mejor opción",
+    benefits: [
+      { title: "Antiséptico", description: "Acción antiséptica que ayuda a eliminar bacterias causantes de placa y mal aliento." },
+      { title: "Prevención de Placa", description: "Ayuda a prevenir la formación de placa bacteriana y sarro." },
+      { title: "Frescor Bucal", description: "Elimina el mal aliento manteniendo un aliento fresco." },
+      { title: "Fácil Uso", description: "Fácil aplicación para mantener la higiene bucal de tu mascota." }
+    ]
   },
   "bioclin-gel-antiplaca": {
     id: "bioclin-gel-antiplaca",
@@ -1134,7 +1475,24 @@ const PRODUCTS = {
     description: "Gel dental para prevención de placa y sarro.",
     badge: null,
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "BIOCLIN GEL ANTIPLACA",
+    logoSubtitle: "Gel Dental Antiplaca",
+    fullDescription: "<strong>Bioclin Gel Antiplaca</strong> es un gel dental para el control de placa bacteriana. Aplicación fácil para mantener una boca sana y libre de sarro en perros y gatos.",
+    indication: "<strong>Indicado para:</strong><ul><li>Control de placa bacteriana</li><li>Prevención de sarro</li><li>Higiene bucal diaria</li><li>Mantenimiento de encías saludables</li><li>Prevención de enfermedades periodontales</li></ul>",
+    presentationTitle: "PRESENTACIÓN",
+    presentationSubtitle: "Tubo con gel",
+    formula: "<strong>FÓRMULA</strong><br>Gel dental con acción antiplaca y antiséptica.",
+    dosage: "<strong>POSOLOGÍA Y ADMINISTRACIÓN</strong><br><strong>Perros y Gatos:</strong> Aplicar directamente sobre los dientes y encías según indicación veterinaria.<br><br><strong>Vía de administración:</strong> Tópico oral<br><strong>Contraindicaciones:</strong> No administrar en animales con hipersensibilidad a los componentes.",
+    benefitsTitle: "Beneficios del Producto",
+    benefitsSubtitle: "Características que hacen de Bioclin Gel Antiplaca la mejor opción",
+    benefits: [
+      { title: "Control de Placa", description: "Efectivo en el control y prevención de la formación de placa bacteriana." },
+      { title: "Prevención de Sarro", description: "Ayuda a prevenir la formación de sarro dental." },
+      { title: "Aplicación Fácil", description: "Gel de fácil aplicación que se adhiere a los dientes para una acción prolongada." },
+      { title: "Salud Periodontal", description: "Contribuye al mantenimiento de encías saludables y previene enfermedades periodontales." }
+    ]
   },
   "clorhexidina": {
     id: "clorhexidina",
@@ -1190,7 +1548,24 @@ const PRODUCTS = {
     description: "Antibiótico de amplio espectro para infecciones bacterianas.",
     badge: null,
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "CEFALEXINA 500",
+    logoSubtitle: "Antibiótico de Amplio Espectro",
+    fullDescription: "<strong>Cefalexina 500</strong> es un antibiótico de amplio espectro de la familia de las cefalosporinas de primera generación. Indicado para el tratamiento de infecciones bacterianas en perros y gatos.",
+    indication: "<strong>Indicado para:</strong><ul><li>Infecciones del tracto respiratorio</li><li>Infecciones del tracto urinario</li><li>Infecciones de piel y tejidos blandos</li><li>Infecciones óseas</li><li>Infecciones causadas por bacterias Gram positivas y algunas Gram negativas</li></ul>",
+    presentationTitle: "PRESENTACIÓN",
+    presentationSubtitle: "Envases con comprimidos de 500 mg",
+    formula: "<strong>FÓRMULA</strong><br>Cada comprimido contiene:<br>Cefalexina: 500 mg<br>Excipientes c.s.",
+    dosage: "<strong>POSOLOGÍA Y ADMINISTRACIÓN</strong><br><strong>Perros y Gatos:</strong> 15-30 mg por kg de peso corporal cada 8-12 horas, durante 7-14 días según indicación veterinaria.<br><br><strong>Vía de administración:</strong> Oral<br><strong>Contraindicaciones:</strong> No administrar en animales con hipersensibilidad a las cefalosporinas o penicilinas.<br><strong>Efectos colaterales:</strong> Ocasionalmente pueden presentarse trastornos gastrointestinales como vómitos o diarrea.<br><strong>Restricciones:</strong> Usar con precaución en animales con insuficiencia renal.",
+    benefitsTitle: "Beneficios del Producto",
+    benefitsSubtitle: "Características que hacen de Cefalexina 500 la mejor opción",
+    benefits: [
+      { title: "Amplio Espectro", description: "Efectivo contra una amplia gama de bacterias Gram positivas y algunas Gram negativas." },
+      { title: "Bien Absorbido", description: "Excelente absorción oral con buena biodisponibilidad." },
+      { title: "Seguro y Eficaz", description: "Antibiótico de primera generación con perfil de seguridad establecido." },
+      { title: "Múltiples Indicaciones", description: "Útil en el tratamiento de diversas infecciones bacterianas en perros y gatos." }
+    ]
   },
   "cloralen": {
     id: "cloralen",
@@ -1202,7 +1577,24 @@ const PRODUCTS = {
     description: "Antibiótico para infecciones sensibles.",
     badge: null,
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "CLORALEN",
+    logoSubtitle: "Antibiótico de Amplio Espectro",
+    fullDescription: "<strong>Cloralen</strong> es un antibiótico de amplio espectro a base de cloranfenicol. Indicado para el tratamiento de infecciones bacterianas sensibles en perros y gatos.",
+    indication: "<strong>Indicado para:</strong><ul><li>Infecciones del tracto respiratorio</li><li>Infecciones del tracto digestivo</li><li>Infecciones de piel y tejidos blandos</li><li>Infecciones oculares</li><li>Infecciones causadas por bacterias Gram positivas y Gram negativas</li></ul>",
+    presentationTitle: "PRESENTACIÓN",
+    presentationSubtitle: "Envases con comprimidos",
+    formula: "<strong>FÓRMULA</strong><br>Cada comprimido contiene:<br>Cloranfenicol: según presentación<br>Excipientes c.s.",
+    dosage: "<strong>POSOLOGÍA Y ADMINISTRACIÓN</strong><br><strong>Perros y Gatos:</strong> 25-50 mg por kg de peso corporal cada 8-12 horas, durante 5-7 días según indicación veterinaria.<br><br><strong>Vía de administración:</strong> Oral<br><strong>Contraindicaciones:</strong> No administrar en animales con hipersensibilidad al cloranfenicol, en hembras gestantes o lactantes, ni en animales con disfunción hepática severa.<br><strong>Efectos colaterales:</strong> Ocasionalmente pueden presentarse trastornos gastrointestinales o supresión de la médula ósea con uso prolongado.<br><strong>Restricciones:</strong> Usar con precaución en animales con insuficiencia hepática o renal.",
+    benefitsTitle: "Beneficios del Producto",
+    benefitsSubtitle: "Características que hacen de Cloralen la mejor opción",
+    benefits: [
+      { title: "Amplio Espectro", description: "Efectivo contra una amplia gama de bacterias Gram positivas y Gram negativas." },
+      { title: "Bien Absorbido", description: "Excelente absorción oral con buena penetración tisular." },
+      { title: "Múltiples Indicaciones", description: "Útil en el tratamiento de diversas infecciones bacterianas." },
+      { title: "Eficacia Comprobada", description: "Antibiótico de amplio uso en medicina veterinaria con eficacia establecida." }
+    ]
   },
   "floxaday-comprimidos": {
     id: "floxaday-comprimidos",
@@ -1218,7 +1610,24 @@ const PRODUCTS = {
       { name: "200 mg", price: null, image: "images/floxaday.png" },
       { name: "400 mg", price: null, image: "images/floxaday.png" }
     ],
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "FLOXADAY COMPRIMIDOS",
+    logoSubtitle: "Antibiótico de Amplio Espectro",
+    fullDescription: "<strong>Floxaday Comprimidos</strong> es un antibiótico de amplio espectro de la familia de las fluoroquinolonas. Indicado para el tratamiento de infecciones bacterianas en perros y gatos.",
+    indication: "<strong>Indicado para:</strong><ul><li>Infecciones del tracto urinario</li><li>Infecciones del tracto respiratorio</li><li>Infecciones de piel y tejidos blandos</li><li>Infecciones gastrointestinales</li><li>Infecciones causadas por bacterias Gram negativas y algunas Gram positivas</li></ul>",
+    presentationTitle: "PRESENTACIONES",
+    presentationSubtitle: "Comprimidos de 100 mg, 200 mg y 400 mg",
+    formula: "<strong>FÓRMULA</strong><br>Cada comprimido contiene:<br>Enrofloxacina: 100 mg, 200 mg o 400 mg<br>Excipientes c.s.",
+    dosage: "<strong>POSOLOGÍA Y ADMINISTRACIÓN</strong><br><strong>Perros y Gatos:</strong> 5-10 mg por kg de peso corporal cada 24 horas, durante 5-10 días según indicación veterinaria. Seleccionar la presentación adecuada según el peso del animal.<br><br><strong>Vía de administración:</strong> Oral<br><strong>Contraindicaciones:</strong> No administrar en cachorros en crecimiento, hembras gestantes o lactantes, ni en animales con hipersensibilidad a las fluoroquinolonas.<br><strong>Efectos colaterales:</strong> Ocasionalmente pueden presentarse trastornos gastrointestinales o alteraciones en el cartílago articular en animales jóvenes.<br><strong>Restricciones:</strong> No utilizar en animales con trastornos convulsivos.",
+    benefitsTitle: "Beneficios del Producto",
+    benefitsSubtitle: "Características que hacen de Floxaday Comprimidos la mejor opción",
+    benefits: [
+      { title: "Amplio Espectro", description: "Efectivo contra una amplia gama de bacterias Gram negativas y algunas Gram positivas." },
+      { title: "Bien Absorbido", description: "Excelente absorción oral con buena penetración tisular." },
+      { title: "Múltiples Presentaciones", description: "Tres concentraciones diferentes para adaptarse al peso del animal." },
+      { title: "Eficacia Comprobada", description: "Antibiótico de amplio uso en medicina veterinaria con eficacia establecida." }
+    ]
   },
   "oxitetraciclina": {
     id: "oxitetraciclina",
@@ -1246,7 +1655,24 @@ const PRODUCTS = {
     description: "Dieta terapéutica para trastornos digestivos en gatos.",
     badge: "Gatos",
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "MV GATOS GASTROINTESTINAL",
+    logoSubtitle: "Dieta Prescripta para Trastornos Digestivos",
+    fullDescription: "<strong>MV Gatos Gastrointestinal</strong> es una dieta prescripta formulada específicamente para gatos con trastornos digestivos. Alimento completo y balanceado que ayuda a la recuperación y mantenimiento de la salud gastrointestinal.",
+    indication: "<strong>Indicado para:</strong><ul><li>Gatos con trastornos digestivos agudos y crónicos</li><li>Gastritis y enteritis</li><li>Diarrea aguda y crónica</li><li>Enfermedad inflamatoria intestinal</li><li>Recuperación post-quirúrgica del tracto digestivo</li></ul>",
+    presentationTitle: "PRESENTACIÓN",
+    presentationSubtitle: "Alimento seco completo y balanceado",
+    formula: "<strong>FÓRMULA</strong><br>Dieta prescripta con:<br>Proteínas de alta digestibilidad<br>Fibra soluble e insoluble balanceada<br>Ácidos grasos omega-3<br>Prebióticos<br>Niveles reducidos de grasa",
+    dosage: "<strong>POSOLOGÍA Y ADMINISTRACIÓN</strong><br><strong>Gatos:</strong> Administrar como único alimento según las necesidades calóricas del gato. La cantidad diaria debe dividirse en 2-3 comidas.<br><br><strong>Vía de administración:</strong> Oral<br><strong>Duración:</strong> Según indicación veterinaria, generalmente 2-4 semanas para casos agudos o de por vida para casos crónicos.<br><strong>Contraindicaciones:</strong> No utilizar en gatos con insuficiencia renal o hepática severa sin supervisión veterinaria.",
+    benefitsTitle: "Beneficios del Producto",
+    benefitsSubtitle: "Características que hacen de MV Gatos Gastrointestinal la mejor opción",
+    benefits: [
+      { title: "Alta Digestibilidad", description: "Proteínas de alta calidad y alta digestibilidad que reducen la carga sobre el sistema digestivo." },
+      { title: "Fibra Balanceada", description: "Combinación de fibra soluble e insoluble que ayuda a regular el tránsito intestinal." },
+      { title: "Prebióticos", description: "Contiene prebióticos que favorecen el desarrollo de la flora intestinal beneficiosa." },
+      { title: "Ácidos Grasos Omega-3", description: "Ácidos grasos omega-3 que ayudan a reducir la inflamación del tracto digestivo." }
+    ]
   },
   "mv-gatos-obesidad": {
     id: "mv-gatos-obesidad",
@@ -1258,7 +1684,24 @@ const PRODUCTS = {
     description: "Dieta baja en calorías para control de peso en gatos.",
     badge: "Gatos",
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "MV GATOS OBESIDAD",
+    logoSubtitle: "Dieta Prescripta para Control de Peso",
+    fullDescription: "<strong>MV Gatos Obesidad</strong> es una dieta prescripta baja en calorías formulada específicamente para gatos con sobrepeso u obesidad. Alimento completo y balanceado que ayuda a la pérdida de peso controlada y mantenimiento del peso ideal.",
+    indication: "<strong>Indicado para:</strong><ul><li>Gatos con sobrepeso u obesidad</li><li>Control de peso</li><li>Prevención de enfermedades asociadas al sobrepeso</li><li>Mantenimiento del peso ideal</li></ul>",
+    presentationTitle: "PRESENTACIÓN",
+    presentationSubtitle: "Alimento seco completo y balanceado",
+    formula: "<strong>FÓRMULA</strong><br>Dieta prescripta con:<br>Bajo contenido calórico<br>Alto contenido de proteínas<br>Fibra para saciedad<br>L-Carnitina para metabolismo de grasas<br>Vitaminas y minerales balanceados",
+    dosage: "<strong>POSOLOGÍA Y ADMINISTRACIÓN</strong><br><strong>Gatos:</strong> Administrar según las necesidades calóricas calculadas para pérdida de peso. La cantidad diaria debe dividirse en 2-3 comidas. Seguir las indicaciones del veterinario para el cálculo de la ración diaria.<br><br><strong>Vía de administración:</strong> Oral<br><strong>Duración:</strong> Hasta alcanzar el peso ideal, luego puede continuarse para mantenimiento.<br><strong>Contraindicaciones:</strong> No utilizar en gatos gestantes, lactantes o en crecimiento sin supervisión veterinaria.",
+    benefitsTitle: "Beneficios del Producto",
+    benefitsSubtitle: "Características que hacen de MV Gatos Obesidad la mejor opción",
+    benefits: [
+      { title: "Bajo en Calorías", description: "Formulación baja en calorías que permite la pérdida de peso controlada." },
+      { title: "Alto en Proteínas", description: "Alto contenido de proteínas que ayuda a preservar la masa muscular durante la pérdida de peso." },
+      { title: "L-Carnitina", description: "L-Carnitina que ayuda al metabolismo de las grasas y favorece la pérdida de peso." },
+      { title: "Fibra para Saciedad", description: "Contenido de fibra que proporciona sensación de saciedad con menos calorías." }
+    ]
   },
   "mv-gatos-renal": {
     id: "mv-gatos-renal",
@@ -1270,7 +1713,24 @@ const PRODUCTS = {
     description: "Dieta terapéutica para enfermedad renal en gatos.",
     badge: "Gatos",
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "MV GATOS RENAL",
+    logoSubtitle: "Dieta Prescripta para Enfermedad Renal",
+    fullDescription: "<strong>MV Gatos Renal</strong> es una dieta prescripta formulada específicamente para gatos con enfermedad renal crónica o aguda. Alimento completo y balanceado que ayuda a reducir la carga sobre los riñones y retrasar la progresión de la enfermedad.",
+    indication: "<strong>Indicado para:</strong><ul><li>Gatos con enfermedad renal crónica</li><li>Insuficiencia renal</li><li>Nefropatías</li><li>Prevención de cálculos renales</li><li>Apoyo nutricional en pacientes renales</li></ul>",
+    presentationTitle: "PRESENTACIÓN",
+    presentationSubtitle: "Alimento seco completo y balanceado",
+    formula: "<strong>FÓRMULA</strong><br>Dieta prescripta con:<br>Proteínas de alta calidad en cantidad reducida<br>Fósforo reducido<br>Sodio reducido<br>Ácidos grasos omega-3<br>Antioxidantes",
+    dosage: "<strong>POSOLOGÍA Y ADMINISTRACIÓN</strong><br><strong>Gatos:</strong> Administrar como único alimento según las necesidades calóricas del gato. La cantidad diaria debe dividirse en 2-3 comidas. Asegurar acceso constante a agua fresca.<br><br><strong>Vía de administración:</strong> Oral<br><strong>Duración:</strong> Generalmente de por vida para casos crónicos, según indicación veterinaria.<br><strong>Contraindicaciones:</strong> No utilizar en gatos gestantes, lactantes o en crecimiento sin supervisión veterinaria.",
+    benefitsTitle: "Beneficios del Producto",
+    benefitsSubtitle: "Características que hacen de MV Gatos Renal la mejor opción",
+    benefits: [
+      { title: "Proteínas Reducidas", description: "Cantidad reducida de proteínas de alta calidad que minimizan la carga sobre los riñones." },
+      { title: "Fósforo Reducido", description: "Niveles reducidos de fósforo que ayudan a prevenir la hiperfosfatemia." },
+      { title: "Ácidos Grasos Omega-3", description: "Ácidos grasos omega-3 que ayudan a reducir la inflamación y proteger la función renal." },
+      { title: "Antioxidantes", description: "Antioxidantes que ayudan a proteger las células renales del daño oxidativo." }
+    ]
   },
   "mv-gatos-urinario": {
     id: "mv-gatos-urinario",
@@ -1282,7 +1742,24 @@ const PRODUCTS = {
     description: "Dieta para prevención de problemas urinarios en gatos.",
     badge: "Gatos",
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "MV GATOS URINARIO",
+    logoSubtitle: "Dieta Prescripta para Salud Urinaria",
+    fullDescription: "<strong>MV Gatos Urinario</strong> es una dieta prescripta formulada específicamente para gatos con problemas del tracto urinario inferior. Alimento completo y balanceado que ayuda a prevenir la formación de cálculos y mantener la salud urinaria.",
+    indication: "<strong>Indicado para:</strong><ul><li>Gatos con cistitis idiopática felina</li><li>Prevención de cálculos urinarios</li><li>Trastornos del tracto urinario inferior</li><li>Mantenimiento de la salud urinaria</li></ul>",
+    presentationTitle: "PRESENTACIÓN",
+    presentationSubtitle: "Alimento seco completo y balanceado",
+    formula: "<strong>FÓRMULA</strong><br>Dieta prescripta con:<br>pH urinario controlado<br>Magnesio reducido<br>Alto contenido de humedad (si es húmedo)<br>Ácidos grasos omega-3<br>Antioxidantes",
+    dosage: "<strong>POSOLOGÍA Y ADMINISTRACIÓN</strong><br><strong>Gatos:</strong> Administrar como único alimento según las necesidades calóricas del gato. La cantidad diaria debe dividirse en 2-3 comidas. Asegurar acceso constante a agua fresca.<br><br><strong>Vía de administración:</strong> Oral<br><strong>Duración:</strong> Generalmente de por vida para prevención, según indicación veterinaria.<br><strong>Contraindicaciones:</strong> No utilizar en gatos con insuficiencia renal severa sin supervisión veterinaria.",
+    benefitsTitle: "Beneficios del Producto",
+    benefitsSubtitle: "Características que hacen de MV Gatos Urinario la mejor opción",
+    benefits: [
+      { title: "pH Controlado", description: "Formulación que ayuda a mantener un pH urinario adecuado para prevenir la formación de cálculos." },
+      { title: "Magnesio Reducido", description: "Niveles reducidos de magnesio que ayudan a prevenir la formación de cálculos de estruvita." },
+      { title: "Promueve la Ingesta de Agua", description: "Formulación que estimula la ingesta de agua, favoreciendo la dilución de la orina." },
+      { title: "Salud Urinaria", description: "Nutrientes específicos que ayudan a mantener la salud del tracto urinario." }
+    ]
   },
   "mv-perros-articular": {
     id: "mv-perros-articular",
@@ -1294,7 +1771,24 @@ const PRODUCTS = {
     description: "Dieta con condroprotectores para salud articular.",
     badge: "Perros",
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "MV PERROS ARTICULAR",
+    logoSubtitle: "Dieta Prescripta para Salud Articular",
+    fullDescription: "<strong>MV Perros Articular</strong> es una dieta prescripta formulada específicamente para perros con problemas articulares. Alimento completo y balanceado que contiene condroprotectores y nutrientes que ayudan a mantener la salud articular.",
+    indication: "<strong>Indicado para:</strong><ul><li>Perros con artritis y artrosis</li><li>Problemas articulares</li><li>Desgaste articular</li><li>Recuperación post-quirúrgica articular</li><li>Mantenimiento de la salud articular en perros mayores</li></ul>",
+    presentationTitle: "PRESENTACIÓN",
+    presentationSubtitle: "Alimento seco completo y balanceado",
+    formula: "<strong>FÓRMULA</strong><br>Dieta prescripta con:<br>Glucosamina y Condroitina<br>Ácidos grasos omega-3<br>Antioxidantes<br>Proteínas de alta calidad<br>Niveles controlados de calcio y fósforo",
+    dosage: "<strong>POSOLOGÍA Y ADMINISTRACIÓN</strong><br><strong>Perros:</strong> Administrar como único alimento según las necesidades calóricas del perro. La cantidad diaria debe dividirse en 2-3 comidas.<br><br><strong>Vía de administración:</strong> Oral<br><strong>Duración:</strong> Generalmente de por vida para casos crónicos, según indicación veterinaria.<br><strong>Contraindicaciones:</strong> No utilizar en perros gestantes, lactantes o en crecimiento sin supervisión veterinaria.",
+    benefitsTitle: "Beneficios del Producto",
+    benefitsSubtitle: "Características que hacen de MV Perros Articular la mejor opción",
+    benefits: [
+      { title: "Condroprotectores", description: "Glucosamina y condroitina que ayudan a mantener y reparar el cartílago articular." },
+      { title: "Ácidos Grasos Omega-3", description: "Ácidos grasos omega-3 que ayudan a reducir la inflamación articular." },
+      { title: "Antioxidantes", description: "Antioxidantes que protegen las células articulares del daño oxidativo." },
+      { title: "Control de Peso", description: "Formulación que ayuda a mantener un peso ideal, reduciendo la carga sobre las articulaciones." }
+    ]
   },
   "mv-perros-cardio": {
     id: "mv-perros-cardio",
@@ -1306,7 +1800,24 @@ const PRODUCTS = {
     description: "Dieta baja en sodio para pacientes cardíacos.",
     badge: "Perros",
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "MV PERROS CARDIO",
+    logoSubtitle: "Dieta Prescripta para Enfermedad Cardíaca",
+    fullDescription: "<strong>MV Perros Cardio</strong> es una dieta prescripta formulada específicamente para perros con enfermedad cardíaca. Alimento completo y balanceado que ayuda a reducir la carga sobre el corazón y mejorar la calidad de vida.",
+    indication: "<strong>Indicado para:</strong><ul><li>Perros con insuficiencia cardíaca</li><li>Enfermedad cardíaca congestiva</li><li>Cardiomiopatías</li><li>Hipertensión</li><li>Apoyo nutricional en pacientes cardíacos</li></ul>",
+    presentationTitle: "PRESENTACIÓN",
+    presentationSubtitle: "Alimento seco completo y balanceado",
+    formula: "<strong>FÓRMULA</strong><br>Dieta prescripta con:<br>Sodio reducido<br>Taurina y L-Carnitina<br>Ácidos grasos omega-3<br>Antioxidantes<br>Proteínas de alta calidad",
+    dosage: "<strong>POSOLOGÍA Y ADMINISTRACIÓN</strong><br><strong>Perros:</strong> Administrar como único alimento según las necesidades calóricas del perro. La cantidad diaria debe dividirse en 2-3 comidas. Asegurar acceso constante a agua fresca.<br><br><strong>Vía de administración:</strong> Oral<br><strong>Duración:</strong> Generalmente de por vida para casos crónicos, según indicación veterinaria.<br><strong>Contraindicaciones:</strong> No utilizar en perros gestantes, lactantes o en crecimiento sin supervisión veterinaria.",
+    benefitsTitle: "Beneficios del Producto",
+    benefitsSubtitle: "Características que hacen de MV Perros Cardio la mejor opción",
+    benefits: [
+      { title: "Sodio Reducido", description: "Niveles reducidos de sodio que ayudan a reducir la retención de líquidos y la carga sobre el corazón." },
+      { title: "Taurina y L-Carnitina", description: "Aminoácidos esenciales para la función cardíaca que ayudan a mantener la salud del miocardio." },
+      { title: "Ácidos Grasos Omega-3", description: "Ácidos grasos omega-3 que ayudan a reducir la inflamación y mejorar la función cardíaca." },
+      { title: "Antioxidantes", description: "Antioxidantes que protegen las células cardíacas del daño oxidativo." }
+    ]
   },
   "mv-perros-gastrointestinal": {
     id: "mv-perros-gastrointestinal",
@@ -1318,7 +1829,24 @@ const PRODUCTS = {
     description: "Dieta terapéutica para trastornos digestivos en perros.",
     badge: "Perros",
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "MV PERROS GASTROINTESTINAL",
+    logoSubtitle: "Dieta Prescripta para Trastornos Digestivos",
+    fullDescription: "<strong>MV Perros Gastrointestinal</strong> es una dieta prescripta formulada específicamente para perros con trastornos digestivos. Alimento completo y balanceado que ayuda a la recuperación y mantenimiento de la salud gastrointestinal.",
+    indication: "<strong>Indicado para:</strong><ul><li>Perros con trastornos digestivos agudos y crónicos</li><li>Gastritis y enteritis</li><li>Diarrea aguda y crónica</li><li>Enfermedad inflamatoria intestinal</li><li>Recuperación post-quirúrgica del tracto digestivo</li></ul>",
+    presentationTitle: "PRESENTACIÓN",
+    presentationSubtitle: "Alimento seco completo y balanceado",
+    formula: "<strong>FÓRMULA</strong><br>Dieta prescripta con:<br>Proteínas de alta digestibilidad<br>Fibra soluble e insoluble balanceada<br>Ácidos grasos omega-3<br>Prebióticos<br>Niveles reducidos de grasa",
+    dosage: "<strong>POSOLOGÍA Y ADMINISTRACIÓN</strong><br><strong>Perros:</strong> Administrar como único alimento según las necesidades calóricas del perro. La cantidad diaria debe dividirse en 2-3 comidas.<br><br><strong>Vía de administración:</strong> Oral<br><strong>Duración:</strong> Según indicación veterinaria, generalmente 2-4 semanas para casos agudos o de por vida para casos crónicos.<br><strong>Contraindicaciones:</strong> No utilizar en perros con insuficiencia renal o hepática severa sin supervisión veterinaria.",
+    benefitsTitle: "Beneficios del Producto",
+    benefitsSubtitle: "Características que hacen de MV Perros Gastrointestinal la mejor opción",
+    benefits: [
+      { title: "Alta Digestibilidad", description: "Proteínas de alta calidad y alta digestibilidad que reducen la carga sobre el sistema digestivo." },
+      { title: "Fibra Balanceada", description: "Combinación de fibra soluble e insoluble que ayuda a regular el tránsito intestinal." },
+      { title: "Prebióticos", description: "Contiene prebióticos que favorecen el desarrollo de la flora intestinal beneficiosa." },
+      { title: "Ácidos Grasos Omega-3", description: "Ácidos grasos omega-3 que ayudan a reducir la inflamación del tracto digestivo." }
+    ]
   },
   "mv-perros-obesidad": {
     id: "mv-perros-obesidad",
@@ -1330,7 +1858,24 @@ const PRODUCTS = {
     description: "Dieta baja en calorías para control de peso en perros.",
     badge: "Perros",
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "MV PERROS OBESIDAD",
+    logoSubtitle: "Dieta Prescripta para Control de Peso",
+    fullDescription: "<strong>MV Perros Obesidad</strong> es una dieta prescripta baja en calorías formulada específicamente para perros con sobrepeso u obesidad. Alimento completo y balanceado que ayuda a la pérdida de peso controlada y mantenimiento del peso ideal.",
+    indication: "<strong>Indicado para:</strong><ul><li>Perros con sobrepeso u obesidad</li><li>Control de peso</li><li>Prevención de enfermedades asociadas al sobrepeso</li><li>Mantenimiento del peso ideal</li></ul>",
+    presentationTitle: "PRESENTACIÓN",
+    presentationSubtitle: "Alimento seco completo y balanceado",
+    formula: "<strong>FÓRMULA</strong><br>Dieta prescripta con:<br>Bajo contenido calórico<br>Alto contenido de proteínas<br>Fibra para saciedad<br>L-Carnitina para metabolismo de grasas<br>Vitaminas y minerales balanceados",
+    dosage: "<strong>POSOLOGÍA Y ADMINISTRACIÓN</strong><br><strong>Perros:</strong> Administrar según las necesidades calóricas calculadas para pérdida de peso. La cantidad diaria debe dividirse en 2-3 comidas. Seguir las indicaciones del veterinario para el cálculo de la ración diaria.<br><br><strong>Vía de administración:</strong> Oral<br><strong>Duración:</strong> Hasta alcanzar el peso ideal, luego puede continuarse para mantenimiento.<br><strong>Contraindicaciones:</strong> No utilizar en perros gestantes, lactantes o en crecimiento sin supervisión veterinaria.",
+    benefitsTitle: "Beneficios del Producto",
+    benefitsSubtitle: "Características que hacen de MV Perros Obesidad la mejor opción",
+    benefits: [
+      { title: "Bajo en Calorías", description: "Formulación baja en calorías que permite la pérdida de peso controlada." },
+      { title: "Alto en Proteínas", description: "Alto contenido de proteínas que ayuda a preservar la masa muscular durante la pérdida de peso." },
+      { title: "L-Carnitina", description: "L-Carnitina que ayuda al metabolismo de las grasas y favorece la pérdida de peso." },
+      { title: "Fibra para Saciedad", description: "Contenido de fibra que proporciona sensación de saciedad con menos calorías." }
+    ]
   },
   "mv-perros-renal": {
     id: "mv-perros-renal",
@@ -1342,7 +1887,24 @@ const PRODUCTS = {
     description: "Dieta terapéutica para enfermedad renal en perros.",
     badge: "Perros",
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "MV PERROS RENAL",
+    logoSubtitle: "Dieta Prescripta para Enfermedad Renal",
+    fullDescription: "<strong>MV Perros Renal</strong> es una dieta prescripta formulada específicamente para perros con enfermedad renal crónica o aguda. Alimento completo y balanceado que ayuda a reducir la carga sobre los riñones y retrasar la progresión de la enfermedad.",
+    indication: "<strong>Indicado para:</strong><ul><li>Perros con enfermedad renal crónica</li><li>Insuficiencia renal</li><li>Nefropatías</li><li>Prevención de cálculos renales</li><li>Apoyo nutricional en pacientes renales</li></ul>",
+    presentationTitle: "PRESENTACIÓN",
+    presentationSubtitle: "Alimento seco completo y balanceado",
+    formula: "<strong>FÓRMULA</strong><br>Dieta prescripta con:<br>Proteínas de alta calidad en cantidad reducida<br>Fósforo reducido<br>Sodio reducido<br>Ácidos grasos omega-3<br>Antioxidantes",
+    dosage: "<strong>POSOLOGÍA Y ADMINISTRACIÓN</strong><br><strong>Perros:</strong> Administrar como único alimento según las necesidades calóricas del perro. La cantidad diaria debe dividirse en 2-3 comidas. Asegurar acceso constante a agua fresca.<br><br><strong>Vía de administración:</strong> Oral<br><strong>Duración:</strong> Generalmente de por vida para casos crónicos, según indicación veterinaria.<br><strong>Contraindicaciones:</strong> No utilizar en perros gestantes, lactantes o en crecimiento sin supervisión veterinaria.",
+    benefitsTitle: "Beneficios del Producto",
+    benefitsSubtitle: "Características que hacen de MV Perros Renal la mejor opción",
+    benefits: [
+      { title: "Proteínas Reducidas", description: "Cantidad reducida de proteínas de alta calidad que minimizan la carga sobre los riñones." },
+      { title: "Fósforo Reducido", description: "Niveles reducidos de fósforo que ayudan a prevenir la hiperfosfatemia." },
+      { title: "Ácidos Grasos Omega-3", description: "Ácidos grasos omega-3 que ayudan a reducir la inflamación y proteger la función renal." },
+      { title: "Antioxidantes", description: "Antioxidantes que ayudan a proteger las células renales del daño oxidativo." }
+    ]
   },
   "mv-perros-sensibilidad": {
     id: "mv-perros-sensibilidad",
@@ -1354,7 +1916,24 @@ const PRODUCTS = {
     description: "Dieta hipoalergénica para perros con sensibilidades.",
     badge: "Perros",
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "MV PERROS SENSIBILIDAD DIETARIA",
+    logoSubtitle: "Dieta Prescripta Hipoalergénica",
+    fullDescription: "<strong>MV Perros Sensibilidad Dietaria</strong> es una dieta prescripta hipoalergénica formulada específicamente para perros con sensibilidades o alergias alimentarias. Alimento completo y balanceado con proteínas e hidratos de carbono de fuentes novedosas o hidrolizadas.",
+    indication: "<strong>Indicado para:</strong><ul><li>Perros con alergias alimentarias</li><li>Sensibilidades dietarias</li><li>Dermatitis alérgica alimentaria</li><li>Trastornos digestivos por sensibilidad alimentaria</li><li>Dieta de eliminación</li></ul>",
+    presentationTitle: "PRESENTACIÓN",
+    presentationSubtitle: "Alimento seco completo y balanceado",
+    formula: "<strong>FÓRMULA</strong><br>Dieta prescripta con:<br>Proteínas de fuente novedosa o hidrolizadas<br>Hidratos de carbono de fuente novedosa<br>Ácidos grasos omega-3<br>Prebióticos<br>Sin ingredientes comunes alergénicos",
+    dosage: "<strong>POSOLOGÍA Y ADMINISTRACIÓN</strong><br><strong>Perros:</strong> Administrar como único alimento según las necesidades calóricas del perro. La cantidad diaria debe dividirse en 2-3 comidas. No administrar otros alimentos, golosinas o suplementos durante el período de prueba.<br><br><strong>Vía de administración:</strong> Oral<br><strong>Duración:</strong> Mínimo 8-12 semanas para dieta de eliminación, o de por vida si se confirma la sensibilidad, según indicación veterinaria.<br><strong>Contraindicaciones:</strong> No utilizar en perros gestantes, lactantes o en crecimiento sin supervisión veterinaria.",
+    benefitsTitle: "Beneficios del Producto",
+    benefitsSubtitle: "Características que hacen de MV Perros Sensibilidad Dietaria la mejor opción",
+    benefits: [
+      { title: "Proteínas Novedosas", description: "Proteínas de fuentes novedosas o hidrolizadas que reducen el riesgo de reacciones alérgicas." },
+      { title: "Hidratos de Carbono Novedosos", description: "Hidratos de carbono de fuentes novedosas que minimizan las reacciones alérgicas." },
+      { title: "Sin Alérgenos Comunes", description: "Formulación sin ingredientes comunes que causan alergias alimentarias." },
+      { title: "Nutrición Completa", description: "Alimento completo y balanceado que proporciona todos los nutrientes necesarios." }
+    ]
   },
 
   // ============================================
@@ -1544,11 +2123,28 @@ const PRODUCTS = {
     category: "Respiratorio • Broncodilatador",
     categories: ["perros", "gatos"],
     price: null,
-    image: "images/placeholder.png",
+    image: "images/solubron-20.png",
     description: "Broncodilatador y mucolítico para vías respiratorias.",
     badge: null,
     variants: null,
-    specialModal: null
+    specialModal: null,
+    // Extended modal info
+    logoText: "SOLUBRON 20",
+    logoSubtitle: "Broncodilatador y Mucolítico",
+    fullDescription: "<strong>Solubron 20</strong> es un broncodilatador y mucolítico en solución oral. Indicado para el tratamiento de afecciones del sistema respiratorio en perros y gatos.",
+    indication: "<strong>Indicado para:</strong><ul><li>Tratamiento de afecciones respiratorias</li><li>Facilitar la expectoración</li><li>Broncodilatación</li><li>Liquefacción de secreciones bronquiales</li></ul>",
+    presentationTitle: "PRESENTACIÓN",
+    presentationSubtitle: "Frasco con 20 ml",
+    formula: "<strong>FÓRMULA</strong><br>Cada ml contiene:<br>Bromhexina: 2 mg<br>Excipientes c.s.",
+    dosage: "<strong>POSOLOGÍA Y ADMINISTRACIÓN</strong><br><strong>Perros y Gatos:</strong> 0,5 ml por cada 10 kg de peso corporal cada 12 horas, según indicación veterinaria.<br><br><strong>Vía de administración:</strong> Oral<br><strong>Contraindicaciones:</strong> No administrar en animales con hipersensibilidad a la bromhexina.",
+    benefitsTitle: "Beneficios del Producto",
+    benefitsSubtitle: "Características que hacen de Solubron 20 la mejor opción",
+    benefits: [
+      { title: "Mucolítico", description: "Facilita la expectoración y la eliminación de secreciones bronquiales." },
+      { title: "Broncodilatador", description: "Ayuda a dilatar las vías respiratorias facilitando la respiración." },
+      { title: "Solución Oral", description: "Formulación líquida que facilita la administración." },
+      { title: "Tratamiento Eficaz", description: "Eficaz en el tratamiento de afecciones respiratorias agudas y crónicas." }
+    ]
   }
 };
 
