@@ -8318,7 +8318,7 @@
 
       .images-track {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         grid-template-rows: 1fr;
         gap: clamp(0.4rem, 1.5vw, 0.6rem);
         height: 100%;
@@ -8342,7 +8342,7 @@
         padding: 0.6rem;
       }
 
-      /* Show only first 3 images on mobile */
+      /* Show only first 2 images on mobile */
       .flip-card-wrapper:nth-child(1),
       .floating-img:nth-child(1) {
         grid-column: 1 / 2;
@@ -8355,10 +8355,10 @@
         grid-row: 1 / 2;
       }
 
+      /* Hide 3rd, 4th and 5th images on mobile */
       .flip-card-wrapper:nth-child(3),
       .floating-img:nth-child(3) {
-        grid-column: 3 / 4;
-        grid-row: 1 / 2;
+        display: none;
       }
 
       /* Hide images 4 and 5 on mobile */
