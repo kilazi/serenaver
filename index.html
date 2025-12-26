@@ -2933,6 +2933,16 @@
       .pimocard-presentations-block .pimocard-presentations-grid {
         grid-template-columns: 1fr;
       }
+      
+      .pimocard-brand-logo {
+        max-width: 100px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .pimocard-brand-logo {
+        max-width: 110px;
+      }
     }
 
     /* Floating Selection Canvas - positioned within section */
@@ -3939,14 +3949,15 @@
 
     .product-brand-logo {
       position: absolute;
-      top: 1.5rem;
-      left: 1.5rem;
-      max-width: 100px;
+      top: 0.5rem;
+      left: 0.5rem;
+      max-width: 30px;
       height: auto;
-      z-index: 10002;
+      z-index: 10003;
       background: rgba(255, 255, 255, 0.95);
-      padding: 0.5rem;
-      border-radius: 8px;
+      padding: 0.25rem;
+      border-radius: 4px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
     }
 
     .product-logo-text {
@@ -4503,6 +4514,12 @@
       
       .product-benefit-icon {
         margin: 0 auto;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .product-brand-logo {
+        display: none;
       }
     }
 
@@ -6220,6 +6237,10 @@
         width: 100%;
         justify-content: center;
       }
+      
+      .cardial-brand-logo {
+        max-width: 80px;
+      }
     }
 
     /* ============================================
@@ -6787,6 +6808,18 @@
       margin: 0 auto 2rem;
       background: #fff;
       border-radius: 8px;
+    }
+    
+    @media (max-width: 768px) {
+      .cardialb-brand-logo {
+        max-width: 80px;
+      }
+    }
+    
+    @media (max-width: 600px) {
+      .cardialb-brand-logo {
+        max-width: 70px;
+      }
     }
 
     .cardialb-formula-container {
