@@ -1454,6 +1454,17 @@
       width: 100%;
     }
 
+    /* Discount Message */
+    .discount-message {
+      text-align: center;
+      padding: 0.75rem 5%;
+      color: #0066cc;
+      font-weight: 500;
+      margin: 0;
+      background: transparent;
+      border: none;
+    }
+
     /* Category Filters - In Header */
     .category-filters {
       display: flex;
@@ -8388,7 +8399,7 @@
         align-items: flex-start;
         gap: 0.8rem;
         margin-bottom: 1rem;
-        padding: 0 5%;
+        padding: 0;
         width: 100%;
         overflow: visible;
       }
@@ -8408,14 +8419,14 @@
         max-width: 100%;
         overflow-x: auto;
         overflow-y: visible;
-        padding: 0.5rem 0 0.8rem 0;
-        margin: 0 -5%;
-        padding-left: 5%;
-        padding-right: 5%;
+        padding: 0.5rem 5% 0.8rem 5%;
+        margin: 0;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: thin;
         scrollbar-color: var(--color-primary-light) transparent;
         position: relative;
+        background: transparent;
+        border: none;
       }
 
       /* Visual indicator for horizontal scroll on mobile */
@@ -8682,8 +8693,12 @@
       }
 
       .products-header {
-        padding: 0 4%;
+        padding: 0;
         gap: 0.6rem;
+      }
+
+      .discount-message {
+        padding: 0.6rem 4%;
       }
 
       .filter-btn {
@@ -8825,7 +8840,12 @@
       }
 
       .products-header {
-        padding: 0 3%;
+        padding: 0;
+      }
+
+      .discount-message {
+        padding: 0.5rem 3%;
+        font-size: 0.85rem;
       }
 
       .products-horizontal-container {
@@ -10156,7 +10176,7 @@
       </div>
 
       <!-- Discount Message -->
-      <div style="text-align: center; padding: 1rem; background-color: #f0f8ff; color: #0066cc; font-weight: 500; margin: 1rem 0;">
+      <div class="discount-message">
         10% descuento pagando en efectivo. Aplica para todos los productos
       </div>
 
@@ -12368,7 +12388,7 @@
     </section>
 
     <!-- Discount Message -->
-    <div style="text-align: center; padding: 1rem; background-color: #f0f8ff; color: #0066cc; font-weight: 500; margin: 1rem 0;">
+    <div class="discount-message">
       10% descuento pagando en efectivo. Aplica para todos los productos
     </div>
 
