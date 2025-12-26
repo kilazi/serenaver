@@ -8960,29 +8960,13 @@
         bottom: 0;
         transform: translate(0, 0) scale(1);
         border-radius: 0;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        -webkit-overflow-scrolling: touch !important;
       }
 
       .cardialb-modal.active {
         transform: translate(0, 0) scale(1);
-      }
-
-      .cardialb-modal-header {
-        flex-shrink: 0;
-      }
-
-      .cardialb-modal-body {
-        flex: 1;
-        overflow-y: auto;
-        overflow-x: hidden;
-        -webkit-overflow-scrolling: touch;
-        min-height: 0;
-      }
-
-      .cardialb-modal-footer {
-        flex-shrink: 0;
       }
 
       .cardialb-qty-btn {
@@ -9445,7 +9429,6 @@
 
       /* Modal improvements for mobile */
       .cart-modal,
-      .cardialb-modal,
       .enzimax-modal {
         width: 100% !important;
         max-width: 100% !important;
@@ -9462,9 +9445,10 @@
         flex-direction: column !important;
       }
 
-      /* Product and Pimocard modals - scrollable container (no body wrapper) */
+      /* Product, Pimocard, and Cardialb modals - scrollable container (no body wrapper) */
       .product-modal,
-      .pimocard-modal {
+      .pimocard-modal,
+      .cardialb-modal {
         width: 100% !important;
         max-width: 100% !important;
         max-height: 100vh !important;
@@ -9481,29 +9465,26 @@
       }
 
       .cart-modal.active,
-      .cardialb-modal.active,
       .enzimax-modal.active {
         transform: translate(0, 0) scale(1) !important;
       }
 
       .product-modal.active,
-      .pimocard-modal.active {
+      .pimocard-modal.active,
+      .cardialb-modal.active {
         transform: translate(0, 0) scale(1) !important;
       }
 
-      .cart-modal-header,
-      .cardialb-modal-header {
+      .cart-modal-header {
         padding: clamp(1rem, 4vw, 1.5rem) clamp(1rem, 4vw, 1.5rem) clamp(0.8rem, 3vw, 1rem) !important;
         flex-shrink: 0 !important;
       }
 
-      .cart-modal-title,
-      .cardialb-modal-title {
+      .cart-modal-title {
         font-size: clamp(1.1rem, 5vw, 1.4rem) !important;
       }
 
-      .cart-modal-body,
-      .cardialb-modal-body {
+      .cart-modal-body {
         padding: clamp(0.8rem, 3vw, 1rem) clamp(1rem, 4vw, 1.5rem) !important;
         flex: 1 !important;
         overflow-y: auto !important;
@@ -9512,8 +9493,7 @@
         min-height: 0 !important;
       }
 
-      .cart-modal-footer,
-      .cardialb-modal-footer {
+      .cart-modal-footer {
         flex-shrink: 0 !important;
       }
 
