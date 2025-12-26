@@ -8423,7 +8423,7 @@
         margin: 0;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: thin;
-        scrollbar-color: var(--color-primary-light) transparent;
+        scrollbar-color: var(--color-primary-light) rgba(0, 0, 0, 0.1);
         position: relative;
         background: transparent;
         border: none;
@@ -8452,17 +8452,18 @@
       }
 
       .category-filters::-webkit-scrollbar {
-        height: 4px;
+        height: 6px;
         display: block;
       }
 
       .category-filters::-webkit-scrollbar-track {
-        background: transparent;
+        background: rgba(0, 0, 0, 0.1);
+        border-radius: 3px;
       }
 
       .category-filters::-webkit-scrollbar-thumb {
         background: var(--color-primary-light);
-        border-radius: 2px;
+        border-radius: 3px;
       }
 
       .category-filters::-webkit-scrollbar-thumb:hover {
@@ -9720,21 +9721,22 @@
         overflow-y: visible !important;
         -webkit-overflow-scrolling: touch !important;
         scrollbar-width: thin !important;
-        scrollbar-color: var(--color-primary-light) transparent !important;
+        scrollbar-color: var(--color-primary-light) rgba(0, 0, 0, 0.1) !important;
       }
 
       .category-filters::-webkit-scrollbar {
-        height: 4px !important;
+        height: 6px !important;
         display: block !important;
       }
 
       .category-filters::-webkit-scrollbar-track {
-        background: transparent !important;
+        background: rgba(0, 0, 0, 0.1) !important;
+        border-radius: 3px !important;
       }
 
       .category-filters::-webkit-scrollbar-thumb {
         background: var(--color-primary-light) !important;
-        border-radius: 2px !important;
+        border-radius: 3px !important;
       }
 
       .category-filters::-webkit-scrollbar-thumb:hover {
