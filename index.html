@@ -8739,15 +8739,10 @@
       }
 
       .product-info p {
-        display: none;
+        display: none !important;
       }
 
       .product-category {
-        font-size: 0.5rem;
-        margin-bottom: 0.2rem;
-      }
-
-      .product-category::before {
         display: none;
       }
 
@@ -8867,7 +8862,7 @@
 
       .product-info p {
         font-size: 0.58rem;
-        display: none;
+        display: none !important;
       }
     }
 
@@ -9384,7 +9379,6 @@
     /* Ensure no text clipping */
     @media (max-width: 768px) {
       .product-info h3,
-      .product-info p,
       .search-result-name,
       .cart-item-name {
         overflow: visible;
@@ -9398,9 +9392,7 @@
       }
 
       .product-info p {
-        -webkit-line-clamp: 3;
-        line-clamp: 3;
-        max-height: 4.5em;
+        display: none !important;
       }
     }
 
