@@ -8792,34 +8792,46 @@
     @media (max-width: 768px) {
       /* Cart Modal - Mobile */
       .cart-modal {
-        width: 95%;
-        max-width: 95%;
-        max-height: 90vh;
-        top: 50%;
-        transform: translate(-50%, -50%) scale(1);
-        border-radius: 20px;
+        width: 100%;
+        max-width: 100%;
+        max-height: 100vh;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transform: translate(0, 0) scale(1);
+        border-radius: 0;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
       }
 
       .cart-modal.active {
-        transform: translate(-50%, -50%) scale(1);
-      }
-
-      .cart-modal-body {
-        max-height: calc(90vh - 200px);
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
+        transform: translate(0, 0) scale(1);
       }
 
       .cart-modal-header {
         padding: 1.2rem 1.2rem 0.8rem;
+        flex-shrink: 0;
       }
 
       .cart-modal-title {
         font-size: 1.2rem;
       }
 
+      .cart-modal-body {
+        flex: 1;
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        min-height: 0;
+        padding: 1rem 1.2rem;
+      }
+
       .cart-modal-footer {
         padding: 1rem 1.2rem 1.2rem;
+        flex-shrink: 0;
       }
 
       .cart-btn-continue,
@@ -8831,24 +8843,23 @@
 
       /* Product Modal - Mobile */
       .product-modal {
-        width: 95%;
-        max-width: 95%;
-        max-height: 95vh;
-        top: 50%;
-        transform: translate(-50%, -50%) scale(1);
-        border-radius: 20px;
-        overflow: hidden;
+        width: 100%;
+        max-width: 100%;
+        max-height: 100vh;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transform: translate(0, 0) scale(1);
+        border-radius: 0;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        -webkit-overflow-scrolling: touch !important;
       }
 
       .product-modal.active {
-        transform: translate(-50%, -50%) scale(1);
-      }
-
-      .product-modal-body {
-        max-height: calc(95vh - 150px);
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-        padding: 1rem;
+        transform: translate(0, 0) scale(1);
       }
 
       .product-add-cart-btn,
@@ -8906,23 +8917,23 @@
 
       /* Pimocard Modal - Mobile */
       .pimocard-modal {
-        width: 95%;
-        max-width: 95%;
-        max-height: 95vh;
-        top: 50%;
-        transform: translate(-50%, -50%) scale(1);
-        border-radius: 20px;
-        overflow: hidden;
+        width: 100%;
+        max-width: 100%;
+        max-height: 100vh;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transform: translate(0, 0) scale(1);
+        border-radius: 0;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        -webkit-overflow-scrolling: touch !important;
       }
 
       .pimocard-modal.active {
-        transform: translate(-50%, -50%) scale(1);
-      }
-
-      .pimocard-modal-body {
-        max-height: calc(95vh - 150px);
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
+        transform: translate(0, 0) scale(1);
       }
 
       .pimocard-qty-btn {
@@ -8939,23 +8950,39 @@
 
       /* Cardialb Modal - Mobile */
       .cardialb-modal {
-        width: 95%;
-        max-width: 95%;
-        max-height: 95vh;
-        top: 50%;
-        transform: translate(-50%, -50%) scale(1);
-        border-radius: 20px;
+        width: 100%;
+        max-width: 100%;
+        max-height: 100vh;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transform: translate(0, 0) scale(1);
+        border-radius: 0;
         overflow: hidden;
+        display: flex;
+        flex-direction: column;
       }
 
       .cardialb-modal.active {
-        transform: translate(-50%, -50%) scale(1);
+        transform: translate(0, 0) scale(1);
+      }
+
+      .cardialb-modal-header {
+        flex-shrink: 0;
       }
 
       .cardialb-modal-body {
-        max-height: calc(95vh - 150px);
+        flex: 1;
         overflow-y: auto;
+        overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
+        min-height: 0;
+      }
+
+      .cardialb-modal-footer {
+        flex-shrink: 0;
       }
 
       .cardialb-qty-btn {
@@ -9418,48 +9445,76 @@
 
       /* Modal improvements for mobile */
       .cart-modal,
-      .product-modal,
-      .pimocard-modal,
       .cardialb-modal,
       .enzimax-modal {
         width: 100% !important;
         max-width: 100% !important;
         max-height: 100vh !important;
+        height: 100vh !important;
         border-radius: 0 !important;
         top: 0 !important;
         left: 0 !important;
         right: 0 !important;
+        bottom: 0 !important;
         transform: translate(0, 0) scale(1) !important;
+        overflow: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
+      }
+
+      /* Product and Pimocard modals - scrollable container (no body wrapper) */
+      .product-modal,
+      .pimocard-modal {
+        width: 100% !important;
+        max-width: 100% !important;
+        max-height: 100vh !important;
+        height: 100vh !important;
+        border-radius: 0 !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        transform: translate(0, 0) scale(1) !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        -webkit-overflow-scrolling: touch !important;
       }
 
       .cart-modal.active,
-      .product-modal.active,
-      .pimocard-modal.active,
       .cardialb-modal.active,
       .enzimax-modal.active {
         transform: translate(0, 0) scale(1) !important;
       }
 
+      .product-modal.active,
+      .pimocard-modal.active {
+        transform: translate(0, 0) scale(1) !important;
+      }
+
       .cart-modal-header,
-      .product-modal-header,
-      .pimocard-modal-header,
       .cardialb-modal-header {
         padding: clamp(1rem, 4vw, 1.5rem) clamp(1rem, 4vw, 1.5rem) clamp(0.8rem, 3vw, 1rem) !important;
+        flex-shrink: 0 !important;
       }
 
       .cart-modal-title,
-      .product-modal-title,
-      .pimocard-modal-title,
       .cardialb-modal-title {
         font-size: clamp(1.1rem, 5vw, 1.4rem) !important;
       }
 
       .cart-modal-body,
-      .product-modal-body,
-      .pimocard-modal-body,
       .cardialb-modal-body {
         padding: clamp(0.8rem, 3vw, 1rem) clamp(1rem, 4vw, 1.5rem) !important;
-        max-height: calc(100vh - clamp(140px, 35vw, 180px)) !important;
+        flex: 1 !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        -webkit-overflow-scrolling: touch !important;
+        min-height: 0 !important;
+      }
+
+      .cart-modal-footer,
+      .cardialb-modal-footer {
+        flex-shrink: 0 !important;
       }
 
       .cart-modal-footer,
