@@ -2360,6 +2360,13 @@
       background: #fff;
       padding: 3rem 2rem;
       position: relative;
+      overflow: visible;
+    }
+    
+    @media (max-width: 768px) {
+      .pimocard-products {
+        overflow: visible;
+      }
     }
 
     .pimocard-brand-logo {
@@ -2966,17 +2973,19 @@
       position: absolute;
       top: 20px;
       right: 20px;
-      z-index: 100;
+      z-index: 1000;
       opacity: 0;
       visibility: hidden;
       transform: translateX(30px);
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      pointer-events: none;
     }
 
     .pimocard-selection-summary.active {
       opacity: 1;
       visibility: visible;
       transform: translateX(0);
+      pointer-events: auto;
     }
 
     .pimocard-selection-box {
@@ -3282,35 +3291,107 @@
       }
     }
     
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       .pimocard-selection-summary {
-        right: 5px;
-        left: 5px;
+        position: fixed;
+        bottom: 80px;
+        left: 5%;
+        right: 5%;
         top: auto;
-        bottom: 10px;
-        transform: translateX(30px);
+        width: 90%;
+        max-width: 90%;
+        z-index: 10000;
+        transform: translateY(100px);
       }
       
       .pimocard-selection-summary.active {
-        transform: translateX(0);
+        transform: translateY(0);
       }
       
       .pimocard-selection-box {
         width: 100%;
-        max-height: 50vh;
+        max-width: 100%;
+        max-height: 60vh;
+        box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(227, 24, 55, 0.1);
       }
       
       .pimocard-selection-items {
-        max-height: 150px;
+        max-height: calc(60vh - 180px);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
       }
       
       .pimocard-selection-item {
-        padding: 0.7rem 1rem;
+        padding: 0.85rem 1rem;
+        min-height: 60px;
       }
       
       .pimocard-selection-item-price {
-        min-width: 60px;
-        font-size: 0.8rem;
+        min-width: 70px;
+        font-size: 0.85rem;
+      }
+      
+      .pimocard-selection-qty-btn {
+        min-width: 32px;
+        min-height: 32px;
+        width: 32px;
+        height: 32px;
+      }
+      
+      .pimocard-selection-item-delete {
+        min-width: 32px;
+        min-height: 32px;
+        width: 32px;
+        height: 32px;
+      }
+      
+      .pimocard-add-cart-btn,
+      .pimocard-consult-btn {
+        padding: 1rem 1.25rem;
+        font-size: 1rem;
+        min-height: 48px;
+        -webkit-tap-highlight-color: rgba(227, 24, 55, 0.2);
+        touch-action: manipulation;
+        user-select: none;
+      }
+      
+      .pimocard-selection-close {
+        min-width: 36px;
+        min-height: 36px;
+        width: 36px;
+        height: 36px;
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
+        touch-action: manipulation;
+      }
+      
+      .pimocard-selection-qty-btn,
+      .pimocard-selection-item-delete {
+        -webkit-tap-highlight-color: rgba(227, 24, 55, 0.2);
+        touch-action: manipulation;
+        user-select: none;
+      }
+      
+      .pimocard-selection-item {
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+    }
+    
+    @media (max-width: 600px) {
+      .pimocard-selection-summary {
+        bottom: 70px;
+        left: 5%;
+        right: 5%;
+        width: 90%;
+        max-width: 90%;
+      }
+      
+      .pimocard-selection-box {
+        max-height: 55vh;
+      }
+      
+      .pimocard-selection-items {
+        max-height: calc(55vh - 170px);
       }
     }
 
@@ -9256,28 +9337,35 @@
         padding-right: clamp(1rem, 4vw, 5%);
       }
 
-      /* Selection summaries - mobile positioning */
+      /* Selection summaries - mobile positioning (redundant, handled above but kept for consistency) */
       .pimocard-selection-summary,
       .cardialb-selection-summary {
-        position: fixed;
-        bottom: 80px;
-        left: 5%;
-        right: 5%;
-        top: auto;
-        width: 90%;
-        max-width: 90%;
+        position: fixed !important;
+        bottom: 80px !important;
+        left: 5% !important;
+        right: 5% !important;
+        top: auto !important;
+        width: 90% !important;
+        max-width: 90% !important;
+        z-index: 10000 !important;
+        transform: translateY(100px) !important;
+      }
+      
+      .pimocard-selection-summary.active,
+      .cardialb-selection-summary.active {
+        transform: translateY(0) !important;
       }
 
       .pimocard-selection-box,
       .cardialb-selection-box {
-        width: 100%;
-        max-width: 100%;
-        max-height: 50vh;
+        width: 100% !important;
+        max-width: 100% !important;
+        max-height: 60vh !important;
       }
 
       .pimocard-selection-items,
       .cardialb-selection-items {
-        max-height: calc(50vh - 100px);
+        max-height: calc(60vh - 180px) !important;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
       }
@@ -9319,21 +9407,34 @@
 
       .pimocard-selection-summary,
       .cardialb-selection-summary {
-        bottom: 70px;
-        left: 2.5%;
-        right: 2.5%;
-        width: 95%;
-        max-width: 95%;
+        bottom: 70px !important;
+        left: 2.5% !important;
+        right: 2.5% !important;
+        width: 95% !important;
+        max-width: 95% !important;
+        z-index: 10000 !important;
       }
 
       .pimocard-selection-box,
       .cardialb-selection-box {
-        max-height: 45vh;
+        max-height: 55vh !important;
       }
 
       .pimocard-selection-items,
       .cardialb-selection-items {
-        max-height: calc(45vh - 90px);
+        max-height: calc(55vh - 170px) !important;
+      }
+      
+      .pimocard-selection-header {
+        padding: 1rem 1rem;
+      }
+      
+      .pimocard-selection-actions {
+        padding: 0.9rem 1rem;
+      }
+      
+      .pimocard-selection-total {
+        padding: 0.9rem 1rem;
       }
     }
 
@@ -14973,7 +15074,14 @@
       const selectedCount = Object.keys(selectedPresentations).length;
       
       if (selectedCount > 0) {
+        // Ensure selection box is visible
         pimocardSelectionSummary.classList.add('active');
+        
+        // Force visibility (in case of any CSS conflicts)
+        pimocardSelectionSummary.style.display = '';
+        pimocardSelectionSummary.style.opacity = '';
+        pimocardSelectionSummary.style.visibility = '';
+        
         blockScrolling();
         
         // Build selection items HTML and calculate total
@@ -15024,7 +15132,9 @@
         pimocardSelectionSummary.classList.remove('active');
         unblockScrolling();
         pimocardSelectionItems.innerHTML = '';
-        pimocardSelectionTotal.querySelector('.pimocard-selection-total-value').textContent = '$0';
+        if (pimocardSelectionTotal && pimocardSelectionTotal.querySelector('.pimocard-selection-total-value')) {
+          pimocardSelectionTotal.querySelector('.pimocard-selection-total-value').textContent = '$0';
+        }
       }
     }
 
@@ -15130,6 +15240,11 @@
           btn.classList.remove('selected');
           delete selectedPresentations[dose];
           standardSelected = null;
+          
+          // Hide quantity controls
+          if (standardQuantity) {
+            standardQuantity.classList.remove('active');
+          }
         } else {
           // Deselect other buttons in this block
           standardOptions.querySelectorAll('.pimocard-option-bullet').forEach(b => b.classList.remove('selected'));
@@ -15137,6 +15252,13 @@
           btn.classList.add('selected');
           standardSelected = { dose, price, image, qty: 1 };
           selectedPresentations[dose] = { qty: 1, price: price };
+          
+          // Show quantity controls
+          if (standardQuantity) {
+            standardQuantity.classList.add('active');
+            const standardQtyValue = standardQuantity.querySelector('.pimocard-block-qty-value');
+            if (standardQtyValue) standardQtyValue.textContent = '1';
+          }
           
           // Update image and price
           standardBlockImage.src = image;
@@ -15162,6 +15284,11 @@
           btn.classList.remove('selected');
           delete selectedPresentations[dose];
           hospitalarioSelected = null;
+          
+          // Hide quantity controls
+          if (hospitalarioQuantity) {
+            hospitalarioQuantity.classList.remove('active');
+          }
         } else {
           // Deselect other buttons in this block
           hospitalarioOptions.querySelectorAll('.pimocard-option-bullet').forEach(b => b.classList.remove('selected'));
@@ -15169,6 +15296,13 @@
           btn.classList.add('selected');
           hospitalarioSelected = { dose, price, image, qty: 1 };
           selectedPresentations[dose] = { qty: 1, price: price };
+          
+          // Show quantity controls
+          if (hospitalarioQuantity) {
+            hospitalarioQuantity.classList.add('active');
+            const hospitalarioQtyValue = hospitalarioQuantity.querySelector('.pimocard-block-qty-value');
+            if (hospitalarioQtyValue) hospitalarioQtyValue.textContent = '1';
+          }
           
           // Update image and price
           hospitalarioBlockImage.src = image;
@@ -15181,6 +15315,77 @@
       });
     });
 
+    // Handle quantity buttons for standard block
+    const standardQuantity = document.getElementById('standardQuantity');
+    if (standardQuantity) {
+      const standardQtyValue = standardQuantity.querySelector('.pimocard-block-qty-value');
+      const standardQtyButtons = standardQuantity.querySelectorAll('.pimocard-block-qty-btn');
+      
+      standardQtyButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (!standardSelected) return;
+          
+          const action = btn.dataset.action;
+          let qty = parseInt(standardQtyValue.textContent) || 1;
+          
+          if (action === 'increase' && qty < 99) {
+            qty++;
+          } else if (action === 'decrease' && qty > 1) {
+            qty--;
+          }
+          
+          standardQtyValue.textContent = qty;
+          standardSelected.qty = qty;
+          
+          // Update selectedPresentations
+          if (selectedPresentations[standardSelected.dose]) {
+            selectedPresentations[standardSelected.dose].qty = qty;
+          }
+          
+          // Update price display
+          standardBlockPrice.textContent = formatPimocardPrice(standardSelected.price * qty);
+          
+          // Update selection summary
+          updatePimocardSelectionSummary();
+        });
+      });
+    }
+
+    // Handle quantity buttons for hospitalario block
+    const hospitalarioQuantity = document.getElementById('hospitalarioQuantity');
+    if (hospitalarioQuantity) {
+      const hospitalarioQtyValue = hospitalarioQuantity.querySelector('.pimocard-block-qty-value');
+      const hospitalarioQtyButtons = hospitalarioQuantity.querySelectorAll('.pimocard-block-qty-btn');
+      
+      hospitalarioQtyButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (!hospitalarioSelected) return;
+          
+          const action = btn.dataset.action;
+          let qty = parseInt(hospitalarioQtyValue.textContent) || 1;
+          
+          if (action === 'increase' && qty < 99) {
+            qty++;
+          } else if (action === 'decrease' && qty > 1) {
+            qty--;
+          }
+          
+          hospitalarioQtyValue.textContent = qty;
+          hospitalarioSelected.qty = qty;
+          
+          // Update selectedPresentations
+          if (selectedPresentations[hospitalarioSelected.dose]) {
+            selectedPresentations[hospitalarioSelected.dose].qty = qty;
+          }
+          
+          // Update price display
+          hospitalarioBlockPrice.textContent = formatPimocardPrice(hospitalarioSelected.price * qty);
+          
+          // Update selection summary
+          updatePimocardSelectionSummary();
+        });
+      });
+    }
 
     // Add to cart button - adds items to cart and shows feedback
     pimocardAddToCartBtn.addEventListener('click', () => {
@@ -15225,11 +15430,21 @@
       standardOptions.querySelectorAll('.pimocard-option-bullet').forEach(btn => btn.classList.remove('selected'));
       standardBlockImage.src = 'images/pimocard-1.25.jpg';
       standardBlockPrice.textContent = '$45.000';
+      if (standardQuantity) {
+        standardQuantity.classList.remove('active');
+        const standardQtyValue = standardQuantity.querySelector('.pimocard-block-qty-value');
+        if (standardQtyValue) standardQtyValue.textContent = '1';
+      }
       
       // Reset hospitalario block
       hospitalarioOptions.querySelectorAll('.pimocard-option-bullet').forEach(btn => btn.classList.remove('selected'));
       hospitalarioBlockImage.src = 'images/pimocard-1.25-hosp.jpg';
       hospitalarioBlockPrice.textContent = '$180.000';
+      if (hospitalarioQuantity) {
+        hospitalarioQuantity.classList.remove('active');
+        const hospitalarioQtyValue = hospitalarioQuantity.querySelector('.pimocard-block-qty-value');
+        if (hospitalarioQtyValue) hospitalarioQtyValue.textContent = '1';
+      }
       
       updatePimocardSelectionSummary();
     }
