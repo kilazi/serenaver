@@ -4619,10 +4619,20 @@
       .product-benefit-icon {
         margin: 0 auto;
       }
+      
+      /* Hide benefits after the 3rd one on mobile */
+      .product-benefits-grid .product-benefit-card:nth-child(n+4) {
+        display: none;
+      }
     }
     
     @media (max-width: 768px) {
       .product-brand-logo {
+        display: none;
+      }
+      
+      /* Hide benefits after the 3rd one on mobile */
+      .product-benefits-grid .product-benefit-card:nth-child(n+4) {
         display: none;
       }
     }
