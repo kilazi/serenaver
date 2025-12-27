@@ -14652,7 +14652,10 @@
             }
             
             if (productKey) {
-              openProductModal(productKey);
+              // Pass price from card as fallback to override database price if needed
+              openProductModal(productKey, {
+                price: priceText
+              });
             } else {
               // Use fallback data from the card itself
               openProductModal(name, {
@@ -15541,6 +15544,11 @@
         return;
       }
       
+      // Override price with fallback price if provided (from product card)
+      if (fallbackData && fallbackData.price) {
+        productData.price = fallbackData.price;
+      }
+      
       // Show modal
       productModalOverlay.classList.add('active');
       productModal.classList.add('active');
@@ -15549,13 +15557,16 @@
       // Populate modal content
       populateProductModal(productData);
       
+      // Parse price from productData.price
+      const unitPrice = parsePrice(productData.price);
+      
       // Store current product for ordering
       currentProduct = {
         name: productData.name,
         category: productData.category,
         price: productData.price,
         image: productData.image,
-        unitPrice: 0,
+        unitPrice: unitPrice,
         selectedVariant: null
       };
       
@@ -15737,7 +15748,24 @@
       // Update total
       const totalValue = productSelectionTotal.querySelector('.product-selection-total-value');
       if (totalValue) {
-        totalValue.textContent = quantity > 0 ? 'Consultar Precio' : '$0';
+        if (quantity === 0) {
+          totalValue.textContent = '$0';
+        } else if (currentProduct && currentProduct.unitPrice && currentProduct.unitPrice > 0) {
+          // Calculate total from unit price
+          const total = currentProduct.unitPrice * quantity;
+          totalValue.textContent = formatPrice(total);
+        } else if (currentProduct && currentProduct.price) {
+          // Try to parse price from price string
+          const unitPrice = parsePrice(currentProduct.price);
+          if (unitPrice > 0) {
+            const total = unitPrice * quantity;
+            totalValue.textContent = formatPrice(total);
+          } else {
+            totalValue.textContent = 'Consultar Precio';
+          }
+        } else {
+          totalValue.textContent = 'Consultar Precio';
+        }
       }
     }
     
