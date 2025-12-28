@@ -2250,7 +2250,11 @@
       transform: scale(1);
     }
 
-    .pimocard-close {
+    /* ============================================
+       UNIVERSAL MODAL CLOSE BUTTON
+       Single close button for all modals
+    ============================================ */
+    .universal-modal-close {
       position: fixed !important;
       top: 1.5rem !important;
       right: 1.5rem !important;
@@ -2261,22 +2265,33 @@
       border-radius: 50%;
       cursor: pointer;
       z-index: 99999 !important;
-      display: flex;
+      display: none;
       align-items: center;
       justify-content: center;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
       transition: all 0.3s ease;
     }
 
-    .pimocard-close:hover {
+    .universal-modal-close.active {
+      display: flex !important;
+    }
+
+    .universal-modal-close:hover {
       transform: rotate(90deg) scale(1.1);
       background: #fff;
     }
 
-    .pimocard-close svg {
+    .universal-modal-close svg {
       width: 24px;
       height: 24px;
-      color: #e31837;
+      color: #333;
+    }
+
+    /* Keep legacy class for backwards compatibility - hide individual close buttons */
+    .pimocard-close,
+    .cardialb-close,
+    .cardial-close {
+      display: none !important;
     }
 
     /* Hero Section */
@@ -6949,7 +6964,7 @@
     }
 
     .cardial-block-quantity.active {
-      display: flex;
+      display: none;
     }
 
     .cardial-block-quantity-label {
@@ -11429,8 +11444,7 @@
       .search-clear,
       .cart-modal-close,
       .product-modal-close,
-      .pimocard-close,
-      .cardialb-close,
+      .universal-modal-close,
       .enzimax-close,
       .repeat-modal-close,
       .pimocard-qty-btn,
@@ -11440,12 +11454,11 @@
         min-height: 44px;
       }
 
-      .pimocard-close,
-      .cardialb-close {
+      .universal-modal-close {
         width: 44px;
         height: 44px;
-        top: 1rem;
-        right: 1rem;
+        top: 1rem !important;
+        right: 1rem !important;
       }
 
       /* Ensure all interactive elements are tappable */
@@ -12138,8 +12151,7 @@
       /* Close buttons mobile */
       .cart-modal-close,
       .product-modal-close,
-      .pimocard-close,
-      .cardialb-close {
+      .universal-modal-close {
         width: clamp(32px, 8vw, 50px) !important;
         height: clamp(32px, 8vw, 50px) !important;
         min-width: 44px;
@@ -12149,8 +12161,7 @@
 
       .cart-modal-close svg,
       .product-modal-close svg,
-      .pimocard-close svg,
-      .cardialb-close svg {
+      .universal-modal-close svg {
         width: clamp(16px, 4vw, 24px) !important;
         height: clamp(16px, 4vw, 24px) !important;
       }
@@ -12349,17 +12360,6 @@
       display: none;
     }
 
-    #pimocardClose {
-      display: none;
-      position: fixed !important;
-      top: 1.5rem !important;
-      right: 1.5rem !important;
-      z-index: 99999 !important;
-    }
-
-    #pimocardClose.active {
-      display: flex !important;
-    }
   </style>
 </head>
 
@@ -14793,15 +14793,17 @@
     </footer>
   </aside>
 
-  <!-- PIMOCARD FULL-SCREEN MODAL -->
-  <div class="pimocard-modal-overlay" id="pimocardOverlay"></div>
-  <button class="pimocard-close" id="pimocardClose">
+  <!-- UNIVERSAL MODAL CLOSE BUTTON - Works for all modals -->
+  <button class="universal-modal-close" id="universalModalClose">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
       stroke-linejoin="round">
       <line x1="18" y1="6" x2="6" y2="18"></line>
       <line x1="6" y1="6" x2="18" y2="18"></line>
     </svg>
   </button>
+
+  <!-- PIMOCARD FULL-SCREEN MODAL -->
+  <div class="pimocard-modal-overlay" id="pimocardOverlay"></div>
   <div class="pimocard-modal" id="pimocardModal">
 
 
@@ -15702,14 +15704,6 @@
   <!-- CARDIAL B FULL-SCREEN MODAL -->
   <div class="cardialb-modal-overlay" id="cardialbOverlay"></div>
   <div class="cardialb-modal" id="cardialbModal">
-    <button class="cardialb-close" id="cardialbClose">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-        stroke-linejoin="round">
-        <line x1="18" y1="6" x2="6" y2="18"></line>
-        <line x1="6" y1="6" x2="18" y2="18"></line>
-      </svg>
-    </button>
-
     <!-- Hero Section -->
     <section class="cardialb-hero">
       <div class="cardialb-hearts">
@@ -16486,12 +16480,14 @@
       renderCartModal();
       cartModalOverlay.classList.add('active');
       cartModal.classList.add('active');
+      showUniversalCloseButton();
       document.body.style.overflow = 'hidden';
     }
 
     function closeCartModal() {
       cartModalOverlay.classList.remove('active');
       cartModal.classList.remove('active');
+      hideUniversalCloseButton();
       document.body.style.overflow = '';
     }
 
@@ -17832,11 +17828,70 @@
     const canvasExtendedInfo = document.getElementById('canvasExtendedInfo');
 
     // ============================================
+    // UNIVERSAL MODAL CLOSE BUTTON
+    // Single close button for all modals
+    // ============================================
+    const universalModalClose = document.getElementById('universalModalClose');
+
+    function showUniversalCloseButton() {
+      if (universalModalClose) {
+        universalModalClose.classList.add('active');
+      }
+    }
+
+    function hideUniversalCloseButton() {
+      if (universalModalClose) {
+        universalModalClose.classList.remove('active');
+      }
+    }
+
+    function closeAllModals() {
+      // Get modal references dynamically to avoid declaration order issues
+      const pimocardModalEl = document.getElementById('pimocardModal');
+      const cardialbModalEl = document.getElementById('cardialbModal');
+      const cartModalEl = document.getElementById('cartModal');
+      const productModalEl = document.getElementById('productModal');
+      const cardialModalEl = document.getElementById('cardialModal');
+
+      // Close Pimocard modal
+      if (pimocardModalEl && pimocardModalEl.classList.contains('active')) {
+        if (typeof closePimocardModal === 'function') closePimocardModal();
+        return;
+      }
+      // Close Cardial B modal
+      if (cardialbModalEl && cardialbModalEl.classList.contains('active')) {
+        if (typeof closeCardialbModal === 'function') closeCardialbModal();
+        return;
+      }
+      // Close Product modal
+      if (productModalEl && productModalEl.classList.contains('active')) {
+        if (typeof closeProductModal === 'function') closeProductModal();
+        return;
+      }
+      // Close Cardial modal
+      if (cardialModalEl && cardialModalEl.classList.contains('active')) {
+        if (typeof closeCardialModal === 'function') closeCardialModal();
+        return;
+      }
+      // Close Cart modal
+      if (cartModalEl && cartModalEl.classList.contains('active')) {
+        if (typeof closeCartModal === 'function') closeCartModal();
+        return;
+      }
+      // Hide the close button if no modal is active
+      hideUniversalCloseButton();
+    }
+
+    // Universal close button event listener
+    if (universalModalClose) {
+      universalModalClose.addEventListener('click', closeAllModals);
+    }
+
+    // ============================================
     // PIMOCARD FULL-SCREEN MODAL
     // ============================================
     const pimocardOverlay = document.getElementById('pimocardOverlay');
     const pimocardModal = document.getElementById('pimocardModal');
-    const pimocardClose = document.getElementById('pimocardClose');
     const pimocardCloseBottom = document.getElementById('pimocardCloseBottom');
     const pimocardOrderBtn = document.getElementById('pimocardOrderBtn');
     const pimocardOrderBtn2 = document.getElementById('pimocardOrderBtn2');
@@ -17847,7 +17902,7 @@
     function openPimocardModal() {
       pimocardOverlay.classList.add('active');
       pimocardModal.classList.add('active');
-      pimocardClose.classList.add('active');
+      showUniversalCloseButton();
       document.body.style.overflow = 'hidden';
 
       // Store current product for ordering
@@ -17864,14 +17919,13 @@
     function closePimocardModal() {
       pimocardOverlay.classList.remove('active');
       pimocardModal.classList.remove('active');
-      pimocardClose.classList.remove('active');
+      hideUniversalCloseButton();
       document.body.style.overflow = '';
       // Scroll modal back to top for next opening
       pimocardModal.scrollTop = 0;
     }
 
     // Pimocard modal event listeners
-    pimocardClose.addEventListener('click', closePimocardModal);
     if (pimocardCloseBottom) {
       pimocardCloseBottom.addEventListener('click', closePimocardModal);
     }
@@ -18733,6 +18787,7 @@
       // Show modal
       productModalOverlay.classList.add('active');
       productModal.classList.add('active');
+      showUniversalCloseButton();
       document.body.style.overflow = 'hidden';
 
       // Populate modal content
@@ -18760,6 +18815,7 @@
     function closeProductModal() {
       productModalOverlay.classList.remove('active');
       productModal.classList.remove('active');
+      hideUniversalCloseButton();
       document.body.style.overflow = '';
       productModal.scrollTop = 0;
     }
@@ -19052,6 +19108,7 @@
     function openCardialModal() {
       cardialOverlay.classList.add('active');
       cardialModal.classList.add('active');
+      showUniversalCloseButton();
       document.body.style.overflow = 'hidden';
 
       // Store current product for ordering
@@ -19068,6 +19125,7 @@
     function closeCardialModal() {
       cardialOverlay.classList.remove('active');
       cardialModal.classList.remove('active');
+      hideUniversalCloseButton();
       document.body.style.overflow = '';
       // Scroll modal back to top for next opening
       cardialModal.scrollTop = 0;
@@ -19711,7 +19769,6 @@
     // ============================================
     const cardialbOverlay = document.getElementById('cardialbOverlay');
     const cardialbModal = document.getElementById('cardialbModal');
-    const cardialbClose = document.getElementById('cardialbClose');
     const cardialbCloseBottom = document.getElementById('cardialbCloseBottom');
     const cardialbOrderBtn = document.getElementById('cardialbOrderBtn');
     const cardialbOrderBtn2 = document.getElementById('cardialbOrderBtn2');
@@ -19719,6 +19776,7 @@
     function openCardialbModal() {
       cardialbOverlay.classList.add('active');
       cardialbModal.classList.add('active');
+      showUniversalCloseButton();
       document.body.style.overflow = 'hidden';
 
       // Store current product for ordering
@@ -19735,15 +19793,19 @@
     function closeCardialbModal() {
       cardialbOverlay.classList.remove('active');
       cardialbModal.classList.remove('active');
+      hideUniversalCloseButton();
       document.body.style.overflow = '';
       // Scroll modal back to top for next opening
       cardialbModal.scrollTop = 0;
     }
 
     // Cardial B modal event listeners
-    cardialbClose.addEventListener('click', closeCardialbModal);
-    cardialbCloseBottom.addEventListener('click', closeCardialbModal);
-    cardialbOverlay.addEventListener('click', closeCardialbModal);
+    if (cardialbCloseBottom) {
+      cardialbCloseBottom.addEventListener('click', closeCardialbModal);
+    }
+    if (cardialbOverlay) {
+      cardialbOverlay.addEventListener('click', closeCardialbModal);
+    }
 
     // Order buttons - open delivery modal
     cardialbOrderBtn.addEventListener('click', () => {
