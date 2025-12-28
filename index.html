@@ -3377,17 +3377,233 @@
     
     @media (max-width: 600px) {
       .pimocard-selection-summary {
-        width: 100%;
-        max-width: 100%;
-        margin: 1.5rem auto 0;
+        width: 100vw;
+        max-width: 100vw;
+        margin: 1rem -2rem 0;
+        padding: 0;
       }
       
       .pimocard-selection-box {
-        border-radius: 16px;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
       }
       
       .pimocard-selection-items {
-        max-height: 250px;
+        max-height: 180px;
+      }
+      
+      /* Compact presentations section for mobile - clean & space-efficient */
+      .pimocard-products {
+        padding: 1.25rem 0.75rem;
+      }
+      
+      .pimocard-section-title {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+        padding: 0 0.5rem;
+      }
+      
+      .pimocard-presentations-container {
+        gap: 0.6rem;
+        margin: 0 auto 0.75rem auto;
+      }
+      
+      .pimocard-presentations-block {
+        padding: 0.75rem;
+        border-radius: 14px;
+      }
+      
+      .pimocard-block-header {
+        margin-bottom: 0.5rem;
+      }
+      
+      .pimocard-block-badge {
+        font-size: 0.65rem;
+        padding: 0.25rem 0.5rem;
+        gap: 0.25rem;
+      }
+      
+      .pimocard-block-badge svg {
+        width: 10px;
+        height: 10px;
+      }
+      
+      .pimocard-block-subtitle {
+        font-size: 0.6rem;
+        padding: 0.2rem 0.4rem;
+        margin-top: 0.3rem;
+      }
+      
+      .pimocard-block-image-container {
+        padding: 0.25rem;
+        margin-bottom: 0.4rem;
+        border-radius: 8px;
+        background: transparent;
+      }
+      
+      .pimocard-block-image {
+        max-width: 90px;
+        max-height: 90px;
+        width: 90px;
+        object-fit: contain;
+      }
+      
+      .pimocard-block-price-display {
+        margin-bottom: 0.4rem;
+      }
+      
+      .pimocard-block-price-label {
+        font-size: 0.55rem;
+        margin-bottom: 0.1rem;
+      }
+      
+      .pimocard-block-price-value {
+        font-size: 1.05rem;
+      }
+      
+      .pimocard-options-container {
+        gap: 0.3rem;
+        margin-bottom: 0.4rem;
+      }
+      
+      .pimocard-option-bullet {
+        padding: 0.3rem 0.5rem;
+        font-size: 0.68rem;
+        gap: 0.2rem;
+        border-radius: 6px;
+      }
+      
+      .bullet-indicator {
+        width: 5px;
+        height: 5px;
+      }
+      
+      .pimocard-block-quantity {
+        margin-top: 0.4rem;
+        padding-top: 0.4rem;
+      }
+      
+      .pimocard-block-quantity-label {
+        font-size: 0.7rem;
+      }
+      
+      .pimocard-block-qty-btn {
+        width: 26px;
+        height: 26px;
+      }
+      
+      .pimocard-block-qty-btn svg {
+        width: 12px;
+        height: 12px;
+      }
+      
+      .pimocard-block-qty-value {
+        font-size: 0.85rem;
+        min-width: 26px;
+      }
+      
+      /* Compact selection header and items */
+      .pimocard-selection-header {
+        padding: 0.75rem 1rem;
+      }
+      
+      .pimocard-selection-title {
+        font-size: 0.9rem;
+      }
+      
+      .pimocard-selection-title svg {
+        width: 16px;
+        height: 16px;
+      }
+      
+      .pimocard-selection-item {
+        padding: 0.6rem 1rem;
+        min-height: 50px;
+      }
+      
+      .pimocard-selection-item-dose {
+        font-size: 0.8rem;
+      }
+      
+      .pimocard-selection-item-type {
+        font-size: 0.6rem;
+      }
+      
+      .pimocard-selection-item-price {
+        font-size: 0.75rem;
+        min-width: 60px;
+      }
+      
+      .pimocard-selection-qty-btn {
+        width: 26px;
+        height: 26px;
+        min-width: 26px;
+        min-height: 26px;
+      }
+      
+      .pimocard-selection-item-delete {
+        width: 26px;
+        height: 26px;
+        min-width: 26px;
+        min-height: 26px;
+      }
+      
+      .pimocard-selection-total {
+        padding: 0.6rem 1rem;
+      }
+      
+      .pimocard-selection-total-label {
+        font-size: 0.75rem;
+      }
+      
+      .pimocard-selection-total-value {
+        font-size: 1.1rem;
+      }
+      
+      .pimocard-selection-actions {
+        gap: 0.4rem;
+        padding: 0.75rem 1rem 1rem;
+      }
+      
+      .pimocard-selection-btn-add,
+      .pimocard-selection-btn-whatsapp {
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+      }
+    }
+    
+    /* Extra small screens - even more compact */
+    @media (max-width: 400px) {
+      .pimocard-products {
+        padding: 1rem 0.5rem;
+      }
+      
+      .pimocard-section-title {
+        font-size: 1.15rem;
+      }
+      
+      .pimocard-presentations-block {
+        padding: 0.6rem;
+      }
+      
+      .pimocard-block-image {
+        max-width: 75px;
+        max-height: 75px;
+        width: 75px;
+      }
+      
+      .pimocard-block-price-value {
+        font-size: 0.95rem;
+      }
+      
+      .pimocard-option-bullet {
+        padding: 0.25rem 0.4rem;
+        font-size: 0.62rem;
+      }
+      
+      .pimocard-selection-summary {
+        margin: 0.5rem -0.5rem 0;
       }
     }
 
@@ -6595,17 +6811,193 @@
     
     @media (max-width: 600px) {
       .cardial-selection-summary {
-        width: 100%;
-        max-width: 100%;
-        margin: 1.5rem auto 0;
+        width: 100vw;
+        max-width: 100vw;
+        margin: 1rem -2rem 0;
+        padding: 0;
       }
       
       .cardial-selection-box {
-        border-radius: 16px;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
       }
       
       .cardial-selection-items {
-        max-height: 250px;
+        max-height: 180px;
+      }
+      
+      /* Compact Cardial presentations section for mobile - clean & space-efficient */
+      .cardial-products {
+        padding: 1.25rem 0.75rem;
+      }
+      
+      .cardial-section-title {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+        padding: 0 0.5rem;
+      }
+      
+      .cardial-presentations-container {
+        gap: 0.6rem;
+        margin: 0 auto 0.75rem auto;
+      }
+      
+      .cardial-presentations-block {
+        padding: 0.75rem;
+        border-radius: 14px;
+      }
+      
+      .cardial-block-image-container {
+        padding: 0.25rem;
+        margin-bottom: 0.4rem;
+        border-radius: 8px;
+        background: transparent;
+      }
+      
+      .cardial-block-image {
+        max-width: 90px;
+        max-height: 90px;
+        width: 90px;
+        object-fit: contain;
+      }
+      
+      .cardial-block-price-label {
+        font-size: 0.55rem;
+        margin-bottom: 0.1rem;
+      }
+      
+      .cardial-block-price-value {
+        font-size: 1.05rem;
+      }
+      
+      .cardial-block-price-display {
+        margin-bottom: 0.4rem;
+      }
+      
+      .cardial-option-bullet {
+        padding: 0.3rem 0.5rem;
+        font-size: 0.68rem;
+        border-radius: 6px;
+      }
+      
+      .cardial-options-container {
+        gap: 0.3rem;
+        margin-bottom: 0.4rem;
+      }
+      
+      .cardial-block-quantity {
+        margin-top: 0.4rem;
+        padding-top: 0.4rem;
+      }
+      
+      .cardial-block-qty-btn {
+        width: 26px;
+        height: 26px;
+      }
+      
+      .cardial-block-qty-btn svg {
+        width: 12px;
+        height: 12px;
+      }
+      
+      .cardial-block-qty-value {
+        font-size: 0.85rem;
+        min-width: 26px;
+      }
+      
+      /* Compact selection header and items */
+      .cardial-selection-header {
+        padding: 0.75rem 1rem;
+      }
+      
+      .cardial-selection-title {
+        font-size: 0.9rem;
+      }
+      
+      .cardial-selection-item {
+        padding: 0.6rem 1rem;
+        min-height: 50px;
+      }
+      
+      .cardial-selection-item-dose {
+        font-size: 0.8rem;
+      }
+      
+      .cardial-selection-item-type {
+        font-size: 0.6rem;
+      }
+      
+      .cardial-selection-item-price {
+        font-size: 0.75rem;
+        min-width: 60px;
+      }
+      
+      .cardial-selection-qty-btn {
+        width: 26px;
+        height: 26px;
+      }
+      
+      .cardial-selection-item-delete {
+        width: 26px;
+        height: 26px;
+      }
+      
+      .cardial-selection-total {
+        padding: 0.6rem 1rem;
+      }
+      
+      .cardial-selection-total-label {
+        font-size: 0.75rem;
+      }
+      
+      .cardial-selection-total-value {
+        font-size: 1.1rem;
+      }
+      
+      .cardial-selection-actions {
+        gap: 0.4rem;
+        padding: 0.75rem 1rem 1rem;
+      }
+      
+      .cardial-selection-btn-add,
+      .cardial-selection-btn-whatsapp {
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+      }
+    }
+    
+    /* Extra small screens for Cardial */
+    @media (max-width: 400px) {
+      .cardial-products {
+        padding: 1rem 0.5rem;
+      }
+      
+      .cardial-section-title {
+        font-size: 1.15rem;
+      }
+      
+      .cardial-presentations-block {
+        padding: 0.6rem;
+      }
+      
+      .cardial-block-image {
+        max-width: 75px;
+        max-height: 75px;
+        width: 75px;
+      }
+      
+      .cardial-block-price-value {
+        font-size: 0.95rem;
+      }
+      
+      .cardial-option-bullet {
+        padding: 0.25rem 0.4rem;
+        font-size: 0.62rem;
+      }
+      
+      .cardial-selection-summary {
+        margin: 0.5rem -0.5rem 0;
       }
     }
 
@@ -7777,17 +8169,181 @@
     
     @media (max-width: 600px) {
       .cardialb-selection-summary {
-        width: 100%;
-        max-width: 100%;
-        margin: 1.5rem auto 0;
+        width: 100vw;
+        max-width: 100vw;
+        margin: 1rem -2rem 0;
+        padding: 0;
       }
       
       .cardialb-selection-box {
-        border-radius: 16px;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
       }
       
       .cardialb-selection-items {
-        max-height: 250px;
+        max-height: 180px;
+      }
+      
+      /* Compact Cardial B formula section for mobile - clean & space-efficient */
+      .cardialb-formula {
+        padding: 1.25rem 0.75rem;
+      }
+      
+      .cardialb-section-title {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+        padding: 0 0.5rem;
+      }
+      
+      .cardialb-formula-grid {
+        gap: 0.5rem;
+        margin-top: 0.75rem;
+      }
+      
+      .cardialb-formula-card {
+        padding: 0.6rem;
+        border-radius: 12px;
+      }
+      
+      .cardialb-formula-dose {
+        font-size: 0.9rem;
+        margin-bottom: 0.3rem;
+      }
+      
+      .cardialb-formula-image {
+        max-width: 65px;
+        width: 65px;
+        margin: 0 auto 0.3rem;
+      }
+      
+      .cardialb-formula-weight {
+        font-size: 0.55rem;
+        padding: 0.2rem 0.4rem;
+        top: 0.4rem;
+        left: 0.4rem;
+      }
+      
+      .cardialb-formula-price {
+        font-size: 0.9rem;
+      }
+      
+      .cardialb-card-quantity {
+        margin-top: 0.35rem;
+        padding-top: 0.35rem;
+      }
+      
+      .cardialb-qty-btn {
+        width: 24px;
+        height: 24px;
+      }
+      
+      .cardialb-qty-btn svg {
+        width: 12px;
+        height: 12px;
+      }
+      
+      .cardialb-qty-value {
+        font-size: 0.8rem;
+        min-width: 24px;
+      }
+      
+      /* Compact selection header and items */
+      .cardialb-selection-header {
+        padding: 0.75rem 1rem;
+      }
+      
+      .cardialb-selection-title {
+        font-size: 0.9rem;
+      }
+      
+      .cardialb-selection-title svg {
+        width: 16px;
+        height: 16px;
+      }
+      
+      .cardialb-selection-item {
+        padding: 0.6rem 1rem;
+        min-height: 50px;
+      }
+      
+      .cardialb-selection-item-dose {
+        font-size: 0.8rem;
+      }
+      
+      .cardialb-selection-item-weight {
+        font-size: 0.6rem;
+      }
+      
+      .cardialb-selection-item-price {
+        font-size: 0.75rem;
+        min-width: 60px;
+      }
+      
+      .cardialb-selection-qty-btn {
+        width: 26px;
+        height: 26px;
+      }
+      
+      .cardialb-selection-item-delete {
+        width: 26px;
+        height: 26px;
+      }
+      
+      .cardialb-selection-total {
+        padding: 0.6rem 1rem;
+      }
+      
+      .cardialb-selection-total-label {
+        font-size: 0.75rem;
+      }
+      
+      .cardialb-selection-total-value {
+        font-size: 1.1rem;
+      }
+      
+      .cardialb-selection-actions {
+        gap: 0.4rem;
+        padding: 0.75rem 1rem 1rem;
+      }
+      
+      .cardialb-add-cart-btn,
+      .cardialb-consult-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+        min-height: 40px;
+      }
+    }
+    
+    /* Extra small screens - even more compact for Cardial B */
+    @media (max-width: 400px) {
+      .cardialb-formula {
+        padding: 1rem 0.5rem;
+      }
+      
+      .cardialb-section-title {
+        font-size: 1.15rem;
+      }
+      
+      .cardialb-formula-card {
+        padding: 0.5rem;
+      }
+      
+      .cardialb-formula-image {
+        max-width: 55px;
+        width: 55px;
+      }
+      
+      .cardialb-formula-dose {
+        font-size: 0.8rem;
+      }
+      
+      .cardialb-formula-price {
+        font-size: 0.8rem;
+      }
+      
+      .cardialb-selection-summary {
+        margin: 0.5rem -0.5rem 0;
       }
     }
 
