@@ -2724,6 +2724,274 @@
       }
     }
 
+    /* Mobile Selection Block (Bottom) */
+    .pimocard-mobile-selection {
+      display: none;
+      background: #fff;
+      border-top: 2px solid #e31837;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .pimocard-mobile-selection-box {
+      background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+      width: 100%;
+    }
+
+    .pimocard-mobile-selection-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 1rem;
+      background: linear-gradient(135deg, #1c1c1c 0%, #2d2d2d 100%);
+      border-bottom: 2px solid #e31837;
+    }
+
+    .pimocard-mobile-selection-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .pimocard-mobile-selection-title svg {
+      width: 18px;
+      height: 18px;
+      color: #e31837;
+    }
+
+    .pimocard-mobile-selection-items {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    .pimocard-mobile-selection-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 1rem;
+      background: #fff;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .pimocard-mobile-selection-item-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+      flex: 1;
+    }
+
+    .pimocard-mobile-selection-item-dose {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #1c1c1c;
+    }
+
+    .pimocard-mobile-selection-item-type {
+      font-size: 0.65rem;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .pimocard-mobile-selection-item-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .pimocard-mobile-selection-item-qty {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #f5f5f5;
+      border-radius: 8px;
+      padding: 0.25rem;
+    }
+
+    .pimocard-mobile-selection-qty-btn {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      background: #fff;
+      border: 1px solid #ddd;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .pimocard-mobile-selection-qty-btn:hover {
+      background: #e31837;
+      border-color: #e31837;
+      color: #fff;
+    }
+
+    .pimocard-mobile-selection-qty-btn svg {
+      width: 12px;
+      height: 12px;
+    }
+
+    .pimocard-mobile-selection-qty-value {
+      min-width: 20px;
+      text-align: center;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #1c1c1c;
+    }
+
+    .pimocard-mobile-selection-item-delete {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(227, 24, 55, 0.1);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .pimocard-mobile-selection-item-delete:hover {
+      background: #e31837;
+    }
+
+    .pimocard-mobile-selection-item-delete svg {
+      width: 12px;
+      height: 12px;
+      color: #e31837;
+      transition: color 0.2s ease;
+    }
+
+    .pimocard-mobile-selection-item-delete:hover svg {
+      color: #fff;
+    }
+
+    .pimocard-mobile-selection-item-price {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #e31837;
+      min-width: 60px;
+      text-align: right;
+    }
+
+    .pimocard-mobile-selection-total {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 1rem;
+      background: #f8f8f8;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .pimocard-mobile-selection-total-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #666;
+    }
+
+    .pimocard-mobile-selection-total-value {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #e31837;
+    }
+
+    .pimocard-mobile-selection-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      padding: 0.9rem 1rem;
+      background: #fff;
+    }
+
+    .pimocard-mobile-add-cart-btn {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      background: linear-gradient(135deg, #e31837 0%, #c41230 100%);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      transition: all 0.3s ease;
+    }
+
+    .pimocard-mobile-add-cart-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(227, 24, 55, 0.4);
+    }
+
+    .pimocard-mobile-add-cart-btn svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .pimocard-mobile-consult-btn {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      background: #fff;
+      color: #1c1c1c;
+      border: 2px solid #ddd;
+      border-radius: 50px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      transition: all 0.3s ease;
+    }
+
+    .pimocard-mobile-consult-btn:hover {
+      border-color: #e31837;
+      background: rgba(227, 24, 55, 0.05);
+      color: #e31837;
+    }
+
+    .pimocard-mobile-consult-btn svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .pimocard-mobile-selection-empty {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      color: #999;
+    }
+
+    .pimocard-mobile-selection-empty svg {
+      width: 35px;
+      height: 35px;
+      margin-bottom: 0.5rem;
+      opacity: 0.3;
+    }
+
+    .pimocard-mobile-selection-empty p {
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 768px) {
+      .pimocard-mobile-selection {
+        display: block;
+      }
+    }
+
     /* Combination Note - PimoCard + CARDIAL B */
     .pimocard-combination {
       background: #e5e5e5;
@@ -10847,6 +11115,43 @@
         </button>
       </div>
     </section>
+
+    <!-- Mobile Selection Block (Bottom) -->
+    <section class="pimocard-mobile-selection" id="pimocardMobileSelection">
+      <div class="pimocard-mobile-selection-box">
+        <div class="pimocard-mobile-selection-header">
+          <div class="pimocard-mobile-selection-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+            </svg>
+            Tu Selección
+          </div>
+        </div>
+        <div class="pimocard-mobile-selection-items" id="pimocardMobileSelectionItems">
+          <!-- Selected items will be displayed here dynamically -->
+        </div>
+        <div class="pimocard-mobile-selection-total" id="pimocardMobileSelectionTotal">
+          <span class="pimocard-mobile-selection-total-label">Total</span>
+          <span class="pimocard-mobile-selection-total-value">$0</span>
+        </div>
+        <div class="pimocard-mobile-selection-actions">
+          <button class="pimocard-mobile-add-cart-btn" id="pimocardMobileAddToCartBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+            </svg>
+            Añadir al carrito
+          </button>
+          <button class="pimocard-mobile-consult-btn" id="pimocardMobileRequestDeliveryBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+            Solicitar entrega
+          </button>
+        </div>
+      </div>
+    </section>
   </div>
 
   <!-- GENERAL PRODUCT MODAL (Right Side) -->
@@ -12517,6 +12822,12 @@
     const pimocardSelectionClose = document.getElementById('pimocardSelectionClose');
     const pimocardRequestDeliveryBtn = document.getElementById('pimocardRequestDeliveryBtn');
 
+    // Mobile selection elements
+    const pimocardMobileSelectionItems = document.getElementById('pimocardMobileSelectionItems');
+    const pimocardMobileSelectionTotal = document.getElementById('pimocardMobileSelectionTotal');
+    const pimocardMobileAddToCartBtn = document.getElementById('pimocardMobileAddToCartBtn');
+    const pimocardMobileRequestDeliveryBtn = document.getElementById('pimocardMobileRequestDeliveryBtn');
+
     // Helper functions to block/unblock scrolling
     function blockScrolling() {
       document.body.style.overflow = 'hidden';
@@ -12642,6 +12953,49 @@
         // Update total display
         pimocardSelectionTotal.querySelector('.pimocard-selection-total-value').textContent = formatPimocardPrice(totalPrice);
         
+        // Update mobile selection block
+        if (pimocardMobileSelectionItems) {
+          // Build mobile selection items HTML (same structure)
+          let mobileItemsHTML = '';
+          for (const [dose, data] of Object.entries(selectedPresentations)) {
+            const subtotal = data.price * data.qty;
+            const isHospitalario = dose.includes('Hospitalario');
+            const displayDose = dose.replace(' Hospitalario', '');
+            
+            mobileItemsHTML += `
+              <div class="pimocard-mobile-selection-item" data-dose="${dose}">
+                <div class="pimocard-mobile-selection-item-info">
+                  <div class="pimocard-mobile-selection-item-dose">${displayDose}</div>
+                  <div class="pimocard-mobile-selection-item-type">${isHospitalario ? 'Hospitalario' : 'Estándar'}</div>
+                </div>
+                <div class="pimocard-mobile-selection-item-controls">
+                  <div class="pimocard-mobile-selection-item-qty">
+                    <button class="pimocard-mobile-selection-qty-btn" data-action="decrease" data-dose="${dose}">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    </button>
+                    <span class="pimocard-mobile-selection-qty-value">${data.qty}</span>
+                    <button class="pimocard-mobile-selection-qty-btn" data-action="increase" data-dose="${dose}">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    </button>
+                  </div>
+                  <button class="pimocard-mobile-selection-item-delete" data-dose="${dose}">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                    </svg>
+                  </button>
+                  <div class="pimocard-mobile-selection-item-price">${formatPimocardPrice(subtotal)}</div>
+                </div>
+              </div>
+            `;
+          }
+          pimocardMobileSelectionItems.innerHTML = mobileItemsHTML;
+        }
+        
+        // Update mobile total display
+        if (pimocardMobileSelectionTotal) {
+          pimocardMobileSelectionTotal.querySelector('.pimocard-mobile-selection-total-value').textContent = formatPimocardPrice(totalPrice);
+        }
+        
         // Attach event listeners to quantity buttons and delete buttons
         attachSelectionItemEvents();
       } else {
@@ -12649,13 +13003,21 @@
         unblockScrolling();
         pimocardSelectionItems.innerHTML = '';
         pimocardSelectionTotal.querySelector('.pimocard-selection-total-value').textContent = '$0';
+        
+        // Clear mobile selection too
+        if (pimocardMobileSelectionItems) {
+          pimocardMobileSelectionItems.innerHTML = '';
+        }
+        if (pimocardMobileSelectionTotal) {
+          pimocardMobileSelectionTotal.querySelector('.pimocard-mobile-selection-total-value').textContent = '$0';
+        }
       }
     }
 
     // Attach events to selection item controls
     function attachSelectionItemEvents() {
-      // Quantity buttons
-      document.querySelectorAll('.pimocard-selection-qty-btn').forEach(btn => {
+      // Quantity buttons (both desktop and mobile)
+      document.querySelectorAll('.pimocard-selection-qty-btn, .pimocard-mobile-selection-qty-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
           e.stopPropagation();
           const dose = btn.dataset.dose;
@@ -12680,8 +13042,8 @@
         });
       });
 
-      // Delete buttons
-      document.querySelectorAll('.pimocard-selection-item-delete').forEach(btn => {
+      // Delete buttons (both desktop and mobile)
+      document.querySelectorAll('.pimocard-selection-item-delete, .pimocard-mobile-selection-item-delete').forEach(btn => {
         btn.addEventListener('click', (e) => {
           e.stopPropagation();
           const dose = btn.dataset.dose;
@@ -12837,6 +13199,71 @@
       // Here you could add to a global cart if you have one
       // For now, items remain in the selection canvas
     });
+
+    // Mobile Add to cart button - adds items to cart and shows feedback
+    if (pimocardMobileAddToCartBtn) {
+      pimocardMobileAddToCartBtn.addEventListener('click', () => {
+        if (Object.keys(selectedPresentations).length === 0) return;
+        
+        // Calculate total
+        let totalPrice = 0;
+        let itemCount = 0;
+        Object.entries(selectedPresentations).forEach(([dose, data]) => {
+          totalPrice += data.price * data.qty;
+          itemCount += data.qty;
+        });
+        
+        // Show success feedback (you can customize this)
+        const btn = pimocardMobileAddToCartBtn;
+        const originalText = btn.innerHTML;
+        btn.innerHTML = `
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          Añadido
+        `;
+        btn.style.background = 'linear-gradient(135deg, #68bb59 0%, #5aa34a 100%)';
+        
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.style.background = '';
+        }, 2000);
+        
+        // Here you could add to a global cart if you have one
+        // For now, items remain in the selection canvas
+      });
+    }
+
+    // Mobile Request delivery button action - opens delivery modal
+    if (pimocardMobileRequestDeliveryBtn) {
+      pimocardMobileRequestDeliveryBtn.addEventListener('click', () => {
+        if (Object.keys(selectedPresentations).length === 0) return;
+        
+        // Build product info for delivery with prices
+        let totalPrice = 0;
+        let variantInfo = Object.entries(selectedPresentations)
+          .map(([dose, data]) => {
+            totalPrice += data.price * data.qty;
+            return `${dose} (×${data.qty})`;
+          })
+          .join(', ');
+        
+        currentProduct = {
+          name: 'Pimocard',
+          category: 'Cardiología • Inotrópico Positivo',
+          price: formatPimocardPrice(totalPrice),
+          image: 'images/obj1.png',
+          unitPrice: totalPrice,
+          selectedVariant: variantInfo
+        };
+        
+        // Close Pimocard modal and open delivery modal
+        closePimocardModal();
+        setTimeout(() => {
+          openDeliveryModal();
+        }, 300);
+      });
+    }
 
     // Reset selections when modal closes
     function resetPimocardSelections() {
