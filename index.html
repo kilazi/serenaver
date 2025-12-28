@@ -3293,30 +3293,33 @@
     
     @media (max-width: 768px) {
       .pimocard-selection-summary {
-        position: fixed;
-        bottom: 80px;
-        left: 5%;
-        right: 5%;
+        position: relative;
         top: auto;
-        width: 90%;
-        max-width: 90%;
-        z-index: 10000;
-        transform: translateY(100px);
+        right: auto;
+        left: auto;
+        bottom: auto;
+        width: 100%;
+        max-width: 100%;
+        margin: 2rem auto 0;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        z-index: 10;
       }
       
       .pimocard-selection-summary.active {
-        transform: translateY(0);
+        transform: none;
       }
       
       .pimocard-selection-box {
         width: 100%;
         max-width: 100%;
-        max-height: 60vh;
-        box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(227, 24, 55, 0.1);
+        max-height: none;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(227, 24, 55, 0.1);
       }
       
       .pimocard-selection-items {
-        max-height: calc(60vh - 180px);
+        max-height: 300px;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
       }
@@ -3356,12 +3359,7 @@
       }
       
       .pimocard-selection-close {
-        min-width: 36px;
-        min-height: 36px;
-        width: 36px;
-        height: 36px;
-        -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
-        touch-action: manipulation;
+        display: none;
       }
       
       .pimocard-selection-qty-btn,
@@ -3379,19 +3377,17 @@
     
     @media (max-width: 600px) {
       .pimocard-selection-summary {
-        bottom: 70px;
-        left: 5%;
-        right: 5%;
-        width: 90%;
-        max-width: 90%;
+        width: 100%;
+        max-width: 100%;
+        margin: 1.5rem auto 0;
       }
       
       .pimocard-selection-box {
-        max-height: 55vh;
+        border-radius: 16px;
       }
       
       .pimocard-selection-items {
-        max-height: calc(55vh - 170px);
+        max-height: 250px;
       }
     }
 
@@ -6039,6 +6035,8 @@
     .cardial-products {
       background: #fff;
       padding: 5rem 2rem;
+      position: relative;
+      overflow: visible;
     }
 
     .cardial-brand-logo {
@@ -6077,6 +6075,7 @@
       justify-content: center;
       gap: 3rem;
       flex-wrap: wrap;
+      position: relative;
     }
 
     .cardial-presentation-card {
@@ -6093,6 +6092,12 @@
     .cardial-presentation-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+    }
+
+    .cardial-presentation-card.selected {
+      border: 3px solid #0066b3;
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 15px 50px rgba(0, 102, 179, 0.25);
     }
 
     .cardial-presentation-dose {
@@ -6233,6 +6238,375 @@
     .cardial-benefit-content p {
       color: #666;
       line-height: 1.6;
+    }
+
+    /* Cardial Selection Summary - positioned like Pimocard and Cardial B */
+    .cardial-selection-summary {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 100;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(30px);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .cardial-selection-summary.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(0);
+    }
+
+    .cardial-selection-box {
+      background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+      border-radius: 20px;
+      padding: 0;
+      width: 320px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 102, 179, 0.1);
+      border: 2px solid #0066b3;
+      overflow: hidden;
+    }
+
+    .cardial-selection-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.25rem;
+      background: linear-gradient(135deg, #1c1c1c 0%, #2d2d2d 100%);
+      border-bottom: 2px solid #0066b3;
+    }
+
+    .cardial-selection-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .cardial-selection-title svg {
+      width: 20px;
+      height: 20px;
+      color: #0066b3;
+    }
+
+    .cardial-selection-close {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .cardial-selection-close:hover {
+      background: rgba(0, 102, 179, 0.3);
+    }
+
+    .cardial-selection-close svg {
+      width: 14px;
+      height: 14px;
+      color: #fff;
+    }
+
+    .cardial-selection-items {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      max-height: 280px;
+      overflow-y: auto;
+    }
+
+    .cardial-selection-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 1.25rem;
+      background: #fff;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      transition: background 0.2s ease;
+    }
+
+    .cardial-selection-item:hover {
+      background: rgba(0, 102, 179, 0.03);
+    }
+
+    .cardial-selection-item-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .cardial-selection-item-dose {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #1c1c1c;
+    }
+
+    .cardial-selection-item-type {
+      font-size: 0.7rem;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .cardial-selection-item-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .cardial-selection-qty-btn {
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      background: #fff;
+      border: 1px solid #ddd;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .cardial-selection-qty-btn:hover {
+      background: #0066b3;
+      border-color: #0066b3;
+      color: #fff;
+    }
+
+    .cardial-selection-qty-btn svg {
+      width: 12px;
+      height: 12px;
+    }
+
+    .cardial-selection-qty-value {
+      min-width: 24px;
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #1c1c1c;
+    }
+
+    .cardial-selection-item-delete {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(0, 102, 179, 0.1);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .cardial-selection-item-delete:hover {
+      background: #0066b3;
+    }
+
+    .cardial-selection-item-delete svg {
+      width: 14px;
+      height: 14px;
+      color: #0066b3;
+      transition: color 0.2s ease;
+    }
+
+    .cardial-selection-item-delete:hover svg {
+      color: #fff;
+    }
+
+    .cardial-selection-item-price {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #0066b3;
+      min-width: 70px;
+      text-align: right;
+    }
+
+    .cardial-selection-total {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.25rem;
+      background: #f8f8f8;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .cardial-selection-total-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #666;
+    }
+
+    .cardial-selection-total-value {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #0066b3;
+    }
+
+    .cardial-selection-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      padding: 1rem 1.25rem;
+      background: #fff;
+    }
+
+    .cardial-add-cart-btn {
+      width: 100%;
+      padding: 0.85rem 1.25rem;
+      background: linear-gradient(135deg, #0066b3 0%, #004d8c 100%);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      transition: all 0.3s ease;
+    }
+
+    .cardial-add-cart-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 102, 179, 0.4);
+    }
+
+    .cardial-add-cart-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .cardial-consult-btn {
+      width: 100%;
+      padding: 0.85rem 1.25rem;
+      background: #fff;
+      color: #1c1c1c;
+      border: 2px solid #ddd;
+      border-radius: 50px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      transition: all 0.3s ease;
+    }
+
+    .cardial-consult-btn:hover {
+      border-color: #0066b3;
+      background: rgba(0, 102, 179, 0.05);
+      color: #0066b3;
+    }
+
+    .cardial-consult-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* Responsive for Cardial selection - inline on mobile */
+    @media (max-width: 900px) {
+      .cardial-selection-summary {
+        right: 10px;
+        top: 20px;
+        transform: translateX(30px);
+      }
+      
+      .cardial-selection-summary.active {
+        transform: translateX(0);
+      }
+      
+      .cardial-selection-box {
+        width: 280px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .cardial-selection-summary {
+        position: relative;
+        top: auto;
+        right: auto;
+        left: auto;
+        bottom: auto;
+        width: 100%;
+        max-width: 100%;
+        margin: 2rem auto 0;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        z-index: 10;
+      }
+      
+      .cardial-selection-summary.active {
+        transform: none;
+      }
+      
+      .cardial-selection-box {
+        width: 100%;
+        max-width: 100%;
+        max-height: none;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 102, 179, 0.1);
+      }
+      
+      .cardial-selection-items {
+        max-height: 300px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      
+      .cardial-selection-item {
+        padding: 0.85rem 1rem;
+        min-height: 60px;
+      }
+      
+      .cardial-selection-item-price {
+        min-width: 70px;
+        font-size: 0.85rem;
+      }
+      
+      .cardial-selection-close {
+        display: none;
+      }
+      
+      .cardial-add-cart-btn,
+      .cardial-consult-btn {
+        padding: 1rem 1.25rem;
+        font-size: 1rem;
+        min-height: 48px;
+        -webkit-tap-highlight-color: rgba(0, 102, 179, 0.2);
+        touch-action: manipulation;
+        user-select: none;
+      }
+    }
+    
+    @media (max-width: 600px) {
+      .cardial-selection-summary {
+        width: 100%;
+        max-width: 100%;
+        margin: 1.5rem auto 0;
+      }
+      
+      .cardial-selection-box {
+        border-radius: 16px;
+      }
+      
+      .cardial-selection-items {
+        max-height: 250px;
+      }
     }
 
     /* Dual Effect Section */
@@ -7326,7 +7700,7 @@
       font-size: 0.85rem;
     }
 
-    /* Responsive for floating canvas - matching Pimocard behavior */
+    /* Responsive for Cardial B selection - inline on mobile */
     @media (max-width: 900px) {
       .cardialb-selection-summary {
         right: 10px;
@@ -7343,35 +7717,77 @@
       }
     }
     
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       .cardialb-selection-summary {
-        right: 5px;
-        left: 5px;
+        position: relative;
         top: auto;
-        bottom: 10px;
-        transform: translateX(30px);
+        right: auto;
+        left: auto;
+        bottom: auto;
+        width: 100%;
+        max-width: 100%;
+        margin: 2rem auto 0;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        z-index: 10;
       }
       
       .cardialb-selection-summary.active {
-        transform: translateX(0);
+        transform: none;
       }
       
       .cardialb-selection-box {
         width: 100%;
-        max-height: 50vh;
+        max-width: 100%;
+        max-height: none;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 102, 179, 0.1);
       }
       
       .cardialb-selection-items {
-        max-height: 150px;
+        max-height: 300px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
       }
       
       .cardialb-selection-item {
-        padding: 0.7rem 1rem;
+        padding: 0.85rem 1rem;
+        min-height: 60px;
       }
       
       .cardialb-selection-item-price {
-        min-width: 60px;
-        font-size: 0.8rem;
+        min-width: 70px;
+        font-size: 0.85rem;
+      }
+      
+      .cardialb-selection-close {
+        display: none;
+      }
+      
+      .cardialb-add-cart-btn,
+      .cardialb-consult-btn {
+        padding: 1rem 1.25rem;
+        font-size: 1rem;
+        min-height: 48px;
+        -webkit-tap-highlight-color: rgba(0, 102, 179, 0.2);
+        touch-action: manipulation;
+        user-select: none;
+      }
+    }
+    
+    @media (max-width: 600px) {
+      .cardialb-selection-summary {
+        width: 100%;
+        max-width: 100%;
+        margin: 1.5rem auto 0;
+      }
+      
+      .cardialb-selection-box {
+        border-radius: 16px;
+      }
+      
+      .cardialb-selection-items {
+        max-height: 250px;
       }
     }
 
@@ -9349,37 +9765,51 @@
         padding-right: clamp(1rem, 4vw, 5%);
       }
 
-      /* Selection summaries - mobile positioning (redundant, handled above but kept for consistency) */
+      /* Selection summaries - mobile positioning (inline, not floating) */
       .pimocard-selection-summary,
-      .cardialb-selection-summary {
-        position: fixed !important;
-        bottom: 80px !important;
-        left: 5% !important;
-        right: 5% !important;
+      .cardialb-selection-summary,
+      .cardial-selection-summary {
+        position: relative !important;
         top: auto !important;
-        width: 90% !important;
-        max-width: 90% !important;
-        z-index: 10000 !important;
-        transform: translateY(100px) !important;
+        right: auto !important;
+        left: auto !important;
+        bottom: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 2rem auto 0 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        z-index: 10 !important;
       }
       
       .pimocard-selection-summary.active,
-      .cardialb-selection-summary.active {
-        transform: translateY(0) !important;
+      .cardialb-selection-summary.active,
+      .cardial-selection-summary.active {
+        transform: none !important;
       }
 
       .pimocard-selection-box,
-      .cardialb-selection-box {
+      .cardialb-selection-box,
+      .cardial-selection-box {
         width: 100% !important;
         max-width: 100% !important;
-        max-height: 60vh !important;
+        max-height: none !important;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1) !important;
       }
 
       .pimocard-selection-items,
-      .cardialb-selection-items {
-        max-height: calc(60vh - 180px) !important;
+      .cardialb-selection-items,
+      .cardial-selection-items {
+        max-height: 300px !important;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
+      }
+      
+      .pimocard-selection-close,
+      .cardialb-selection-close,
+      .cardial-selection-close {
+        display: none !important;
       }
     }
 
@@ -12695,13 +13125,13 @@
     </section>
 
     <!-- Products Section -->
-    <section class="cardial-products" id="cardialProductsSection">
+    <section class="cardial-products" id="cardialProductsSection" style="position: relative; overflow: visible;">
       <img src="images/holliday-logo.png" alt="Holliday" class="cardial-brand-logo">
       <h2 class="cardial-section-title">Presentación Disponible</h2>
       <p class="cardial-section-subtitle">Cardial® 5 mg - Envase conteniendo 3 blisters por 10 comprimidos cada uno</p>
       
-      <div class="cardial-presentations-container">
-        <div class="cardial-presentation-card">
+      <div class="cardial-presentations-container" style="position: relative;">
+        <div class="cardial-presentation-card" data-dose="5 mg" data-price="120000" data-image="images/cardial5.webp" style="cursor: pointer;">
           <div class="cardial-presentation-dose">5 mg</div>
           <div class="cardial-presentation-info">
             Cada comprimido contiene:<br>
@@ -12709,7 +13139,7 @@
             <strong>Espironolactona</strong> 5 mg
           </div>
           <img class="cardial-presentation-image" src="images/cardial5.webp" alt="Cardial 5 mg">
-          <div class="cardial-presentation-price">$120.000</div>
+          <div class="cardial-presentation-price" id="cardialPriceDisplay">$120.000</div>
           
           <div class="cardial-block-quantity" id="cardialQuantity">
             <span class="cardial-block-quantity-label">Cantidad:</span>
@@ -12720,6 +13150,48 @@
             <button class="cardial-block-qty-btn" data-action="increase">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
             </button>
+          </div>
+        </div>
+
+        <!-- Floating Selection Canvas (Right Side) -->
+        <div class="cardial-selection-summary" id="cardialSelectionSummary">
+          <div class="cardial-selection-box">
+            <div class="cardial-selection-header">
+              <div class="cardial-selection-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                </svg>
+                Tu Selección
+              </div>
+              <button class="cardial-selection-close" id="cardialSelectionClose">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+              </button>
+            </div>
+            <div class="cardial-selection-items" id="cardialSelectionItems">
+              <!-- Selected items will be displayed here dynamically -->
+            </div>
+            <div class="cardial-selection-total" id="cardialSelectionTotal">
+              <span class="cardial-selection-total-label">Total</span>
+              <span class="cardial-selection-total-value">$0</span>
+            </div>
+            <div class="cardial-selection-actions">
+              <button class="cardial-add-cart-btn" id="cardialAddToCartBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                </svg>
+                Añadir al carrito
+              </button>
+              <button class="cardial-consult-btn" id="cardialRequestDeliveryBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                </svg>
+                Solicitar entrega
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -15929,17 +16401,37 @@
       }
     });
 
-    // Quantity controls for Cardial
+    // ============================================
+    // CARDIAL SELECTABLE PRESENTATIONS
+    // ============================================
+    const cardialSelectionSummary = document.getElementById('cardialSelectionSummary');
+    const cardialSelectionItems = document.getElementById('cardialSelectionItems');
+    const cardialSelectionClose = document.getElementById('cardialSelectionClose');
+    const cardialAddToCartBtn = document.getElementById('cardialAddToCartBtn');
+    const cardialRequestDeliveryBtn = document.getElementById('cardialRequestDeliveryBtn');
+    const cardialPriceDisplay = document.getElementById('cardialPriceDisplay');
     const cardialQuantity = document.getElementById('cardialQuantity');
+
+    // Track selected Cardial presentations
+    let cardialSelectedPresentations = {};
+    let cardialSelected = null;
+    let cardialQty = 1;
+
+    // Format price for Cardial
+    function formatCardialPrice(amount) {
+      if (amount === 0 || !amount) return 'Consultar';
+      return '$' + amount.toLocaleString('es-CO', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+    }
+
+    // Quantity controls for Cardial
     if (cardialQuantity) {
       const cardialQtyValue = cardialQuantity.querySelector('.cardial-block-qty-value');
       const cardialQtyButtons = cardialQuantity.querySelectorAll('.cardial-block-qty-btn');
-      let cardialQty = 1;
 
       cardialQtyButtons.forEach(btn => {
         btn.addEventListener('click', () => {
           const action = btn.getAttribute('data-action');
-          if (action === 'increase') {
+          if (action === 'increase' && cardialQty < 99) {
             cardialQty++;
           } else if (action === 'decrease' && cardialQty > 1) {
             cardialQty--;
@@ -15947,9 +16439,286 @@
           if (cardialQtyValue) {
             cardialQtyValue.textContent = cardialQty;
           }
+          
+          // Update price display
+          if (cardialPriceDisplay) {
+            cardialPriceDisplay.textContent = formatCardialPrice(120000 * cardialQty);
+          }
+          
+          // Update selection if exists
+          if (cardialSelected) {
+            cardialSelected.qty = cardialQty;
+            if (cardialSelectedPresentations[cardialSelected.dose]) {
+              cardialSelectedPresentations[cardialSelected.dose].qty = cardialQty;
+            }
+            updateCardialSelectionSummary();
+          }
         });
       });
     }
+
+    // Handle presentation card click
+    const cardialPresentationCard = document.querySelector('.cardial-presentation-card');
+    if (cardialPresentationCard) {
+      cardialPresentationCard.addEventListener('click', () => {
+        const dose = cardialPresentationCard.dataset.dose || '5 mg';
+        const price = parseInt(cardialPresentationCard.dataset.price) || 120000;
+        const image = cardialPresentationCard.dataset.image || 'images/cardial5.webp';
+        
+        // Toggle selection
+        if (cardialPresentationCard.classList.contains('selected')) {
+          // Deselect
+          cardialPresentationCard.classList.remove('selected');
+          delete cardialSelectedPresentations[dose];
+          cardialSelected = null;
+        } else {
+          // Select
+          cardialPresentationCard.classList.add('selected');
+          cardialSelected = { dose, price, image, qty: cardialQty };
+          cardialSelectedPresentations[dose] = { qty: cardialQty, price: price };
+        }
+        
+        updateCardialSelectionSummary();
+      });
+      
+      // Add selected state styles inline
+      cardialPresentationCard.style.transition = 'all 0.3s ease';
+    }
+
+    // Update Cardial selection summary
+    function updateCardialSelectionSummary() {
+      const selectedCount = Object.keys(cardialSelectedPresentations).length;
+      
+      if (selectedCount > 0 && cardialSelectionSummary) {
+        cardialSelectionSummary.classList.add('active');
+        
+        // Build selection items HTML and calculate total
+        let itemsHTML = '';
+        let totalPrice = 0;
+        
+        for (const [dose, data] of Object.entries(cardialSelectedPresentations)) {
+          const subtotal = data.price * data.qty;
+          totalPrice += subtotal;
+          
+          itemsHTML += `
+            <div class="cardial-selection-item" data-dose="${dose}">
+              <div class="cardial-selection-item-info">
+                <div class="cardial-selection-item-dose">Cardial ${dose}</div>
+                <div class="cardial-selection-item-type">Enalapril + Espironolactona</div>
+              </div>
+              <div class="cardial-selection-item-controls">
+                <button class="cardial-selection-qty-btn" data-action="decrease" data-dose="${dose}">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </button>
+                <span class="cardial-selection-qty-value">${data.qty}</span>
+                <button class="cardial-selection-qty-btn" data-action="increase" data-dose="${dose}">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </button>
+                <button class="cardial-selection-item-delete" data-dose="${dose}">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                  </svg>
+                </button>
+                <div class="cardial-selection-item-price">${formatCardialPrice(subtotal)}</div>
+              </div>
+            </div>
+          `;
+        }
+        
+        if (cardialSelectionItems) {
+          cardialSelectionItems.innerHTML = itemsHTML;
+        }
+        
+        // Update total display
+        const cardialSelectionTotal = document.getElementById('cardialSelectionTotal');
+        if (cardialSelectionTotal) {
+          cardialSelectionTotal.querySelector('.cardial-selection-total-value').textContent = formatCardialPrice(totalPrice);
+        }
+        
+        // Attach event listeners to quantity buttons and delete buttons
+        attachCardialSelectionItemEvents();
+      } else {
+        if (cardialSelectionSummary) {
+          cardialSelectionSummary.classList.remove('active');
+        }
+        
+        if (cardialSelectionItems) {
+          cardialSelectionItems.innerHTML = '';
+        }
+        const cardialSelectionTotal = document.getElementById('cardialSelectionTotal');
+        if (cardialSelectionTotal) {
+          cardialSelectionTotal.querySelector('.cardial-selection-total-value').textContent = '$0';
+        }
+      }
+    }
+
+    // Attach events to selection item controls
+    function attachCardialSelectionItemEvents() {
+      // Quantity buttons
+      document.querySelectorAll('.cardial-selection-qty-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const action = btn.dataset.action;
+          const dose = btn.dataset.dose;
+          
+          if (cardialSelectedPresentations[dose]) {
+            if (action === 'increase' && cardialSelectedPresentations[dose].qty < 99) {
+              cardialSelectedPresentations[dose].qty++;
+              cardialQty = cardialSelectedPresentations[dose].qty;
+            } else if (action === 'decrease' && cardialSelectedPresentations[dose].qty > 1) {
+              cardialSelectedPresentations[dose].qty--;
+              cardialQty = cardialSelectedPresentations[dose].qty;
+            }
+            
+            // Update quantity display in card
+            const cardialQtyValue = cardialQuantity.querySelector('.cardial-block-qty-value');
+            if (cardialQtyValue) cardialQtyValue.textContent = cardialQty;
+            
+            // Update price display
+            if (cardialPriceDisplay) {
+              cardialPriceDisplay.textContent = formatCardialPrice(120000 * cardialQty);
+            }
+            
+            updateCardialSelectionSummary();
+          }
+        });
+      });
+      
+      // Delete buttons
+      document.querySelectorAll('.cardial-selection-item-delete').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const dose = btn.dataset.dose;
+          delete cardialSelectedPresentations[dose];
+          cardialSelected = null;
+          
+          // Also deselect the presentation card
+          if (cardialPresentationCard) {
+            cardialPresentationCard.classList.remove('selected');
+          }
+          
+          updateCardialSelectionSummary();
+        });
+      });
+    }
+
+    // Close button for selection canvas
+    if (cardialSelectionClose) {
+      cardialSelectionClose.addEventListener('click', () => {
+        if (cardialSelectionSummary) {
+          cardialSelectionSummary.classList.remove('active');
+        }
+      });
+    }
+
+    // Add to cart button action
+    if (cardialAddToCartBtn) {
+      cardialAddToCartBtn.addEventListener('click', () => {
+        if (Object.keys(cardialSelectedPresentations).length === 0) return;
+        
+        // Add each selected presentation to cart
+        if (typeof addToCart === 'function') {
+          Object.entries(cardialSelectedPresentations).forEach(([dose, data]) => {
+            addToCart('cardial', data.qty, dose);
+          });
+        }
+        
+        // Show success feedback
+        const btn = cardialAddToCartBtn;
+        const originalText = btn.innerHTML;
+        btn.innerHTML = `
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          Añadido
+        `;
+        btn.style.background = 'linear-gradient(135deg, #68bb59 0%, #5aa34a 100%)';
+        
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.style.background = '';
+          // Close modal and show cart
+          closeCardialModal();
+          if (typeof openCartModal === 'function') {
+            openCartModal();
+          }
+        }, 800);
+      });
+    }
+
+    // Request delivery button action
+    if (cardialRequestDeliveryBtn) {
+      cardialRequestDeliveryBtn.addEventListener('click', () => {
+        if (Object.keys(cardialSelectedPresentations).length === 0) return;
+        
+        // Add each selected presentation to cart
+        if (typeof addToCart === 'function') {
+          Object.entries(cardialSelectedPresentations).forEach(([dose, data]) => {
+            addToCart('cardial', data.qty, dose);
+          });
+        }
+        
+        // Build product info for delivery with prices
+        let totalPrice = 0;
+        let variantInfo = Object.entries(cardialSelectedPresentations)
+          .map(([dose, data]) => {
+            totalPrice += data.price * data.qty;
+            return `${dose} (×${data.qty})`;
+          })
+          .join(', ');
+        
+        currentProduct = {
+          name: 'Cardial',
+          category: 'Cardiología • Enalapril + Espironolactona',
+          price: formatCardialPrice(totalPrice),
+          image: 'images/cardial5.webp',
+          unitPrice: totalPrice,
+          selectedVariant: variantInfo
+        };
+        
+        // Close Cardial modal and open delivery modal
+        closeCardialModal();
+        setTimeout(() => {
+          if (typeof openDeliveryModalForCart === 'function') {
+            openDeliveryModalForCart();
+          } else {
+            openDeliveryModal();
+          }
+        }, 300);
+      });
+    }
+
+    // Reset selections when modal closes
+    function resetCardialSelections() {
+      cardialSelectedPresentations = {};
+      cardialSelected = null;
+      cardialQty = 1;
+      
+      // Reset presentation card
+      if (cardialPresentationCard) {
+        cardialPresentationCard.classList.remove('selected');
+      }
+      
+      // Reset quantity display
+      if (cardialQuantity) {
+        const cardialQtyValue = cardialQuantity.querySelector('.cardial-block-qty-value');
+        if (cardialQtyValue) cardialQtyValue.textContent = '1';
+      }
+      
+      // Reset price display
+      if (cardialPriceDisplay) {
+        cardialPriceDisplay.textContent = '$120.000';
+      }
+      
+      updateCardialSelectionSummary();
+    }
+
+    // Update closeCardialModal to reset selections
+    const originalCloseCardialModal = closeCardialModal;
+    closeCardialModal = function() {
+      originalCloseCardialModal();
+      resetCardialSelections();
+    };
 
     // Scroll-triggered animations for Cardial modal
     const cardialObserver = new IntersectionObserver((entries) => {
