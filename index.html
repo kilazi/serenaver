@@ -16367,7 +16367,7 @@
     }
 
     // Add item to cart
-    function addToCart(productId, quantity = 1, variant = null) {
+    function addToCart(productId, quantity = 1, variant = null, price = null) {
       // Check if item already exists
       const existingIndex = cart.findIndex(item =>
         item.productId === productId && item.variant === variant
@@ -16375,8 +16375,12 @@
 
       if (existingIndex > -1) {
         cart[existingIndex].quantity += quantity;
+        // Update price if provided (in case it changed)
+        if (price !== null) {
+          cart[existingIndex].price = price;
+        }
       } else {
-        cart.push({ productId, quantity, variant });
+        cart.push({ productId, quantity, variant, price });
       }
 
       saveCart();
@@ -16421,11 +16425,31 @@
       let hasConsultar = false;
 
       cart.forEach(item => {
-        const product = typeof PRODUCTS !== 'undefined' ? PRODUCTS[item.productId] : null;
-        if (product && product.price !== null) {
-          total += product.price * item.quantity;
+        // First check if item has a stored price (from variant selection)
+        if (item.price !== null && item.price !== undefined && item.price > 0) {
+          total += item.price * item.quantity;
         } else {
-          hasConsultar = true;
+          // Fall back to PRODUCTS lookup
+          const product = typeof PRODUCTS !== 'undefined' ? PRODUCTS[item.productId] : null;
+          if (product) {
+            // Check for variant price in PRODUCTS
+            if (product.variants && item.variant) {
+              const variant = product.variants.find(v => v.name === item.variant);
+              if (variant && variant.price !== null) {
+                total += variant.price * item.quantity;
+              } else if (product.price !== null) {
+                total += product.price * item.quantity;
+              } else {
+                hasConsultar = true;
+              }
+            } else if (product.price !== null) {
+              total += product.price * item.quantity;
+            } else {
+              hasConsultar = true;
+            }
+          } else {
+            hasConsultar = true;
+          }
         }
       });
 
@@ -16535,9 +16559,23 @@
           const product = typeof PRODUCTS !== 'undefined' ? PRODUCTS[item.productId] : null;
           const name = product ? product.name : item.productId;
           const image = product ? product.image : 'images/placeholder.png';
-          const price = product && product.price !== null ?
-            '$' + (product.price * item.quantity).toLocaleString('es-CO') :
-            'Consultar';
+          
+          // Calculate price - first check stored price, then variant price, then product price
+          let priceValue = null;
+          if (item.price !== null && item.price !== undefined && item.price > 0) {
+            priceValue = item.price * item.quantity;
+          } else if (product) {
+            if (product.variants && item.variant) {
+              const variant = product.variants.find(v => v.name === item.variant);
+              if (variant && variant.price !== null) {
+                priceValue = variant.price * item.quantity;
+              }
+            }
+            if (priceValue === null && product.price !== null) {
+              priceValue = product.price * item.quantity;
+            }
+          }
+          const price = priceValue !== null ? '$' + priceValue.toLocaleString('es-CO') : 'Consultar';
 
           return `
             <div class="cart-item">
@@ -16620,7 +16658,7 @@
       const lastPedido = getLastPedido();
       if (lastPedido && lastPedido.items) {
         lastPedido.items.forEach(item => {
-          addToCart(item.productId, item.quantity, item.variant);
+          addToCart(item.productId, item.quantity, item.variant, item.price);
         });
         closeRepeatModal();
         openDeliveryModalForCart();
@@ -16760,8 +16798,8 @@
     }
 
     // Quick purchase - add to cart and open delivery form
-    function quickPurchase(productId, quantity = 1, variant = null) {
-      addToCart(productId, quantity, variant);
+    function quickPurchase(productId, quantity = 1, variant = null, price = null) {
+      addToCart(productId, quantity, variant, price);
       openDeliveryModalForCart();
     }
 
@@ -16932,9 +16970,11 @@
         return;
       }
 
-      // Add directly to cart
+      // Add directly to cart - get price from PRODUCTS if available
       if (typeof addToCart === 'function') {
-        addToCart(productId, quantity, null);
+        const product = typeof PRODUCTS !== 'undefined' ? PRODUCTS[productId] : null;
+        const price = product && product.price !== null ? product.price : null;
+        addToCart(productId, quantity, null, price);
         // Reset quantity display
         if (qtyValue) qtyValue.textContent = '1';
         // Show feedback
@@ -16960,9 +17000,11 @@
         return;
       }
 
-      // Add to cart and open delivery form
+      // Add to cart with price and open delivery form
       if (typeof addToCart === 'function') {
-        addToCart(productId, quantity, null);
+        const product = typeof PRODUCTS !== 'undefined' ? PRODUCTS[productId] : null;
+        const price = product && product.price !== null ? product.price : null;
+        addToCart(productId, quantity, null, price);
         if (qtyValue) qtyValue.textContent = '1';
       }
 
@@ -17771,10 +17813,20 @@
       }
     };
 
-    // Parse price string to number
+    // Parse price string to number (handles Colombian format: $78.000 = 78000)
     function parsePrice(priceStr) {
-      // Remove currency symbols, spaces, and parse
-      const cleaned = priceStr.replace(/[^0-9.,]/g, '').replace(',', '.');
+      if (!priceStr || typeof priceStr !== 'string') return 0;
+      // Remove currency symbols, spaces
+      let cleaned = priceStr.replace(/[^0-9.,]/g, '');
+      // Colombian format uses . as thousands separator and , as decimal
+      // Check if it looks like Colombian format (has . but no , or . comes before ,)
+      if (cleaned.includes('.') && !cleaned.includes(',')) {
+        // Remove thousands separators (dots)
+        cleaned = cleaned.replace(/\./g, '');
+      } else if (cleaned.includes(',')) {
+        // Has comma - remove dots (thousands) and replace comma (decimal) with dot
+        cleaned = cleaned.replace(/\./g, '').replace(',', '.');
+      }
       return parseFloat(cleaned) || 0;
     }
 
@@ -18146,10 +18198,10 @@
     pimocardRequestDeliveryBtn.addEventListener('click', () => {
       if (Object.keys(selectedPresentations).length === 0) return;
 
-      // Add each selected presentation to cart
+      // Add each selected presentation to cart with price
       if (typeof addToCart === 'function') {
         Object.entries(selectedPresentations).forEach(([dose, data]) => {
-          addToCart('pimocard', data.qty, dose);
+          addToCart('pimocard', data.qty, dose, data.price);
         });
       }
 
@@ -18568,10 +18620,10 @@
     pimocardAddToCartBtn.addEventListener('click', () => {
       if (Object.keys(selectedPresentations).length === 0) return;
 
-      // Add each selected presentation to cart
+      // Add each selected presentation to cart with price
       if (typeof addToCart === 'function') {
         Object.entries(selectedPresentations).forEach(([dose, data]) => {
-          addToCart('pimocard', data.qty, dose);
+          addToCart('pimocard', data.qty, dose, data.price);
         });
       }
 
@@ -18602,10 +18654,10 @@
       pimocardMobileAddToCartBtn.addEventListener('click', () => {
         if (Object.keys(selectedPresentations).length === 0) return;
 
-        // Add each selected presentation to cart
+        // Add each selected presentation to cart with price
         if (typeof addToCart === 'function') {
           Object.entries(selectedPresentations).forEach(([dose, data]) => {
-            addToCart('pimocard', data.qty, dose);
+            addToCart('pimocard', data.qty, dose, data.price);
           });
         }
 
@@ -18637,10 +18689,10 @@
       pimocardMobileRequestDeliveryBtn.addEventListener('click', () => {
         if (Object.keys(selectedPresentations).length === 0) return;
 
-        // Add each selected presentation to cart
+        // Add each selected presentation to cart with price
         if (typeof addToCart === 'function') {
           Object.entries(selectedPresentations).forEach(([dose, data]) => {
-            addToCart('pimocard', data.qty, dose);
+            addToCart('pimocard', data.qty, dose, data.price);
           });
         }
 
@@ -19041,9 +19093,10 @@
             .substring(0, 50);
         }
 
-        // Add to cart using the unified cart system
+        // Add to cart using the unified cart system with price
         if (productId && typeof addToCart === 'function') {
-          addToCart(productId, quantity);
+          const unitPrice = currentProduct && currentProduct.unitPrice ? currentProduct.unitPrice : null;
+          addToCart(productId, quantity, null, unitPrice);
           closeProductModal();
           setTimeout(() => {
             if (typeof openCartModal === 'function') {
@@ -19077,9 +19130,10 @@
             .substring(0, 50);
         }
 
-        // Add to cart and open delivery modal
+        // Add to cart with price and open delivery modal
         if (productId && typeof addToCart === 'function') {
-          addToCart(productId, quantity);
+          const unitPrice = currentProduct && currentProduct.unitPrice ? currentProduct.unitPrice : null;
+          addToCart(productId, quantity, null, unitPrice);
           closeProductModal();
           setTimeout(() => {
             openDeliveryModalForCart();
@@ -19551,7 +19605,7 @@
 
         if (typeof addToCart === 'function') {
           Object.entries(cardialSelectedPresentations).forEach(([dose, data]) => {
-            addToCart('cardial', data.qty, dose);
+            addToCart('cardial', data.qty, dose, data.price);
           });
         }
 
@@ -19578,7 +19632,7 @@
 
         if (typeof addToCart === 'function') {
           Object.entries(cardialSelectedPresentations).forEach(([dose, data]) => {
-            addToCart('cardial', data.qty, dose);
+            addToCart('cardial', data.qty, dose, data.price);
           });
         }
 
@@ -19603,10 +19657,10 @@
       cardialRequestDeliveryBtn.addEventListener('click', () => {
         if (Object.keys(cardialSelectedPresentations).length === 0) return;
 
-        // Add each selected presentation to cart
+        // Add each selected presentation to cart with price
         if (typeof addToCart === 'function') {
           Object.entries(cardialSelectedPresentations).forEach(([dose, data]) => {
-            addToCart('cardial', data.qty, dose);
+            addToCart('cardial', data.qty, dose, data.price);
           });
         }
 
@@ -19647,7 +19701,7 @@
 
         if (typeof addToCart === 'function') {
           Object.entries(cardialSelectedPresentations).forEach(([dose, data]) => {
-            addToCart('cardial', data.qty, dose);
+            addToCart('cardial', data.qty, dose, data.price);
           });
         }
 
@@ -20318,10 +20372,10 @@
       cardialbRequestDeliveryBtn.addEventListener('click', () => {
         if (Object.keys(cardialbSelectedPresentations).length === 0) return;
 
-        // Add each selected presentation to cart
+        // Add each selected presentation to cart with price
         if (typeof addToCart === 'function') {
           Object.entries(cardialbSelectedPresentations).forEach(([dose, data]) => {
-            addToCart('cardial-b', data.qty, dose);
+            addToCart('cardial-b', data.qty, dose, data.price);
           });
         }
 
@@ -20360,10 +20414,10 @@
       cardialbAddToCartBtn.addEventListener('click', () => {
         if (Object.keys(cardialbSelectedPresentations).length === 0) return;
 
-        // Add each selected presentation to cart
+        // Add each selected presentation to cart with price
         if (typeof addToCart === 'function') {
           Object.entries(cardialbSelectedPresentations).forEach(([dose, data]) => {
-            addToCart('cardial-b', data.qty, dose);
+            addToCart('cardial-b', data.qty, dose, data.price);
           });
         }
 
@@ -20391,7 +20445,7 @@
 
         if (typeof addToCart === 'function') {
           Object.entries(cardialbSelectedPresentations).forEach(([dose, data]) => {
-            addToCart('cardial-b', data.qty, dose);
+            addToCart('cardial-b', data.qty, dose, data.price);
           });
         }
 
@@ -20418,7 +20472,7 @@
 
         if (typeof addToCart === 'function') {
           Object.entries(cardialbSelectedPresentations).forEach(([dose, data]) => {
-            addToCart('cardial-b', data.qty, dose);
+            addToCart('cardial-b', data.qty, dose, data.price);
           });
         }
 
@@ -20654,10 +20708,11 @@
         }
 
         const variant = currentProduct.selectedVariant || null;
+        const unitPrice = currentProduct.unitPrice || null;
 
-        // Add to cart
+        // Add to cart with price
         if (typeof addToCart === 'function') {
-          addToCart(productId, currentQuantity, variant);
+          addToCart(productId, currentQuantity, variant, unitPrice);
 
           // Close canvas and show cart
           closeCanvas();
@@ -20763,10 +20818,11 @@
         }
 
         const variant = currentProduct.selectedVariant || null;
+        const unitPrice = currentProduct.unitPrice || null;
 
-        // Add to cart
+        // Add to cart with price
         if (typeof addToCart === 'function') {
-          addToCart(productId, currentQuantity, variant);
+          addToCart(productId, currentQuantity, variant, unitPrice);
         }
 
         // Close canvas
