@@ -6861,7 +6861,7 @@
     }
 
     .cardial-block-image {
-      max-width: 65%;
+      max-width: 100%;
       max-height: 260px;
       width: auto;
       height: auto;
@@ -7721,10 +7721,9 @@
         background: transparent;
       }
 
-      .cardial-block-image {
-        max-width: 90px;
-        max-height: 90px;
-        width: 90px;
+      .cardial-block-image {  
+        max-width: 100%;
+        max-height: 210px;
         object-fit: contain;
       }
 
@@ -8457,7 +8456,6 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 1.5rem;
-      background: linear-gradient(145deg, #f8f8f8 0%, #f0f0f0 100%);
       border-radius: 16px;
       position: relative;
       overflow: hidden;
@@ -8465,9 +8463,8 @@
 
     .cardialb-block-image {
       max-width: 70%;
-      max-height: 180px;
+      max-height: 210px;
       object-fit: contain;
-      filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.15));
       transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
@@ -14211,13 +14208,6 @@
   <div class="product-modal-overlay" id="productModalOverlay"></div>
   <div class="product-modal" id="productModal">
     <img src="images/holliday-logo.png" alt="Holliday" class="product-brand-logo" id="productBrandLogo">
-    <button class="product-close" id="productClose">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-        stroke-linejoin="round">
-        <line x1="18" y1="6" x2="6" y2="18"></line>
-        <line x1="6" y1="6" x2="18" y2="18"></line>
-      </svg>
-    </button>
 
     <!-- Hero Section -->
     <section class="product-hero" id="productHero">
