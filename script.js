@@ -348,7 +348,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const productPrice = card.querySelector('.product-price').textContent.split('$')[1].split(' ')[0];
       
       const message = `Hola! Me interesa el producto: ${productName} ($${productPrice}). ¿Está disponible?`;
-      const whatsappUrl = `https://wa.me/573001234567?text=${encodeURIComponent(message)}`;
+      const whatsappUrl = `https://wa.me/573013769335?text=${encodeURIComponent(message)}`;
       
       window.open(whatsappUrl, '_blank');
     });
