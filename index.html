@@ -12426,6 +12426,10 @@
       font-size: 1rem !important;
       margin: 0 !important;
     }
+    /* ===== Card name padding + cart removed (all actions -> WhatsApp) ===== */
+    .product-card .product-info { padding-bottom: 1.1rem !important; }
+    .product-card .product-info h3 { padding-bottom: 0.15rem !important; }
+    #cartIcon { display: none !important; }
 </style>
 </head>
 
@@ -19914,6 +19918,51 @@
         lastIsMobile = currentIsMobile;
       }
     });
+  </script>
+
+  <!-- Cart disabled: every purchase action opens WhatsApp -->
+  <script>
+  (function(){
+    var WA='https://wa.me/573123104275';
+    window.__waName='';
+    function waGo(ev){
+      try{ if(ev){ ev.preventDefault(); ev.stopPropagation(); } }catch(e){}
+      var n=(window.__waName||'').trim();
+      var msg = n ? ('Hola! Me interesa el producto: '+n+'. ¿Está disponible?')
+                  : 'Hola! Quiero hacer un pedido.';
+      window.open(WA+'?text='+encodeURIComponent(msg),'_blank');
+      return false;
+    }
+    // remember the product name from the card the user clicked (capture phase, before modal opens)
+    function wireCards(){
+      document.querySelectorAll('.product-card').forEach(function(c){
+        if(c.__waWired) return; c.__waWired=true;
+        c.addEventListener('click', function(){ var h=c.querySelector('h3'); window.__waName=h?h.textContent.trim():''; }, true);
+      });
+    }
+    // replace a button so old cart handlers are stripped, then point it at WhatsApp
+    function takeover(btn){
+      if(!btn || !btn.parentNode || btn.__waDone) return;
+      var nb=btn.cloneNode(true);
+      nb.removeAttribute('onclick'); nb.onclick=null; nb.__waDone=true;
+      btn.parentNode.replaceChild(nb,btn);
+      nb.addEventListener('click', waGo);
+    }
+    function wireButtons(){
+      document.querySelectorAll('button').forEach(function(b){
+        var t=(b.textContent||'');
+        if(/carrito|solicitar entrega|enviar pedido|finalizar/i.test(t)) takeover(b);
+      });
+    }
+    // backstops
+    window.addToCart=function(){ return waGo(); };
+    ['openCart','toggleCart','showCart','goToCheckout','checkout'].forEach(function(fn){
+      try{ if(typeof window[fn]==='function') window[fn]=function(){ return waGo(); }; }catch(e){}
+    });
+    function apply(){ wireCards(); wireButtons(); var ci=document.getElementById('cartIcon'); if(ci) ci.style.display='none'; }
+    if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',apply); else apply();
+    setTimeout(apply,800);
+  })();
   </script>
 
 </body>
