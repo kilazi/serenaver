@@ -17,7 +17,7 @@
 
   <style>
     :root {
-      --banner-h: 40px;
+      --banner-h: 56px;
       /* Brand Colors */
       --color-primary: #68BB59;
       --color-primary-light: #D9EED5;
@@ -12374,7 +12374,7 @@
       background: var(--color-primary-dark);
       color: #fff;
       font-family: var(--font-body);
-      font-size: 0.74rem;
+      font-size: 0.98rem;
       font-weight: 600;
       letter-spacing: 0.01em;
       line-height: 1.15;
@@ -12386,8 +12386,8 @@
       font-weight: 800;
     }
     @media (max-width: 640px) {
-      :root { --banner-h: 56px; }
-      .sales-banner { font-size: 0.7rem; }
+      :root { --banner-h: 78px; }
+      .sales-banner { font-size: 0.82rem !important; }
     }
     /* Hide every numeric price / total display */
     [class*="price-display"],
@@ -12430,6 +12430,13 @@
     .product-card .product-info { padding-bottom: 1.1rem !important; }
     .product-card .product-info h3 { padding-bottom: 0.15rem !important; }
     #cartIcon { display: none !important; }
+    /* Auri r3: hide promo + all add-to-cart buttons (single 'Realizar pedido' remains) */
+    .discount-message { display: none !important; }
+    .btn-add-cart, [class*="add-cart"] { display: none !important; }
+    /* Auri r3: orphaned cart-system modals fully hidden */
+    #cartModal, #cartModalOverlay, .cart-modal, .cart-modal-overlay,
+    #deliveryModalOverlay, .delivery-modal-overlay,
+    #repeatModalOverlay, .repeat-modal-overlay { display: none !important; }
 </style>
 </head>
 
@@ -19941,17 +19948,23 @@
       });
     }
     // replace a button so old cart handlers are stripped, then point it at WhatsApp
-    function takeover(btn){
-      if(!btn || !btn.parentNode || btn.__waDone) return;
+    function takeover(btn,label){
+      if(!btn || !btn.parentNode || btn.__waDone) return null;
       var nb=btn.cloneNode(true);
       nb.removeAttribute('onclick'); nb.onclick=null; nb.__waDone=true;
+      if(label){ var svg=nb.querySelector('svg'); nb.innerHTML=''; if(svg) nb.appendChild(svg); nb.appendChild(document.createTextNode(' '+label)); }
       btn.parentNode.replaceChild(nb,btn);
       nb.addEventListener('click', waGo);
+      return nb;
     }
     function wireButtons(){
+      // primary purchase action everywhere -> 'Realizar pedido' (opens WhatsApp)
+      document.querySelectorAll('.btn-delivery, [class*="consult-btn"]').forEach(function(b){ takeover(b,'Realizar pedido'); });
       document.querySelectorAll('button').forEach(function(b){
+        if(b.__waDone) return;
         var t=(b.textContent||'');
-        if(/carrito|solicitar entrega|enviar pedido|finalizar/i.test(t)) takeover(b);
+        if(/seguir comprando|seguir viendo/i.test(t)){ b.style.display='none'; return; }
+        if(/carrito|a\u00f1adir|agregar|solicitar entrega|enviar pedido|finalizar/i.test(t)) takeover(b);
       });
     }
     // backstops
