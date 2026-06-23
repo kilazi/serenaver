@@ -17,6 +17,7 @@
 
   <style>
     :root {
+      --banner-h: 40px;
       /* Brand Colors */
       --color-primary: #68BB59;
       --color-primary-light: #D9EED5;
@@ -61,7 +62,7 @@
     ============================================ */
     .navbar {
       position: fixed;
-      top: 0;
+      top: var(--banner-h);
       left: 0;
       right: 0;
       z-index: 1000;
@@ -908,7 +909,8 @@
     .slide-container {
       display: flex;
       width: 200vw;
-      height: 100vh;
+      height: calc(100vh - var(--banner-h));
+      margin-top: var(--banner-h);
       transition: transform 0.8s var(--ease-out-expo);
     }
 
@@ -921,7 +923,7 @@
     ============================================ */
     .hero-section {
       width: 100vw;
-      height: 100vh;
+      height: 100%;
       flex-shrink: 0;
       position: relative;
       display: flex;
@@ -1508,7 +1510,7 @@
     ============================================ */
     .products-section {
       width: 100vw;
-      height: 100vh;
+      height: 100%;
       flex-shrink: 0;
       background: var(--color-white);
       position: relative;
@@ -12357,10 +12359,58 @@
       display: none;
     }
 
-  </style>
+      /* ===== Sales banner + price-hiding (sales coordinated by WhatsApp) ===== */
+    .sales-banner {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--banner-h);
+      z-index: 1100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 0.25rem;
+      padding: 0 14px;
+      background: var(--color-primary-dark);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      line-height: 1.15;
+    }
+    .sales-banner a {
+      color: #fff;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      font-weight: 800;
+    }
+    @media (max-width: 640px) {
+      :root { --banner-h: 56px; }
+      .sales-banner { font-size: 0.7rem; }
+    }
+    /* Hide every numeric price / total display */
+    [class*="price-display"],
+    [class*="price-label"],
+    [class*="price-value"],
+    [class*="selection-item-price"],
+    [class*="selection-total"],
+    .canvas-price-section,
+    .cart-total,
+    .cart-item-price,
+    .search-result-price,
+    .product-selection-total {
+      display: none !important;
+    }
+</style>
 </head>
 
 <body>
+
+  <!-- Sales coordination banner -->
+  <div class="sales-banner">
+    Ventas únicamente coordinadas por <a href="https://wa.me/573123104275" target="_blank" rel="noopener">whatsapp</a> · contra entrega en bogotá · envíos a todo el país
+  </div>
 
   <!-- Navigation -->
   <nav class="navbar">
@@ -12614,7 +12664,7 @@
               <h3>Acedan Gotas</h3>
               <p>Sedación práctica, simple y segura. Tranquilidad natural sin sueño.</p>
               <div class="product-footer">
-                <span class="product-price">$25.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -12629,7 +12679,7 @@
               <h3>Anavimin Coat</h3>
               <p>Nutricosméticos para una piel sana y un pelo hermoso.</p>
               <div class="product-footer">
-                <span class="product-price">$60.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -12659,7 +12709,7 @@
               <h3>Apetil</h3>
               <p>Estimula el apetito, acorta la convalecencia.</p>
               <div class="product-footer">
-                <span class="product-price">$60.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -12705,7 +12755,7 @@
               <h3>Cardial</h3>
               <p>Enalapril + Espironolactona. Más Protección, más Vida.</p>
               <div class="product-footer">
-                <span class="product-price">$120.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -12723,7 +12773,7 @@
               <h3>Cardial B</h3>
               <p>Benazepril + Espironolactona para insuficiencia cardíaca en perros.</p>
               <div class="product-footer">
-                <span class="product-price">desde $80.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -12753,7 +12803,7 @@
               <h3>Ciclosporina 1%</h3>
               <p>Ungüento oftálmico estéril. Inmunomodulador, lacrimomimético y antiinflamatorio.</p>
               <div class="product-footer">
-                <span class="product-price">$150.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -12798,7 +12848,7 @@
               <h3>Clorhexidina Gotas Óticas</h3>
               <p>Solución ótica antiséptica bactericida, fungicida y ceruminolítica.</p>
               <div class="product-footer">
-                <span class="product-price">$33.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -12813,7 +12863,7 @@
               <h3>Colirama Viral</h3>
               <p>Colirio estéril a base de idoxuridina, fenazona, nafazolina.</p>
               <div class="product-footer">
-                <span class="product-price">$110.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -12828,7 +12878,7 @@
               <h3>Dermoxil</h3>
               <p>Shampoo de acción antiséptica y antiseborreico oleosa.</p>
               <div class="product-footer">
-                <span class="product-price">$80.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -12843,7 +12893,7 @@
               <h3>Diurene 40</h3>
               <p>Diurético para tratamiento de edemas e insuficiencia cardíaca.</p>
               <div class="product-footer">
-                <span class="product-price">$90.000 / $180.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -12858,7 +12908,7 @@
               <h3>Ecthol Collar Gatos</h3>
               <p>Collar antiparasitario de larga duración para gatos.</p>
               <div class="product-footer">
-                <span class="product-price">$30.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -12874,7 +12924,7 @@
               <h3>Ecthol Collar Perros</h3>
               <p>Collar antiparasitario de larga duración para perros.</p>
               <div class="product-footer">
-                <span class="product-price">$30.000 / $40.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -12982,7 +13032,7 @@
               <h3>Enzimax</h3>
               <p>Suplemento enzimático para mejorar la digestión.</p>
               <div class="product-footer">
-                <span class="product-price">$75.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -12997,7 +13047,7 @@
               <h3>Epitelizante Ocular Oftalday</h3>
               <p>Tratamiento para regeneración del epitelio corneal.</p>
               <div class="product-footer">
-                <span class="product-price">$65.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -13028,7 +13078,7 @@
               <h3>Flurbiprofeno Oftalday</h3>
               <p>Antiinflamatorio ocular no esteroideo.</p>
               <div class="product-footer">
-                <span class="product-price">$80.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -13043,7 +13093,7 @@
               <h3>Gabaday</h3>
               <p>Anticonvulsivo para control de epilepsia.</p>
               <div class="product-footer">
-                <span class="product-price">$180.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -13058,7 +13108,7 @@
               <h3>Griseofulvina 250/500 MG</h3>
               <p>Antifúngico oral para dermatofitosis.</p>
               <div class="product-footer">
-                <span class="product-price">$50.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -13073,7 +13123,7 @@
               <h3>IQ 180</h3>
               <p>Suplemento para la salud cognitiva y cerebral.</p>
               <div class="product-footer">
-                <span class="product-price">$85.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -13253,7 +13303,7 @@
               <h3>Neovita</h3>
               <p>Complemento vitamínico y mineral completo.</p>
               <div class="product-footer">
-                <span class="product-price">$105.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -13268,7 +13318,7 @@
               <h3>Nomat</h3>
               <p>Repelente e insecticida para control de ectoparásitos.</p>
               <div class="product-footer">
-                <span class="product-price">$60.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -13283,7 +13333,7 @@
               <h3>Ofloxacina Oftalday</h3>
               <p>Antibiótico oftálmico de amplio espectro.</p>
               <div class="product-footer">
-                <span class="product-price">$80.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -13298,7 +13348,7 @@
               <h3>OHM</h3>
               <p>Suplemento natural para reducir estrés y ansiedad.</p>
               <div class="product-footer">
-                <span class="product-price">$90.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -13313,7 +13363,7 @@
               <h3>OHM Gatos</h3>
               <p>Fórmula especial para reducir el estrés en gatos.</p>
               <div class="product-footer">
-                <span class="product-price">$88.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -13328,7 +13378,7 @@
               <h3>OHM Home Gatos</h3>
               <p>Difusor ambiental calmante para gatos.</p>
               <div class="product-footer">
-                <span class="product-price">$88.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -13343,7 +13393,7 @@
               <h3>OHM Home Perros</h3>
               <p>Difusor ambiental calmante para perros.</p>
               <div class="product-footer">
-                <span class="product-price">$102.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -13359,7 +13409,7 @@
               <h3>OL Trans Flex</h3>
               <p>Fórmula avanzada para movilidad y flexibilidad articular.</p>
               <div class="product-footer">
-                <span class="product-price">$400.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -13374,7 +13424,7 @@
               <h3>Pileran Gotas</h3>
               <p>Potente antiemético de acción central y periférica.</p>
               <div class="product-footer">
-                <span class="product-price">$70.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -13392,7 +13442,7 @@
               <h3>Pimocard</h3>
               <p>Pimobendan para insuficiencia cardíaca congestiva B2 y cardiomiopatías dilatadas.</p>
               <div class="product-footer">
-                <span class="product-price">desde $78.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -13407,7 +13457,7 @@
               <h3>Poten Pet</h3>
               <p>Suplemento nutricional energético para perros.</p>
               <div class="product-footer">
-                <span class="product-price">$100.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -13422,7 +13472,7 @@
               <h3>Poten Pet Gatos</h3>
               <p>Suplemento nutricional energético para gatos.</p>
               <div class="product-footer">
-                <span class="product-price">$98.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -13437,7 +13487,7 @@
               <h3>Prednisolona 20 MG</h3>
               <p>Corticosteroide antiinflamatorio e inmunosupresor.</p>
               <div class="product-footer">
-                <span class="product-price">$23.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -13452,7 +13502,7 @@
               <h3>Proteliv</h3>
               <p>Protege el hígado y mejora la secreción biliar.</p>
               <div class="product-footer">
-                <span class="product-price">$78.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -13467,7 +13517,7 @@
               <h3>Proteliv Comprimidos</h3>
               <p>Hepatoprotector en comprimidos para fácil administración.</p>
               <div class="product-footer">
-                <span class="product-price">$65.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -13482,7 +13532,7 @@
               <h3>Proteliv Gatos</h3>
               <p>Hepatoprotector formulado especialmente para gatos.</p>
               <div class="product-footer">
-                <span class="product-price">$80.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -13497,7 +13547,7 @@
               <h3>Relay C</h3>
               <p>Suplemento de vitamina C para sistema inmune.</p>
               <div class="product-footer">
-                <span class="product-price">$82.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -13512,7 +13562,7 @@
               <h3>Solubron 20</h3>
               <p>Broncodilatador y mucolítico para vías respiratorias.</p>
               <div class="product-footer">
-                <span class="product-price">$82.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -13527,7 +13577,7 @@
               <h3>Tonipet</h3>
               <p>Reconstituyente vitamínico para mascotas en recuperación.</p>
               <div class="product-footer">
-                <span class="product-price">$96.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -13542,7 +13592,7 @@
               <h3>Toracard</h3>
               <p>Diurético de asa para insuficiencia cardíaca.</p>
               <div class="product-footer">
-                <span class="product-price">$121.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -13557,7 +13607,7 @@
               <h3>Total Full CG Perros y Gatos</h3>
               <p>Antiparasitario interno completo para cachorros y gatitos.</p>
               <div class="product-footer">
-                <span class="product-price">$70.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -13572,7 +13622,7 @@
               <h3>Total Full LC Perros</h3>
               <p>Antiparasitario interno en comprimidos para perros.</p>
               <div class="product-footer">
-                <span class="product-price">$25.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -13587,7 +13637,7 @@
               <h3>Total Full LC Gatos</h3>
               <p>Antiparasitario interno en comprimidos para gatos.</p>
               <div class="product-footer">
-                <span class="product-price">$25.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -13602,7 +13652,7 @@
               <h3>Total Full Suspensión Gatos</h3>
               <p>Antiparasitario interno en suspensión para gatos.</p>
               <div class="product-footer">
-                <span class="product-price">$70.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -13617,7 +13667,7 @@
               <h3>Total Full Suspensión Perros</h3>
               <p>Antiparasitario interno en suspensión para perros.</p>
               <div class="product-footer">
-                <span class="product-price">$70.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -13632,7 +13682,7 @@
               <h3>UV Day</h3>
               <p>Protector solar para zonas sensibles de mascotas.</p>
               <div class="product-footer">
-                <span class="product-price">$83.000</span>
+                <span class="product-price">Consultar</span>
               </div>
             </div>
           </div>
@@ -15246,7 +15296,7 @@
   </div>
 
   <!-- WHATSAPP FLOATING BUTTON -->
-  <a href="https://wa.me/573013769335?text=Hola!%20Me%20interesa%20conocer%20más%20sobre%20los%20suplementos%20de%20Serena%20Vet"
+  <a href="https://wa.me/573123104275?text=Hola!%20Me%20interesa%20conocer%20más%20sobre%20los%20suplementos%20de%20Serena%20Vet"
     class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
     <svg viewBox="0 0 24 24">
       <path
@@ -15709,7 +15759,7 @@
       saveLastPedido([...cart]);
 
       const message = buildWhatsAppMessage();
-      const whatsappUrl = `https://wa.me/573013769335?text=${encodeURIComponent(message.replace(/\\n/g, '\\n'))}`;
+      const whatsappUrl = `https://wa.me/573123104275?text=${encodeURIComponent(message.replace(/\\n/g, '\\n'))}`;
 
       // Clear cart
       clearCart();
@@ -19785,7 +19835,7 @@
         }
       }
 
-      const whatsappUrl = `https://wa.me/573013769335?text=${encodeURIComponent(message)}`;
+      const whatsappUrl = `https://wa.me/573123104275?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank');
 
       // Close modal
