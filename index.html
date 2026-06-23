@@ -12402,6 +12402,30 @@
     .product-selection-total {
       display: none !important;
     }
+    /* ===== Simplified product cards: image + name only (full info shows on click) ===== */
+        .product-card .product-badge,
+.product-card .product-category,
+    .product-card .product-info p,
+    .product-card .product-footer { display: none !important; }
+    .product-card .product-image {
+      height: 210px !important;
+      min-height: 210px !important;
+      border-radius: 18px 18px 0 0;
+    }
+    .product-card .product-image img {
+      max-width: 94% !important;
+      max-height: 94% !important;
+    }
+    .product-card .product-info {
+      padding: 0.75rem 0.8rem !important;
+      justify-content: center !important;
+      flex: 0 0 auto !important;
+    }
+    .product-card .product-info h3 {
+      text-align: center !important;
+      font-size: 1rem !important;
+      margin: 0 !important;
+    }
 </style>
 </head>
 
