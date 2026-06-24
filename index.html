@@ -12443,6 +12443,7 @@
     .pimo-opt-img { height:240px; width:100%; display:flex; align-items:center; justify-content:center; }
     .pimo-opt-img img { max-width:100%; max-height:240px; object-fit:contain; }
     .pimo-opt-label { font-family: var(--font-display); font-weight:700; color: var(--color-charcoal); font-size:0.95rem; }
+    .pimo-opt-price { font-family: var(--font-display); font-weight:700; color: var(--color-primary-dark); font-size:1.05rem; margin-top:0.15rem; text-align:center; }
     .pimo-opt-tile { cursor: pointer; transition: border-color .15s, box-shadow .15s, transform .15s; }
     .pimo-opt-tile:hover { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(0,0,0,0.08); }
     .pimo-opt-tile.selected { border-color: var(--color-primary) !important; box-shadow: 0 0 0 2px var(--color-primary) inset, 0 8px 22px rgba(104,187,89,0.18); }
@@ -20005,6 +20006,11 @@
           var im=document.createElement('div'); im.className='pimo-opt-img';
           var image=document.createElement('img'); image.src=img; image.alt=label; im.appendChild(image);
           t.appendChild(im);
+          if(opts.id==='standardOptions' || opts.id==='hospitalarioOptions'){
+            var dose=(label||'').replace(/\s*Hospitalario\s*/i,'').trim();
+            var PP={'1.25 mg':75000,'2.5 mg':90000,'5 mg':142000,'10 mg':192000};
+            if(PP[dose]!=null){ var pr=document.createElement('div'); pr.className='pimo-opt-price'; pr.textContent='$'+PP[dose].toLocaleString('es-CO'); t.appendChild(pr); }
+          }
           t.addEventListener('click', function(){ b.click(); syncSel(); });
           grid.appendChild(t);
         });
