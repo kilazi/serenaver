@@ -12440,8 +12440,8 @@
     /* Auri r4: Pimocard - show every presentation at once */
     .pimocard-all-options { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.9rem; margin: 0.4rem 0 1rem; }
     .pimo-opt-tile { background:#fff; border:1px solid #ececec; border-radius:16px; padding:0.7rem 0.5rem; display:flex; flex-direction:column; align-items:center; gap:0.5rem; box-shadow:0 4px 14px rgba(0,0,0,0.04); }
-    .pimo-opt-img { height:120px; width:100%; display:flex; align-items:center; justify-content:center; }
-    .pimo-opt-img img { max-width:100%; max-height:120px; object-fit:contain; }
+    .pimo-opt-img { height:180px; width:100%; display:flex; align-items:center; justify-content:center; }
+    .pimo-opt-img img { max-width:100%; max-height:180px; object-fit:contain; }
     .pimo-opt-label { font-family: var(--font-display); font-weight:700; color: var(--color-charcoal); font-size:0.95rem; }
     .pimo-opt-tile { cursor: pointer; transition: border-color .15s, box-shadow .15s, transform .15s; }
     .pimo-opt-tile:hover { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(0,0,0,0.08); }
@@ -19943,17 +19943,16 @@
     window.__waName='';
     function waGo(ev){
       try{ if(ev){ ev.preventDefault(); ev.stopPropagation(); } }catch(e){}
-      var msg, sel=[];
-      document.querySelectorAll('.pimocard-selection-item[data-dose], .pimocard-mobile-selection-item[data-dose]').forEach(function(it){
-        var d=it.getAttribute('data-dose'); var qv=it.querySelector('.pimocard-selection-qty-value, .pimocard-mobile-selection-qty-value');
+      var msg, sel=[], prod=(window.__waName||'').trim();
+      document.querySelectorAll('[class*="-selection-item"][data-dose]').forEach(function(it){
+        var d=it.getAttribute('data-dose'); var qv=it.querySelector('[class*="selection-qty-value"]');
         var q=qv?qv.textContent.trim():'1';
         if(d && !sel.some(function(s){return s.d===d;})) sel.push({d:d,q:q});
       });
       if(sel.length){
-        msg='Hola! Quiero realizar un pedido de Pimocard:\n'+sel.map(function(s){return '- '+s.d+' x'+s.q;}).join('\n');
+        msg='Hola! Quiero realizar un pedido de '+(prod||'producto')+':\n'+sel.map(function(s){return '- '+s.d+' x'+s.q;}).join('\n');
       } else {
-        var n=(window.__waName||'').trim();
-        msg = n ? ('Hola! Me interesa el producto: '+n+'. ¿Está disponible?') : 'Hola! Quiero hacer un pedido.';
+        msg = prod ? ('Hola! Me interesa el producto: '+prod+'. ¿Está disponible?') : 'Hola! Quiero hacer un pedido.';
       }
       window.open(WA+'?text='+encodeURIComponent(msg),'_blank');
       return false;
@@ -19991,12 +19990,13 @@
       try{ if(typeof window[fn]==='function') window[fn]=function(){ return waGo(); }; }catch(e){}
     });
     function expandPimocard(){
-      document.querySelectorAll('#standardOptions, #hospitalarioOptions').forEach(function(opts){
-        var block=opts.closest('.pimocard-presentations-block'); if(!block) return;
-        var bullets=[].slice.call(opts.querySelectorAll('.pimocard-option-bullet'));
+      document.querySelectorAll('#standardOptions, #hospitalarioOptions, #cardialOptions, #cardialbOptions').forEach(function(opts){
+        var block=opts.closest('[class*="presentations-block"]'); if(!block) return;
+        var bullets=[].slice.call(opts.querySelectorAll('[class*="option-bullet"]'));
         if(!bullets.length) return;
         var old=block.querySelector('.pimocard-all-options'); if(old) old.remove();
         var grid=document.createElement('div'); grid.className='pimocard-all-options';
+        if(bullets.length<=1){ grid.style.gridTemplateColumns='1fr'; grid.style.maxWidth='360px'; grid.style.margin='0.4rem auto 1rem'; }
         function syncSel(){ bullets.forEach(function(bb,idx){ var tile=grid.children[idx]; if(!tile) return; if(bb.classList.contains('selected')) tile.classList.add('selected'); else tile.classList.remove('selected'); }); }
         bullets.forEach(function(b){
           var img=b.getAttribute('data-image')||'';
@@ -20008,16 +20008,16 @@
           t.addEventListener('click', function(){ b.click(); syncSel(); });
           grid.appendChild(t);
         });
-        var ic=block.querySelector('.pimocard-block-image-container');
+        var ic=block.querySelector('[class*="block-image-container"]');
         if(ic){ ic.style.display='none'; ic.parentNode.insertBefore(grid, ic.nextSibling); }
         else { opts.parentNode.insertBefore(grid, opts); }
         opts.style.display='none';
-        var q=block.querySelector('.pimocard-block-quantity'); if(q) q.style.display='none';
-        var hdr=block.querySelector('.pimocard-block-header'); if(hdr) hdr.style.display='none';
+        var q=block.querySelector('[class*="block-quantity"]'); if(q) q.style.display='none';
+        var hdr=block.querySelector('[class*="block-header"]'); if(hdr) hdr.style.display='none';
       });
     }
     function apply(){ wireCards(); wireButtons(); expandPimocard(); var ci=document.getElementById('cartIcon'); if(ci) ci.style.display='none'; }
-    document.addEventListener('click', function(e){ if(e.target.closest && e.target.closest('.pimocard-card')) setTimeout(expandPimocard,250); }, true);
+    document.addEventListener('click', function(e){ if(e.target.closest && e.target.closest('.pimocard-card, .cardial-card, .cardialb-card')) setTimeout(expandPimocard,250); }, true);
     if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',apply); else apply();
     setTimeout(apply,800);
   })();
