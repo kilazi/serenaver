@@ -12443,6 +12443,9 @@
     .pimo-opt-img { height:120px; width:100%; display:flex; align-items:center; justify-content:center; }
     .pimo-opt-img img { max-width:100%; max-height:120px; object-fit:contain; }
     .pimo-opt-label { font-family: var(--font-display); font-weight:700; color: var(--color-charcoal); font-size:0.95rem; }
+    .pimo-opt-tile { cursor: pointer; transition: border-color .15s, box-shadow .15s, transform .15s; }
+    .pimo-opt-tile:hover { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(0,0,0,0.08); }
+    .pimo-opt-tile.selected { border-color: var(--color-primary) !important; box-shadow: 0 0 0 2px var(--color-primary) inset, 0 8px 22px rgba(104,187,89,0.18); }
 </style>
 </head>
 
@@ -19940,9 +19943,18 @@
     window.__waName='';
     function waGo(ev){
       try{ if(ev){ ev.preventDefault(); ev.stopPropagation(); } }catch(e){}
-      var n=(window.__waName||'').trim();
-      var msg = n ? ('Hola! Me interesa el producto: '+n+'. ¿Está disponible?')
-                  : 'Hola! Quiero hacer un pedido.';
+      var msg, sel=[];
+      document.querySelectorAll('.pimocard-selection-item[data-dose], .pimocard-mobile-selection-item[data-dose]').forEach(function(it){
+        var d=it.getAttribute('data-dose'); var qv=it.querySelector('.pimocard-selection-qty-value, .pimocard-mobile-selection-qty-value');
+        var q=qv?qv.textContent.trim():'1';
+        if(d && !sel.some(function(s){return s.d===d;})) sel.push({d:d,q:q});
+      });
+      if(sel.length){
+        msg='Hola! Quiero realizar un pedido de Pimocard:\n'+sel.map(function(s){return '- '+s.d+' x'+s.q;}).join('\n');
+      } else {
+        var n=(window.__waName||'').trim();
+        msg = n ? ('Hola! Me interesa el producto: '+n+'. ¿Está disponible?') : 'Hola! Quiero hacer un pedido.';
+      }
       window.open(WA+'?text='+encodeURIComponent(msg),'_blank');
       return false;
     }
@@ -19985,21 +19997,23 @@
         if(!bullets.length) return;
         var old=block.querySelector('.pimocard-all-options'); if(old) old.remove();
         var grid=document.createElement('div'); grid.className='pimocard-all-options';
+        function syncSel(){ bullets.forEach(function(bb,idx){ var tile=grid.children[idx]; if(!tile) return; if(bb.classList.contains('selected')) tile.classList.add('selected'); else tile.classList.remove('selected'); }); }
         bullets.forEach(function(b){
           var img=b.getAttribute('data-image')||'';
-          var lblEl=b.querySelector('span:last-child');
-          var label=(lblEl?lblEl.textContent:b.getAttribute('data-dose'))||'';
+          var label=b.getAttribute('data-dose')||'';
           var t=document.createElement('div'); t.className='pimo-opt-tile';
           var im=document.createElement('div'); im.className='pimo-opt-img';
           var image=document.createElement('img'); image.src=img; image.alt=label; im.appendChild(image);
-          var lab=document.createElement('div'); lab.className='pimo-opt-label'; lab.textContent=label;
-          t.appendChild(im); t.appendChild(lab); grid.appendChild(t);
+          t.appendChild(im);
+          t.addEventListener('click', function(){ b.click(); syncSel(); });
+          grid.appendChild(t);
         });
         var ic=block.querySelector('.pimocard-block-image-container');
         if(ic){ ic.style.display='none'; ic.parentNode.insertBefore(grid, ic.nextSibling); }
         else { opts.parentNode.insertBefore(grid, opts); }
         opts.style.display='none';
         var q=block.querySelector('.pimocard-block-quantity'); if(q) q.style.display='none';
+        var hdr=block.querySelector('.pimocard-block-header'); if(hdr) hdr.style.display='none';
       });
     }
     function apply(){ wireCards(); wireButtons(); expandPimocard(); var ci=document.getElementById('cartIcon'); if(ci) ci.style.display='none'; }
