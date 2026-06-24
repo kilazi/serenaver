@@ -12437,6 +12437,12 @@
     #cartModal, #cartModalOverlay, .cart-modal, .cart-modal-overlay,
     #deliveryModalOverlay, .delivery-modal-overlay,
     #repeatModalOverlay, .repeat-modal-overlay { display: none !important; }
+    /* Auri r4: Pimocard - show every presentation at once */
+    .pimocard-all-options { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.9rem; margin: 0.4rem 0 1rem; }
+    .pimo-opt-tile { background:#fff; border:1px solid #ececec; border-radius:16px; padding:0.7rem 0.5rem; display:flex; flex-direction:column; align-items:center; gap:0.5rem; box-shadow:0 4px 14px rgba(0,0,0,0.04); }
+    .pimo-opt-img { height:120px; width:100%; display:flex; align-items:center; justify-content:center; }
+    .pimo-opt-img img { max-width:100%; max-height:120px; object-fit:contain; }
+    .pimo-opt-label { font-family: var(--font-display); font-weight:700; color: var(--color-charcoal); font-size:0.95rem; }
 </style>
 </head>
 
@@ -13474,7 +13480,7 @@
             </div>
             <div class="product-info">
               <span class="product-category">Cardiología • Inotrópico Positivo</span>
-              <h3>Pimocard</h3>
+              <h3>Pimocard 1.25, 2.5, 5 y 10 mg</h3>
               <p>Pimobendan para insuficiencia cardíaca congestiva B2 y cardiomiopatías dilatadas.</p>
               <div class="product-footer">
                 <span class="product-price">Consultar</span>
@@ -19972,7 +19978,32 @@
     ['openCart','toggleCart','showCart','goToCheckout','checkout'].forEach(function(fn){
       try{ if(typeof window[fn]==='function') window[fn]=function(){ return waGo(); }; }catch(e){}
     });
-    function apply(){ wireCards(); wireButtons(); var ci=document.getElementById('cartIcon'); if(ci) ci.style.display='none'; }
+    function expandPimocard(){
+      document.querySelectorAll('#standardOptions, #hospitalarioOptions').forEach(function(opts){
+        var block=opts.closest('.pimocard-presentations-block'); if(!block) return;
+        var bullets=[].slice.call(opts.querySelectorAll('.pimocard-option-bullet'));
+        if(!bullets.length) return;
+        var old=block.querySelector('.pimocard-all-options'); if(old) old.remove();
+        var grid=document.createElement('div'); grid.className='pimocard-all-options';
+        bullets.forEach(function(b){
+          var img=b.getAttribute('data-image')||'';
+          var lblEl=b.querySelector('span:last-child');
+          var label=(lblEl?lblEl.textContent:b.getAttribute('data-dose'))||'';
+          var t=document.createElement('div'); t.className='pimo-opt-tile';
+          var im=document.createElement('div'); im.className='pimo-opt-img';
+          var image=document.createElement('img'); image.src=img; image.alt=label; im.appendChild(image);
+          var lab=document.createElement('div'); lab.className='pimo-opt-label'; lab.textContent=label;
+          t.appendChild(im); t.appendChild(lab); grid.appendChild(t);
+        });
+        var ic=block.querySelector('.pimocard-block-image-container');
+        if(ic){ ic.style.display='none'; ic.parentNode.insertBefore(grid, ic.nextSibling); }
+        else { opts.parentNode.insertBefore(grid, opts); }
+        opts.style.display='none';
+        var q=block.querySelector('.pimocard-block-quantity'); if(q) q.style.display='none';
+      });
+    }
+    function apply(){ wireCards(); wireButtons(); expandPimocard(); var ci=document.getElementById('cartIcon'); if(ci) ci.style.display='none'; }
+    document.addEventListener('click', function(e){ if(e.target.closest && e.target.closest('.pimocard-card')) setTimeout(expandPimocard,250); }, true);
     if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',apply); else apply();
     setTimeout(apply,800);
   })();
