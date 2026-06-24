@@ -12440,8 +12440,8 @@
     /* Auri r4: Pimocard - show every presentation at once */
     .pimocard-all-options { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.9rem; margin: 0.4rem 0 1rem; }
     .pimo-opt-tile { background:#fff; border:1px solid #ececec; border-radius:16px; padding:0.7rem 0.5rem; display:flex; flex-direction:column; align-items:center; gap:0.5rem; box-shadow:0 4px 14px rgba(0,0,0,0.04); }
-    .pimo-opt-img { height:180px; width:100%; display:flex; align-items:center; justify-content:center; }
-    .pimo-opt-img img { max-width:100%; max-height:180px; object-fit:contain; }
+    .pimo-opt-img { height:240px; width:100%; display:flex; align-items:center; justify-content:center; }
+    .pimo-opt-img img { max-width:100%; max-height:240px; object-fit:contain; }
     .pimo-opt-label { font-family: var(--font-display); font-weight:700; color: var(--color-charcoal); font-size:0.95rem; }
     .pimo-opt-tile { cursor: pointer; transition: border-color .15s, box-shadow .15s, transform .15s; }
     .pimo-opt-tile:hover { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(0,0,0,0.08); }
@@ -20020,6 +20020,18 @@
     document.addEventListener('click', function(e){ if(e.target.closest && e.target.closest('.pimocard-card, .cardial-card, .cardialb-card')) setTimeout(expandPimocard,250); }, true);
     if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',apply); else apply();
     setTimeout(apply,800);
+    // Browser back closes the open product modal and returns to the grid (instead of leaving the site)
+    var __modalPushed=false;
+    function __closeProductModals(){
+      ['closePimocardModal','closeCardialModal','closeCardialbModal','closeProductModal','closeAllModals'].forEach(function(fn){ try{ if(typeof window[fn]==='function') window[fn](); }catch(_){} });
+      var b=document.getElementById('universalModalClose'); if(b && b.classList.contains('active')) b.click();
+    }
+    document.addEventListener('click', function(e){
+      if(e.target.closest && e.target.closest('.product-card') && !__modalPushed){
+        try{ history.pushState({pm:1}, ''); __modalPushed=true; }catch(_){}
+      }
+    }, true);
+    window.addEventListener('popstate', function(){ if(__modalPushed){ __modalPushed=false; __closeProductModals(); } });
   })();
   </script>
 
