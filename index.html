@@ -20016,7 +20016,7 @@
         var hdr=block.querySelector('[class*="block-header"]'); if(hdr) hdr.style.display='none';
       });
     }
-    function apply(){ wireCards(); wireButtons(); expandPimocard(); var ci=document.getElementById('cartIcon'); if(ci) ci.style.display='none'; }
+    function apply(){ wireCards(); wireButtons(); expandPimocard(); var ci=document.getElementById('cartIcon'); if(ci) ci.style.display='none'; var bl=document.querySelector('.sales-banner a'); if(bl && !bl.__wa){ bl.__wa=1; bl.setAttribute('href', WA); bl.addEventListener('click', function(e){ e.preventDefault(); window.open(WA,'_blank'); }); } }
     document.addEventListener('click', function(e){ if(e.target.closest && e.target.closest('.pimocard-card, .cardial-card, .cardialb-card')) setTimeout(expandPimocard,250); }, true);
     if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',apply); else apply();
     setTimeout(apply,800);
